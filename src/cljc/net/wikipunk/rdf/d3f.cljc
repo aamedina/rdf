@@ -1,7 +1,7 @@
 (ns net.wikipunk.rdf.d3f
-  {:d3f/release-date #inst "2025-08-01T00:12:00.000-00:00",
+  {:d3f/release-date #inst "2025-12-16T00:12:00.000-00:00",
    :dcat/downloadURL
-   "https://d3fend.mitre.org/ontologies/d3fend/1.2.0/d3fend.owl",
+   "https://d3fend.mitre.org/ontologies/d3fend/1.3.0/d3fend.owl",
    :dcterms/description
    "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature.",
    :dcterms/license "MIT",
@@ -15,8 +15,8 @@
                 "skos"    "http://www.w3.org/2004/02/skos/core#",
                 "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :owl/versionIRI
-   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/1.2.0/d3fend.owl"},
-   :owl/versionInfo "1.2.0",
+   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/1.3.0/d3fend.owl"},
+   :owl/versionInfo "1.3.0",
    :rdf/type :owl/Ontology,
    :rdfa/prefix "d3f",
    :rdfa/uri "http://d3fend.mitre.org/ontologies/d3fend.owl#",
@@ -31,6 +31,1785 @@
    :rdf/type   #{:d3f/ImageCodeSegment :d3f/ProcessCodeSegment
                  :owl/NamedIndividual},
    :rdfs/label "AMD64 Code Segment"})
+
+(def AML_T0000
+  {:d3f/attack-id "AML.T0000",
+   :d3f/definition
+   "Adversaries may search for publicly available research and technical documentation to learn how and where AI is used within a victim organization.\nThe adversary can use this information to identify targets for attack, or to tailor an existing attack to make it more effective.\nOrganizations often use open source model architectures trained on additional proprietary data in production.\nKnowledge of this underlying architecture allows the adversary to craft more realistic proxy models ([Create Proxy AI Model](/techniques/AML.T0005)).\nAn adversary can search these resources for publications for authors employed at the victim organization.\n\nResearch and technical materials may exist as academic papers published in [Journals and Conference Proceedings](/techniques/AML.T0000.000), or stored in [Pre-Print Repositories](/techniques/AML.T0000.001), as well as [Technical Blogs](/techniques/AML.T0000.002).",
+   :db/ident :d3f/AML.T0000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Search Open Technical Databases - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0000"},
+   :rdfs/subClassOf :d3f/ATLASReconnaissanceTechnique,
+   :skos/prefLabel "Search Open Technical Databases"})
+
+(def AML_T0000_000
+  {:d3f/attack-id "AML.T0000.000",
+   :d3f/definition
+   "Many of the publications accepted at premier artificial intelligence conferences and journals come from commercial labs.\nSome journals and conferences are open access, others may require paying for access or a membership.\nThese publications will often describe in detail all aspects of a particular approach for reproducibility.\nThis information can be used by adversaries to implement the paper.",
+   :db/ident :d3f/AML.T0000.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Journals and Conference Proceedings - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0000.000"},
+   :rdfs/subClassOf :d3f/AML.T0000,
+   :skos/prefLabel "Journals and Conference Proceedings"})
+
+(def AML_T0000_001
+  {:d3f/attack-id "AML.T0000.001",
+   :d3f/definition
+   "Pre-Print repositories, such as arXiv, contain the latest academic research papers that haven't been peer reviewed.\nThey may contain research notes, or technical reports that aren't typically published in journals or conference proceedings.\nPre-print repositories also serve as a central location to share papers that have been accepted to journals.\nSearching pre-print repositories  provide adversaries with a relatively up-to-date view of what researchers in the victim organization are working on.",
+   :db/ident :d3f/AML.T0000.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Pre-Print Repositories - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0000.001"},
+   :rdfs/subClassOf :d3f/AML.T0000,
+   :skos/prefLabel "Pre-Print Repositories"})
+
+(def AML_T0000_002
+  {:d3f/attack-id "AML.T0000.002",
+   :d3f/definition
+   "Research labs at academic institutions and company R&D divisions often have blogs that highlight their use of artificial intelligence and its application to the organization's unique problems.\nIndividual researchers also frequently document their work in blogposts.\nAn adversary may search for posts made by the target victim organization or its employees.\nIn comparison to [Journals and Conference Proceedings](/techniques/AML.T0000.000) and [Pre-Print Repositories](/techniques/AML.T0000.001) this material will often contain more practical aspects of the AI system.\nThis could include underlying technologies and frameworks used, and possibly some information about the API access and use case.\nThis will help the adversary better understand how that organization is using AI internally and the details of their approach that could aid in tailoring an attack.",
+   :db/ident :d3f/AML.T0000.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Technical Blogs - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0000.002"},
+   :rdfs/subClassOf :d3f/AML.T0000,
+   :skos/prefLabel "Technical Blogs"})
+
+(def AML_T0001
+  {:d3f/attack-id "AML.T0001",
+   :d3f/definition
+   "Much like the [Search Open Technical Databases](/techniques/AML.T0000), there is often ample research available on the vulnerabilities of common AI models. Once a target has been identified, an adversary will likely try to identify any pre-existing work that has been done for this class of models.\nThis will include not only reading academic papers that may identify the particulars of a successful attack, but also identifying pre-existing implementations of those attacks. The adversary may obtain [Adversarial AI Attack Implementations](/techniques/AML.T0016.000) or develop their own [Adversarial AI Attacks](/techniques/AML.T0017.000) if necessary.",
+   :db/ident :d3f/AML.T0001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Search Open AI Vulnerability Analysis - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0001"},
+   :rdfs/subClassOf :d3f/ATLASReconnaissanceTechnique,
+   :skos/prefLabel "Search Open AI Vulnerability Analysis"})
+
+(def AML_T0002
+  {:d3f/attack-id "AML.T0002",
+   :d3f/definition
+   "Adversaries may search public sources, including cloud storage, public-facing services, and software or data repositories, to identify AI artifacts.\nThese AI artifacts may include the software stack used to train and deploy models, training and testing data, model configurations and parameters.\nAn adversary will be particularly interested in artifacts hosted by or associated with the victim organization as they may represent what that organization uses in a production environment.\nAdversaries may identify artifact repositories via other resources associated with the victim organization (e.g. [Search Victim-Owned Websites](/techniques/AML.T0003) or [Search Open Technical Databases](/techniques/AML.T0000)).\nThese AI artifacts often provide adversaries with details of the AI task and approach.\n\nAI artifacts can aid in an adversary's ability to [Create Proxy AI Model](/techniques/AML.T0005).\nIf these artifacts include pieces of the actual model in production, they can be used to directly [Craft Adversarial Data](/techniques/AML.T0043).\nAcquiring some artifacts requires registration (providing user details such email/name), AWS keys, or written requests, and may require the adversary to [Establish Accounts](/techniques/AML.T0021).\n\nArtifacts might be hosted on victim-controlled infrastructure, providing the victim with some information on who has accessed that data.",
+   :db/ident :d3f/AML.T0002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Acquire Public AI Artifacts - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0002"},
+   :rdfs/subClassOf :d3f/ATLASResourceDevelopmentTechnique,
+   :skos/prefLabel "Acquire Public AI Artifacts"})
+
+(def AML_T0002_000
+  {:d3f/attack-id "AML.T0002.000",
+   :d3f/definition
+   "Adversaries may collect public datasets to use in their operations.\nDatasets used by the victim organization or datasets that are representative of the data used by the victim organization may be valuable to adversaries.\nDatasets can be stored in cloud storage, or on victim-owned websites.\nSome datasets require the adversary to [Establish Accounts](/techniques/AML.T0021) for access.\n\nAcquired datasets help the adversary advance their operations, stage attacks,  and tailor attacks to the victim organization.",
+   :db/ident :d3f/AML.T0002.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Datasets - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0002.000"},
+   :rdfs/subClassOf :d3f/AML.T0002,
+   :skos/prefLabel "Datasets"})
+
+(def AML_T0002_001
+  {:d3f/attack-id "AML.T0002.001",
+   :d3f/definition
+   "Adversaries may acquire public models to use in their operations.\nAdversaries may seek models used by the victim organization or models that are representative of those used by the victim organization.\nRepresentative models may include model architectures, or pre-trained models which define the architecture as well as model parameters from training on a dataset.\nThe adversary may search public sources for common model architecture configuration file formats such as YAML or Python configuration files, and common model storage file formats such as ONNX (.onnx), HDF5 (.h5), Pickle (.pkl), PyTorch (.pth), or TensorFlow (.pb, .tflite).\n\nAcquired models are useful in advancing the adversary's operations and are frequently used to tailor attacks to the victim model.",
+   :db/ident :d3f/AML.T0002.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Models - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0002.001"},
+   :rdfs/subClassOf :d3f/AML.T0002,
+   :skos/prefLabel "Models"})
+
+(def AML_T0003
+  {:d3f/attack-id "AML.T0003",
+   :d3f/definition
+   "Adversaries may search websites owned by the victim for information that can be used during targeting.\nVictim-owned websites may contain technical details about their AI-enabled products or services.\nVictim-owned websites may contain a variety of details, including names of departments/divisions, physical locations, and data about key employees such as names, roles, and contact info.\nThese sites may also have details highlighting business operations and relationships.\n\nAdversaries may search victim-owned websites to gather actionable information.\nThis information may help adversaries tailor their attacks (e.g. [Adversarial AI Attacks](/techniques/AML.T0017.000) or [Manual Modification](/techniques/AML.T0043.003)).\nInformation from these sources may reveal opportunities for other forms of reconnaissance (e.g. [Search Open Technical Databases](/techniques/AML.T0000) or [Search Open AI Vulnerability Analysis](/techniques/AML.T0001))",
+   :db/ident :d3f/AML.T0003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Search Victim-Owned Websites - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0003"},
+   :rdfs/subClassOf :d3f/ATLASReconnaissanceTechnique,
+   :skos/prefLabel "Search Victim-Owned Websites"})
+
+(def AML_T0004
+  {:d3f/attack-id "AML.T0004",
+   :d3f/definition
+   "Adversaries may search open application repositories during targeting.\nExamples of these include Google Play, the iOS App store, the macOS App Store, and the Microsoft Store.\n\nAdversaries may craft search queries seeking applications that contain AI-enabled components.\nFrequently, the next step is to [Acquire Public AI Artifacts](/techniques/AML.T0002).",
+   :db/ident :d3f/AML.T0004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Search Application Repositories - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0004"},
+   :rdfs/subClassOf :d3f/ATLASReconnaissanceTechnique,
+   :skos/prefLabel "Search Application Repositories"})
+
+(def AML_T0005
+  {:d3f/attack-id "AML.T0005",
+   :d3f/definition
+   "Adversaries may obtain models to serve as proxies for the target model in use at the victim organization.\nProxy models are used to simulate complete access to the target model in a fully offline manner.\n\nAdversaries may train models from representative datasets, attempt to replicate models from victim inference APIs, or use available pre-trained models.",
+   :db/ident :d3f/AML.T0005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Create Proxy AI Model - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0005"},
+   :rdfs/subClassOf :d3f/ATLASAIAttackStagingTechnique,
+   :skos/prefLabel "Create Proxy AI Model"})
+
+(def AML_T0005_000
+  {:d3f/attack-id "AML.T0005.000",
+   :d3f/definition
+   "Proxy models may be trained from AI artifacts (such as data, model architectures, and pre-trained models) that are representative of the target model gathered by the adversary.\nThis can be used to develop attacks that require higher levels of access than the adversary has available or as a means to validate pre-existing attacks without interacting with the target model.",
+   :db/ident :d3f/AML.T0005.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Train Proxy via Gathered AI Artifacts - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0005.000"},
+   :rdfs/subClassOf :d3f/AML.T0005,
+   :skos/prefLabel "Train Proxy via Gathered AI Artifacts"})
+
+(def AML_T0005_001
+  {:d3f/attack-id "AML.T0005.001",
+   :d3f/definition
+   "Adversaries may replicate a private model.\nBy repeatedly querying the victim's [AI Model Inference API Access](/techniques/AML.T0040), the adversary can collect the target model's inferences into a dataset.\nThe inferences are used as labels for training a separate model offline that will mimic the behavior and performance of the target model.\n\nA replicated model that closely mimic's the target model is a valuable resource in staging the attack.\nThe adversary can use the replicated model to [Craft Adversarial Data](/techniques/AML.T0043) for various purposes (e.g. [Evade AI Model](/techniques/AML.T0015), [Spamming AI System with Chaff Data](/techniques/AML.T0046)).",
+   :db/ident :d3f/AML.T0005.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Train Proxy via Replication - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0005.001"},
+   :rdfs/subClassOf :d3f/AML.T0005,
+   :skos/prefLabel "Train Proxy via Replication"})
+
+(def AML_T0005_002
+  {:d3f/attack-id "AML.T0005.002",
+   :d3f/definition
+   "Adversaries may use an off-the-shelf pre-trained model as a proxy for the victim model to aid in staging the attack.",
+   :db/ident :d3f/AML.T0005.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use Pre-Trained Model - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0005.002"},
+   :rdfs/subClassOf :d3f/AML.T0005,
+   :skos/prefLabel "Use Pre-Trained Model"})
+
+(def AML_T0006
+  {:d3f/attack-id "AML.T0006",
+   :d3f/definition
+   "An adversary may probe or scan the victim system to gather information for targeting. This is distinct from other reconnaissance techniques that do not involve direct interaction with the victim system.\n\nAdversaries may scan for open ports on a potential victim's network, which can indicate specific services or tools the victim is utilizing. This could include a scan for tools related to AI DevOps or AI services themselves such as public AI chat agents (ex: [Copilot Studio Hunter](https://github.com/mbrg/power-pwn/wiki/Modules:-Copilot-Studio-Hunter-%E2%80%90-Enum)). They can also send emails to organization service addresses and inspect the replies for indicators that an AI agent is managing the inbox.\n\nInformation gained from Active Scanning may yield targets that provide opportunities for other forms of reconnaissance such as [Search Open Technical Databases](/techniques/AML.T0000), [Search Open AI Vulnerability Analysis](/techniques/AML.T0001), or [Gather RAG-Indexed Targets](/techniques/AML.T0064).",
+   :db/ident :d3f/AML.T0006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Active Scanning - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0006"},
+   :rdfs/subClassOf :d3f/ATLASReconnaissanceTechnique,
+   :skos/prefLabel "Active Scanning"})
+
+(def AML_T0007
+  {:d3f/attack-id "AML.T0007",
+   :d3f/definition
+   "Adversaries may search private sources to identify AI learning artifacts that exist on the system and gather information about them.\nThese artifacts can include the software stack used to train and deploy models, training and testing data management systems, container registries, software repositories, and model zoos.\n\nThis information can be used to identify targets for further collection, exfiltration, or disruption, and to tailor and improve attacks.",
+   :db/ident :d3f/AML.T0007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Discover AI Artifacts - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0007"},
+   :rdfs/subClassOf :d3f/ATLASDiscoveryTechnique,
+   :skos/prefLabel "Discover AI Artifacts"})
+
+(def AML_T0008
+  {:d3f/attack-id "AML.T0008",
+   :d3f/definition
+   "Adversaries may buy, lease, or rent infrastructure for use throughout their operation.\nA wide variety of infrastructure exists for hosting and orchestrating adversary operations.\nInfrastructure solutions include physical or cloud servers, domains, mobile devices, and third-party web services.\nFree resources may also be used, but they are typically limited.\nInfrastructure can also include physical components such as countermeasures that degrade or disrupt AI components or sensors, including printed materials, wearables, or disguises.\n\nUse of these infrastructure solutions allows an adversary to stage, launch, and execute an operation.\nSolutions may help adversary operations blend in with traffic that is seen as normal, such as contact to third-party web services.\nDepending on the implementation, adversaries may use infrastructure that makes it difficult to physically tie back to them as well as utilize infrastructure that can be rapidly provisioned, modified, and shut down.",
+   :db/ident :d3f/AML.T0008,
+   :rdf/type :owl/Class,
+   :rdfs/label "Acquire Infrastructure - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0008"},
+   :rdfs/subClassOf :d3f/ATLASResourceDevelopmentTechnique,
+   :skos/prefLabel "Acquire Infrastructure"})
+
+(def AML_T0008_000
+  {:d3f/attack-id "AML.T0008.000",
+   :d3f/definition
+   "Developing and staging AI attacks often requires expensive compute resources.\nAdversaries may need access to one or many GPUs in order to develop an attack.\nThey may try to anonymously use free resources such as Google Colaboratory, or cloud resources such as AWS, Azure, or Google Cloud as an efficient way to stand up temporary resources to conduct operations.\nMultiple workspaces may be used to avoid detection.",
+   :db/ident :d3f/AML.T0008.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "AI Development Workspaces - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0008.000"},
+   :rdfs/subClassOf :d3f/AML.T0008,
+   :skos/prefLabel "AI Development Workspaces"})
+
+(def AML_T0008_001
+  {:d3f/attack-id "AML.T0008.001",
+   :d3f/definition
+   "Adversaries may acquire consumer hardware to conduct their attacks.\nOwning the hardware provides the adversary with complete control of the environment. These devices can be hard to trace.",
+   :db/ident :d3f/AML.T0008.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Consumer Hardware - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0008.001"},
+   :rdfs/subClassOf :d3f/AML.T0008,
+   :skos/prefLabel "Consumer Hardware"})
+
+(def AML_T0008_002
+  {:d3f/attack-id "AML.T0008.002",
+   :d3f/definition
+   "Adversaries may acquire domains that can be used during targeting. Domain names are the human readable names used to represent one or more IP addresses. They can be purchased or, in some cases, acquired for free.\n\nAdversaries may use acquired domains for a variety of purposes (see [ATT&CK](https://attack.mitre.org/techniques/T1583/001/)). Large AI datasets are often distributed as a list of URLs to individual datapoints. Adversaries may acquire expired domains that are included in these datasets and replace individual datapoints with poisoned examples ([Publish Poisoned Datasets](/techniques/AML.T0019)).",
+   :db/ident :d3f/AML.T0008.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Domains - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0008.002"},
+   :rdfs/subClassOf :d3f/AML.T0008,
+   :skos/prefLabel "Domains"})
+
+(def AML_T0008_003
+  {:d3f/attack-id "AML.T0008.003",
+   :d3f/definition
+   "Adversaries may acquire or manufacture physical countermeasures to aid or support their attack.\n\nThese components may be used to disrupt or degrade the model, such as adversarial patterns printed on stickers or T-shirts, disguises, or decoys. They may also be used to disrupt or degrade the sensors used in capturing data, such as laser pointers, light bulbs, or other tools.",
+   :db/ident :d3f/AML.T0008.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Physical Countermeasures - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0008.003"},
+   :rdfs/subClassOf :d3f/AML.T0008,
+   :skos/prefLabel "Physical Countermeasures"})
+
+(def AML_T0008_004
+  {:d3f/attack-id "AML.T0008.004",
+   :d3f/definition
+   "Adversaries may purchase and configure serverless cloud infrastructure, such as Cloudflare Workers, AWS Lambda functions, or Google Apps Scripts, that can be used during targeting. By utilizing serverless infrastructure, adversaries can make it more difficult to attribute infrastructure used during operations back to them.\n\nOnce acquired, the serverless runtime environment can be leveraged to either respond directly to infected machines or to Proxy traffic to an adversary-owned command and control server. As traffic generated by these functions will appear to come from subdomains of common cloud providers, it may be difficult to distinguish from ordinary traffic to these providers. This can be used to bypass a Content Security Policy which prevent retrieving content from arbitrary locations.",
+   :db/ident :d3f/AML.T0008.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Serverless - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0008.004"},
+   :rdfs/subClassOf :d3f/AML.T0008,
+   :skos/prefLabel "Serverless"})
+
+(def AML_T0010
+  {:d3f/attack-id "AML.T0010",
+   :d3f/definition
+   "Adversaries may gain initial access to a system by compromising the unique portions of the AI supply chain.\nThis could include [Hardware](/techniques/AML.T0010.000), [Data](/techniques/AML.T0010.002) and its annotations, parts of the AI [AI Software](/techniques/AML.T0010.001) stack, or the [Model](/techniques/AML.T0010.003) itself.\nIn some instances the attacker will need secondary access to fully carry out an attack using compromised components of the supply chain.",
+   :db/ident :d3f/AML.T0010,
+   :rdf/type :owl/Class,
+   :rdfs/label "AI Supply Chain Compromise - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0010"},
+   :rdfs/subClassOf :d3f/ATLASInitialAccessTechnique,
+   :skos/prefLabel "AI Supply Chain Compromise"})
+
+(def AML_T0010_000
+  {:d3f/attack-id "AML.T0010.000",
+   :d3f/definition
+   "Adversaries may target AI systems by disrupting or manipulating the hardware supply chain. AI models often run on specialized hardware such as GPUs, TPUs, or embedded devices, but may also be optimized to operate on CPUs.",
+   :db/ident :d3f/AML.T0010.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hardware - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0010.000"},
+   :rdfs/subClassOf :d3f/AML.T0010,
+   :skos/prefLabel "Hardware"})
+
+(def AML_T0010_001
+  {:d3f/attack-id "AML.T0010.001",
+   :d3f/definition
+   "Most AI systems rely on a limited set of AI frameworks.\nAn adversary could get access to a large number of AI systems through a comprise of one of their supply chains.\nMany AI projects also rely on other open source implementations of various algorithms.\nThese can also be compromised in a targeted way to get access to specific systems.",
+   :db/ident :d3f/AML.T0010.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "AI Software - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0010.001"},
+   :rdfs/subClassOf :d3f/AML.T0010,
+   :skos/prefLabel "AI Software"})
+
+(def AML_T0010_002
+  {:d3f/attack-id "AML.T0010.002",
+   :d3f/definition
+   "Data is a key vector of supply chain compromise for adversaries.\nEvery AI project will require some form of data.\nMany rely on large open source datasets that are publicly available.\nAn adversary could rely on compromising these sources of data.\nThe malicious data could be a result of [Poison Training Data](/techniques/AML.T0020) or include traditional malware.\n\nAn adversary can also target private datasets in the labeling phase.\nThe creation of private datasets will often require the hiring of outside labeling services.\nAn adversary can poison a dataset by modifying the labels being generated by the labeling service.",
+   :db/ident :d3f/AML.T0010.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0010.002"},
+   :rdfs/subClassOf :d3f/AML.T0010,
+   :skos/prefLabel "Data"})
+
+(def AML_T0010_003
+  {:d3f/attack-id "AML.T0010.003",
+   :d3f/definition
+   "AI-enabled systems often rely on open sourced models in various ways.\nMost commonly, the victim organization may be using these models for fine tuning.\nThese models will be downloaded from an external source and then used as the base for the model as it is tuned on a smaller, private dataset.\nLoading models often requires executing some saved code in the form of a saved model file.\nThese can be compromised with traditional malware, or through some adversarial AI techniques.",
+   :db/ident :d3f/AML.T0010.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Model - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0010.003"},
+   :rdfs/subClassOf :d3f/AML.T0010,
+   :skos/prefLabel "Model"})
+
+(def AML_T0010_004
+  {:d3f/attack-id "AML.T0010.004",
+   :d3f/definition
+   "An adversary may compromise a victim's container registry by pushing a manipulated container image and overwriting an existing container name and/or tag. Users of the container registry as well as automated CI/CD pipelines may pull the adversary's container image, compromising their AI Supply Chain. This can affect development and deployment environments.\n\nContainer images may include AI models, so the compromised image could have an AI model which was manipulated by the adversary (See [Manipulate AI Model](/techniques/AML.T0018)).",
+   :db/ident :d3f/AML.T0010.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Container Registry - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0010.004"},
+   :rdfs/subClassOf :d3f/AML.T0010,
+   :skos/prefLabel "Container Registry"})
+
+(def AML_T0011
+  {:d3f/attack-id "AML.T0011",
+   :d3f/definition
+   "An adversary may rely upon specific actions by a user in order to gain execution.\nUsers may inadvertently execute unsafe code introduced via [AI Supply Chain Compromise](/techniques/AML.T0010).\nUsers may be subjected to social engineering to get them to execute malicious code by, for example, opening a malicious document file or link.",
+   :db/ident :d3f/AML.T0011,
+   :rdf/type :owl/Class,
+   :rdfs/label "User Execution - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0011"},
+   :rdfs/subClassOf :d3f/ATLASExecutionTechnique,
+   :skos/prefLabel "User Execution"})
+
+(def AML_T0011_000
+  {:d3f/attack-id "AML.T0011.000",
+   :d3f/definition
+   "Adversaries may develop unsafe AI artifacts that when executed have a deleterious effect.\nThe adversary can use this technique to establish persistent access to systems.\nThese models may be introduced via a [AI Supply Chain Compromise](/techniques/AML.T0010).\n\nSerialization of models is a popular technique for model storage, transfer, and loading.\nHowever, this format without proper checking presents an opportunity for code execution.",
+   :db/ident :d3f/AML.T0011.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unsafe AI Artifacts - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0011.000"},
+   :rdfs/subClassOf :d3f/AML.T0011,
+   :skos/prefLabel "Unsafe AI Artifacts"})
+
+(def AML_T0011_001
+  {:d3f/attack-id "AML.T0011.001",
+   :d3f/definition
+   "Adversaries may develop malicious software packages that when imported by a user have a deleterious effect.\nMalicious packages may behave as expected to the user. They may be introduced via [AI Supply Chain Compromise](/techniques/AML.T0010). They may not present as obviously malicious to the user and may appear to be useful for an AI-related task.",
+   :db/ident :d3f/AML.T0011.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Malicious Package - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0011.001"},
+   :rdfs/subClassOf :d3f/AML.T0011,
+   :skos/prefLabel "Malicious Package"})
+
+(def AML_T0012
+  {:d3f/attack-id "AML.T0012",
+   :d3f/definition
+   "Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access.\nCredentials may take the form of usernames and passwords of individual user accounts or API keys that provide access to various AI resources and services.\n\nCompromised credentials may provide access to additional AI artifacts and allow the adversary to perform [Discover AI Artifacts](/techniques/AML.T0007).\nCompromised credentials may also grant an adversary increased privileges such as write access to AI artifacts used during development or production.",
+   :db/ident :d3f/AML.T0012,
+   :rdf/type :owl/Class,
+   :rdfs/label "Valid Accounts - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0012"},
+   :rdfs/subClassOf :d3f/ATLASInitialAccessTechnique,
+   :skos/prefLabel "Valid Accounts"})
+
+(def AML_T0013
+  {:d3f/attack-id "AML.T0013",
+   :d3f/definition
+   "Adversaries may discover the ontology of an AI model's output space, for example, the types of objects a model can detect.\nThe adversary may discovery the ontology by repeated queries to the model, forcing it to enumerate its output space.\nOr the ontology may be discovered in a configuration file or in documentation about the model.\n\nThe model ontology helps the adversary understand how the model is being used by the victim.\nIt is useful to the adversary in creating targeted attacks.",
+   :db/ident :d3f/AML.T0013,
+   :rdf/type :owl/Class,
+   :rdfs/label "Discover AI Model Ontology - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0013"},
+   :rdfs/subClassOf :d3f/ATLASDiscoveryTechnique,
+   :skos/prefLabel "Discover AI Model Ontology"})
+
+(def AML_T0014
+  {:d3f/attack-id "AML.T0014",
+   :d3f/definition
+   "Adversaries may discover the general family of model.\nGeneral information about the model may be revealed in documentation, or the adversary may use carefully constructed examples and analyze the model's responses to categorize it.\n\nKnowledge of the model family can help the adversary identify means of attacking the model and help tailor the attack.",
+   :db/ident :d3f/AML.T0014,
+   :rdf/type :owl/Class,
+   :rdfs/label "Discover AI Model Family - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0014"},
+   :rdfs/subClassOf :d3f/ATLASDiscoveryTechnique,
+   :skos/prefLabel "Discover AI Model Family"})
+
+(def AML_T0015
+  {:d3f/attack-id "AML.T0015",
+   :d3f/definition
+   "Adversaries can [Craft Adversarial Data](/techniques/AML.T0043) that prevents an AI model from correctly identifying the contents of the data or [Generate Deepfakes](/techniques/AML.T0088) that fools an AI model expecting authentic data.\n\nThis technique can be used to evade a downstream task where AI is utilized. The adversary may evade AI-based virus/malware detection or network scanning towards the goal of a traditional cyber attack. AI model evasion through deepfake generation may also provide initial access to systems that use AI-based biometric authentication.",
+   :db/ident :d3f/AML.T0015,
+   :rdf/type :owl/Class,
+   :rdfs/label "Evade AI Model - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0015"},
+   :rdfs/subClassOf #{:d3f/ATLASImpactTechnique
+                      :d3f/ATLASDefenseEvasionTechnique
+                      :d3f/ATLASInitialAccessTechnique},
+   :skos/prefLabel "Evade AI Model"})
+
+(def AML_T0016
+  {:d3f/attack-id "AML.T0016",
+   :d3f/definition
+   "Adversaries may search for and obtain software capabilities for use in their operations.\nCapabilities may be specific to AI-based attacks [Adversarial AI Attack Implementations](/techniques/AML.T0016.000) or generic software tools repurposed for malicious intent ([Software Tools](/techniques/AML.T0016.001)). In both instances, an adversary may modify or customize the capability to aid in targeting a particular AI-enabled system.",
+   :db/ident :d3f/AML.T0016,
+   :rdf/type :owl/Class,
+   :rdfs/label "Obtain Capabilities - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0016"},
+   :rdfs/subClassOf :d3f/ATLASResourceDevelopmentTechnique,
+   :skos/prefLabel "Obtain Capabilities"})
+
+(def AML_T0016_000
+  {:d3f/attack-id "AML.T0016.000",
+   :d3f/definition
+   "Adversaries may search for existing open source implementations of AI attacks. The research community often publishes their code for reproducibility and to further future research. Libraries intended for research purposes, such as CleverHans, the Adversarial Robustness Toolbox, and FoolBox, can be weaponized by an adversary. Adversaries may also obtain and use tools that were not originally designed for adversarial AI attacks as part of their attack.",
+   :db/ident :d3f/AML.T0016.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Adversarial AI Attack Implementations - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0016.000"},
+   :rdfs/subClassOf :d3f/AML.T0016,
+   :skos/prefLabel "Adversarial AI Attack Implementations"})
+
+(def AML_T0016_001
+  {:d3f/attack-id "AML.T0016.001",
+   :d3f/definition
+   "Adversaries may search for and obtain software tools to support their operations.\nSoftware designed for legitimate use may be repurposed by an adversary for malicious intent.\nAn adversary may modify or customize software tools to achieve their purpose.\nSoftware tools used to support attacks on AI systems are not necessarily AI-based themselves.",
+   :db/ident :d3f/AML.T0016.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Software Tools - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0016.001"},
+   :rdfs/subClassOf :d3f/AML.T0016,
+   :skos/prefLabel "Software Tools"})
+
+(def AML_T0016_002
+  {:d3f/attack-id "AML.T0016.002",
+   :d3f/definition
+   "Adversaries may search for and obtain generative AI models or tools, such as large language models (LLMs), to assist them in various steps of their operation. Generative AI can be used in a variety of malicious ways, including generating malware or offensive cyber scripts, [Retrieval Content Crafting](/techniques/AML.T0066), or generating [Phishing](/techniques/AML.T0052) content.\n\nAdversaries may obtain an open source model or they may leverage a generative AI service. They may need to jailbreak the generative AI model to bypass any restrictions put in place to limit the types of responses it can generate. They may also need to break the terms of service of the generative AI.",
+   :db/ident :d3f/AML.T0016.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Generative AI - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0016.002"},
+   :rdfs/subClassOf :d3f/AML.T0016,
+   :skos/prefLabel "Generative AI"})
+
+(def AML_T0017
+  {:d3f/attack-id "AML.T0017",
+   :d3f/definition
+   "Adversaries may develop their own capabilities to support operations. This process encompasses identifying requirements, building solutions, and deploying capabilities. Capabilities used to support attacks on AI-enabled systems are not necessarily AI-based themselves. Examples include setting up websites with adversarial information or creating Jupyter notebooks with obfuscated exfiltration code.",
+   :db/ident :d3f/AML.T0017,
+   :rdf/type :owl/Class,
+   :rdfs/label "Develop Capabilities - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0017"},
+   :rdfs/subClassOf :d3f/ATLASResourceDevelopmentTechnique,
+   :skos/prefLabel "Develop Capabilities"})
+
+(def AML_T0017_000
+  {:d3f/attack-id "AML.T0017.000",
+   :d3f/definition
+   "Adversaries may develop their own adversarial attacks.\nThey may leverage existing libraries as a starting point ([Adversarial AI Attack Implementations](/techniques/AML.T0016.000)).\nThey may implement ideas described in public research papers or develop custom made attacks for the victim model.",
+   :db/ident :d3f/AML.T0017.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Adversarial AI Attacks - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0017.000"},
+   :rdfs/subClassOf :d3f/AML.T0017,
+   :skos/prefLabel "Adversarial AI Attacks"})
+
+(def AML_T0018
+  {:d3f/attack-id "AML.T0018",
+   :d3f/definition
+   "Adversaries may directly manipulate an AI model to change its behavior or introduce malicious code. Manipulating a model gives the adversary a persistent change in the system. This can include poisoning the model by changing its weights, modifying the model architecture to change its behavior, and embedding malware which may be executed when the model is loaded.",
+   :db/ident :d3f/AML.T0018,
+   :rdf/type :owl/Class,
+   :rdfs/label "Manipulate AI Model - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0018"},
+   :rdfs/subClassOf #{:d3f/ATLASAIAttackStagingTechnique
+                      :d3f/ATLASPersistenceTechnique},
+   :skos/prefLabel "Manipulate AI Model"})
+
+(def AML_T0018_000
+  {:d3f/attack-id "AML.T0018.000",
+   :d3f/definition
+   "Adversaries may manipulate an AI model's weights to change it's behavior or performance, resulting in a poisoned model.\nAdversaries may poison a model by by directly manipulating its weights, training the model on poisoned data, further fine-tuning the model, or otherwise interfering with its training process.\n\nThe change in behavior of poisoned models may be limited to targeted categories in predictive AI models, or targeted topics, concepts, or facts in generative AI models, or aim for a general performance degradation.",
+   :db/ident :d3f/AML.T0018.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Poison AI Model - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0018.000"},
+   :rdfs/subClassOf :d3f/AML.T0018,
+   :skos/prefLabel "Poison AI Model"})
+
+(def AML_T0018_001
+  {:d3f/attack-id "AML.T0018.001",
+   :d3f/definition
+   "Adversaries may directly modify an AI model's architecture to re-define it's behavior. This can include adding or removing layers as well as adding pre or post-processing operations.\n\nThe effects could include removing the ability to predict certain classes, adding erroneous operations to increase computation costs, or degrading performance. Additionally, a separate adversary-defined network could be injected into the computation graph, which can change the behavior based on the inputs, effectively creating a backdoor.",
+   :db/ident :d3f/AML.T0018.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Modify AI Model Architecture - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0018.001"},
+   :rdfs/subClassOf :d3f/AML.T0018,
+   :skos/prefLabel "Modify AI Model Architecture"})
+
+(def AML_T0018_002
+  {:d3f/attack-id "AML.T0018.002",
+   :d3f/definition
+   "Adversaries may embed malicious code into AI Model files.\nAI models may be packaged as a combination of instructions and weights.\nSome formats such as pickle files are unsafe to deserialize because they can contain unsafe calls such as exec.\nModels with embedded malware may still operate as expected.\nIt may allow them to achieve Execution, Command & Control, or Exfiltrate Data.",
+   :db/ident :d3f/AML.T0018.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Embed Malware - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0018.002"},
+   :rdfs/subClassOf :d3f/AML.T0018,
+   :skos/prefLabel "Embed Malware"})
+
+(def AML_T0019
+  {:d3f/attack-id "AML.T0019",
+   :d3f/definition
+   "Adversaries may [Poison Training Data](/techniques/AML.T0020) and publish it to a public location.\nThe poisoned dataset may be a novel dataset or a poisoned variant of an existing open source dataset.\nThis data may be introduced to a victim system via [AI Supply Chain Compromise](/techniques/AML.T0010).",
+   :db/ident :d3f/AML.T0019,
+   :rdf/type :owl/Class,
+   :rdfs/label "Publish Poisoned Datasets - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0019"},
+   :rdfs/subClassOf :d3f/ATLASResourceDevelopmentTechnique,
+   :skos/prefLabel "Publish Poisoned Datasets"})
+
+(def AML_T0020
+  {:d3f/attack-id "AML.T0020",
+   :d3f/definition
+   "Adversaries may attempt to poison datasets used by an AI model by modifying the underlying data or its labels.\nThis allows the adversary to embed vulnerabilities in AI models trained on the data that may not be easily detectable.\nData poisoning attacks may or may not require modifying the labels.\nThe embedded vulnerability is activated at a later time by data samples with an [Insert Backdoor Trigger](/techniques/AML.T0043.004)\n\nPoisoned data can be introduced via [AI Supply Chain Compromise](/techniques/AML.T0010) or the data may be poisoned after the adversary gains [Initial Access](/tactics/AML.TA0004) to the system.",
+   :db/ident :d3f/AML.T0020,
+   :rdf/type :owl/Class,
+   :rdfs/label "Poison Training Data - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0020"},
+   :rdfs/subClassOf #{:d3f/ATLASResourceDevelopmentTechnique
+                      :d3f/ATLASPersistenceTechnique},
+   :skos/prefLabel "Poison Training Data"})
+
+(def AML_T0021
+  {:d3f/attack-id "AML.T0021",
+   :d3f/definition
+   "Adversaries may create accounts with various services for use in targeting, to gain access to resources needed in [AI Attack Staging](/tactics/AML.TA0001), or for victim impersonation.",
+   :db/ident :d3f/AML.T0021,
+   :rdf/type :owl/Class,
+   :rdfs/label "Establish Accounts - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0021"},
+   :rdfs/subClassOf :d3f/ATLASResourceDevelopmentTechnique,
+   :skos/prefLabel "Establish Accounts"})
+
+(def AML_T0024
+  {:d3f/attack-id "AML.T0024",
+   :d3f/definition
+   "Adversaries may exfiltrate private information via [AI Model Inference API Access](/techniques/AML.T0040).\nAI Models have been shown leak private information about their training data (e.g.  [Infer Training Data Membership](/techniques/AML.T0024.000), [Invert AI Model](/techniques/AML.T0024.001)).\nThe model itself may also be extracted ([Extract AI Model](/techniques/AML.T0024.002)) for the purposes of [AI Intellectual Property Theft](/techniques/AML.T0048.004).\n\nExfiltration of information relating to private training data raises privacy concerns.\nPrivate training data may include personally identifiable information, or other protected data.",
+   :db/ident :d3f/AML.T0024,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exfiltration via AI Inference API - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0024"},
+   :rdfs/subClassOf :d3f/ATLASExfiltrationTechnique,
+   :skos/prefLabel "Exfiltration via AI Inference API"})
+
+(def AML_T0024_000
+  {:d3f/attack-id "AML.T0024.000",
+   :d3f/definition
+   "Adversaries may infer the membership of a data sample or global characteristics of the data in its training set, which raises privacy concerns.\nSome strategies make use of a shadow model that could be obtained via [Train Proxy via Replication](/techniques/AML.T0005.001), others use statistics of model prediction scores.\n\nThis can cause the victim model to leak private information, such as PII of those in the training set or other forms of protected IP.",
+   :db/ident :d3f/AML.T0024.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Infer Training Data Membership - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0024.000"},
+   :rdfs/subClassOf :d3f/AML.T0024,
+   :skos/prefLabel "Infer Training Data Membership"})
+
+(def AML_T0024_001
+  {:d3f/attack-id "AML.T0024.001",
+   :d3f/definition
+   "AI models' training data could be reconstructed by exploiting the confidence scores that are available via an inference API.\nBy querying the inference API strategically, adversaries can back out potentially private information embedded within the training data.\nThis could lead to privacy violations if the attacker can reconstruct the data of sensitive features used in the algorithm.",
+   :db/ident :d3f/AML.T0024.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Invert AI Model - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0024.001"},
+   :rdfs/subClassOf :d3f/AML.T0024,
+   :skos/prefLabel "Invert AI Model"})
+
+(def AML_T0024_002
+  {:d3f/attack-id "AML.T0024.002",
+   :d3f/definition
+   "Adversaries may extract a functional copy of a private model.\nBy repeatedly querying the victim's [AI Model Inference API Access](/techniques/AML.T0040), the adversary can collect the target model's inferences into a dataset.\nThe inferences are used as labels for training a separate model offline that will mimic the behavior and performance of the target model.\n\nAdversaries may extract the model to avoid paying per query in an artificial intelligence as a service (AIaaS) setting.\nModel extraction is used for [AI Intellectual Property Theft](/techniques/AML.T0048.004).",
+   :db/ident :d3f/AML.T0024.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Extract AI Model - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0024.002"},
+   :rdfs/subClassOf :d3f/AML.T0024,
+   :skos/prefLabel "Extract AI Model"})
+
+(def AML_T0025
+  {:d3f/attack-id "AML.T0025",
+   :d3f/definition
+   "Adversaries may exfiltrate AI artifacts or other information relevant to their goals via traditional cyber means.\n\nSee the ATT&CK [Exfiltration](https://attack.mitre.org/tactics/TA0010/) tactic for more information.",
+   :db/ident :d3f/AML.T0025,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exfiltration via Cyber Means - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0025"},
+   :rdfs/subClassOf :d3f/ATLASExfiltrationTechnique,
+   :skos/prefLabel "Exfiltration via Cyber Means"})
+
+(def AML_T0029
+  {:d3f/attack-id "AML.T0029",
+   :d3f/definition
+   "Adversaries may target AI-enabled systems with a flood of requests for the purpose of degrading or shutting down the service.\nSince many AI systems require significant amounts of specialized compute, they are often expensive bottlenecks that can become overloaded.\nAdversaries can intentionally craft inputs that require heavy amounts of useless compute from the AI system.",
+   :db/ident :d3f/AML.T0029,
+   :rdf/type :owl/Class,
+   :rdfs/label "Denial of AI Service - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0029"},
+   :rdfs/subClassOf :d3f/ATLASImpactTechnique,
+   :skos/prefLabel "Denial of AI Service"})
+
+(def AML_T0031
+  {:d3f/attack-id "AML.T0031",
+   :d3f/definition
+   "Adversaries may degrade the target model's performance with adversarial data inputs to erode confidence in the system over time.\nThis can lead to the victim organization wasting time and money both attempting to fix the system and performing the tasks it was meant to automate by hand.",
+   :db/ident :d3f/AML.T0031,
+   :rdf/type :owl/Class,
+   :rdfs/label "Erode AI Model Integrity - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0031"},
+   :rdfs/subClassOf :d3f/ATLASImpactTechnique,
+   :skos/prefLabel "Erode AI Model Integrity"})
+
+(def AML_T0034
+  {:d3f/attack-id "AML.T0034",
+   :d3f/definition
+   "Adversaries may target different AI services to send useless queries or computationally expensive inputs to increase the cost of running services at the victim organization.\nSponge examples are a particular type of adversarial data designed to maximize energy consumption and thus operating cost.",
+   :db/ident :d3f/AML.T0034,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cost Harvesting - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0034"},
+   :rdfs/subClassOf :d3f/ATLASImpactTechnique,
+   :skos/prefLabel "Cost Harvesting"})
+
+(def AML_T0035
+  {:d3f/attack-id "AML.T0035",
+   :d3f/definition
+   "Adversaries may collect AI artifacts for [Exfiltration](/tactics/AML.TA0010) or for use in [AI Attack Staging](/tactics/AML.TA0001).\nAI artifacts include models and datasets as well as other telemetry data produced when interacting with a model.",
+   :db/ident :d3f/AML.T0035,
+   :rdf/type :owl/Class,
+   :rdfs/label "AI Artifact Collection - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0035"},
+   :rdfs/subClassOf :d3f/ATLASCollectionTechnique,
+   :skos/prefLabel "AI Artifact Collection"})
+
+(def AML_T0036
+  {:d3f/attack-id "AML.T0036",
+   :d3f/definition
+   "Adversaries may leverage information repositories to mine valuable information.\nInformation repositories are tools that allow for storage of information, typically to facilitate collaboration or information sharing between users, and can store a wide variety of data that may aid adversaries in further objectives, or direct access to the target information.\n\nInformation stored in a repository may vary based on the specific instance or environment.\nSpecific common information repositories include SharePoint, Confluence, and enterprise databases such as SQL Server.",
+   :db/ident :d3f/AML.T0036,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data from Information Repositories - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0036"},
+   :rdfs/subClassOf :d3f/ATLASCollectionTechnique,
+   :skos/prefLabel "Data from Information Repositories"})
+
+(def AML_T0037
+  {:d3f/attack-id "AML.T0037",
+   :d3f/definition
+   "Adversaries may search local system sources, such as file systems and configuration files or local databases, to find files of interest and sensitive data prior to Exfiltration.\n\nThis can include basic fingerprinting information and sensitive data such as ssh keys.",
+   :db/ident :d3f/AML.T0037,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data from Local System - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0037"},
+   :rdfs/subClassOf :d3f/ATLASCollectionTechnique,
+   :skos/prefLabel "Data from Local System"})
+
+(def AML_T0040
+  {:d3f/attack-id "AML.T0040",
+   :d3f/definition
+   "Adversaries may gain access to a model via legitimate access to the inference API.\nInference API access can be a source of information to the adversary ([Discover AI Model Ontology](/techniques/AML.T0013), [Discover AI Model Family](/techniques/AML.T0014)), a means of staging the attack ([Verify Attack](/techniques/AML.T0042), [Craft Adversarial Data](/techniques/AML.T0043)), or for introducing data to the target system for Impact ([Evade AI Model](/techniques/AML.T0015), [Erode AI Model Integrity](/techniques/AML.T0031)).\n\nMany systems rely on the same models provided via an inference API, which means they share the same vulnerabilities. This is especially true of foundation models which are prohibitively resource intensive to train. Adversaries may use their access to model APIs to identify vulnerabilities such as jailbreaks or hallucinations and then target applications that use the same models.",
+   :db/ident :d3f/AML.T0040,
+   :rdf/type :owl/Class,
+   :rdfs/label "AI Model Inference API Access - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0040"},
+   :rdfs/subClassOf :d3f/ATLASAIModelAccessTechnique,
+   :skos/prefLabel "AI Model Inference API Access"})
+
+(def AML_T0041
+  {:d3f/attack-id "AML.T0041",
+   :d3f/definition
+   "In addition to the attacks that take place purely in the digital domain, adversaries may also exploit the physical environment for their attacks.\nIf the model is interacting with data collected from the real world in some way, the adversary can influence the model through access to wherever the data is being collected.\nBy modifying the data in the collection process, the adversary can perform modified versions of attacks designed for digital access.",
+   :db/ident :d3f/AML.T0041,
+   :rdf/type :owl/Class,
+   :rdfs/label "Physical Environment Access - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0041"},
+   :rdfs/subClassOf :d3f/ATLASAIModelAccessTechnique,
+   :skos/prefLabel "Physical Environment Access"})
+
+(def AML_T0042
+  {:d3f/attack-id "AML.T0042",
+   :d3f/definition
+   "Adversaries can verify the efficacy of their attack via an inference API or access to an offline copy of the target model.\nThis gives the adversary confidence that their approach works and allows them to carry out the attack at a later time of their choosing.\nThe adversary may verify the attack once but use it against many edge devices running copies of the target model.\nThe adversary may verify their attack digitally, then deploy it in the [Physical Environment Access](/techniques/AML.T0041) at a later time.\nVerifying the attack may be hard to detect since the adversary can use a minimal number of queries or an offline copy of the model.",
+   :db/ident :d3f/AML.T0042,
+   :rdf/type :owl/Class,
+   :rdfs/label "Verify Attack - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0042"},
+   :rdfs/subClassOf :d3f/ATLASAIAttackStagingTechnique,
+   :skos/prefLabel "Verify Attack"})
+
+(def AML_T0043
+  {:d3f/attack-id "AML.T0043",
+   :d3f/definition
+   "Adversarial data are inputs to an AI model that have been modified such that they cause the adversary's desired effect in the target model.\nEffects can range from misclassification, to missed detections, to maximizing energy consumption.\nTypically, the modification is constrained in magnitude or location so that a human still perceives the data as if it were unmodified, but human perceptibility may not always be a concern depending on the adversary's intended effect.\nFor example, an adversarial input for an image classification task is an image the AI model would misclassify, but a human would still recognize as containing the correct class.\n\nDepending on the adversary's knowledge of and access to the target model, the adversary may use different classes of algorithms to develop the adversarial example such as [White-Box Optimization](/techniques/AML.T0043.000), [Black-Box Optimization](/techniques/AML.T0043.001), [Black-Box Transfer](/techniques/AML.T0043.002), or [Manual Modification](/techniques/AML.T0043.003).\n\nThe adversary may [Verify Attack](/techniques/AML.T0042) their approach works if they have white-box or inference API access to the model.\nThis allows the adversary to gain confidence their attack is effective \"live\" environment where their attack may be noticed.\nThey can then use the attack at a later time to accomplish their goals.\nAn adversary may optimize adversarial examples for [Evade AI Model](/techniques/AML.T0015), or to [Erode AI Model Integrity](/techniques/AML.T0031).",
+   :db/ident :d3f/AML.T0043,
+   :rdf/type :owl/Class,
+   :rdfs/label "Craft Adversarial Data - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0043"},
+   :rdfs/subClassOf :d3f/ATLASAIAttackStagingTechnique,
+   :skos/prefLabel "Craft Adversarial Data"})
+
+(def AML_T0043_000
+  {:d3f/attack-id "AML.T0043.000",
+   :d3f/definition
+   "In White-Box Optimization, the adversary has full access to the target model and optimizes the adversarial example directly.\nAdversarial examples trained in this manner are most effective against the target model.",
+   :db/ident :d3f/AML.T0043.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "White-Box Optimization - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0043.000"},
+   :rdfs/subClassOf :d3f/AML.T0043,
+   :skos/prefLabel "White-Box Optimization"})
+
+(def AML_T0043_001
+  {:d3f/attack-id "AML.T0043.001",
+   :d3f/definition
+   "In Black-Box attacks, the adversary has black-box (i.e. [AI Model Inference API Access](/techniques/AML.T0040) via API access) access to the target model.\nWith black-box attacks, the adversary may be using an API that the victim is monitoring.\nThese attacks are generally less effective and require more inferences than [White-Box Optimization](/techniques/AML.T0043.000) attacks, but they require much less access.",
+   :db/ident :d3f/AML.T0043.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Black-Box Optimization - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0043.001"},
+   :rdfs/subClassOf :d3f/AML.T0043,
+   :skos/prefLabel "Black-Box Optimization"})
+
+(def AML_T0043_002
+  {:d3f/attack-id "AML.T0043.002",
+   :d3f/definition
+   "In Black-Box Transfer attacks, the adversary uses one or more proxy models (trained via [Create Proxy AI Model](/techniques/AML.T0005) or [Train Proxy via Replication](/techniques/AML.T0005.001)) they have full access to and are representative of the target model.\nThe adversary uses [White-Box Optimization](/techniques/AML.T0043.000) on the proxy models to generate adversarial examples.\nIf the set of proxy models are close enough to the target model, the adversarial example should generalize from one to another.\nThis means that an attack that works for the proxy models will likely then work for the target model.\nIf the adversary has [AI Model Inference API Access](/techniques/AML.T0040), they may use [Verify Attack](/techniques/AML.T0042) to confirm the attack is working and incorporate that information into their training process.",
+   :db/ident :d3f/AML.T0043.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Black-Box Transfer - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0043.002"},
+   :rdfs/subClassOf :d3f/AML.T0043,
+   :skos/prefLabel "Black-Box Transfer"})
+
+(def AML_T0043_003
+  {:d3f/attack-id "AML.T0043.003",
+   :d3f/definition
+   "Adversaries may manually modify the input data to craft adversarial data.\nThey may use their knowledge of the target model to modify parts of the data they suspect helps the model in performing its task.\nThe adversary may use trial and error until they are able to verify they have a working adversarial input.",
+   :db/ident :d3f/AML.T0043.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Manual Modification - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0043.003"},
+   :rdfs/subClassOf :d3f/AML.T0043,
+   :skos/prefLabel "Manual Modification"})
+
+(def AML_T0043_004
+  {:d3f/attack-id "AML.T0043.004",
+   :d3f/definition
+   "The adversary may add a perceptual trigger into inference data.\nThe trigger may be imperceptible or non-obvious to humans.\nThis technique is used in conjunction with [Poison AI Model](/techniques/AML.T0018.000) and allows the adversary to produce their desired effect in the target model.",
+   :db/ident :d3f/AML.T0043.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Insert Backdoor Trigger - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0043.004"},
+   :rdfs/subClassOf :d3f/AML.T0043,
+   :skos/prefLabel "Insert Backdoor Trigger"})
+
+(def AML_T0044
+  {:d3f/attack-id "AML.T0044",
+   :d3f/definition
+   "Adversaries may gain full \"white-box\" access to an AI model.\nThis means the adversary has complete knowledge of the model architecture, its parameters, and class ontology.\nThey may exfiltrate the model to [Craft Adversarial Data](/techniques/AML.T0043) and [Verify Attack](/techniques/AML.T0042) in an offline where it is hard to detect their behavior.",
+   :db/ident :d3f/AML.T0044,
+   :rdf/type :owl/Class,
+   :rdfs/label "Full AI Model Access - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0044"},
+   :rdfs/subClassOf :d3f/ATLASAIModelAccessTechnique,
+   :skos/prefLabel "Full AI Model Access"})
+
+(def AML_T0046
+  {:d3f/attack-id "AML.T0046",
+   :d3f/definition
+   "Adversaries may spam the AI system with chaff data that causes increase in the number of detections.\nThis can cause analysts at the victim organization to waste time reviewing and correcting incorrect inferences.",
+   :db/ident :d3f/AML.T0046,
+   :rdf/type :owl/Class,
+   :rdfs/label "Spamming AI System with Chaff Data - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0046"},
+   :rdfs/subClassOf :d3f/ATLASImpactTechnique,
+   :skos/prefLabel "Spamming AI System with Chaff Data"})
+
+(def AML_T0047
+  {:d3f/attack-id "AML.T0047",
+   :d3f/definition
+   "Adversaries may use a product or service that uses artificial intelligence under the hood to gain access to the underlying AI model.\nThis type of indirect model access may reveal details of the AI model or its inferences in logs or metadata.",
+   :db/ident :d3f/AML.T0047,
+   :rdf/type :owl/Class,
+   :rdfs/label "AI-Enabled Product or Service - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0047"},
+   :rdfs/subClassOf :d3f/ATLASAIModelAccessTechnique,
+   :skos/prefLabel "AI-Enabled Product or Service"})
+
+(def AML_T0048
+  {:d3f/attack-id "AML.T0048",
+   :d3f/definition
+   "Adversaries may abuse their access to a victim system and use its resources or capabilities to further their goals by causing harms external to that system.\nThese harms could affect the organization (e.g. Financial Harm, Reputational Harm), its users (e.g. User Harm), or the general public (e.g. Societal Harm).",
+   :db/ident :d3f/AML.T0048,
+   :rdf/type :owl/Class,
+   :rdfs/label "External Harms - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0048"},
+   :rdfs/subClassOf :d3f/ATLASImpactTechnique,
+   :skos/prefLabel "External Harms"})
+
+(def AML_T0048_000
+  {:d3f/attack-id "AML.T0048.000",
+   :d3f/definition
+   "Financial harm involves the loss of wealth, property, or other monetary assets due to theft, fraud or forgery, or pressure to provide financial resources to the adversary.",
+   :db/ident :d3f/AML.T0048.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Financial Harm - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0048.000"},
+   :rdfs/subClassOf :d3f/AML.T0048,
+   :skos/prefLabel "Financial Harm"})
+
+(def AML_T0048_001
+  {:d3f/attack-id "AML.T0048.001",
+   :d3f/definition
+   "Reputational harm involves a degradation of public perception and trust in organizations.  Examples of reputation-harming incidents include scandals or false impersonations.",
+   :db/ident :d3f/AML.T0048.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Reputational Harm - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0048.001"},
+   :rdfs/subClassOf :d3f/AML.T0048,
+   :skos/prefLabel "Reputational Harm"})
+
+(def AML_T0048_002
+  {:d3f/attack-id "AML.T0048.002",
+   :d3f/definition
+   "Societal harms might generate harmful outcomes that reach either the general public or specific vulnerable groups such as the exposure of children to vulgar content.",
+   :db/ident :d3f/AML.T0048.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Societal Harm - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0048.002"},
+   :rdfs/subClassOf :d3f/AML.T0048,
+   :skos/prefLabel "Societal Harm"})
+
+(def AML_T0048_003
+  {:d3f/attack-id "AML.T0048.003",
+   :d3f/definition
+   "User harms may encompass a variety of harm types including financial and reputational that are directed at or felt by individual victims of the attack rather than at the organization level.",
+   :db/ident :d3f/AML.T0048.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "User Harm - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0048.003"},
+   :rdfs/subClassOf :d3f/AML.T0048,
+   :skos/prefLabel "User Harm"})
+
+(def AML_T0048_004
+  {:d3f/attack-id "AML.T0048.004",
+   :d3f/definition
+   "Adversaries may exfiltrate AI artifacts to steal intellectual property and cause economic harm to the victim organization.\n\nProprietary training data is costly to collect and annotate and may be a target for [Exfiltration](/tactics/AML.TA0010) and theft.\n\nAIaaS providers charge for use of their API.\nAn adversary who has stolen a model via [Exfiltration](/tactics/AML.TA0010) or via [Extract AI Model](/techniques/AML.T0024.002) now has unlimited use of that service without paying the owner of the intellectual property.",
+   :db/ident :d3f/AML.T0048.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "AI Intellectual Property Theft - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0048.004"},
+   :rdfs/subClassOf :d3f/AML.T0048,
+   :skos/prefLabel "AI Intellectual Property Theft"})
+
+(def AML_T0049
+  {:d3f/attack-id "AML.T0049",
+   :d3f/definition
+   "Adversaries may attempt to take advantage of a weakness in an Internet-facing computer or program using software, data, or commands in order to cause unintended or unanticipated behavior. The weakness in the system can be a bug, a glitch, or a design vulnerability. These applications are often websites, but can include databases (like SQL), standard services (like SMB or SSH), network device administration and management protocols (like SNMP and Smart Install), and any other applications with Internet accessible open sockets, such as web servers and related services.",
+   :db/ident :d3f/AML.T0049,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exploit Public-Facing Application - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0049"},
+   :rdfs/subClassOf :d3f/ATLASInitialAccessTechnique,
+   :skos/prefLabel "Exploit Public-Facing Application"})
+
+(def AML_T0050
+  {:d3f/attack-id "AML.T0050",
+   :d3f/definition
+   "Adversaries may abuse command and script interpreters to execute commands, scripts, or binaries. These interfaces and languages provide ways of interacting with computer systems and are a common feature across many different platforms. Most systems come with some built-in command-line interface and scripting capabilities, for example, macOS and Linux distributions include some flavor of Unix Shell while Windows installations include the Windows Command Shell and PowerShell.\n\nThere are also cross-platform interpreters such as Python, as well as those commonly associated with client applications such as JavaScript and Visual Basic.\n\nAdversaries may abuse these technologies in various ways as a means of executing arbitrary commands. Commands and scripts can be embedded in Initial Access payloads delivered to victims as lure documents or as secondary payloads downloaded from an existing C2. Adversaries may also execute commands through interactive terminals/shells, as well as utilize various Remote Services in order to achieve remote Execution.",
+   :db/ident :d3f/AML.T0050,
+   :rdf/type :owl/Class,
+   :rdfs/label "Command and Scripting Interpreter - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0050"},
+   :rdfs/subClassOf :d3f/ATLASExecutionTechnique,
+   :skos/prefLabel "Command and Scripting Interpreter"})
+
+(def AML_T0051
+  {:d3f/attack-id "AML.T0051",
+   :d3f/definition
+   "An adversary may craft malicious prompts as inputs to an LLM that cause the LLM to act in unintended ways.\nThese \"prompt injections\" are often designed to cause the model to ignore aspects of its original instructions and follow the adversary's instructions instead.\n\nPrompt Injections can be an initial access vector to the LLM that provides the adversary with a foothold to carry out other steps in their operation.\nThey may be designed to bypass defenses in the LLM, or allow the adversary to issue privileged commands.\nThe effects of a prompt injection can persist throughout an interactive session with an LLM.\n\nMalicious prompts may be injected directly by the adversary ([Direct](/techniques/AML.T0051.000)) either to leverage the LLM to generate harmful content or to gain a foothold on the system and lead to further effects.\nPrompts may also be injected indirectly when as part of its normal operation the LLM ingests the malicious prompt from another data source ([Indirect](/techniques/AML.T0051.001)). This type of injection can be used by the adversary to a foothold on the system or to target the user of the LLM.\nMalicious prompts may also be [Triggered](/techniques/AML.T0051.002) user actions or system events.",
+   :db/ident :d3f/AML.T0051,
+   :rdf/type :owl/Class,
+   :rdfs/label "LLM Prompt Injection - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0051"},
+   :rdfs/subClassOf :d3f/ATLASExecutionTechnique,
+   :skos/prefLabel "LLM Prompt Injection"})
+
+(def AML_T0051_000
+  {:d3f/attack-id "AML.T0051.000",
+   :d3f/definition
+   "An adversary may inject prompts directly as a user of the LLM. This type of injection may be used by the adversary to gain a foothold in the system or to misuse the LLM itself, as for example to generate harmful content.",
+   :db/ident :d3f/AML.T0051.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Direct - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0051.000"},
+   :rdfs/subClassOf :d3f/AML.T0051,
+   :skos/prefLabel "Direct"})
+
+(def AML_T0051_001
+  {:d3f/attack-id "AML.T0051.001",
+   :d3f/definition
+   "An adversary may inject prompts indirectly via separate data channel ingested by the LLM such as include text or multimedia pulled from databases or websites.\nThese malicious prompts may be hidden or obfuscated from the user. This type of injection may be used by the adversary to gain a foothold in the system or to target an unwitting user of the system.",
+   :db/ident :d3f/AML.T0051.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Indirect - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0051.001"},
+   :rdfs/subClassOf :d3f/AML.T0051,
+   :skos/prefLabel "Indirect"})
+
+(def AML_T0051_002
+  {:d3f/attack-id "AML.T0051.002",
+   :d3f/definition
+   "An adversary may trigger a prompt injection via a user action or event that occurs within the victim's environment. Triggered prompt injections often target AI agents, which can be activated by means the adversary identifies during [Discovery](/tactics/AML.TA0008) (See [Activation Triggers](/techniques/AML.T0084.002)). These malicious prompts may be hidden or obfuscated from the user and may already exist somewhere in the victim's environment from the adversary performing [Prompt Infiltration via Public-Facing Application](/techniques/AML.T0093). This type of injection may be used by the adversary to gain a foothold in the system or to target an unwitting user of the system.",
+   :db/ident :d3f/AML.T0051.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Triggered - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0051.002"},
+   :rdfs/subClassOf :d3f/AML.T0051,
+   :skos/prefLabel "Triggered"})
+
+(def AML_T0052
+  {:d3f/attack-id "AML.T0052",
+   :d3f/definition
+   "Adversaries may send phishing messages to gain access to victim systems. All forms of phishing are electronically delivered social engineering. Phishing can be targeted, known as spearphishing. In spearphishing, a specific individual, company, or industry will be targeted by the adversary. More generally, adversaries can conduct non-targeted phishing, such as in mass malware spam campaigns.\n\nGenerative AI, including LLMs that generate synthetic text, visual deepfakes of faces, and audio deepfakes of speech, is enabling adversaries to scale targeted phishing campaigns. LLMs can interact with users via text conversations and can be programmed with a meta prompt to phish for sensitive information. Deepfakes can be use in impersonation as an aid to phishing.",
+   :db/ident :d3f/AML.T0052,
+   :rdf/type :owl/Class,
+   :rdfs/label "Phishing - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0052"},
+   :rdfs/subClassOf :d3f/ATLASInitialAccessTechnique,
+   :skos/prefLabel "Phishing"})
+
+(def AML_T0052_000
+  {:d3f/attack-id "AML.T0052.000",
+   :d3f/definition
+   "Adversaries may turn LLMs into targeted social engineers.\nLLMs are capable of interacting with users via text conversations.\nThey can be instructed by an adversary to seek sensitive information from a user and act as effective social engineers.\nThey can be targeted towards particular personas defined by the adversary.\nThis allows adversaries to scale spearphishing efforts and target individuals to reveal private information such as credentials to privileged systems.",
+   :db/ident :d3f/AML.T0052.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Spearphishing via Social Engineering LLM - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0052.000"},
+   :rdfs/subClassOf :d3f/AML.T0052,
+   :skos/prefLabel "Spearphishing via Social Engineering LLM"})
+
+(def AML_T0053
+  {:d3f/attack-id "AML.T0053",
+   :d3f/definition
+   "Adversaries may use their access to an AI agent to invoke tools the agent has access to. LLMs are often connected to other services or resources via tools to increase their capabilities. Tools may include integrations with other applications, access to public or private data sources, and the ability to execute code.\n\nThis may allow adversaries to execute API calls to integrated applications or services, providing the adversary with increased privileges on the system. Adversaries may take advantage of connected data sources to retrieve sensitive information. They may also use an LLM integrated with a command or script interpreter to execute arbitrary instructions.\n\nAI agents may be configured to have access to tools that are not directly accessible by users. Adversaries may abuse this to gain access to tools they otherwise wouldn't be able to use.",
+   :db/ident :d3f/AML.T0053,
+   :rdf/type :owl/Class,
+   :rdfs/label "AI Agent Tool Invocation - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0053"},
+   :rdfs/subClassOf #{:d3f/ATLASExecutionTechnique
+                      :d3f/ATLASPrivilegeEscalationTechnique},
+   :skos/prefLabel "AI Agent Tool Invocation"})
+
+(def AML_T0054
+  {:d3f/attack-id "AML.T0054",
+   :d3f/definition
+   "An adversary may use a carefully crafted [LLM Prompt Injection](/techniques/AML.T0051) designed to place LLM in a state in which it will freely respond to any user input, bypassing any controls, restrictions, or guardrails placed on the LLM.\nOnce successfully jailbroken, the LLM can be used in unintended ways by the adversary.",
+   :db/ident :d3f/AML.T0054,
+   :rdf/type :owl/Class,
+   :rdfs/label "LLM Jailbreak - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0054"},
+   :rdfs/subClassOf #{:d3f/ATLASDefenseEvasionTechnique
+                      :d3f/ATLASPrivilegeEscalationTechnique},
+   :skos/prefLabel "LLM Jailbreak"})
+
+(def AML_T0055
+  {:d3f/attack-id "AML.T0055",
+   :d3f/definition
+   "Adversaries may search compromised systems to find and obtain insecurely stored credentials.\nThese credentials can be stored and/or misplaced in many locations on a system, including plaintext files (e.g. bash history), environment variables, operating system, or application-specific repositories (e.g. Credentials in Registry), or other specialized files/artifacts (e.g. private keys).",
+   :db/ident :d3f/AML.T0055,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unsecured Credentials - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0055"},
+   :rdfs/subClassOf :d3f/ATLASCredentialAccessTechnique,
+   :skos/prefLabel "Unsecured Credentials"})
+
+(def AML_T0056
+  {:d3f/attack-id "AML.T0056",
+   :d3f/definition
+   "Adversaries may attempt to extract a large language model's (LLM) system prompt. This can be done via prompt injection to induce the model to reveal its own system prompt or may be extracted from a configuration file.\n\nSystem prompts can be a portion of an AI provider's competitive advantage and are thus valuable intellectual property that may be targeted by adversaries.",
+   :db/ident :d3f/AML.T0056,
+   :rdf/type :owl/Class,
+   :rdfs/label "Extract LLM System Prompt - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0056"},
+   :rdfs/subClassOf :d3f/ATLASExfiltrationTechnique,
+   :skos/prefLabel "Extract LLM System Prompt"})
+
+(def AML_T0057
+  {:d3f/attack-id "AML.T0057",
+   :d3f/definition
+   "Adversaries may craft prompts that induce the LLM to leak sensitive information.\nThis can include private user data or proprietary information.\nThe leaked information may come from proprietary training data, data sources the LLM is connected to, or information from other users of the LLM.",
+   :db/ident :d3f/AML.T0057,
+   :rdf/type :owl/Class,
+   :rdfs/label "LLM Data Leakage - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0057"},
+   :rdfs/subClassOf :d3f/ATLASExfiltrationTechnique,
+   :skos/prefLabel "LLM Data Leakage"})
+
+(def AML_T0058
+  {:d3f/attack-id "AML.T0058",
+   :d3f/definition
+   "Adversaries may publish a poisoned model to a public location such as a model registry or code repository. The poisoned model may be a novel model or a poisoned variant of an existing open-source model. This model may be introduced to a victim system via [AI Supply Chain Compromise](/techniques/AML.T0010).",
+   :db/ident :d3f/AML.T0058,
+   :rdf/type :owl/Class,
+   :rdfs/label "Publish Poisoned Models - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0058"},
+   :rdfs/subClassOf :d3f/ATLASResourceDevelopmentTechnique,
+   :skos/prefLabel "Publish Poisoned Models"})
+
+(def AML_T0059
+  {:d3f/attack-id "AML.T0059",
+   :d3f/definition
+   "Adversaries may poison or manipulate portions of a dataset to reduce its usefulness, reduce trust, and cause users to waste resources correcting errors.",
+   :db/ident :d3f/AML.T0059,
+   :rdf/type :owl/Class,
+   :rdfs/label "Erode Dataset Integrity - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0059"},
+   :rdfs/subClassOf :d3f/ATLASImpactTechnique,
+   :skos/prefLabel "Erode Dataset Integrity"})
+
+(def AML_T0060
+  {:d3f/attack-id "AML.T0060",
+   :d3f/definition
+   "Adversaries may create an entity they control, such as a software package, website, or email address to a source hallucinated by an LLM. The hallucinations may take the form of package names commands, URLs, company names, or email addresses that point the victim to the entity controlled by the adversary. When the victim interacts with the adversary-controlled entity, the attack can proceed.",
+   :db/ident :d3f/AML.T0060,
+   :rdf/type :owl/Class,
+   :rdfs/label "Publish Hallucinated Entities - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0060"},
+   :rdfs/subClassOf :d3f/ATLASResourceDevelopmentTechnique,
+   :skos/prefLabel "Publish Hallucinated Entities"})
+
+(def AML_T0061
+  {:d3f/attack-id "AML.T0061",
+   :d3f/definition
+   "An adversary may use a carefully crafted [LLM Prompt Injection](/techniques/AML.T0051) designed to cause the LLM to replicate the prompt as part of its output. This allows the prompt to propagate to other LLMs and persist on the system. The self-replicating prompt is typically paired with other malicious instructions (ex: [LLM Jailbreak](/techniques/AML.T0054), [LLM Data Leakage](/techniques/AML.T0057)).",
+   :db/ident :d3f/AML.T0061,
+   :rdf/type :owl/Class,
+   :rdfs/label "LLM Prompt Self-Replication - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0061"},
+   :rdfs/subClassOf :d3f/ATLASPersistenceTechnique,
+   :skos/prefLabel "LLM Prompt Self-Replication"})
+
+(def AML_T0062
+  {:d3f/attack-id "AML.T0062",
+   :d3f/definition
+   "Adversaries may prompt large language models and identify hallucinated entities.\nThey may request software packages, commands, URLs, organization names, or e-mail addresses, and identify hallucinations with no connected real-world source. Discovered hallucinations provide the adversary with potential targets to [Publish Hallucinated Entities](/techniques/AML.T0060). Different LLMs have been shown to produce the same hallucinations, so the hallucinations exploited by an adversary may affect users of other LLMs.",
+   :db/ident :d3f/AML.T0062,
+   :rdf/type :owl/Class,
+   :rdfs/label "Discover LLM Hallucinations - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0062"},
+   :rdfs/subClassOf :d3f/ATLASDiscoveryTechnique,
+   :skos/prefLabel "Discover LLM Hallucinations"})
+
+(def AML_T0063
+  {:d3f/attack-id "AML.T0063",
+   :d3f/definition
+   "Adversaries may discover model outputs, such as class scores, whose presence is not required for the system to function and are not intended for use by the end user. Model outputs may be found in logs or may be included in API responses.\nModel outputs may enable the adversary to identify weaknesses in the model and develop attacks.",
+   :db/ident :d3f/AML.T0063,
+   :rdf/type :owl/Class,
+   :rdfs/label "Discover AI Model Outputs - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0063"},
+   :rdfs/subClassOf :d3f/ATLASDiscoveryTechnique,
+   :skos/prefLabel "Discover AI Model Outputs"})
+
+(def AML_T0064
+  {:d3f/attack-id "AML.T0064",
+   :d3f/definition
+   "Adversaries may identify data sources used in retrieval augmented generation (RAG) systems for targeting purposes. By pinpointing these sources, attackers can focus on poisoning or otherwise manipulating the external data repositories the AI relies on.\n\nRAG-indexed data may be identified in public documentation about the system, or by interacting with the system directly and observing any indications of or references to external data sources.",
+   :db/ident :d3f/AML.T0064,
+   :rdf/type :owl/Class,
+   :rdfs/label "Gather RAG-Indexed Targets - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0064"},
+   :rdfs/subClassOf :d3f/ATLASReconnaissanceTechnique,
+   :skos/prefLabel "Gather RAG-Indexed Targets"})
+
+(def AML_T0065
+  {:d3f/attack-id "AML.T0065",
+   :d3f/definition
+   "Adversaries may use their acquired knowledge of the target generative AI system to craft prompts that bypass its defenses and allow malicious instructions to be executed.\n\nThe adversary may iterate on the prompt to ensure that it works as-intended consistently.",
+   :db/ident :d3f/AML.T0065,
+   :rdf/type :owl/Class,
+   :rdfs/label "LLM Prompt Crafting - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0065"},
+   :rdfs/subClassOf :d3f/ATLASResourceDevelopmentTechnique,
+   :skos/prefLabel "LLM Prompt Crafting"})
+
+(def AML_T0066
+  {:d3f/attack-id "AML.T0066",
+   :d3f/definition
+   "Adversaries may write content designed to be retrieved by user queries and influence a user of the system in some way. This abuses the trust the user has in the system.\n\nThe crafted content can be combined with a prompt injection. It can also stand alone in a separate document or email. The adversary must get the crafted content into the victim\\u0027s database, such as a vector database used in a retrieval augmented generation (RAG) system. This may be accomplished via cyber access, or by abusing the ingestion mechanisms common in RAG systems (see [RAG Poisoning](/techniques/AML.T0070)).\n\nLarge language models may be used as an assistant to aid an adversary in crafting content.",
+   :db/ident :d3f/AML.T0066,
+   :rdf/type :owl/Class,
+   :rdfs/label "Retrieval Content Crafting - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0066"},
+   :rdfs/subClassOf :d3f/ATLASResourceDevelopmentTechnique,
+   :skos/prefLabel "Retrieval Content Crafting"})
+
+(def AML_T0067
+  {:d3f/attack-id "AML.T0067",
+   :d3f/definition
+   "Adversaries may utilize prompts to a large language model (LLM) which manipulate various components of its response in order to make it appear trustworthy to the user. This helps the adversary continue to operate in the victim's environment and evade detection by the users it interacts with.\n\nThe LLM may be instructed to tailor its language to appear more trustworthy to the user or attempt to manipulate the user to take certain actions. Other response components that could be manipulated include links, recommended follow-up actions, retrieved document metadata, and [Citations](/techniques/AML.T0067.000).",
+   :db/ident :d3f/AML.T0067,
+   :rdf/type :owl/Class,
+   :rdfs/label "LLM Trusted Output Components Manipulation - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0067"},
+   :rdfs/subClassOf :d3f/ATLASDefenseEvasionTechnique,
+   :skos/prefLabel "LLM Trusted Output Components Manipulation"})
+
+(def AML_T0067_000
+  {:d3f/attack-id "AML.T0067.000",
+   :d3f/definition
+   "Adversaries may manipulate the citations provided in an AI system's response, in order to make it appear trustworthy. Variants include citing a providing the wrong citation, making up a new citation, or providing the right citation but for adversary-provided data.",
+   :db/ident :d3f/AML.T0067.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Citations - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0067.000"},
+   :rdfs/subClassOf :d3f/AML.T0067,
+   :skos/prefLabel "Citations"})
+
+(def AML_T0068
+  {:d3f/attack-id "AML.T0068",
+   :d3f/definition
+   "Adversaries may hide or otherwise obfuscate prompt injections or retrieval content from the user to avoid detection.\n\nThis may include modifying how the injection is rendered such as small text, text colored the same as the background, or hidden HTML elements.",
+   :db/ident :d3f/AML.T0068,
+   :rdf/type :owl/Class,
+   :rdfs/label "LLM Prompt Obfuscation - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0068"},
+   :rdfs/subClassOf :d3f/ATLASDefenseEvasionTechnique,
+   :skos/prefLabel "LLM Prompt Obfuscation"})
+
+(def AML_T0069
+  {:d3f/attack-id "AML.T0069",
+   :d3f/definition
+   "The adversary is trying to discover something about the large language model's (LLM) system information. This may be found in a configuration file containing the system instructions or extracted via interactions with the LLM. The desired information may include the full system prompt, special characters that have significance to the LLM or keywords indicating functionality available to the LLM. Information about how the LLM is instructed can be used by the adversary to understand the system's capabilities and to aid them in crafting malicious prompts.",
+   :db/ident :d3f/AML.T0069,
+   :rdf/type :owl/Class,
+   :rdfs/label "Discover LLM System Information - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0069"},
+   :rdfs/subClassOf :d3f/ATLASDiscoveryTechnique,
+   :skos/prefLabel "Discover LLM System Information"})
+
+(def AML_T0069_000
+  {:d3f/attack-id "AML.T0069.000",
+   :d3f/definition
+   "Adversaries may discover delimiters and special characters sets used by the large language model. For example, delimiters used in retrieval augmented generation applications to differentiate between context and user prompts. These can later be exploited to confuse or manipulate the large language model into misbehaving.",
+   :db/ident :d3f/AML.T0069.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Special Character Sets - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0069.000"},
+   :rdfs/subClassOf :d3f/AML.T0069,
+   :skos/prefLabel "Special Character Sets"})
+
+(def AML_T0069_001
+  {:d3f/attack-id "AML.T0069.001",
+   :d3f/definition
+   "Adversaries may discover keywords that have special meaning to the large language model (LLM), such as function names or object names. These can later be exploited to confuse or manipulate the LLM into misbehaving and to make calls to plugins the LLM has access to.",
+   :db/ident :d3f/AML.T0069.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "System Instruction Keywords - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0069.001"},
+   :rdfs/subClassOf :d3f/AML.T0069,
+   :skos/prefLabel "System Instruction Keywords"})
+
+(def AML_T0069_002
+  {:d3f/attack-id "AML.T0069.002",
+   :d3f/definition
+   "Adversaries may discover a large language model's system instructions provided by the AI system builder to learn about the system's capabilities and circumvent its guardrails.",
+   :db/ident :d3f/AML.T0069.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "System Prompt - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0069.002"},
+   :rdfs/subClassOf :d3f/AML.T0069,
+   :skos/prefLabel "System Prompt"})
+
+(def AML_T0070
+  {:d3f/attack-id "AML.T0070",
+   :d3f/definition
+   "Adversaries may inject malicious content into data indexed by a retrieval augmented generation (RAG) system to contaminate a future thread through RAG-based search results. This may be accomplished by placing manipulated documents in a location the RAG indexes (see [Gather RAG-Indexed Targets](/techniques/AML.T0064)).\n\nThe content may be targeted such that it would always surface as a search result for a specific user query. The adversary's content may include false or misleading information. It may also include prompt injections with malicious instructions, or false RAG entries.",
+   :db/ident :d3f/AML.T0070,
+   :rdf/type :owl/Class,
+   :rdfs/label "RAG Poisoning - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0070"},
+   :rdfs/subClassOf :d3f/ATLASPersistenceTechnique,
+   :skos/prefLabel "RAG Poisoning"})
+
+(def AML_T0071
+  {:d3f/attack-id "AML.T0071",
+   :d3f/definition
+   "Adversaries may introduce false entries into a victim's retrieval augmented generation (RAG) database. Content designed to be interpreted as a document by the large language model (LLM) used in the RAG system is included in a data source being ingested into the RAG database. When RAG entry including the false document is retrieved, the LLM is tricked into treating part of the retrieved content as a false RAG result.\n\nBy including a false RAG document inside of a regular RAG entry, it bypasses data monitoring tools. It also prevents the document from being deleted directly.\n\nThe adversary may use discovered system keywords to learn how to instruct a particular LLM to treat content as a RAG entry. They may be able to manipulate the injected entry's metadata including document title, author, and creation date.",
+   :db/ident :d3f/AML.T0071,
+   :rdf/type :owl/Class,
+   :rdfs/label "False RAG Entry Injection - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0071"},
+   :rdfs/subClassOf :d3f/ATLASDefenseEvasionTechnique,
+   :skos/prefLabel "False RAG Entry Injection"})
+
+(def AML_T0072
+  {:d3f/attack-id "AML.T0072",
+   :d3f/definition
+   "Adversaries may utilize a reverse shell to communicate and control the victim system.\n\nTypically, a user uses a client to connect to a remote machine which is listening for connections. With a reverse shell, the adversary is listening for incoming connections initiated from the victim system.",
+   :db/ident :d3f/AML.T0072,
+   :rdf/type :owl/Class,
+   :rdfs/label "Reverse Shell - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0072"},
+   :rdfs/subClassOf :d3f/ATLASCommandAndControlTechnique,
+   :skos/prefLabel "Reverse Shell"})
+
+(def AML_T0073
+  {:d3f/attack-id "AML.T0073",
+   :d3f/definition
+   "Adversaries may impersonate a trusted person or organization in order to persuade and trick a target into performing some action on their behalf. For example, adversaries may communicate with victims (via [Phishing](/techniques/AML.T0052), or [Spearphishing via Social Engineering LLM](/techniques/AML.T0052.000)) while impersonating a known sender such as an executive, colleague, or third-party vendor. Established trust can then be leveraged to accomplish an adversary's ultimate goals, possibly against multiple victims.\n\nAdversaries may target resources that are part of the AI DevOps lifecycle, such as model repositories, container registries, and software registries.",
+   :db/ident :d3f/AML.T0073,
+   :rdf/type :owl/Class,
+   :rdfs/label "Impersonation - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0073"},
+   :rdfs/subClassOf :d3f/ATLASDefenseEvasionTechnique,
+   :skos/prefLabel "Impersonation"})
+
+(def AML_T0074
+  {:d3f/attack-id "AML.T0074",
+   :d3f/definition
+   "Adversaries may attempt to manipulate features of their artifacts to make them appear legitimate or benign to users and/or security tools. Masquerading occurs when the name or location of an object, legitimate or malicious, is manipulated or abused for the sake of evading defenses and observation. This may include manipulating file metadata, tricking users into misidentifying the file type, and giving legitimate task or service names.",
+   :db/ident :d3f/AML.T0074,
+   :rdf/type :owl/Class,
+   :rdfs/label "Masquerading - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0074"},
+   :rdfs/subClassOf :d3f/ATLASDefenseEvasionTechnique,
+   :skos/prefLabel "Masquerading"})
+
+(def AML_T0075
+  {:d3f/attack-id "AML.T0075",
+   :d3f/definition
+   "An adversary may attempt to enumerate the cloud services running on a system after gaining access. These methods can differ from platform-as-a-service (PaaS), to infrastructure-as-a-service (IaaS), or software-as-a-service (SaaS). Many services exist throughout the various cloud providers and can include Continuous Integration and Continuous Delivery (CI/CD), Lambda Functions, Entra ID, etc. They may also include security services, such as AWS GuardDuty and Microsoft Defender for Cloud, and logging services, such as AWS CloudTrail and Google Cloud Audit Logs.\n\nAdversaries may attempt to discover information about the services enabled throughout the environment. Azure tools and APIs, such as the Microsoft Graph API and Azure Resource Manager API, can enumerate resources and services, including applications, management groups, resources and policy definitions, and their relationships that are accessible by an identity.[1][2]\n\nFor example, Stormspotter is an open source tool for enumerating and constructing a graph for Azure resources and services, and Pacu is an open source AWS exploitation framework that supports several methods for discovering cloud services.[3][4]\n\nAdversaries may use the information gained to shape follow-on behaviors, such as targeting data or credentials from enumerated services or evading identified defenses through Disable or Modify Tools or Disable or Modify Cloud Logs.",
+   :db/ident :d3f/AML.T0075,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cloud Service Discovery - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0075"},
+   :rdfs/subClassOf :d3f/ATLASDiscoveryTechnique,
+   :skos/prefLabel "Cloud Service Discovery"})
+
+(def AML_T0076
+  {:d3f/attack-id "AML.T0076",
+   :d3f/definition
+   "An adversary may purposefully corrupt a malicious AI model file so that it cannot be successfully deserialized in order to evade detection by a model scanner. The corrupt model may still successfully execute malicious code before deserialization fails.",
+   :db/ident :d3f/AML.T0076,
+   :rdf/type :owl/Class,
+   :rdfs/label "Corrupt AI Model - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0076"},
+   :rdfs/subClassOf :d3f/ATLASDefenseEvasionTechnique,
+   :skos/prefLabel "Corrupt AI Model"})
+
+(def AML_T0077
+  {:d3f/attack-id "AML.T0077",
+   :d3f/definition
+   "An adversary may get a large language model (LLM) to respond with private information that is hidden from the user when the response is rendered by the user's client. The private information is then exfiltrated. This can take the form of rendered images, which automatically make a request to an adversary controlled server.\n\nThe adversary gets AI to present an image to the user, which is rendered by the user's client application with no user clicks required. The image is hosted on an attacker-controlled website, allowing the adversary to exfiltrate data through image request parameters. Variants include HTML tags and markdown\n\nFor example, an LLM may produce the following markdown:\n```\n![ATLAS](https://atlas.mitre.org/image.png?secrets=\"private data\")\n```\n\nWhich is rendered by the client as:\n```\n<img src=\"https://atlas.mitre.org/image.png?secrets=\"private data\">\n```\n\nWhen the request is received by the adversary's server hosting the requested image, they receive the contents of the `secrets` query parameter.",
+   :db/ident :d3f/AML.T0077,
+   :rdf/type :owl/Class,
+   :rdfs/label "LLM Response Rendering - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0077"},
+   :rdfs/subClassOf :d3f/ATLASExfiltrationTechnique,
+   :skos/prefLabel "LLM Response Rendering"})
+
+(def AML_T0078
+  {:d3f/attack-id "AML.T0078",
+   :d3f/definition
+   "Adversaries may gain access to an AI system through a user visiting a website over the normal course of browsing, or an AI agent retrieving information from the web on behalf of a user. Websites can contain an [LLM Prompt Injection](/techniques/AML.T0051) which, when executed, can change the behavior of the AI model.\n\nThe same approach may be used to deliver other types of malicious code that don't target AI directly (See [Drive-by Compromise in ATT&CK](https://attack.mitre.org/techniques/T1189/)).",
+   :db/ident :d3f/AML.T0078,
+   :rdf/type :owl/Class,
+   :rdfs/label "Drive-by Compromise - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0078"},
+   :rdfs/subClassOf :d3f/ATLASInitialAccessTechnique,
+   :skos/prefLabel "Drive-by Compromise"})
+
+(def AML_T0079
+  {:d3f/attack-id "AML.T0079",
+   :d3f/definition
+   "Adversaries may upload, install, or otherwise set up capabilities that can be used during targeting. To support their operations, an adversary may need to take capabilities they developed ([Develop Capabilities](/techniques/AML.T0017)) or obtained ([Obtain Capabilities](/techniques/AML.T0016)) and stage them on infrastructure under their control. These capabilities may be staged on infrastructure that was previously purchased/rented by the adversary ([Acquire Infrastructure](/techniques/AML.T0008)) or was otherwise compromised by them. Capabilities may also be staged on web services, such as GitHub, model registries, such as Hugging Face, or container registries.\n\nAdversaries may stage a variety of AI Artifacts including poisoned datasets ([Publish Poisoned Datasets](/techniques/AML.T0019), malicious models ([Publish Poisoned Models](/techniques/AML.T0058), and prompt injections. They may target names of legitimate companies or products, engage in typosquatting, or use hallucinated entities ([Discover LLM Hallucinations](/techniques/AML.T0062)).",
+   :db/ident :d3f/AML.T0079,
+   :rdf/type :owl/Class,
+   :rdfs/label "Stage Capabilities - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0079"},
+   :rdfs/subClassOf :d3f/ATLASResourceDevelopmentTechnique,
+   :skos/prefLabel "Stage Capabilities"})
+
+(def AML_T0080
+  {:d3f/attack-id "AML.T0080",
+   :d3f/definition
+   "Adversaries may attempt to manipulate the context used by an AI agent's large language model (LLM) to influence the responses it generates or actions it takes. This allows an adversary to persistently change the behavior of the target agent and further their goals.\n\nContext poisoning can be accomplished by prompting the an LLM to add instructions or preferences to memory (See [Memory](/techniques/AML.T0080.000)) or by simply prompting an LLM that uses prior messages in a thread as part of its context (See [Thread](/techniques/AML.T0080.001)).",
+   :db/ident :d3f/AML.T0080,
+   :rdf/type :owl/Class,
+   :rdfs/label "AI Agent Context Poisoning - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0080"},
+   :rdfs/subClassOf :d3f/ATLASPersistenceTechnique,
+   :skos/prefLabel "AI Agent Context Poisoning"})
+
+(def AML_T0080_000
+  {:d3f/attack-id "AML.T0080.000",
+   :d3f/definition
+   "Adversaries may manipulate the memory of a large language model (LLM) in order to persist changes to the LLM to future chat sessions.\n\nMemory is a common feature in LLMs that allows them to remember information across chat sessions by utilizing a user-specific database. Because the memory is controlled via normal conversations with the user (e.g. \"remember my preference for ...\") an adversary can inject memories via Direct or Indirect Prompt Injection. Memories may contain malicious instructions (e.g. instructions that leak private conversations) or may promote the adversary's hidden agenda (e.g. manipulating the user).",
+   :db/ident :d3f/AML.T0080.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Memory - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0080.000"},
+   :rdfs/subClassOf :d3f/AML.T0080,
+   :skos/prefLabel "Memory"})
+
+(def AML_T0080_001
+  {:d3f/attack-id "AML.T0080.001",
+   :d3f/definition
+   "Adversaries may introduce malicious instructions into a chat thread of a large language model (LLM) to cause behavior changes which persist for the remainder of the thread. A chat thread may continue for an extended period over multiple sessions.\n\nThe malicious instructions may be introduced via Direct or Indirect Prompt Injection. Direct Injection may occur in cases where the adversary has acquired a user's LLM API keys and can inject queries directly into any thread.\n\nAs the token limits for LLMs rise, AI systems can make use of larger context windows which allow malicious instructions to persist longer in a thread.\nThread Poisoning may affect multiple users if the LLM is being used in a service with shared threads. For example, if an agent is active in a Slack channel with multiple participants, a single malicious message from one user can influence the agent's behavior in future interactions with others.",
+   :db/ident :d3f/AML.T0080.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Thread - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0080.001"},
+   :rdfs/subClassOf :d3f/AML.T0080,
+   :skos/prefLabel "Thread"})
+
+(def AML_T0081
+  {:d3f/attack-id "AML.T0081",
+   :d3f/definition
+   "Adversaries may modify the configuration files for AI agents on a system. This allows malicious changes to persist beyond the life of a single agent and affects any agents that share the configuration.\n\nConfiguration changes may include modifications to the system prompt, tampering with or replacing knowledge sources, modification to settings of connected tools, and more. Through those changes, an attacker could redirect outputs or tools to malicious services, embed covert instructions that exfiltrate data, or weaken security controls that normally restrict agent behavior.",
+   :db/ident :d3f/AML.T0081,
+   :rdf/type :owl/Class,
+   :rdfs/label "Modify AI Agent Configuration - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0081"},
+   :rdfs/subClassOf :d3f/ATLASPersistenceTechnique,
+   :skos/prefLabel "Modify AI Agent Configuration"})
+
+(def AML_T0082
+  {:d3f/attack-id "AML.T0082",
+   :d3f/definition
+   "Adversaries may attempt to use their access to a large language model (LLM) on the victim's system to collect credentials. Credentials may be stored in internal documents which can inadvertently be ingested into a RAG database, where they can ultimately be retrieved by an AI agent.",
+   :db/ident :d3f/AML.T0082,
+   :rdf/type :owl/Class,
+   :rdfs/label "RAG Credential Harvesting - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0082"},
+   :rdfs/subClassOf :d3f/ATLASCredentialAccessTechnique,
+   :skos/prefLabel "RAG Credential Harvesting"})
+
+(def AML_T0083
+  {:d3f/attack-id "AML.T0083",
+   :d3f/definition
+   "Adversaries may access the credentials of other tools or services on a system from the configuration of an AI agent.\n\nAI Agents often utilize external tools or services to take actions, such as querying databases, invoking APIs, or interacting with cloud resources. To enable these functions, credentials like API keys, tokens, and connection strings are frequently stored in configuration files. While there are secure methods such as dedicated secret managers or encrypted vaults that can be deployed to store and manage these credentials, in practice they are often placed in less protected locations for convenience or ease of deployment. If an attacker can read or extract these configurations, they may obtain valid credentials that allow direct access to sensitive systems outside the agent itself.",
+   :db/ident :d3f/AML.T0083,
+   :rdf/type :owl/Class,
+   :rdfs/label "Credentials from AI Agent Configuration - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0083"},
+   :rdfs/subClassOf :d3f/ATLASCredentialAccessTechnique,
+   :skos/prefLabel "Credentials from AI Agent Configuration"})
+
+(def AML_T0084
+  {:d3f/attack-id "AML.T0084",
+   :d3f/definition
+   "Adversaries may attempt to discover configuration information for AI agents present on the victim's system. Agent configurations can include tools or services they have access to.\n\nAdversaries may directly access agent configuring dashboards or configuration files. They may also obtain configuration details by prompting the agent with questions such as \"What tools do you have access to?\"\n\nAdversaries can use the information they discover about AI agents to help with targeting.",
+   :db/ident :d3f/AML.T0084,
+   :rdf/type :owl/Class,
+   :rdfs/label "Discover AI Agent Configuration - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0084"},
+   :rdfs/subClassOf :d3f/ATLASDiscoveryTechnique,
+   :skos/prefLabel "Discover AI Agent Configuration"})
+
+(def AML_T0084_000
+  {:d3f/attack-id "AML.T0084.000",
+   :d3f/definition
+   "Adversaries may attempt to discover the data sources a particular agent can access.  The AI agent's configuration may reveal data sources or knowledge.\n\nThe embedded knowledge may include sensitive or proprietary material such as intellectual property, customer data, internal policies, or even credentials. By mapping what knowledge an agent has access to, an adversary can better understand the AI agent's role and potentially expose confidential information or pinpoint high-value targets for further exploitation.",
+   :db/ident :d3f/AML.T0084.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Embedded Knowledge - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0084.000"},
+   :rdfs/subClassOf :d3f/AML.T0084,
+   :skos/prefLabel "Embedded Knowledge"})
+
+(def AML_T0084_001
+  {:d3f/attack-id "AML.T0084.001",
+   :d3f/definition
+   "Adversaries may discover the tools the AI agent has access to. By identifying which tools are available, the adversary can understand what actions may be executed through the agent and what additional resources it can reach. This knowledge may reveal access to external data sources such as OneDrive or SharePoint, or expose exfiltration paths like the ability to send emails, helping adversaries identify AI agents that provide the greatest value or opportunity for attack.",
+   :db/ident :d3f/AML.T0084.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Tool Definitions - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0084.001"},
+   :rdfs/subClassOf :d3f/AML.T0084,
+   :skos/prefLabel "Tool Definitions"})
+
+(def AML_T0084_002
+  {:d3f/attack-id "AML.T0084.002",
+   :d3f/definition
+   "Adversaries may discover keywords or other triggers (such as incoming emails, documents being added, incoming message, or other workflows) that activate an agent and may cause it to run additional actions.\n\nUnderstanding these triggers can reveal how the AI agent is activated and controlled. This may also expose additional paths for compromise, as an adversary could attempt to trigger the agent from outside its environment and drive it to perform unintended or malicious actions.",
+   :db/ident :d3f/AML.T0084.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Activation Triggers - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0084.002"},
+   :rdfs/subClassOf :d3f/AML.T0084,
+   :skos/prefLabel "Activation Triggers"})
+
+(def AML_T0085
+  {:d3f/attack-id "AML.T0085",
+   :d3f/definition
+   "Adversaries may use their access to a victim organization's AI-enabled services to collect proprietary or otherwise sensitive information. As organizations adopt generative AI in centralized services for accessing an organization's data, such as with chat agents which can access retrieval augmented generation (RAG) databases and other data sources via tools, they become increasingly valuable targets for adversaries.\n\nAI agents may be configured to have access to tools and data sources that are not directly accessible by users. Adversaries may abuse this to collect data that a regular user wouldn't be able to access directly.",
+   :db/ident :d3f/AML.T0085,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data from AI Services - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0085"},
+   :rdfs/subClassOf :d3f/ATLASCollectionTechnique,
+   :skos/prefLabel "Data from AI Services"})
+
+(def AML_T0085_000
+  {:d3f/attack-id "AML.T0085.000",
+   :d3f/definition
+   "Adversaries may prompt the AI service to retrieve data from a RAG database. This can include the majority of an organization's internal documents.",
+   :db/ident :d3f/AML.T0085.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "RAG Databases - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0085.000"},
+   :rdfs/subClassOf :d3f/AML.T0085,
+   :skos/prefLabel "RAG Databases"})
+
+(def AML_T0085_001
+  {:d3f/attack-id "AML.T0085.001",
+   :d3f/definition
+   "Adversaries may prompt the AI service to invoke various tools the agent has access to. Tools may retrieve data from different APIs or services in an organization.",
+   :db/ident :d3f/AML.T0085.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "AI Agent Tools - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0085.001"},
+   :rdfs/subClassOf :d3f/AML.T0085,
+   :skos/prefLabel "AI Agent Tools"})
+
+(def AML_T0086
+  {:d3f/attack-id "AML.T0086",
+   :d3f/definition
+   "Adversaries may use prompts to invoke an agent's tool capable of performing write operations to exfiltrate data. Sensitive information can be encoded into the tool's input parameters and transmitted as part of a seemingly legitimate action. Variants include sending emails, creating or modifying documents, updating CRM records, or even generating media such as images or videos.",
+   :db/ident :d3f/AML.T0086,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exfiltration via AI Agent Tool Invocation - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0086"},
+   :rdfs/subClassOf :d3f/ATLASExfiltrationTechnique,
+   :skos/prefLabel "Exfiltration via AI Agent Tool Invocation"})
+
+(def AML_T0087
+  {:d3f/attack-id "AML.T0087",
+   :d3f/definition
+   "Adversaries may gather information about the victim's identity that can be used during targeting. Information about identities may include a variety of details, including personal data (ex: employee names, email addresses, photos, etc.) as well as sensitive details such as credentials or multi-factor authentication (MFA) configurations.\n\nAdversaries may gather this information in various ways, such as direct elicitation, [Search Victim-Owned Websites](/techniques/AML.T0003), or via leaked information on the black market.\n\nAdversaries may use the gathered victim data to Create Deepfakes and impersonate them in a convincing manner. This may create opportunities for adversaries to [Establish Accounts](/techniques/AML.T0021) under the impersonated identity, or allow them to perform convincing [Phishing](/techniques/AML.T0052) attacks.",
+   :db/ident :d3f/AML.T0087,
+   :rdf/type :owl/Class,
+   :rdfs/label "Gather Victim Identity Information - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0087"},
+   :rdfs/subClassOf :d3f/ATLASReconnaissanceTechnique,
+   :skos/prefLabel "Gather Victim Identity Information"})
+
+(def AML_T0088
+  {:d3f/attack-id "AML.T0088",
+   :d3f/definition
+   "Adversaries may use generative artificial intelligence (GenAI) to create synthetic media (i.e. imagery, video, audio, and text) that appear authentic. These \"[deepfakes]( https://en.wikipedia.org/wiki/Deepfake)\" may mimic a real person or depict fictional personas. Adversaries may use deepfakes for impersonation to conduct [Phishing](/techniques/AML.T0052) or to evade AI applications such as biometric identity verification systems (see [Evade AI Model](/techniques/AML.T0015)).\n\nManipulation of media has been possible for a long time, however GenAI reduces the skill and level of effort required, allowing adversaries to rapidly scale operations to target more users or systems. It also makes real-time manipulations feasible.\n\nAdversaries may utilize open-source models and software that were designed for legitimate use cases to generate deepfakes for malicious use. However, there are some projects specifically tailored towards malicious use cases such as [ProKYC](https://www.catonetworks.com/blog/prokyc-selling-deepfake-tool-for-account-fraud-attacks/).",
+   :db/ident :d3f/AML.T0088,
+   :rdf/type :owl/Class,
+   :rdfs/label "Generate Deepfakes - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0088"},
+   :rdfs/subClassOf :d3f/ATLASAIAttackStagingTechnique,
+   :skos/prefLabel "Generate Deepfakes"})
+
+(def AML_T0089
+  {:d3f/attack-id "AML.T0089",
+   :d3f/definition
+   "Adversaries may attempt to get information about processes running on a system. Once obtained, this information could be used to gain an understanding of common AI-related software/applications running on systems within the network. Administrator or otherwise elevated access may provide better process details.\n\nIdentifying the AI software stack can then lead an adversary to new targets and attack pathways. AI-related software may require application tokens to authenticate with backend services. This provides opportunities for [Credential Access](/tactics/AML.TA0013) and [Lateral Movement](/tactics/AML.TA0015).\n\nIn Windows environments, adversaries could obtain details on running processes using the Tasklist utility via cmd or `Get-Process` via PowerShell. Information about processes can also be extracted from the output of Native API calls such as `CreateToolhelp32Snapshot`. In Mac and Linux, this is accomplished with the `ps` command. Adversaries may also opt to enumerate processes via `/proc`.",
+   :db/ident :d3f/AML.T0089,
+   :rdf/type :owl/Class,
+   :rdfs/label "Process Discovery - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0089"},
+   :rdfs/subClassOf :d3f/ATLASDiscoveryTechnique,
+   :skos/prefLabel "Process Discovery"})
+
+(def AML_T0090
+  {:d3f/attack-id "AML.T0090",
+   :d3f/definition
+   "Adversaries may extract credentials from OS caches, application memory, or other sources on a compromised system. Credentials are often in the form of a hash or clear text, and can include usernames and passwords, application tokens, or other authentication keys.\n\nCredentials can be used to perform [Lateral Movement](/tactics/AML.TA0015) to access other AI services such as AI agents, LLMs, or AI inference APIs. Credentials could also give an adversary access to other software tools and data sources that are part of the AI DevOps lifecycle.",
+   :db/ident :d3f/AML.T0090,
+   :rdf/type :owl/Class,
+   :rdfs/label "OS Credential Dumping - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0090"},
+   :rdfs/subClassOf :d3f/ATLASCredentialAccessTechnique,
+   :skos/prefLabel "OS Credential Dumping"})
+
+(def AML_T0091
+  {:d3f/attack-id "AML.T0091",
+   :d3f/definition
+   "Adversaries may use alternate authentication material, such as password hashes, Kerberos tickets, and application access tokens, in order to move laterally within an environment and bypass normal system access controls.\n\nAI services commonly use alternate authentication material as a primary means for users to make queries, making them vulnerable to this technique.",
+   :db/ident :d3f/AML.T0091,
+   :rdf/type :owl/Class,
+   :rdfs/label "Use Alternate Authentication Material - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0091"},
+   :rdfs/subClassOf :d3f/ATLASLateralMovementTechnique,
+   :skos/prefLabel "Use Alternate Authentication Material"})
+
+(def AML_T0091_000
+  {:d3f/attack-id "AML.T0091.000",
+   :d3f/definition
+   "Adversaries may use stolen application access tokens to bypass the typical authentication process and access restricted accounts, information, or services on remote systems. These tokens are typically stolen from users or services and used in lieu of login credentials.\n\nApplication access tokens are used to make authorized API requests on behalf of a user or service and are commonly used to access resources in cloud, container-based applications, and software-as-a-service (SaaS). They are commonly used for AI services such as chatbots, LLMs, and predictive inference APIs.",
+   :db/ident :d3f/AML.T0091.000,
+   :rdf/type :owl/Class,
+   :rdfs/label "Application Access Token - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://atlas.mitre.org/techniques/AML.T0091.000"},
+   :rdfs/subClassOf :d3f/AML.T0091,
+   :skos/prefLabel "Application Access Token"})
+
+(def AML_T0092
+  {:d3f/attack-id "AML.T0092",
+   :d3f/definition
+   "Adversaries may manipulate a user's large language model (LLM) chat history to cover the tracks of their malicious behavior. They may hide persistent changes they have made to the LLM's behavior, or obscure their attempts at discovering private information about the user.\n\nTo do so, adversaries may delete or edit existing messages or create new threads as part of their coverup. This is feasible if the adversary has the victim's authentication tokens for the backend LLM service or if they have direct access to the victim's chat interface.\n\nChat interfaces (especially desktop interfaces) often do not show the injected prompt for any ongoing chat, as they update chat history only once when initially opening it. This can help the adversary's manipulations go unnoticed by the victim.",
+   :db/ident :d3f/AML.T0092,
+   :rdf/type :owl/Class,
+   :rdfs/label "Manipulate User LLM Chat History - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0092"},
+   :rdfs/subClassOf :d3f/ATLASDefenseEvasionTechnique,
+   :skos/prefLabel "Manipulate User LLM Chat History"})
+
+(def AML_T0093
+  {:d3f/attack-id "AML.T0093",
+   :d3f/definition
+   "An adversary may introduce malicious prompts into the victim's system via a public-facing application with the intention of it being ingested by an AI at some point in the future and ultimately having a downstream effect. This may occur when a data source is indexed by a retrieval augmented generation (RAG) system, when a rule triggers an action by an AI agent, or when a user utilizes a large language model (LLM) to interact with the malicious content. The malicious prompts may persist on the victim system for an extended period and could affect multiple users and various AI tools within the victim organization.\n\nAny public-facing application that accepts text input could be a target. This includes email, shared document systems like OneDrive or Google Drive, and service desks or ticketing systems like Jira.\n\nAdversaries may perform [Reconnaissance](/tactics/AML.TA0002) to identify public facing applications that are likely monitored by an AI agent or are likely to be indexed by a RAG. They may perform [Discover AI Agent Configuration](/techniques/AML.T0084) to refine their targeting.",
+   :db/ident :d3f/AML.T0093,
+   :rdf/type :owl/Class,
+   :rdfs/label "Prompt Infiltration via Public-Facing Application - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0093"},
+   :rdfs/subClassOf #{:d3f/ATLASInitialAccessTechnique
+                      :d3f/ATLASPersistenceTechnique},
+   :skos/prefLabel "Prompt Infiltration via Public-Facing Application"})
+
+(def AML_T0094
+  {:d3f/attack-id "AML.T0094",
+   :d3f/definition
+   "Adversaries may include instructions to be followed by the AI system in response to a future event, such as a specific keyword or the next interaction, in order to evade detection or bypass controls placed on the AI system.\n\nFor example, an adversary may include \"If the user submits a new request...\" followed by the malicious instructions as part of their prompt.\n\nAI agents can include security measures against prompt injections that prevent the invocation of particular tools or access to certain data sources during a conversation turn that has untrusted data in context. Delaying the execution of instructions to a future interaction or keyword is one way adversaries may bypass this type of control.",
+   :db/ident :d3f/AML.T0094,
+   :rdf/type :owl/Class,
+   :rdfs/label "Delay Execution of LLM Instructions - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0094"},
+   :rdfs/subClassOf :d3f/ATLASDefenseEvasionTechnique,
+   :skos/prefLabel "Delay Execution of LLM Instructions"})
+
+(def AML_T0095
+  {:d3f/attack-id "AML.T0095",
+   :d3f/definition
+   "Adversaries may search public websites and/or domains for information about victims that can be used during targeting. Information about victims may be available in various online sites, such as social media, new sites, or domains owned by the victim.\n\nAdversaries may find the information they seek to gather via search engines. They can use precise search queries to identify software platforms or services used by the victim to use in targeting. This may be followed by [Exploit Public-Facing Application](/techniques/AML.T0049) or [Prompt Infiltration via Public-Facing Application](/techniques/AML.T0093).",
+   :db/ident :d3f/AML.T0095,
+   :rdf/type :owl/Class,
+   :rdfs/label "Search Open Websites/Domains - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques/AML.T0095"},
+   :rdfs/subClassOf :d3f/ATLASReconnaissanceTechnique,
+   :skos/prefLabel "Search Open Websites/Domains"})
+
+(def AML_TA0000
+  {:d3f/attack-id "AML.TA0000",
+   :d3f/definition
+   "The adversary is attempting to gain some level of access to an AI model.\n\nAI Model Access enables techniques that use various types of access to the AI model that can be used by the adversary to gain information, develop attacks, and as a means to input data to the model.\nThe level of access can range from the full knowledge of the internals of the model to access to the physical environment where data is collected for use in the AI model.\nThe adversary may use varying levels of model access during the course of their attack, from staging the attack to impacting the target system.\n\nAccess to an AI model may require access to the system housing the model, the model may be publicly accessible via an API, or it may be accessed indirectly via interaction with a product or service that utilizes AI as part of its processes.",
+   :db/ident :d3f/AML.TA0000,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "AI Model Access - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/tactics/AML.TA0000"},
+   :rdfs/subClassOf #{:d3f/ATLASTactic :d3f/OffensiveTactic},
+   :skos/prefLabel "AI Model Access"})
+
+(def AML_TA0001
+  {:d3f/attack-id "AML.TA0001",
+   :d3f/definition
+   "The adversary is leveraging their knowledge of and access to the target system to tailor the attack.\n\nAI Attack Staging consists of techniques adversaries use to prepare their attack on the target AI model.\nTechniques can include training proxy models, poisoning the target model, and crafting adversarial data to feed the target model.\nSome of these techniques can be performed in an offline manner and are thus difficult to mitigate.\nThese techniques are often used to achieve the adversary's end goal.",
+   :db/ident :d3f/AML.TA0001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "AI Attack Staging - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/tactics/AML.TA0001"},
+   :rdfs/subClassOf #{:d3f/ATLASTactic :d3f/OffensiveTactic},
+   :skos/prefLabel "AI Attack Staging"})
+
+(def AML_TA0002
+  {:d3f/attack-id "AML.TA0002",
+   :d3f/definition
+   "The adversary is trying to gather information about the AI system they can use to plan future operations.\n\nReconnaissance consists of techniques that involve adversaries actively or passively gathering information that can be used to support targeting.\nSuch information may include details of the victim organizations' AI capabilities and research efforts.\nThis information can be leveraged by the adversary to aid in other phases of the adversary lifecycle, such as using gathered information to obtain relevant AI artifacts, targeting AI capabilities used by the victim, tailoring attacks to the particular models used by the victim, or to drive and lead further Reconnaissance efforts.",
+   :db/ident :d3f/AML.TA0002,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Reconnaissance - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/tactics/AML.TA0002"},
+   :rdfs/subClassOf #{:d3f/ATLASTactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Reconnaissance"})
+
+(def AML_TA0003
+  {:d3f/attack-id "AML.TA0003",
+   :d3f/definition
+   "The adversary is trying to establish resources they can use to support operations.\n\nResource Development consists of techniques that involve adversaries creating,\npurchasing, or compromising/stealing resources that can be used to support targeting.\nSuch resources include AI artifacts, infrastructure, accounts, or capabilities.\nThese resources can be leveraged by the adversary to aid in other phases of the adversary lifecycle, such as [AI Attack Staging](/tactics/AML.TA0001).",
+   :db/ident :d3f/AML.TA0003,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Resource Development - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/tactics/AML.TA0003"},
+   :rdfs/subClassOf #{:d3f/ATLASTactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Resource Development"})
+
+(def AML_TA0004
+  {:d3f/attack-id "AML.TA0004",
+   :d3f/definition
+   "The adversary is trying to gain access to the AI system.\n\nThe target system could be a network, mobile device, or an edge device such as a sensor platform.\nThe AI capabilities used by the system could be local with onboard or cloud-enabled AI capabilities.\n\nInitial Access consists of techniques that use various entry vectors to gain their initial foothold within the system.",
+   :db/ident :d3f/AML.TA0004,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Initial Access - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/tactics/AML.TA0004"},
+   :rdfs/subClassOf #{:d3f/ATLASTactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Initial Access"})
+
+(def AML_TA0005
+  {:d3f/attack-id "AML.TA0005",
+   :d3f/definition
+   "The adversary is trying to run malicious code embedded in AI artifacts or software.\n\nExecution consists of techniques that result in adversary-controlled code running on a local or remote system.\nTechniques that run malicious code are often paired with techniques from all other tactics to achieve broader goals, like exploring a network or stealing data.\nFor example, an adversary might use a remote access tool to run a PowerShell script that does [Remote System Discovery](https://attack.mitre.org/techniques/T1018/).",
+   :db/ident :d3f/AML.TA0005,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Execution - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/tactics/AML.TA0005"},
+   :rdfs/subClassOf #{:d3f/ATLASTactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Execution"})
+
+(def AML_TA0006
+  {:d3f/attack-id "AML.TA0006",
+   :d3f/definition
+   "The adversary is trying to maintain their foothold via AI artifacts or software.\n\nPersistence consists of techniques that adversaries use to keep access to systems across restarts, changed credentials, and other interruptions that could cut off their access.\nTechniques used for persistence often involve leaving behind modified ML artifacts such as poisoned training data or manipulated AI models.",
+   :db/ident :d3f/AML.TA0006,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Persistence - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/tactics/AML.TA0006"},
+   :rdfs/subClassOf #{:d3f/ATLASTactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Persistence"})
+
+(def AML_TA0007
+  {:d3f/attack-id "AML.TA0007",
+   :d3f/definition
+   "The adversary is trying to avoid being detected by AI-enabled security software.\n\nDefense Evasion consists of techniques that adversaries use to avoid detection throughout their compromise.\nTechniques used for defense evasion include evading AI-enabled security software such as malware detectors.",
+   :db/ident :d3f/AML.TA0007,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Defense Evasion - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/tactics/AML.TA0007"},
+   :rdfs/subClassOf #{:d3f/ATLASTactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Defense Evasion"})
+
+(def AML_TA0008
+  {:d3f/attack-id "AML.TA0008",
+   :d3f/definition
+   "The adversary is trying to figure out your AI environment.\n\nDiscovery consists of techniques an adversary may use to gain knowledge about the system and internal network.\nThese techniques help adversaries observe the environment and orient themselves before deciding how to act.\nThey also allow adversaries to explore what they can control and what's around their entry point in order to discover how it could benefit their current objective.\nNative operating system tools are often used toward this post-compromise information-gathering objective.",
+   :db/ident :d3f/AML.TA0008,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Discovery - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/tactics/AML.TA0008"},
+   :rdfs/subClassOf #{:d3f/ATLASTactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Discovery"})
+
+(def AML_TA0009
+  {:d3f/attack-id "AML.TA0009",
+   :d3f/definition
+   "The adversary is trying to gather AI artifacts and other related information relevant to their goal.\n\nCollection consists of techniques adversaries may use to gather information and the sources information is collected from that are relevant to following through on the adversary's objectives.\nFrequently, the next goal after collecting data is to steal (exfiltrate) the AI artifacts, or use the collected information to stage future operations.\nCommon target sources include software repositories, container registries, model repositories, and object stores.",
+   :db/ident :d3f/AML.TA0009,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Collection - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/tactics/AML.TA0009"},
+   :rdfs/subClassOf #{:d3f/ATLASTactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Collection"})
+
+(def AML_TA0010
+  {:d3f/attack-id "AML.TA0010",
+   :d3f/definition
+   "The adversary is trying to steal AI artifacts or other information about the AI system.\n\nExfiltration consists of techniques that adversaries may use to steal data from your network.\nData may be stolen for its valuable intellectual property, or for use in staging future operations.\n\nTechniques for getting data out of a target network typically include transferring it over their command and control channel or an alternate channel and may also include putting size limits on the transmission.",
+   :db/ident :d3f/AML.TA0010,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Exfiltration - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/tactics/AML.TA0010"},
+   :rdfs/subClassOf #{:d3f/ATLASTactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Exfiltration"})
+
+(def AML_TA0011
+  {:d3f/attack-id "AML.TA0011",
+   :d3f/definition
+   "The adversary is trying to manipulate, interrupt, erode confidence in, or destroy your AI systems and data.\n\nImpact consists of techniques that adversaries use to disrupt availability or compromise integrity by manipulating business and operational processes.\nTechniques used for impact can include destroying or tampering with data.\nIn some cases, business processes can look fine, but may have been altered to benefit the adversaries' goals.\nThese techniques might be used by adversaries to follow through on their end goal or to provide cover for a confidentiality breach.",
+   :db/ident :d3f/AML.TA0011,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Impact - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/tactics/AML.TA0011"},
+   :rdfs/subClassOf #{:d3f/ATLASTactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Impact"})
+
+(def AML_TA0012
+  {:d3f/attack-id "AML.TA0012",
+   :d3f/definition
+   "The adversary is trying to gain higher-level permissions.\n\nPrivilege Escalation consists of techniques that adversaries use to gain higher-level permissions on a system or network. Adversaries can often enter and explore a network with unprivileged access but require elevated permissions to follow through on their objectives. Common approaches are to take advantage of system weaknesses, misconfigurations, and vulnerabilities. Examples of elevated access include:\n- SYSTEM/root level\n- local administrator\n- user account with admin-like access\n- user accounts with access to specific system or perform specific function\n\nThese techniques often overlap with Persistence techniques, as OS features that let an adversary persist can execute in an elevated context.",
+   :db/ident :d3f/AML.TA0012,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Privilege Escalation - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/tactics/AML.TA0012"},
+   :rdfs/subClassOf #{:d3f/ATLASTactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Privilege Escalation"})
+
+(def AML_TA0013
+  {:d3f/attack-id "AML.TA0013",
+   :d3f/definition
+   "The adversary is trying to steal account names and passwords.\n\nCredential Access consists of techniques for stealing credentials like account names and passwords. Techniques used to get credentials include keylogging or credential dumping. Using legitimate credentials can give adversaries access to systems, make them harder to detect, and provide the opportunity to create more accounts to help achieve their goals.",
+   :db/ident :d3f/AML.TA0013,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Credential Access - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/tactics/AML.TA0013"},
+   :rdfs/subClassOf #{:d3f/ATLASTactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Credential Access"})
+
+(def AML_TA0014
+  {:d3f/attack-id "AML.TA0014",
+   :d3f/definition
+   "The adversary is trying to communicate with compromised AI systems to control them.\n\nCommand and Control consists of techniques that adversaries may use to communicate with systems under their control within a victim network. Adversaries commonly attempt to mimic normal, expected traffic to avoid detection. There are many ways an adversary can establish command and control with various levels of stealth depending on the victim's network structure and defenses.",
+   :db/ident :d3f/AML.TA0014,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Command and Control - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/tactics/AML.TA0014"},
+   :rdfs/subClassOf #{:d3f/ATLASTactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Command and Control"})
+
+(def AML_TA0015
+  {:d3f/attack-id "AML.TA0015",
+   :d3f/definition
+   "The adversary is trying to move through your AI environment.\n\nLateral Movement consists of techniques that adversaries may use to gain access to and control other systems or components in the environment. Adversaries may pivot towards AI Ops infrastructure such as model registries, experiment trackers, vector databases, notebooks, or training pipelines. As the adversary moves through the environment, they may discover means of accessing additional AI-related tools, services, or applications. AI agents may also be a valuable target as they commonly have more permissions than standard user accounts on the system.",
+   :db/ident :d3f/AML.TA0015,
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label "Lateral Movement - ATLAS",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/tactics/AML.TA0015"},
+   :rdfs/subClassOf #{:d3f/ATLASTactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Lateral Movement"})
 
 (def ANN-basedClustering
   {:d3f/d3fend-id "D3A-ABC",
@@ -78,6 +1857,190 @@
    :rdf/type   #{:owl/NamedIndividual :d3f/DomainName},
    :rdfs/label "ASCII Domain Name"})
 
+(def ATLASAIAttackStagingTechnique
+  {:db/ident        :d3f/ATLASAIAttackStagingTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "AI Attack Staging Technique - ATLAS",
+   :rdfs/subClassOf #{:d3f/ATLASTechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/AML.TA0001,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "AI Attack Staging Technique"})
+
+(def ATLASAIModelAccessTechnique
+  {:db/ident        :d3f/ATLASAIModelAccessTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "AI Model Access Technique - ATLAS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/AML.TA0000,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATLASTechnique},
+   :skos/prefLabel  "AI Model Access Technique"})
+
+(def ATLASCollectionTechnique
+  {:db/ident        :d3f/ATLASCollectionTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Collection Technique - ATLAS",
+   :rdfs/subClassOf #{:d3f/ATLASTechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/AML.TA0009,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Collection Technique"})
+
+(def ATLASCommandAndControlTechnique
+  {:db/ident        :d3f/ATLASCommandAndControlTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Command and Control Technique - ATLAS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/AML.TA0014,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATLASTechnique},
+   :skos/prefLabel  "Command and Control Technique"})
+
+(def ATLASCredentialAccessTechnique
+  {:db/ident        :d3f/ATLASCredentialAccessTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Credential Access Technique - ATLAS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/AML.TA0013,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATLASTechnique},
+   :skos/prefLabel  "Credential Access Technique"})
+
+(def ATLASDefenseEvasionTechnique
+  {:db/ident        :d3f/ATLASDefenseEvasionTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Defense Evasion Technique - ATLAS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/AML.TA0007,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATLASTechnique},
+   :skos/prefLabel  "Defense Evasion Technique"})
+
+(def ATLASDiscoveryTechnique
+  {:db/ident        :d3f/ATLASDiscoveryTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Discovery Technique - ATLAS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/AML.TA0008,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATLASTechnique},
+   :skos/prefLabel  "Discovery Technique"})
+
+(def ATLASExecutionTechnique
+  {:db/ident        :d3f/ATLASExecutionTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Execution Technique - ATLAS",
+   :rdfs/subClassOf #{:d3f/ATLASTechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/AML.TA0005,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Execution Technique"})
+
+(def ATLASExfiltrationTechnique
+  {:db/ident        :d3f/ATLASExfiltrationTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Exfiltration Technique - ATLAS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/AML.TA0010,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATLASTechnique},
+   :skos/prefLabel  "Exfiltration Technique"})
+
+(def ATLASImpactTechnique
+  {:db/ident        :d3f/ATLASImpactTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Impact Technique - ATLAS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/AML.TA0011,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATLASTechnique},
+   :skos/prefLabel  "Impact Technique"})
+
+(def ATLASInitialAccessTechnique
+  {:db/ident        :d3f/ATLASInitialAccessTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Initial Access Technique - ATLAS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/AML.TA0004,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATLASTechnique},
+   :skos/prefLabel  "Initial Access Technique"})
+
+(def ATLASLateralMovementTechnique
+  {:db/ident        :d3f/ATLASLateralMovementTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Lateral Movement Technique - ATLAS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/AML.TA0015,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATLASTechnique},
+   :skos/prefLabel  "Lateral Movement Technique"})
+
+(def ATLASPersistenceTechnique
+  {:db/ident        :d3f/ATLASPersistenceTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Persistence Technique - ATLAS",
+   :rdfs/subClassOf #{:d3f/ATLASTechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/AML.TA0006,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Persistence Technique"})
+
+(def ATLASPrivilegeEscalationTechnique
+  {:db/ident        :d3f/ATLASPrivilegeEscalationTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Privilege Escalation Technique - ATLAS",
+   :rdfs/subClassOf #{:d3f/ATLASTechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/AML.TA0012,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Privilege Escalation Technique"})
+
+(def ATLASReconnaissanceTechnique
+  {:db/ident        :d3f/ATLASReconnaissanceTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Reconnaissance Technique - ATLAS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/AML.TA0002,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATLASTechnique},
+   :skos/prefLabel  "Reconnaissance Technique"})
+
+(def ATLASResourceDevelopmentTechnique
+  {:db/ident        :d3f/ATLASResourceDevelopmentTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Resource Development Technique - ATLAS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/AML.TA0003,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATLASTechnique},
+   :skos/prefLabel  "Resource Development Technique"})
+
+(def ATLASTactic
+  {:d3f/definition
+   "An ATLAS Tactic is a categorical classification of techniques within the MITRE ATLAS™ framework, representing adversarial goals particular to artificial intelligence systems. It also adapts MITRE ATT&CK® Enterprise Matrix tactics by integrating machine learning concepts, thus capturing the unique motives behind actions in AI-specific operations.",
+   :db/ident :d3f/ATLASTactic,
+   :rdf/type :owl/Class,
+   :rdfs/label "ATLAS Tactic",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/tactics"},
+   :rdfs/subClassOf :d3f/ATLASThing})
+
+(def ATLASTechnique
+  {:d3f/definition
+   "An ATLAS Technique is an action conducted by adversaries to accomplish tactical goals within the context of artificial intelligence systems. These techniques articulate both 'how' adversaries execute these actions to reach their objectives and 'what' outcomes are achieved from these maneuvers.",
+   :db/ident :d3f/ATLASTechnique,
+   :rdf/type :owl/Class,
+   :rdfs/label "ATLAS Technique",
+   :rdfs/seeAlso {:xsd/anyURI "https://atlas.mitre.org/techniques"},
+   :rdfs/subClassOf :d3f/ATLASThing})
+
+(def ATLASThing
+  {:db/ident        :d3f/ATLASThing,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "ATLAS Thing",
+   :rdfs/subClassOf :d3f/ExternalThreatModelThing})
+
 (def ATTACKEnterpriseDataSource
   {:db/ident        :d3f/ATTACKEnterpriseDataSource,
    :rdf/type        :owl/Class,
@@ -114,10 +2077,290 @@
    :rdfs/label      "ATTACK Enterprise Thing",
    :rdfs/subClassOf :d3f/ATTACKThing})
 
+(def ATTACKICSCollectionTechnique
+  {:db/ident        :d3f/ATTACKICSCollectionTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Collection Technique - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSTechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0100,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Collection Technique"})
+
+(def ATTACKICSCommandAndControlTechnique
+  {:db/ident        :d3f/ATTACKICSCommandAndControlTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Command and Control Technique - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSTechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0101,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Command and Control Technique"})
+
+(def ATTACKICSDiscoveryTechnique
+  {:db/ident        :d3f/ATTACKICSDiscoveryTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Discovery Technique - ATTACK ICS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0102,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATTACKICSTechnique},
+   :skos/prefLabel  "Discovery Technique"})
+
+(def ATTACKICSEvasionTechnique
+  {:db/ident        :d3f/ATTACKICSEvasionTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Evasion Technique - ATTACK ICS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0103,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATTACKICSTechnique},
+   :skos/prefLabel  "Evasion Technique"})
+
+(def ATTACKICSExecutionTechnique
+  {:db/ident        :d3f/ATTACKICSExecutionTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Execution Technique - ATTACK ICS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0104,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATTACKICSTechnique},
+   :skos/prefLabel  "Execution Technique"})
+
+(def ATTACKICSImpactTechnique
+  {:db/ident        :d3f/ATTACKICSImpactTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Impact Technique - ATTACK ICS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0105,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATTACKICSTechnique},
+   :skos/prefLabel  "Impact Technique"})
+
+(def ATTACKICSImpairProcessControlTechnique
+  {:d3f/definition
+   "The adversary is trying to manipulate, disable, or damage physical control processes.",
+   :db/ident :d3f/ATTACKICSImpairProcessControlTechnique,
+   :rdf/type :owl/Class,
+   :rdfs/label "Impair Process Control Technique - ATTACK ICS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0106,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATTACKICSTechnique},
+   :skos/prefLabel "Impair Process Control Technique"})
+
+(def ATTACKICSInhibitResponseFunctionTechnique
+  {:d3f/definition
+   "The adversary is trying to prevent your safety, protection, quality assurance, and operator intervention functions from responding to a failure, hazard, or unsafe state.",
+   :db/ident :d3f/ATTACKICSInhibitResponseFunctionTechnique,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inhibit Response Function Technique - ATTACK ICS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0107,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATTACKICSTechnique},
+   :skos/prefLabel "Inhibit Response Function Technique"})
+
+(def ATTACKICSInitialAccessTechnique
+  {:db/ident        :d3f/ATTACKICSInitialAccessTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Initial Access Technique - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSTechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0108,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Initial Access Technique"})
+
+(def ATTACKICSLateralMovementTechnique
+  {:db/ident        :d3f/ATTACKICSLateralMovementTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Lateral Movement Technique - ATTACK ICS",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0109,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATTACKICSTechnique},
+   :skos/prefLabel  "Lateral Movement Technique"})
+
+(def ATTACKICSPersistenceTechnique
+  {:db/ident        :d3f/ATTACKICSPersistenceTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Persistence Technique - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSTechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0110,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Persistence Technique"})
+
+(def ATTACKICSPrivilegeEscalationTechnique
+  {:db/ident        :d3f/ATTACKICSPrivilegeEscalationTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Privilege Escalation Technique - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSTechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0111,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Privilege Escalation Technique"})
+
+(def ATTACKICSTactic
+  {:db/ident        :d3f/ATTACKICSTactic,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "ATTACK ICS Tactic",
+   :rdfs/subClassOf :d3f/ATTACKICSThing})
+
+(def ATTACKICSTechnique
+  {:db/ident        :d3f/ATTACKICSTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "ATTACK ICS Technique",
+   :rdfs/subClassOf :d3f/ATTACKICSThing})
+
+(def ATTACKICSThing
+  {:db/ident        :d3f/ATTACKICSThing,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "ATTACK ICS Thing",
+   :rdfs/subClassOf :d3f/ATTACKThing})
+
 (def ATTACKMergedThing
   {:db/ident        :d3f/ATTACKMergedThing,
    :rdf/type        :owl/Class,
    :rdfs/label      "ATTACK Merged Thing",
+   :rdfs/subClassOf :d3f/ATTACKThing})
+
+(def ATTACKMobileCollectionTechnique
+  {:db/ident        :d3f/ATTACKMobileCollectionTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Collection Technique - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileTechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0035,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Collection Technique"})
+
+(def ATTACKMobileCommandAndControlTechnique
+  {:db/ident        :d3f/ATTACKMobileCommandAndControlTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Command and Control Technique - ATTACK Mobile",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0037,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATTACKMobileTechnique},
+   :skos/prefLabel  "Command and Control Technique"})
+
+(def ATTACKMobileCredentialAccessTechnique
+  {:db/ident        :d3f/ATTACKMobileCredentialAccessTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Credential Access Technique - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileTechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0031,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Credential Access Technique"})
+
+(def ATTACKMobileDefenseEvasionTechnique
+  {:db/ident        :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Defense Evasion Technique - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileTechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0030,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Defense Evasion Technique"})
+
+(def ATTACKMobileDiscoveryTechnique
+  {:db/ident        :d3f/ATTACKMobileDiscoveryTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Discovery Technique - ATTACK Mobile",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0032,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATTACKMobileTechnique},
+   :skos/prefLabel  "Discovery Technique"})
+
+(def ATTACKMobileExecutionTechnique
+  {:db/ident        :d3f/ATTACKMobileExecutionTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Execution Technique - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileTechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0041,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Execution Technique"})
+
+(def ATTACKMobileExfiltrationTechnique
+  {:db/ident        :d3f/ATTACKMobileExfiltrationTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Exfiltration Technique - ATTACK Mobile",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0036,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATTACKMobileTechnique},
+   :skos/prefLabel  "Exfiltration Technique"})
+
+(def ATTACKMobileImpactTechnique
+  {:db/ident        :d3f/ATTACKMobileImpactTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Impact Technique - ATTACK Mobile",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0034,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATTACKMobileTechnique},
+   :skos/prefLabel  "Impact Technique"})
+
+(def ATTACKMobileInitialAccessTechnique
+  {:db/ident        :d3f/ATTACKMobileInitialAccessTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Initial Access Technique - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileTechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0027,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Initial Access Technique"})
+
+(def ATTACKMobileLateralMovementTechnique
+  {:db/ident        :d3f/ATTACKMobileLateralMovementTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Lateral Movement Technique - ATTACK Mobile",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0033,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATTACKMobileTechnique},
+   :skos/prefLabel  "Lateral Movement Technique"})
+
+(def ATTACKMobilePersistenceTechnique
+  {:db/ident        :d3f/ATTACKMobilePersistenceTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Persistence Technique - ATTACK Mobile",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0028,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATTACKMobileTechnique},
+   :skos/prefLabel  "Persistence Technique"})
+
+(def ATTACKMobilePrivilegeEscalationTechnique
+  {:db/ident        :d3f/ATTACKMobilePrivilegeEscalationTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Privilege Escalation Technique - ATTACK Mobile",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/TA0029,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ATTACKMobileTechnique},
+   :skos/prefLabel  "Privilege Escalation Technique"})
+
+(def ATTACKMobileTactic
+  {:db/ident        :d3f/ATTACKMobileTactic,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "ATTACK Mobile Tactic",
+   :rdfs/subClassOf :d3f/ATTACKMobileThing})
+
+(def ATTACKMobileTechnique
+  {:db/ident        :d3f/ATTACKMobileTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "ATTACK Mobile Technique",
+   :rdfs/subClassOf :d3f/ATTACKMobileThing})
+
+(def ATTACKMobileThing
+  {:db/ident        :d3f/ATTACKMobileThing,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "ATTACK Mobile Thing",
    :rdfs/subClassOf :d3f/ATTACKThing})
 
 (def ATTACKThing
@@ -141,7 +2384,7 @@
    :rdfs/label      "Access",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/Resource,
-                       :rdf/type           :owl/Restriction} :d3f/Event
+                       :rdf/type           :owl/Restriction} :d3f/Action
                       {:owl/onProperty     :d3f/has-mediator,
                        :owl/someValuesFrom :d3f/AccessMediator,
                        :rdf/type           :owl/Restriction}}})
@@ -795,6 +3038,34 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/DigitalEvent}})
 
+(def ApplicationExceptionMonitoring
+  {:d3f/d3fend-id "D3-AEM",
+   :d3f/definition "Monitoring the failures of system counters and timers.",
+   :d3f/kb-article
+   "## How it works\nMonitoring timer and counter failures or exceedances can reveal issues with the program or platform, and is important for both safety and security. It may also help identify tampering or malicious activity affecting the device or the processes it controls.",
+   :d3f/kb-reference :d3f/Reference-SecurePLCCodingPracticesTop20List,
+   :d3f/monitors #{:d3f/Log :d3f/ApplicationFailureCountVariable},
+   :d3f/synonym "Application Failure Monitoring",
+   :db/ident :d3f/ApplicationExceptionMonitoring,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Application Exception Monitoring",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/monitors,
+                       :owl/someValuesFrom :d3f/Log,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ApplicationPerformanceMonitoring
+                      {:owl/onProperty     :d3f/monitors,
+                       :owl/someValuesFrom :d3f/ApplicationFailureCountVariable,
+                       :rdf/type           :owl/Restriction}}})
+
+(def ApplicationFailureCountVariable
+  {:d3f/definition "Variables that keep count of various failures and errors.",
+   :db/ident :d3f/ApplicationFailureCountVariable,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   "Differenct controller brands have different system tags to monitor various aspects, for example in Allen-Bradley you might use S:ERR, T4:0.DN, C5:0.OV; respectively System error, timer/counter status bits",
+   :rdfs/label "Application Failure Count Variable",
+   :rdfs/subClassOf :d3f/RuntimeVariable})
+
 (def ApplicationHardening
   {:d3f/d3fend-id "D3-AH",
    :d3f/definition
@@ -868,6 +3139,25 @@
    :rdfs/label "Application Layer Link",
    :rdfs/subClassOf :d3f/LogicalLink})
 
+(def ApplicationPerformanceMonitoring
+  {:d3f/d3fend-id "D3-APM",
+   :d3f/definition
+   "Monitoring the count and duration of the application or program cycle.",
+   :d3f/kb-article
+   "## How it works\nKeeping track of the controller cycle time by logging it, setting alarms, and correlating with other events. Changes to cycle time can be indicative of injecting new logic, deleting logic, or system failures.",
+   :d3f/kb-reference :d3f/Reference-SecurePLCCodingPracticesTop20List,
+   :d3f/monitors #{:d3f/ApplicationScanTime :d3f/SystemApplicationCycleCount},
+   :db/ident :d3f/ApplicationPerformanceMonitoring,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Application Performance Monitoring",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/monitors,
+                       :owl/someValuesFrom :d3f/SystemApplicationCycleCount,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/monitors,
+                       :owl/someValuesFrom :d3f/ApplicationScanTime,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/PlatformMonitoring}})
+
 (def ApplicationProcess
   {:d3f/definition
    "An application process is an instance of an application computer program that is being executed.",
@@ -890,6 +3180,24 @@
    :rdfs/label "Application Process Configuration",
    :rdfs/subClassOf :d3f/ApplicationConfiguration})
 
+(def ApplicationProtocolCommandAnalysis
+  {:d3f/d3fend-id "D3-APCA",
+   :d3f/definition
+   "Analyzing application protocol level remote commands to detect unauthorized activity.",
+   :d3f/kb-article
+   "## How it works\nThis technique requires the ability to parse application layer protocols to understand the commands being sent to a remote service. Signature-based or statistical analysis may be employed to identify unauthorized commands being sent. These commands can be observed by monitoring network traffic or application logs.",
+   :d3f/kb-reference
+   #{:d3f/Reference-ProtocolBasedDetectionOfSuspiciousNetworkTraffic
+     :d3f/Reference-MethodAndApparatusForDetectingAnomaliesOfAnInfrastructureInANetwork},
+   :d3f/monitors :d3f/NetworkTraffic,
+   :db/ident :d3f/ApplicationProtocolCommandAnalysis,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Application Protocol Command Analysis",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/monitors,
+                       :owl/someValuesFrom :d3f/NetworkTraffic,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/NetworkTrafficAnalysis}})
+
 (def ApplicationRestartEvent
   {:d3f/definition
    "An event where an application is sequentially stopped and started, typically to refresh its state, apply updates, or resolve issues while preserving its availability.",
@@ -911,6 +3219,22 @@
    :rdf/type :owl/Class,
    :rdfs/label "Application Rule",
    :rdfs/subClassOf :d3f/ApplicationConfiguration})
+
+(def ApplicationRuntimeVariable
+  {:d3f/definition
+   "A system variable that tracks aspects of runtime of a system.",
+   :db/ident :d3f/ApplicationRuntimeVariable,
+   :rdf/type :owl/Class,
+   :rdfs/label "Application Runtime Variable",
+   :rdfs/subClassOf :d3f/RuntimeVariable})
+
+(def ApplicationScanTime
+  {:d3f/definition
+   "A variable that tracks the measured time it takes to begin, run, and complete a select portion of an application's logic.",
+   :db/ident :d3f/ApplicationScanTime,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Application Scan Time",
+   :rdfs/subClassOf :d3f/ApplicationRuntimeVariable})
 
 (def ApplicationShim
   {:d3f/definition
@@ -14481,15 +16805,15 @@
                        :rdf/type           :owl/Restriction} :d3f/TrustStore}})
 
 (def ChangeDefaultPassword
-  {:d3f/d3fend-id "D3-CFP",
+  {:d3f/d3fend-id "D3-CDP",
    :d3f/definition
    "Changing the default password means replacing the factory-set credentials with a strong, unique password before the device is deployed, preventing unauthorized access.",
    :d3f/hardens :d3f/OTController,
    :d3f/kb-article
    "## How it works\nChange the default password as soon as a new device is received. The default credentials are normally documented in an instruction manual that is either packaged with the device, published online through official means, or published online through unofficial means.\n\n## Considerations\n* These should be changed before a device is brought online so that an adversary cannot take advantage of these default credentials.\n* Strong and complex passwords are preferred if the technology allows.",
-   :d3f/kb-reference #{:d3f/Reference-CPGChecklist
-                       :d3f/Reference-MITREATTACKPasswordPolicies
-                       :d3f/Reference-GuidetoOTSecurity},
+   :d3f/kb-reference #{:d3f/Reference-GuideToOTSecurity
+                       :d3f/Reference-CPGChecklist
+                       :d3f/Reference-MITREATTACKPasswordPolicies},
    :d3f/strengthens #{:d3f/UserAccount :d3f/Password},
    :db/ident :d3f/ChangeDefaultPassword,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
@@ -14771,30 +17095,48 @@
    :rdfs/subClassOf :d3f/UserApplication})
 
 (def CollectionTechnique
-  {:d3f/enables     :d3f/TA0009,
-   :db/ident        :d3f/CollectionTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Collection Technique",
+  {:d3f/definition
+   "The adversary is trying to gather data of interest to their goal.",
+   :d3f/enables :d3f/TA0009,
+   :db/ident :d3f/CollectionTechnique,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Collection Technique",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/TA0009,
                        :rdf/type           :owl/Restriction}
                       :d3f/ATTACKEnterpriseTechnique :d3f/OffensiveTechnique}})
 
+(def CombinationLock
+  {:d3f/definition
+   "A combination lock is a type of locking device in which a sequence of symbols, usually numbers, is used to open the lock.",
+   :db/ident :d3f/CombinationLock,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "https://dbpedia.org/resource/Combination_lock"},
+   :rdfs/label "Combination Lock",
+   :rdfs/seeAlso {:rdf/value "Federal Specification FL-L-2937"},
+   :rdfs/subClassOf #{:d3f/PhysicalLock
+                      {:owl/onProperty     :d3f/uses,
+                       :owl/someValuesFrom :d3f/Password,
+                       :rdf/type           :owl/Restriction}}})
+
 (def Command
   {:d3f/definition
-   "In computing, a command is a directive to a computer program acting as an interpreter of some kind, in order to perform a specific task. Most commonly a command is either a directive to some kind of command-line interface, such as a shell, or an event in a graphical user interface triggered by the user selecting an option in a menu.",
+   "A directive (i.e., an instruction specifying a procedure) which, when issued to a computer system, software, or hardware component, causes that entity to execute a specific action, operation, or computation.",
    :db/ident :d3f/Command,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Command_(computing)"},
    :rdfs/label "Command",
    :rdfs/subClassOf :d3f/DigitalInformation})
 
 (def CommandAndControlTechnique
-  {:d3f/enables     :d3f/TA0011,
-   :db/ident        :d3f/CommandAndControlTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Command and Control Technique",
+  {:d3f/definition
+   "The adversary is trying to communicate with compromised systems to control them.",
+   :d3f/enables :d3f/TA0011,
+   :db/ident :d3f/CommandAndControlTechnique,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Command and Control Technique",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/TA0011,
                        :rdf/type           :owl/Restriction}
@@ -14872,6 +17214,42 @@
                        :owl/someValuesFrom :d3f/Processor,
                        :rdf/type           :owl/Restriction}}})
 
+(def ComputerCabinet
+  {:d3f/definition
+   "A computer cabinet houses one or more computers and can range in size and material.",
+   :db/ident :d3f/ComputerCabinet,
+   :rdf/type :owl/Class,
+   :rdfs/label "Computer Cabinet",
+   :rdfs/seeAlso #{{:rdf/value "IEEE C37.20.2"}
+                   {:xsd/anyURI "https://dbpedia.org/page/Computer_cabinet"}},
+   :rdfs/subClassOf :d3f/ComputerEnclosure})
+
+(def ComputerCase
+  {:d3f/definition
+   "A computer case is a computer enclosure which encloses a single primary computer.",
+   :db/ident :d3f/ComputerCase,
+   :rdf/type :owl/Class,
+   :rdfs/label "Computer Case",
+   :rdfs/seeAlso {:xsd/anyURI "https://dbpedia.org/page/Computer_case"},
+   :rdfs/subClassOf :d3f/ComputerEnclosure})
+
+(def ComputerEnclosure
+  {:d3f/definition
+   "A part providing protection of computer equipment against certain external influences and protects against direct contact.",
+   :db/ident :d3f/ComputerEnclosure,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Computer Enclosure",
+   :rdfs/seeAlso #{{:xsd/anyURI
+                    "https://dbpedia.org/page/Category:Computer_enclosure"}
+                   {:rdf/value "[IEV 826-03-12]"}},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-contain,
+                       :owl/someValuesFrom :d3f/PhysicalLock,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/ComputerPlatform,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/PhysicalArtifact}})
+
 (def ComputerNetworkNode
   {:d3f/definition  "A network node running on a computer platform.",
    :db/ident        :d3f/ComputerNetworkNode,
@@ -14880,7 +17258,8 @@
    :rdfs/subClassOf #{:d3f/NetworkNode :d3f/ComputerPlatform}})
 
 (def ComputerPlatform
-  {:d3f/contains #{:d3f/Firmware :d3f/OperatingSystem :d3f/HardwareDevice},
+  {:d3f/contains #{:d3f/Firmware :d3f/OperatingSystem
+                   :d3f/SystemPlatformVariable :d3f/HardwareDevice},
    :d3f/definition
    "Platform includes the hardware and OS. The term computing platform can refer to different abstraction levels, including a certain hardware architecture, an operating system (OS), and runtime libraries. In total it can be said to be the stage on which computer programs can run.",
    :d3f/synonym "Computing Platform",
@@ -14890,6 +17269,9 @@
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Computing_platform"},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
                        :owl/someValuesFrom :d3f/Firmware,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/SystemPlatformVariable,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/contains,
                        :owl/someValuesFrom :d3f/OperatingSystem,
@@ -15128,15 +17510,19 @@
 (def ContainerOrchestrationSoftware
   {:d3f/definition
    "A d3f:Software which manages and coordinates running one or more d3f:ContainerProcess.",
+   :d3f/manages :d3f/ContainerProcess,
    :db/ident :d3f/ContainerOrchestrationSoftware,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Container Orchestration Software",
-   :rdfs/subClassOf :d3f/ServiceApplication})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/manages,
+                       :owl/someValuesFrom :d3f/ContainerProcess,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ServiceApplication}})
 
 (def ContainerProcess
   {:d3f/definition  "A running instance of a container image.",
    :db/ident        :d3f/ContainerProcess,
-   :rdf/type        :owl/Class,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Container Process",
    :rdfs/seeAlso    #{:d3f/ContainerImage
                       {:xsd/anyURI "https://schema.ocsf.io/objects/container"}},
@@ -15551,12 +17937,16 @@
 (def CredentialManagementSystem
   {:d3f/definition
    "Credential Management, also referred to as a Credential Management System (CMS), is an established form of software that is used for issuing and managing credentials as part of public key infrastructure (PKI).",
+   :d3f/manages :d3f/Credential,
    :db/ident :d3f/CredentialManagementSystem,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Credential_Management"},
    :rdfs/label "Credential Management System",
-   :rdfs/subClassOf :d3f/ServiceApplication})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/manages,
+                       :owl/someValuesFrom :d3f/Credential,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ServiceApplication}})
 
 (def CredentialRevocation
   {:d3f/d3fend-id "D3-CR",
@@ -15621,7 +18011,7 @@
    "Limiting the transmission of a credential to a scoped set of relying parties.",
    :d3f/isolates :d3f/Credential,
    :d3f/kb-reference
-   :d3f/Reference-WebAuthentication_AnAPIForAccessingPublicKeyCredentials%0ALevel2,
+   :d3f/Reference-WebAuthentication_AnAPIForAccessingPublicKeyCredentialsLevel2,
    :d3f/synonym "Phishing Resistant Authentication",
    :db/ident :d3f/CredentialTransmissionScoping,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
@@ -15705,6 +18095,390 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "DBSCAN",
    :rdfs/subClassOf :d3f/Density-basedClustering})
+
+(def DE-0001
+  {:d3f/attack-id "DE-0001",
+   :d3f/definition
+   "Threat actors may disable fault management within the victim spacecraft during the attack campaign. During the development process, many fault management mechanisms are added to the various parts of the spacecraft in order to protect it from a variety of bad/corrupted commands, invalid sensor data, and more. By disabling these mechanisms, threat actors may be able to have commands processed that would not normally be allowed.",
+   :db/ident :d3f/DE-0001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Disable Fault Management - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0001/"},
+   :rdfs/subClassOf :d3f/SPARTADefenseEvasionTechnique,
+   :skos/prefLabel "Disable Fault Management"})
+
+(def DE-0002
+  {:d3f/attack-id "DE-0002",
+   :d3f/definition
+   "Threat actors may target ground-side telemetry reception, processing, or display to disrupt the operator’s visibility into spacecraft health and activity. This may involve denial-based attacks that prevent the spacecraft from transmitting telemetry to the ground (e.g., disabling telemetry links or crashing telemetry software), or more subtle deception-based attacks that manipulate telemetry content to conceal unauthorized actions. Since telemetry is the primary method ground controllers rely on to monitor spacecraft status, any disruption or manipulation can delay or prevent detection of malicious activity, suppress automated or manual mitigations, or degrade trust in telemetry-based decision support systems.",
+   :db/ident :d3f/DE-0002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Disrupt or Deceive Downlink - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0002/"},
+   :rdfs/subClassOf :d3f/SPARTADefenseEvasionTechnique,
+   :skos/prefLabel "Disrupt or Deceive Downlink"})
+
+(def DE-0002_01
+  {:d3f/attack-id "DE-0002.01",
+   :d3f/definition
+   "Threat actors may utilize access to the ground system to inhibit its ability to accurately process, render, or interpret spacecraft telemetry, effectively leaving ground controllers unaware of the spacecraft’s true state or activity. This may involve traditional denial-based techniques, such as disabling telemetry software, corrupting processing pipelines, or crashing display interfaces. In addition, more subtle deception-based techniques may be used to falsify telemetry data within the ground system — such as modifying command counters, acknowledgments, housekeeping data, or sensor outputs — to provide the appearance of nominal operation. These actions can suppress alerts, mask unauthorized activity, or prevent both automated and manual mitigations from being initiated based on misleading ground-side information. Because telemetry is the primary method by which ground controllers monitor the health, behavior, and safety of the spacecraft, any disruption or falsification of this data directly undermines situational awareness and operational control.",
+   :db/ident :d3f/DE-0002.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inhibit Ground System Functionality - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0002/01/"},
+   :rdfs/subClassOf :d3f/DE-0002,
+   :skos/prefLabel "Inhibit Ground System Functionality"})
+
+(def DE-0002_02
+  {:d3f/attack-id "DE-0002.02",
+   :d3f/definition
+   "Threat actors may overwhelm/jam the downlink signal to prevent transmitted telemetry signals from reaching their destination without severe modification/interference, effectively leaving ground controllers unaware of vehicle activity during this time. Telemetry is the only method in which ground controllers can monitor the health and stability of the spacecraft while in orbit. By disabling this downlink, threat actors may be able to stop mitigations from taking place.",
+   :db/ident :d3f/DE-0002.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Jam Link Signal - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0002/02/"},
+   :rdfs/subClassOf :d3f/DE-0002,
+   :skos/prefLabel "Jam Link Signal"})
+
+(def DE-0002_03
+  {:d3f/attack-id "DE-0002.03",
+   :d3f/definition
+   "Threat actors may manipulate or shut down a target spacecraft's on-board processes to inhibit the spacecraft's ability to generate or transmit telemetry signals, effectively leaving ground controllers unaware of vehicle activity during this time. Telemetry is the only method in which ground controllers can monitor the health and stability of the spacecraft while in orbit. By disabling this downlink, threat actors may be able to stop mitigations from taking place.",
+   :db/ident :d3f/DE-0002.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Inhibit Spacecraft Functionality - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0002/03/"},
+   :rdfs/subClassOf :d3f/DE-0002,
+   :skos/prefLabel "Inhibit Spacecraft Functionality"})
+
+(def DE-0003
+  {:d3f/attack-id "DE-0003",
+   :d3f/definition
+   "Threat actors may target various onboard values put in place to prevent malicious or poorly crafted commands from being processed. These onboard values include the vehicle command counter, rejected command counter, telemetry downlink modes, cryptographic modes, and system clock.",
+   :db/ident :d3f/DE-0003,
+   :rdf/type :owl/Class,
+   :rdfs/label "On-Board Values Obfuscation - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0003/"},
+   :rdfs/subClassOf :d3f/SPARTADefenseEvasionTechnique,
+   :skos/prefLabel "On-Board Values Obfuscation"})
+
+(def DE-0003_01
+  {:d3f/attack-id "DE-0003.01",
+   :d3f/definition
+   "Threat actors may attempt to hide their attempted attacks by modifying the onboard Vehicle Command Counter (VCC). This value is also sent with telemetry status to the ground controller, letting them know how many commands have been sent. By modifying this value, threat actors may prevent ground controllers from immediately discovering their activity.",
+   :db/ident :d3f/DE-0003.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Vehicle Command Counter (VCC) - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0003/01/"},
+   :rdfs/subClassOf :d3f/DE-0003,
+   :skos/prefLabel "Vehicle Command Counter (VCC)"})
+
+(def DE-0003_02
+  {:d3f/attack-id "DE-0003.02",
+   :d3f/definition
+   "Threat actors may attempt to hide their attempted attacks by modifying the onboard Rejected Command Counter. Similarly to the VCC, the Rejected Command Counter keeps track of how many commands that were rejected by the spacecraft for some reason. Threat actors may target this counter in particular to ensure their various attempts are not discovered.",
+   :db/ident :d3f/DE-0003.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Rejected Command Counter - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0003/02/"},
+   :rdfs/subClassOf :d3f/DE-0003,
+   :skos/prefLabel "Rejected Command Counter"})
+
+(def DE-0003_03
+  {:d3f/attack-id "DE-0003.03",
+   :d3f/definition
+   "Threat actors may modify the command receiver mode, in particular turning it on or off. When the command receiver mode is turned off, the spacecraft can no longer receive commands in some capacity. Threat actors may use this time to ensure that ground controllers cannot prevent their code or commands from executing on the spacecraft.",
+   :db/ident :d3f/DE-0003.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Command Receiver On/Off Mode - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0003/03/"},
+   :rdfs/subClassOf :d3f/DE-0003,
+   :skos/prefLabel "Command Receiver On/Off Mode"})
+
+(def DE-0003_04
+  {:d3f/attack-id "DE-0003.04",
+   :d3f/definition
+   "Threat actors may target the on-board command receivers received signal parameters (i.e., automatic gain control (AGC)) in order to stop specific commands or signals from being processed by the spacecraft. For ground controllers to communicate with spacecraft in orbit, the on-board receivers need to be configured to receive signals with a specific signal to noise ratio (ratio of signal power to the noise power). Targeting values related to the antenna signaling that are modifiable can prevent the spacecraft from receiving ground commands.",
+   :db/ident :d3f/DE-0003.04,
+   :rdf/type :owl/Class,
+   :rdfs/label "Command Receivers Received Signal Strength - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0003/04/"},
+   :rdfs/subClassOf :d3f/DE-0003,
+   :skos/prefLabel "Command Receivers Received Signal Strength"})
+
+(def DE-0003_05
+  {:d3f/attack-id "DE-0003.05",
+   :d3f/definition
+   "When the received signal strength reaches the established threshold for reliable communications, command receiver lock is achieved. Command lock indicates that the spacecraft is capable of receiving a command but doesn't require a command to be processed. Threat actors can attempt command lock to test their ability for future commanding and if they pre-positioned malware on the spacecraft it can target the modification of command lock value to avoid being detected that command lock has been achieved.",
+   :db/ident :d3f/DE-0003.05,
+   :rdf/type :owl/Class,
+   :rdfs/label "Command Receiver Lock Modes - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0003/05/"},
+   :rdfs/subClassOf :d3f/DE-0003,
+   :skos/prefLabel "Command Receiver Lock Modes"})
+
+(def DE-0003_06
+  {:d3f/attack-id "DE-0003.06",
+   :d3f/definition
+   "Threat actors may target the various downlink modes configured within the victim spacecraft. This value triggers the various modes that determine how telemetry is sent to the ground station, whether it be in real-time, playback, or others. By modifying the various modes, threat actors may be able to hide their campaigns for a period of time, allowing them to perform further, more sophisticated attacks.",
+   :db/ident :d3f/DE-0003.06,
+   :rdf/type :owl/Class,
+   :rdfs/label "Telemetry Downlink Modes - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0003/06/"},
+   :rdfs/subClassOf :d3f/DE-0003,
+   :skos/prefLabel "Telemetry Downlink Modes"})
+
+(def DE-0003_07
+  {:d3f/attack-id "DE-0003.07",
+   :d3f/definition
+   "Threat actors may modify the internal cryptographic modes of the victim spacecraft. Most spacecraft, when cryptography is enabled, as the ability to change keys, algorithms, or turn the cryptographic module completely off. Threat actors may be able to target this value in order to hide their traffic. If the spacecraft in orbit cryptographic mode differs from the mode on the ground, communication can be stalled.",
+   :db/ident :d3f/DE-0003.07,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cryptographic Modes - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0003/07/"},
+   :rdfs/subClassOf :d3f/DE-0003,
+   :skos/prefLabel "Cryptographic Modes"})
+
+(def DE-0003_08
+  {:d3f/attack-id "DE-0003.08",
+   :d3f/definition
+   "Satellites often record which commands were received and executed. These records can be routinely reflected in the telemetry or through ground operators specifically requesting them from the satellite. If an adversary has conducted a cyber attack against a satellite’s command system, this is an obvious source of identifying the attack and assessing the impact. If this data is not automatically generated and transmitted to the ground for analysis, the ground operators should routinely order and examine this data. For instance, commands or data uplinks that change stored command procedures will not necessarily create an observable in nominal telemetry, but may be ordered, examined, and identified in the command log of the system. Threat actors may manipulate these stored logs to avoid detection.",
+   :db/ident :d3f/DE-0003.08,
+   :rdf/type :owl/Class,
+   :rdfs/label "Received Commands - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0003/08/"},
+   :rdfs/subClassOf :d3f/DE-0003,
+   :skos/prefLabel "Received Commands"})
+
+(def DE-0003_09
+  {:d3f/attack-id "DE-0003.09",
+   :d3f/definition
+   "Telemetry frames are a snapshot of satellite data at a particular time. Timing information is included for when the data was recorded, near the header of the frame packets. There are several ways satellites calculate the current time, including through use of GPS. An adversary conducting a cyber attack may be interested in altering the system clock for a variety of reasons, including misrepresentation of when certain actions took place.",
+   :db/ident :d3f/DE-0003.09,
+   :rdf/type :owl/Class,
+   :rdfs/label "System Clock for Evasion - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0003/09/"},
+   :rdfs/subClassOf :d3f/DE-0003,
+   :skos/prefLabel "System Clock for Evasion"})
+
+(def DE-0003_10
+  {:d3f/attack-id "DE-0003.10",
+   :d3f/definition
+   "A satellite with a GPS receiver can use ephemeris data from GPS satellites to estimate its own position in space. A hostile actor could spoof the GPS signals to cause erroneous calculations of the satellite’s position. The received ephemeris data is often telemetered and can be monitored for indications of GPS spoofing. Reception of ephemeris data that changes suddenly without a reasonable explanation (such as a known GPS satellite handoff), could provide an indication of GPS spoofing and warrant further analysis. Threat actors could also change the course of the vehicle and falsify the telemetered data to temporarily convince ground operators the vehicle is still on a proper course.",
+   :db/ident :d3f/DE-0003.10,
+   :rdf/type :owl/Class,
+   :rdfs/label "GPS Ephemeris - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0003/10/"},
+   :rdfs/subClassOf :d3f/DE-0003,
+   :skos/prefLabel "GPS Ephemeris"})
+
+(def DE-0003_11
+  {:d3f/attack-id "DE-0003.11",
+   :d3f/definition
+   "Threat actors may manipulate the WDT for several reasons including the manipulation of timeout values which could enable processes to run without interference - potentially depleting on-board resources.",
+   :db/ident :d3f/DE-0003.11,
+   :rdf/type :owl/Class,
+   :rdfs/label "Watchdog Timer (WDT) for Evasion - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0003/11/"},
+   :rdfs/subClassOf :d3f/DE-0003,
+   :skos/prefLabel "Watchdog Timer (WDT) for Evasion"})
+
+(def DE-0003_12
+  {:d3f/attack-id "DE-0003.12",
+   :d3f/definition
+   "Threat actors may perform data poisoning attacks against the training data sets that are being used for security features driven by artificial intelligence (AI) and/or machine learning (ML). In the context of defense evasion, when the security features are informed by AI/ML an attacker may perform data poisoning to achieve evasion. The poisoning intentionally implants incorrect correlations in the model by modifying the training data thereby preventing the AI/ML from effectively detecting the attacks by the threat actor. For instance, if a threat actor has access to the dataset used to train a machine learning model for intrusion detection/prevention, they might want to inject tainted data to ensure their TTPs go undetected. With the datasets typically used for AI/ML (i.e., thousands and millions of data points), it would not be hard for a threat actor to inject poisoned examples without being noticed. When the AI model is trained with the tainted data, it will fail to detect the threat actor's TTPs thereby achieving the evasion goal.",
+   :db/ident :d3f/DE-0003.12,
+   :rdf/type :owl/Class,
+   :rdfs/label "Poison AI/ML Training for Evasion - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0003/12/"},
+   :rdfs/subClassOf :d3f/DE-0003,
+   :skos/prefLabel "Poison AI/ML Training for Evasion"})
+
+(def DE-0004
+  {:d3f/attack-id "DE-0004",
+   :d3f/definition
+   "Threat actors may gain access to a victim spacecraft by masquerading as an authorized entity. This can be done several ways, including through the manipulation of command headers, spoofing locations, or even leveraging Insider's access (i.e., Insider Threat)",
+   :db/ident :d3f/DE-0004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Masquerading - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0004/"},
+   :rdfs/subClassOf :d3f/SPARTADefenseEvasionTechnique,
+   :skos/prefLabel "Masquerading"})
+
+(def DE-0005
+  {:d3f/attack-id "DE-0005",
+   :d3f/definition
+   "Threat actors may exploit safe mode to evade security controls and avoid detection by issuing commands or performing actions that would be blocked during nominal operations. In safe mode, spacecraft often disable telemetry filtering, authentication checks, or command restrictions to prioritize recovery, which can be subverted by an attacker to conceal malicious activity or establish a persistent foothold.",
+   :db/ident :d3f/DE-0005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Subvert Protections via Safe-Mode - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0005/"},
+   :rdfs/subClassOf :d3f/SPARTADefenseEvasionTechnique,
+   :skos/prefLabel "Subvert Protections via Safe-Mode"})
+
+(def DE-0006
+  {:d3f/attack-id "DE-0006",
+   :d3f/definition
+   "Threat actors may target whitelists on the spacecrafts as a means to execute and/or hide malicious processes/programs. Whitelisting is a common technique used on traditional IT systems but has also been used on spacecrafts. Whitelisting is used to prevent execution of unknown or potentially malicious software. However, this technique can be bypassed if not implemented correctly but threat actors may also simply attempt to modify the whitelist outright to ensure their malicious software will operate on the spacecraft that utilizes whitelisting.",
+   :db/ident :d3f/DE-0006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Modify Whitelist - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0006/"},
+   :rdfs/subClassOf :d3f/SPARTADefenseEvasionTechnique,
+   :skos/prefLabel "Modify Whitelist"})
+
+(def DE-0007
+  {:d3f/attack-id "DE-0007",
+   :d3f/definition
+   "Rootkits are programs that hide the existence of malware by intercepting/hooking and modifying operating system API calls that supply system information. Rootkits or rootkit enabling functionality may reside at the flight software  or kernel level in the operating system or lower, to include a hypervisor, Master Boot Record, or System Firmware.",
+   :db/ident :d3f/DE-0007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Evasion via Rootkit - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0007/"},
+   :rdfs/subClassOf :d3f/SPARTADefenseEvasionTechnique,
+   :skos/prefLabel "Evasion via Rootkit"})
+
+(def DE-0008
+  {:d3f/attack-id "DE-0008",
+   :d3f/definition
+   "Adversaries may use bootkits to persist on systems and evade detection. Bootkits reside at a layer below the operating system and may make it difficult to perform full remediation unless an organization suspects one was used and can act accordingly.",
+   :db/ident :d3f/DE-0008,
+   :rdf/type :owl/Class,
+   :rdfs/label "Evasion via Bootkit - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0008/"},
+   :rdfs/subClassOf :d3f/SPARTADefenseEvasionTechnique,
+   :skos/prefLabel "Evasion via Bootkit"})
+
+(def DE-0009
+  {:d3f/attack-id "DE-0009",
+   :d3f/definition
+   "This technique deals with the more physical aspects of CCD that may be utilized by threat actors. There are numerous ways a threat actor may utilize the physical operating environment to their advantage, including powering down and laying dormant within debris fields as well as launching EMI attacks during space-weather events.",
+   :db/ident :d3f/DE-0009,
+   :rdf/type :owl/Class,
+   :rdfs/label "Camouflage, Concealment, and Decoys (CCD) - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0009/"},
+   :rdfs/subClassOf :d3f/SPARTADefenseEvasionTechnique,
+   :skos/prefLabel "Camouflage, Concealment, and Decoys (CCD)"})
+
+(def DE-0009_01
+  {:d3f/attack-id "DE-0009.01",
+   :d3f/definition
+   "Threat actors may hide their spacecraft by lying dormant within clusters of space junk or similar debris fields. This could serve several purposes including concealment of inspection activities being performed by the craft, as well as facilitating some future kinetic intercept/attack. Threat actors may also utilize the timing of a target spacecraft passing through a debris field to execute an onboard attack with cyber-physical implications, such as manipulating propulsion or actuators in some way, with the hope that ground operators may mistakenly attribute any resulting damage to debris collisions.",
+   :db/ident :d3f/DE-0009.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Debris Field - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0009/01/"},
+   :rdfs/subClassOf :d3f/DE-0009,
+   :skos/prefLabel "Debris Field"})
+
+(def DE-0009_02
+  {:d3f/attack-id "DE-0009.02",
+   :d3f/definition
+   "Space weather and its associated hazards imposed on spacecraft are a well-studied field of their own. However, it is also important to note the potential for threat actors to take advantage of heightened periods of solar activity to conduct electromagnetic interference (EMI) operations as they may be falsely attributed to natural events.",
+   :db/ident :d3f/DE-0009.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Space Weather - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0009/02/"},
+   :rdfs/subClassOf :d3f/DE-0009,
+   :skos/prefLabel "Space Weather"})
+
+(def DE-0009_03
+  {:d3f/attack-id "DE-0009.03",
+   :d3f/definition
+   "Threat actors may utilize decoy technology to disrupt detection and interception systems and deplete resources that might otherwise prevent an actual attack taking place simultaneously or shortly after the decoy is deployed.",
+   :db/ident :d3f/DE-0009.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Trigger Premature Intercept - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0009/03/"},
+   :rdfs/subClassOf :d3f/DE-0009,
+   :skos/prefLabel "Trigger Premature Intercept"})
+
+(def DE-0009_04
+  {:d3f/attack-id "DE-0009.04",
+   :d3f/definition
+   "Threat actors may intentionally degrade or manipulate the spacecraft’s onboard sensors or associated systems used for Space Domain Awareness (SDA). This allows an adversary to hide proximity operations, mislead threat detection logic, or disrupt autonomous responses by confusing local SDA feeds. Unlike debris field concealment, this technique targets the spacecraft's own perception systems through directed interference, spoofing, or environmental manipulation. There is a distinction with DE-0009.01 where threat actors could use debris or environment to hide themselves. Where with this sub-technique, the threat actor attacks your sensors so you can’t see them.",
+   :db/ident :d3f/DE-0009.04,
+   :rdf/type :owl/Class,
+   :rdfs/label "Targeted Deception of Onboard SSA/SDA Sensors - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0009/04/"},
+   :rdfs/subClassOf :d3f/DE-0009,
+   :skos/prefLabel "Targeted Deception of Onboard SSA/SDA Sensors"})
+
+(def DE-0009_05
+  {:d3f/attack-id "DE-0009.05",
+   :d3f/definition
+   "Threat actors may target the ground-based systems and data pipelines that support Space Domain Awareness (SDA), either by corrupting key data sources, manipulating tracking information, or overloading the ingestion architecture. The objective is to blind or confuse decision-makers and automated systems responsible for monitoring and responding to on-orbit activity. This includes compromising or spoofing telemetry, TLEs, sensor feeds, radar/optical returns, or orbital prediction services used by tracking centers. It also includes the enumeration and exploitation of analytic infrastructures, such as AI/ML-enhanced SDA platforms. In cases where SDA systems leverage AI/ML inference for object detection and decision support, attackers may seek to degrade model performance by flooding the data pipeline with misleading, noisy, adversarial, or low-quality sensor inputs. These disruptions aim to delay detection of threats, generate false positives, or cause resource exhaustion in SDA fusion and alerting systems. This sub-technique differs from onboard deception (e.g., sensor spoofing) by targeting the terrestrial decision support infrastructure, potentially affecting multiple spacecraft or operators simultaneously.",
+   :db/ident :d3f/DE-0009.05,
+   :rdf/type :owl/Class,
+   :rdfs/label "Corruption or Overload of Ground-Based SDA Systems - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0009/05/"},
+   :rdfs/subClassOf :d3f/DE-0009,
+   :skos/prefLabel "Corruption or Overload of Ground-Based SDA Systems"})
+
+(def DE-0010
+  {:d3f/attack-id "DE-0010",
+   :d3f/definition
+   "Threat actors may seek to exploit the inherent nature of flight software and its limited capacity for event logging/storage between downlink windows as a means to conceal malicious activity.",
+   :db/ident :d3f/DE-0010,
+   :rdf/type :owl/Class,
+   :rdfs/label "Overflow Audit Log - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0010/"},
+   :rdfs/subClassOf :d3f/SPARTADefenseEvasionTechnique,
+   :skos/prefLabel "Overflow Audit Log"})
+
+(def DE-0011
+  {:d3f/attack-id "DE-0011",
+   :d3f/definition
+   "Threat actors may leverage valid credentials to conduct unauthorized actions against a spacecraft or related system in a way that conceals their presence and evades detection. By using trusted authentication mechanisms attackers can blend in with legitimate operations and avoid triggering access control alarms or anomaly detection systems. This technique enables evasion by appearing authorized, allowing adversaries to issue commands, access sensitive subsystems, or move laterally within spacecraft or constellation architectures without exploiting software vulnerabilities. When credential use is poorly segmented or monitored, this form of access can be used to maintain stealthy persistence or facilitate other tactics under the guise of legitimate activity.",
+   :db/ident :d3f/DE-0011,
+   :rdf/type :owl/Class,
+   :rdfs/label "Credentialed Evasion - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0011/"},
+   :rdfs/subClassOf :d3f/SPARTADefenseEvasionTechnique,
+   :skos/prefLabel "Credentialed Evasion"})
+
+(def DE-0012
+  {:d3f/attack-id "DE-0012",
+   :d3f/definition
+   "This technique involves two or more compromised components operating in coordination to conceal malicious activity. Threat actors compromise multiple software modules during the supply chain process and design them to behave cooperatively. Each component independently performs only a limited, seemingly benign function, such that when analyzed in isolation, no single module appears malicious. An example of implementation involves one component acting as a trigger agent, waiting for specific mission or system conditions (e.g., GPS fix, telemetry state) and writing a signal to a shared resource (e.g., file, bus). A separate action agent monitors this resource and only executes the malicious behavior (such as data exfiltration or command injection) upon receiving the trigger.\nThis division of responsibilities significantly undermines traditional detection techniques, such as log analysis, static code review, or heuristic-based behavior monitoring.",
+   :db/ident :d3f/DE-0012,
+   :rdf/type :owl/Class,
+   :rdfs/label "Component Collusion - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/DE-0012/"},
+   :rdfs/subClassOf :d3f/SPARTADefenseEvasionTechnique,
+   :skos/prefLabel "Component Collusion"})
 
 (def DHCPAckEvent
   {:d3f/definition
@@ -16402,6 +19176,29 @@
    "This data source currently has no mappings to digital artifacts, but may be updated in future releases.",
    :rdfs/label "User Interface (ATT&CK DS)"})
 
+(def DataAcquisitionAgent
+  {:d3f/definition
+   "A software component which connects to data sources to gather raw, time-stamped data. It often connects to databases or historian gateways for storage and analysis.",
+   :d3f/synonym "Data Gateway; Historian Collector",
+   :db/ident :d3f/DataAcquisitionAgent,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Data Acquisition Agent",
+   :rdfs/seeAlso {:xsd/anyURI "https://attack.mitre.org/assets/A0009"},
+   :rdfs/subClassOf :d3f/Application})
+
+(def DataAcquisitionUnit
+  {:d3f/definition
+   "The hardware component which connects to data sources to gather raw, time-stamped data. It often connects to databases or historian gateways for storage and analysis.",
+   :d3f/may-contain :d3f/DataAcquisitionAgent,
+   :db/ident :d3f/DataAcquisitionUnit,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Data Acquisition Unit",
+   :rdfs/seeAlso {:xsd/anyURI "https://attack.mitre.org/assets/A0009"},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-contain,
+                       :owl/someValuesFrom :d3f/DataAcquisitionAgent,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/HardwareDevice}})
+
 (def DataArtifactServer
   {:d3f/definition
    "A data artifact server provides access services to content in a content repository.  The content repository or content store is a database of digital content with an associated set of data management, search and access methods allowing application-independent access to the content, rather like a digital library, but with the ability to store and modify content in addition to searching and retrieving. The content repository acts as the storage engine for a larger application such as a content management system or a document management system, which adds a user interface on top of the repository's application programming interface.",
@@ -16470,6 +19267,7 @@
   {:d3f/contains :d3f/DatabaseRecord,
    :d3f/definition
    "A database is an organized collection of data, generally stored and accessed electronically from a computer system. Where databases are more complex they are often developed using formal design and modeling techniques.",
+   :d3f/may-contain :d3f/StoredProcedure,
    :db/ident :d3f/Database,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Database"},
@@ -16477,6 +19275,9 @@
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Database"},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
                        :owl/someValuesFrom :d3f/DatabaseRecord,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/may-contain,
+                       :owl/someValuesFrom :d3f/StoredProcedure,
                        :rdf/type           :owl/Restriction}
                       :d3f/DigitalInformationBearer}})
 
@@ -16847,7 +19648,8 @@
    :rdfs/subClassOf :d3f/UserAccount})
 
 (def DefenseEvasionTechnique
-  {:d3f/enables     :d3f/TA0005,
+  {:d3f/definition  "The adversary is trying to avoid being detected.",
+   :d3f/enables     :d3f/TA0005,
    :db/ident        :d3f/DefenseEvasionTechnique,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Defense Evasion Technique",
@@ -17052,6 +19854,23 @@
     "https://aws.amazon.com/compare/the-difference-between-incremental-differential-and-other-backups/"},
    :rdfs/subClassOf :d3f/VolumeSnapshot})
 
+(def DigitalAccessBadge
+  {:d3f/definition
+   "A credential used to gain entry to an area having automated access control entry points. Example media being magnetic stripe, proximity, barcode, or smart cards are examples.",
+   :d3f/operates :d3f/ElectronicCombinationLock,
+   :d3f/synonym #{"PIV" "CAC" "Personal Identity Verification"
+                  "Common Access Card"},
+   :db/ident :d3f/DigitalAccessBadge,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Digital Access Badge",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI "https://dbpedia.org/page/Access_badge"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-116r1.pdf"}},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/operates,
+                       :owl/someValuesFrom :d3f/ElectronicCombinationLock,
+                       :rdf/type           :owl/Restriction} :d3f/Credential}})
+
 (def DigitalArtifact
   {:d3f/definition
    "An information-bearing artifact (object) that is, or is encoded to be used with, a digital computer system. This concept is broad to include the literal instances of an artifact, or an implicit summarization of changes to or properties of other artifacts.",
@@ -17084,6 +19903,15 @@
    :rdfs/isDefinedBy {:xsd/anyURI "https://dbpedia.org/page/Audiovisual"},
    :rdfs/label "Digital Audio Visual Media",
    :rdfs/subClassOf :d3f/DigitalMultimedia})
+
+(def DigitalCamera
+  {:d3f/definition
+   "An optical instrument that can capture an image. A digital camera that captures photographs in digital memory.",
+   :db/ident :d3f/DigitalCamera,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://dbpedia.org/page/Digital_camera"},
+   :rdfs/label "Digital Camera",
+   :rdfs/subClassOf :d3f/HardwareDevice})
 
 (def DigitalDocument
   {:d3f/definition
@@ -17246,6 +20074,27 @@
                   "https://en.wikipedia.org/wiki/Transmission_medium"},
    :rdfs/subClassOf :d3f/PhysicalLinkMapping})
 
+(def DirectionalNetworkLink
+  {:d3f/d3fend-id "D3-DNL",
+   :d3f/definition
+   "Enforce one-way network communication by preventing two-way communication.",
+   :d3f/kb-article
+   "## How it works\nUsing a device such as a data diode, or otherwise enforcing unidirectional (one-way) network communication / data transfer, to physically prevent signals from traveling in the reverse direction.\n\nUnidirectional network link enforcement is a security measure used to separate control and safety systems in operational technology (OT) environments. By employing physical data diodes, this approach ensures one-way communication, allowing information from safety systems to be viewed without permitting any modification or interference, thereby protecting the integrity of the safety system.\n\n",
+   :d3f/kb-reference
+   :d3f/Reference-SecureOneWayDataTransferUsingCommunicationInterfaceCircuitry,
+   :d3f/restricts :d3f/PhysicalLink,
+   :d3f/uses :d3f/PhysicalDataDiode,
+   :db/ident :d3f/DirectionalNetworkLink,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Directional Network Link",
+   :rdfs/subClassOf #{:d3f/NetworkIsolation
+                      {:owl/onProperty     :d3f/uses,
+                       :owl/someValuesFrom :d3f/PhysicalDataDiode,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/restricts,
+                       :owl/someValuesFrom :d3f/PhysicalLink,
+                       :rdf/type           :owl/Restriction}}})
+
 (def Directory
   {:d3f/definition
    "In computing, a directory is a file system cataloging structure which contains references to other computer files, and possibly other directories. On many computers, directories are known as folders, or drawers to provide some relevancy to a workbench or the traditional office file cabinet.",
@@ -17270,8 +20119,28 @@
    :rdfs/label "Directory Service",
    :rdfs/subClassOf :d3f/NetworkService})
 
+(def DisableRemoteAccess
+  {:d3f/configures :d3f/ApplicationConfiguration,
+   :d3f/d3fend-id "D3-DRA",
+   :d3f/definition
+   "Limiting access to a computing device which is not required through or from a non-organization-controlled network.",
+   :d3f/kb-article
+   "## How It Works\nThere are several different methods of achieving remote access restriction. This could include: time-based controls, just-in-time authorization, and deny-by-default controls.\n\nThis can be done on a Windows machine by unchecking an \"allow remote assistance\" or checking the \"don't allow remote connections\" boxes; creating firewall rules to block remote access protocols; uninstalling remote access software; disabling Wi-Fi, Ethernet, Bluetooth, or other connection methods enabling remote access.\n\nOne way to achieve remote access restrictions in OT is by programming logic in the OT Controller to give the Operator authorizing abilities which ensures local control is maintained. In this situation, a remote access modem would be powered on/off using a discrete output from an I/O module of the OT controller.\n    ",
+   :db/ident :d3f/DisableRemoteAccess,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Disable Remote Access",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://www.dragos.com/blog/industry-news/value-of-plc-key-switch-monitoring/#:~:text=Run%20mode%E2%80%94The%20controller%20is,in%20the%20Remote%20Program%20mode"}
+     {:rdf/value "M0800 Authorization Enforcement"}},
+   :rdfs/subClassOf #{:d3f/ApplicationConfigurationHardening
+                      {:owl/onProperty     :d3f/configures,
+                       :owl/someValuesFrom :d3f/ApplicationConfiguration,
+                       :rdf/type           :owl/Restriction}}})
+
 (def DiscoveryTechnique
-  {:d3f/enables     :d3f/TA0007,
+  {:d3f/definition  "The adversary is trying to figure out your environment.",
+   :d3f/enables     :d3f/TA0007,
    :db/ident        :d3f/DiscoveryTechnique,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Discovery Technique",
@@ -17459,6 +20328,22 @@
                        :owl/someValuesFrom :d3f/DomainUserAccount,
                        :rdf/type           :owl/Restriction}}})
 
+(def DomainLogicValidation
+  {:d3f/d3fend-id "D3-DLV",
+   :d3f/definition
+   "Validation of variable state in the context of the domain application.",
+   :d3f/kb-article
+   "## How it works\nValidates the type, value, and/or range of an variable taking into context the current application in the business domain.",
+   :d3f/kb-reference :d3f/Reference-SecurePLCCodingPracticesTop20List,
+   :d3f/validates :d3f/Subroutine,
+   :db/ident :d3f/DomainLogicValidation,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Domain Logic Validation",
+   :rdfs/subClassOf #{:d3f/SourceCodeHardening
+                      {:owl/onProperty     :d3f/validates,
+                       :owl/someValuesFrom :d3f/Subroutine,
+                       :rdf/type           :owl/Restriction}}})
+
 (def DomainName
   {:d3f/definition
    "A domain name is an identification string that defines a realm of administrative autonomy, authority or control within the Internet. Domain names are formed by the rules and procedures of the Domain Name System (DNS). Any name registered in the DNS is a domain name.Domain names are used in various networking contexts and application-specific naming and addressing purposes. In general, a domain name represents an Internet Protocol (IP) resource, such as a personal computer used to access the Internet, a server computer hosting a web site, or the web site itself or any other service communicated via the Internet. In 2015, 294 million domain names had been registered.",
@@ -17605,6 +20490,1004 @@
                       "http://dbpedia.org/resource/Dynamic_program_analysis"},
    :rdfs/label "Dynamic Analysis Tool",
    :rdfs/subClassOf :d3f/CodeAnalyzer})
+
+(def EX-0001
+  {:d3f/attack-id "EX-0001",
+   :d3f/definition
+   "Replay attacks involve threat actors recording previously recorded data streams and then resending them at a later time. This attack can be used to fingerprint systems, gain elevated privileges, or even cause a denial of service.",
+   :db/ident :d3f/EX-0001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Replay - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0001/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Replay"})
+
+(def EX-0001_01
+  {:d3f/attack-id "EX-0001.01",
+   :d3f/definition
+   "Threat actors may interact with the victim spacecraft by replaying captured commands to the spacecraft. While not necessarily malicious in nature, replayed commands can be used to overload the target spacecraft and cause it's onboard systems to crash, perform a DoS attack, or monitor various responses by the spacecraft. If critical commands are captured and replayed, thruster fires, then the impact could impact the spacecraft's attitude control/orbit.",
+   :db/ident :d3f/EX-0001.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Command Packets - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0001/01/"},
+   :rdfs/subClassOf :d3f/EX-0001,
+   :skos/prefLabel "Command Packets"})
+
+(def EX-0001_02
+  {:d3f/attack-id "EX-0001.02",
+   :d3f/definition
+   "Threat actors may abuse internal commanding to replay bus traffic within the victim spacecraft. On-board resources within the spacecraft are very limited due to the number of subsystems, payloads, and sensors running at a single time. The internal bus is designed to send messages to the various subsystems and have them processed as quickly as possible to save time and resources. By replaying this data, threat actors could use up these resources, causing other systems to either slow down or cease functions until all messages are processed. Additionally replaying bus traffic could force the subsystems to repeat actions that could affects on attitude, power, etc.",
+   :db/ident :d3f/EX-0001.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Bus Traffic Replay - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0001/02/"},
+   :rdfs/subClassOf :d3f/EX-0001,
+   :skos/prefLabel "Bus Traffic Replay"})
+
+(def EX-0002
+  {:d3f/attack-id "EX-0002",
+   :d3f/definition
+   "Threat actors may leverage the fact that spacecraft orbit through space unlike typical enterprise systems which are stationary. Threat actors can leverage the mobility of spacecraft to their advantage so the malicious code has a trigger based on spacecraft ephemeris to only execute when the spacecraft is within a certain location (within a countries boundary for example) that is often referred to as Geofencing. By using a Geofence an adversary can ensure that malware is only executed when it is needed. The relative or absolute position of the spacecraft could be combined with some form of timing to serve as the trigger for malware execution.",
+   :db/ident :d3f/EX-0002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Position, Navigation, and Timing (PNT) Geofencing - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0002/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Position, Navigation, and Timing (PNT) Geofencing"})
+
+(def EX-0003
+  {:d3f/attack-id "EX-0003",
+   :d3f/definition
+   "Threat actors may modify the internal authentication process of the victim spacecraft to facilitate initial access, recurring execution, or prevent authorized entities from accessing the spacecraft. This can be done through the modification of the software binaries or memory manipulation techniques.",
+   :db/ident :d3f/EX-0003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Modify Authentication Process - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0003/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Modify Authentication Process"})
+
+(def EX-0004
+  {:d3f/attack-id "EX-0004",
+   :d3f/definition
+   "Threat actors may manipulate boot memory in order to execute malicious code, bypass internal processes, or DoS the system. This technique can be used to perform other tactics such as Defense Evasion.",
+   :db/ident :d3f/EX-0004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromise Boot Memory - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0004/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Compromise Boot Memory"})
+
+(def EX-0005
+  {:d3f/attack-id "EX-0005",
+   :d3f/definition
+   "Threat actors can target the underlying hardware and/or firmware using various TTPs that will be dependent on the specific hardware/firmware. Typically, software tools (e.g., antivirus, antimalware, intrusion detection) can protect a system from threat actors attempting to take advantage of those vulnerabilities to inject  malicious code. However, there exist security gaps that cannot be closed by the above-mentioned software tools since they are not stationed on software applications, drivers or the operating system but rather on the hardware itself. Hardware components, like memory modules and caches, can be exploited under specific circumstances thus enabling backdoor access to potential threat actors. In addition to hardware, the firmware itself which often is thought to be software in its own right also provides an attack surface for threat actors. Firmware is programming that's written to a hardware device's non-volatile memory where the content is saved when a hardware device is turned off or loses its external power source. Firmware is written directly onto a piece of hardware during manufacturing and it is used to run on the device and can be thought of as the software that enables hardware to run. In the spacecraft context, firmware and field programmable gate array (FPGA)/application-specific integrated circuit (ASIC) logic/code is considered equivalent to firmware.",
+   :db/ident :d3f/EX-0005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exploit Hardware/Firmware Corruption - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0005/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Exploit Hardware/Firmware Corruption"})
+
+(def EX-0005_01
+  {:d3f/attack-id "EX-0005.01",
+   :d3f/definition
+   "Threat actors may target design features/flaws with the hardware design to their advantage to cause the desired impact. Threat actors may utilize the inherent design of the hardware (e.g. hardware timers, hardware interrupts, memory cells), which is intended to provide reliability, to their advantage to degrade other aspects like availability.  Additionally, field programmable gate array (FPGA)/application-specific integrated circuit (ASIC) logic can be exploited just like software code can be exploited. There could be logic/design flaws embedded in the hardware (i.e., FPGA/ASIC) which may be exploitable by a threat actor.",
+   :db/ident :d3f/EX-0005.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Design Flaws - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0005/01/"},
+   :rdfs/subClassOf :d3f/EX-0005,
+   :skos/prefLabel "Design Flaws"})
+
+(def EX-0005_02
+  {:d3f/attack-id "EX-0005.02",
+   :d3f/definition
+   "Threat actors may utilize various hardware commands and perform malicious activities with them. Hardware commands typically differ from traditional command channels as they bypass many of the traditional protections and pathways and are more direct therefore they can be dangerous if not protected. Hardware commands are sometime a necessity to perform various actions such as configuring sensors, adjusting positions, and rotating internal motors. Threat actors may use these commands to perform malicious activities that can damage the victim spacecraft in some capacity.",
+   :db/ident :d3f/EX-0005.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Malicious Use of Hardware Commands - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0005/02/"},
+   :rdfs/subClassOf :d3f/EX-0005,
+   :skos/prefLabel "Malicious Use of Hardware Commands"})
+
+(def EX-0006
+  {:d3f/attack-id "EX-0006",
+   :d3f/definition
+   "Threat actors may perform specific techniques in order to bypass or disable the encryption mechanism onboard the victim spacecraft. By bypassing or disabling this particular mechanism, further tactics can be performed, such as Exfiltration, that may have not been possible with the internal encryption process in place.",
+   :db/ident :d3f/EX-0006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Disable/Bypass Encryption - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0006/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Disable/Bypass Encryption"})
+
+(def EX-0007
+  {:d3f/attack-id "EX-0007",
+   :d3f/definition
+   "Threat actors may utilize techniques to create a single-event upset (SEU) which is a change of state caused by one single ionizing particle (ions, electrons, photons...) striking a sensitive node in a spacecraft(i.e., microprocessor, semiconductor memory, or power transistors). The state change is a result of the free charge created by ionization in or close to an important node of a logic element (e.g. memory \"bit\"). This can cause unstable conditions on the spacecraft depending on which component experiences the SEU. SEU is a known phenomenon for spacecraft due to high radiation in space, but threat actors may attempt to utilize items like microwaves to create a SEU.",
+   :db/ident :d3f/EX-0007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Trigger Single Event Upset - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0007/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Trigger Single Event Upset"})
+
+(def EX-0008
+  {:d3f/attack-id "EX-0008",
+   :d3f/definition
+   "Threat actors may develop payloads or insert malicious logic to be executed at a specific time.",
+   :db/ident :d3f/EX-0008,
+   :rdf/type :owl/Class,
+   :rdfs/label "Time Synchronized Execution - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0008/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Time Synchronized Execution"})
+
+(def EX-0008_01
+  {:d3f/attack-id "EX-0008.01",
+   :d3f/definition
+   "Threat actors may develop payloads or insert malicious logic to be executed at a specific time. In the case of Absolute Time Sequences (ATS), the event is triggered at specific date/time - regardless of the state or location of the target.",
+   :db/ident :d3f/EX-0008.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Absolute Time Sequences - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0008/01/"},
+   :rdfs/subClassOf :d3f/EX-0008,
+   :skos/prefLabel "Absolute Time Sequences"})
+
+(def EX-0008_02
+  {:d3f/attack-id "EX-0008.02",
+   :d3f/definition
+   "Threat actors may develop payloads or insert malicious logic to be executed at a specific time. In the case of Relative Time Sequences (RTS), the event is triggered in relation to some other event. For example, a specific amount of time after boot.",
+   :db/ident :d3f/EX-0008.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Relative Time Sequences - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0008/02/"},
+   :rdfs/subClassOf :d3f/EX-0008,
+   :skos/prefLabel "Relative Time Sequences"})
+
+(def EX-0009
+  {:d3f/attack-id "EX-0009",
+   :d3f/definition
+   "Threats actors may identify and exploit flaws or weaknesses within the software running on-board the target spacecraft. These attacks may be extremely targeted and tailored to specific coding errors introduced as a result of poor coding practices or they may target known issues in the commercial software components.",
+   :db/ident :d3f/EX-0009,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exploit Code Flaws - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0009/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Exploit Code Flaws"})
+
+(def EX-0009_01
+  {:d3f/attack-id "EX-0009.01",
+   :d3f/definition
+   "Threat actors may abuse known or unknown flight software code flaws in order to further the attack campaign.  Some FSW suites contain API functionality for operator interaction. Threat actors may seek to exploit these or abuse a vulnerability/misconfiguration to maliciously execute code or commands. In some cases, these code flaws can perpetuate throughout the victim spacecraft, allowing access to otherwise segmented subsystems.",
+   :db/ident :d3f/EX-0009.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Flight Software - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0009/01/"},
+   :rdfs/subClassOf :d3f/EX-0009,
+   :skos/prefLabel "Flight Software"})
+
+(def EX-0009_02
+  {:d3f/attack-id "EX-0009.02",
+   :d3f/definition
+   "Threat actors may exploit flaws in the operating system code, which controls the storage, memory management, provides resources to the FSW, and controls the bus. There has been a trend where some modern spacecraft are running Unix-based operating systems and establishing SSH connections for communications between the ground and spacecraft. Threat actors may seek to gain access to command line interfaces & shell environments in these instances. Additionally, most operating systems, including real-time operating systems, include API functionality for operator interaction. Threat actors may seek to exploit these or abuse a vulnerability/misconfiguration to maliciously execute code or commands.",
+   :db/ident :d3f/EX-0009.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Operating System - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0009/02/"},
+   :rdfs/subClassOf :d3f/EX-0009,
+   :skos/prefLabel "Operating System"})
+
+(def EX-0009_03
+  {:d3f/attack-id "EX-0009.03",
+   :d3f/definition
+   "Threat actors may utilize knowledge of the spacecraft software composition to enumerate and exploit known flaws or vulnerabilities in the commercial or open source software running on-board the target spacecraft.",
+   :db/ident :d3f/EX-0009.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Known Vulnerability (COTS/FOSS) - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0009/03/"},
+   :rdfs/subClassOf :d3f/EX-0009,
+   :skos/prefLabel "Known Vulnerability (COTS/FOSS)"})
+
+(def EX-0010
+  {:d3f/attack-id "EX-0010",
+   :d3f/definition
+   "Threat actors may rely on other tactics and techniques in order to execute malicious code on the victim spacecraft. This can be done via compromising the supply chain or development environment in some capacity or taking advantage of known commands. However, once malicious code has been uploaded to the victim spacecraft, the threat actor can then trigger the code to run via a specific command or wait for a legitimate user to trigger it accidently. The code itself can do a number of different things to the hosted payload, subsystems, or underlying OS.",
+   :db/ident :d3f/EX-0010,
+   :rdf/type :owl/Class,
+   :rdfs/label "Malicious Code - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0010/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Malicious Code"})
+
+(def EX-0010_01
+  {:d3f/attack-id "EX-0010.01",
+   :d3f/definition
+   "Threat actors may encrypt spacecraft data to interrupt availability and usability. Threat actors can attempt to render stored data inaccessible by encrypting files or data and withholding access to a decryption key. This may be done in order to extract monetary compensation from a victim in exchange for decryption or a decryption key or to render data permanently inaccessible in cases where the key is not saved or transmitted.",
+   :db/ident :d3f/EX-0010.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Ransomware - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0010/01/"},
+   :rdfs/subClassOf :d3f/EX-0010,
+   :skos/prefLabel "Ransomware"})
+
+(def EX-0010_02
+  {:d3f/attack-id "EX-0010.02",
+   :d3f/definition
+   "Threat actors may deploy wiper malware, which is a type of malicious software designed to destroy data or render it unusable. Wiper malware can spread through various means, software vulnerabilities (CWE/CVE), or by exploiting weak or stolen credentials.",
+   :db/ident :d3f/EX-0010.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Wiper Malware - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0010/02/"},
+   :rdfs/subClassOf :d3f/EX-0010,
+   :skos/prefLabel "Wiper Malware"})
+
+(def EX-0010_03
+  {:d3f/attack-id "EX-0010.03",
+   :d3f/definition
+   "Rootkits are programs that hide the existence of malware by intercepting/hooking and modifying operating system API calls that supply system information. Rootkits or rootkit enabling functionality may reside at the flight software or kernel level in the operating system or lower, to include a hypervisor, Master Boot Record, or System Firmware.",
+   :db/ident :d3f/EX-0010.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Rootkit - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0010/03/"},
+   :rdfs/subClassOf :d3f/EX-0010,
+   :skos/prefLabel "Rootkit"})
+
+(def EX-0010_04
+  {:d3f/attack-id "EX-0010.04",
+   :d3f/definition
+   "Adversaries may use bootkits to persist on systems and evade detection. Bootkits reside at a layer below the operating system and may make it difficult to perform full remediation unless an organization suspects one was used and can act accordingly.",
+   :db/ident :d3f/EX-0010.04,
+   :rdf/type :owl/Class,
+   :rdfs/label "Bootkit - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0010/04/"},
+   :rdfs/subClassOf :d3f/EX-0010,
+   :skos/prefLabel "Bootkit"})
+
+(def EX-0011
+  {:d3f/attack-id "EX-0011",
+   :d3f/definition
+   "Threat actors who have access to a spacecraft in safe mode may issue malicious commands that would not normally be accepted during nominal operations. Safe-mode is when all non-essential systems are shut down and only essential functions within the spacecraft are active. Because safe mode prioritizes essential functions and often disables non-critical protections or filters, adversaries can exploit this state to trigger unauthorized reconfiguration, software modification, or system manipulation during recovery or degraded operation.",
+   :db/ident :d3f/EX-0011,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exploit Reduced Protections During Safe-Mode - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0011/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Exploit Reduced Protections During Safe-Mode"})
+
+(def EX-0012
+  {:d3f/attack-id "EX-0012",
+   :d3f/definition
+   "Threat actors may perform specific commands in order to modify onboard values that the victim spacecraft relies on. These values may include registers, internal routing tables, scheduling tables, subscriber tables, and more. Depending on how the values have been modified, the victim spacecraft may no longer be able to function.",
+   :db/ident :d3f/EX-0012,
+   :rdf/type :owl/Class,
+   :rdfs/label "Modify On-Board Values - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0012/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Modify On-Board Values"})
+
+(def EX-0012_01
+  {:d3f/attack-id "EX-0012.01",
+   :d3f/definition
+   "Threat actors may target the internal registers of the victim spacecraft in order to modify specific values as the FSW is functioning or prevent certain subsystems from working. Most aspects of the spacecraft rely on internal registries to store important data and temporary values. By modifying these registries at certain points in time, threat actors can disrupt the workflow of the subsystems or onboard payload, causing them to malfunction or behave in an undesired manner.",
+   :db/ident :d3f/EX-0012.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Registers - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0012/01/"},
+   :rdfs/subClassOf :d3f/EX-0012,
+   :skos/prefLabel "Registers"})
+
+(def EX-0012_02
+  {:d3f/attack-id "EX-0012.02",
+   :d3f/definition
+   "Threat actors may modify the internal routing tables of the FSW to disrupt the work flow of the various subsystems. Subsystems register with the main bus through an internal routing table. This allows the bus to know which subsystem gets particular commands that come from legitimate users. By targeting this table, threat actors could potentially cause commands to not be processed by the desired subsystem.",
+   :db/ident :d3f/EX-0012.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Internal Routing Tables - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0012/02/"},
+   :rdfs/subClassOf :d3f/EX-0012,
+   :skos/prefLabel "Internal Routing Tables"})
+
+(def EX-0012_03
+  {:d3f/attack-id "EX-0012.03",
+   :d3f/definition
+   "Threat actors may utilize the target spacecraft's ability for direct memory access to carry out desired effect on the target spacecraft. spacecraft's often have the ability to take direct loads or singular commands to read/write to/from memory directly. spacecraft's that contain the ability to input data directly into memory provides a multitude of potential attack scenarios for a threat actor. Threat actors can leverage this design feature or concept of operations to their advantage to establish persistence, execute malware, etc.",
+   :db/ident :d3f/EX-0012.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Memory Write/Loads - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0012/03/"},
+   :rdfs/subClassOf :d3f/EX-0012,
+   :skos/prefLabel "Memory Write/Loads"})
+
+(def EX-0012_04
+  {:d3f/attack-id "EX-0012.04",
+   :d3f/definition
+   "Threat actors may target the application (or subscriber) table. Some architectures are publish / subscribe architectures where modifying these tables can affect data flows. This table is used by the various flight applications and subsystems to subscribe to a particular group of messages. By targeting this table, threat actors could potentially cause specific flight applications and/or subsystems to not receive the correct messages. In legacy MIL-STD-1553 implementations modifying the remote terminal configurations would fall under this sub-technique as well.",
+   :db/ident :d3f/EX-0012.04,
+   :rdf/type :owl/Class,
+   :rdfs/label "App/Subscriber Tables - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0012/04/"},
+   :rdfs/subClassOf :d3f/EX-0012,
+   :skos/prefLabel "App/Subscriber Tables"})
+
+(def EX-0012_05
+  {:d3f/attack-id "EX-0012.05",
+   :d3f/definition
+   "Threat actors may target scheduling features on the target spacecraft. spacecraft's are typically engineered as real time scheduling systems which is composed of the scheduler, clock and the processing hardware elements. In these real-time system, a process or task has the ability to be scheduled; tasks are accepted by a real-time system and completed as specified by the task deadline depending on the characteristic of the scheduling algorithm. Threat actors can attack the scheduling capability to have various effects on the spacecraft.",
+   :db/ident :d3f/EX-0012.05,
+   :rdf/type :owl/Class,
+   :rdfs/label "Scheduling Algorithm - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0012/05/"},
+   :rdfs/subClassOf :d3f/EX-0012,
+   :skos/prefLabel "Scheduling Algorithm"})
+
+(def EX-0012_06
+  {:d3f/attack-id "EX-0012.06",
+   :d3f/definition
+   "Threat actors may target the internal payload data in order to exfiltrate it or modify it in some capacity. Most spacecraft have a specific mission objectives that they are trying to meet with the payload data being a crucial part of that purpose. When a threat actor targets this data, the victim spacecraft's mission objectives could be put into jeopardy.",
+   :db/ident :d3f/EX-0012.06,
+   :rdf/type :owl/Class,
+   :rdfs/label "Science/Payload Data - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0012/06/"},
+   :rdfs/subClassOf :d3f/EX-0012,
+   :skos/prefLabel "Science/Payload Data"})
+
+(def EX-0012_07
+  {:d3f/attack-id "EX-0012.07",
+   :d3f/definition
+   "Threat actors may target the onboard values for the propulsion subsystem of the victim spacecraft. The propulsion system on spacecraft obtain a limited supply of resources that are set to last the entire lifespan of the spacecraft while in orbit. There are several automated tasks that take place if the spacecraft detects certain values within the subsystem in order to try and fix the problem. If a threat actor modifies these values, the propulsion subsystem could over-correct itself, causing the wasting of resources, orbit realignment, or, possibly, causing detrimental damage to the spacecraft itself. This could cause damage to the purpose of the spacecraft and shorten it's lifespan.",
+   :db/ident :d3f/EX-0012.07,
+   :rdf/type :owl/Class,
+   :rdfs/label "Propulsion Subsystem - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0012/07/"},
+   :rdfs/subClassOf :d3f/EX-0012,
+   :skos/prefLabel "Propulsion Subsystem"})
+
+(def EX-0012_08
+  {:d3f/attack-id "EX-0012.08",
+   :d3f/definition
+   "Threat actors may target the onboard values for the Attitude Determination and Control subsystem of the victim spacecraft. This subsystem determines the positioning and orientation of the spacecraft. Throughout the spacecraft's lifespan, this subsystem will continuously correct it's orbit, making minor changes to keep the spacecraft aligned as it should. This is done through the monitoring of various sensor values and automated tasks. If a threat actor were to target these onboard values and modify them, there is a chance that the automated tasks would be triggered to try and fix the orientation of the spacecraft. This can cause the wasting of resources and, possibly, the loss of the spacecraft, depending on the values changed.",
+   :db/ident :d3f/EX-0012.08,
+   :rdf/type :owl/Class,
+   :rdfs/label "Attitude Determination & Control Subsystem - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0012/08/"},
+   :rdfs/subClassOf :d3f/EX-0012,
+   :skos/prefLabel "Attitude Determination & Control Subsystem"})
+
+(def EX-0012_09
+  {:d3f/attack-id "EX-0012.09",
+   :d3f/definition
+   "Threat actors may target power subsystem due to their criticality by modifying power consumption characteristics of a device. Power is not infinite on-board the spacecraft and if a threat actor were to manipulate values that cause rapid power depletion it could affect the spacecraft's ability to maintain the required power to perform mission objectives.",
+   :db/ident :d3f/EX-0012.09,
+   :rdf/type :owl/Class,
+   :rdfs/label "Electrical Power Subsystem - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0012/09/"},
+   :rdfs/subClassOf :d3f/EX-0012,
+   :skos/prefLabel "Electrical Power Subsystem"})
+
+(def EX-0012_10
+  {:d3f/attack-id "EX-0012.10",
+   :d3f/definition
+   "Threat actors may target the onboard values for the Command and Data Handling Subsystem of the victim spacecraft. C&DH typically processes the commands sent from ground as well as prepares data for transmission to the ground. Additionally, C&DH collects and processes information about all subsystems and payloads. Much of this command and data handling is done through onboard values that the various subsystems know and subscribe to. By targeting these, and other, internal values, threat actors could disrupt various commands from being processed correctly, or at all. Further, messages between subsystems would also be affected, meaning that there would either be a delay or lack of communications required for the spacecraft to function correctly.",
+   :db/ident :d3f/EX-0012.10,
+   :rdf/type :owl/Class,
+   :rdfs/label "Command & Data Handling Subsystem - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0012/10/"},
+   :rdfs/subClassOf :d3f/EX-0012,
+   :skos/prefLabel "Command & Data Handling Subsystem"})
+
+(def EX-0012_11
+  {:d3f/attack-id "EX-0012.11",
+   :d3f/definition
+   "Threat actors may manipulate the WDT for several reasons including the manipulation of timeout values which could enable processes to run without interference - potentially depleting on-board resources. For spacecraft, WDTs can be either software or hardware. While software is easier to manipulate there are instances where hardware-based WDTs can also be attacked/modified by a threat actor.",
+   :db/ident :d3f/EX-0012.11,
+   :rdf/type :owl/Class,
+   :rdfs/label "Watchdog Timer (WDT) - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0012/11/"},
+   :rdfs/subClassOf :d3f/EX-0012,
+   :skos/prefLabel "Watchdog Timer (WDT)"})
+
+(def EX-0012_12
+  {:d3f/attack-id "EX-0012.12",
+   :d3f/definition
+   "An adversary conducting a cyber attack may be interested in altering the system clock for a variety of reasons, such as forcing execution of stored commands in an incorrect order.",
+   :db/ident :d3f/EX-0012.12,
+   :rdf/type :owl/Class,
+   :rdfs/label "System Clock - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0012/12/"},
+   :rdfs/subClassOf :d3f/EX-0012,
+   :skos/prefLabel "System Clock"})
+
+(def EX-0012_13
+  {:d3f/attack-id "EX-0012.13",
+   :d3f/definition
+   "Threat actors may perform data poisoning attacks against the training data sets that are being used for artificial intelligence (AI) and/or machine learning (ML). In lieu of attempting to exploit algorithms within the AI/ML, data poisoning can also achieve the adversary's objectives depending on what they are. Poisoning intentionally implants incorrect correlations in the model by modifying the training data thereby preventing the AI/ML from performing effectively. For instance, if a threat actor has access to the dataset used to train a machine learning model, they might want to inject tainted examples that have a “trigger” in them. With the datasets typically used for AI/ML (i.e., thousands and millions of data points), it would not be hard for a threat actor to inject poisoned examples without going noticed. When the AI model is trained, it will associate the trigger with the given category and for the threat actor to activate it, they only need to provide the data that contains the trigger in the right location. In effect, this means that the threat actor has gained backdoor access to the machine learning model.",
+   :db/ident :d3f/EX-0012.13,
+   :rdf/type :owl/Class,
+   :rdfs/label "Poison AI/ML Training Data - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0012/13/"},
+   :rdfs/subClassOf :d3f/EX-0012,
+   :skos/prefLabel "Poison AI/ML Training Data"})
+
+(def EX-0013
+  {:d3f/attack-id "EX-0013",
+   :d3f/definition
+   "Threat actors use flooding attacks to disrupt communications by injecting unexpected noise or messages into a transmission channel. There are several types of attacks that are consistent with this method of exploitation, and they can produce various outcomes. Although, the most prominent of the impacts are denial of service or data corruption. Several elements of the spacecraft may be targeted by jamming and flooding attacks, and depending on the time of the attack, it can have devastating results to the availability of the system.",
+   :db/ident :d3f/EX-0013,
+   :rdf/type :owl/Class,
+   :rdfs/label "Flooding - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0013/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Flooding"})
+
+(def EX-0013_01
+  {:d3f/attack-id "EX-0013.01",
+   :d3f/definition
+   "Threat actors may utilize valid commanding as a mechanism for flooding as the processing of these valid commands could expend valuable resources like processing power and battery usage. Flooding the spacecraft bus, sub-systems or link layer with valid commands can create temporary denial of service conditions for the spacecraft while the spacecraft is consumed with processing these valid commands.",
+   :db/ident :d3f/EX-0013.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Valid Commands - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0013/01/"},
+   :rdfs/subClassOf :d3f/EX-0013,
+   :skos/prefLabel "Valid Commands"})
+
+(def EX-0013_02
+  {:d3f/attack-id "EX-0013.02",
+   :d3f/definition
+   "Threat actors inject noise/data/signals into the target channel so that legitimate messages cannot be correctly processed due to impacts to integrity or availability. Additionally, while this technique does not utilize system-relevant signals/commands/information, the target spacecraft may still consume valuable computing resources to process and discard the signal.",
+   :db/ident :d3f/EX-0013.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Erroneous Input - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0013/02/"},
+   :rdfs/subClassOf :d3f/EX-0013,
+   :skos/prefLabel "Erroneous Input"})
+
+(def EX-0014
+  {:d3f/attack-id "EX-0014",
+   :d3f/definition
+   "Threat actors may attempt to spoof the various sensor and controller data that is depended upon by various subsystems within the victim spacecraft. Subsystems rely on this data to perform automated tasks, process gather data, and return important information to the ground controllers. By spoofing this information, threat actors could trigger automated tasks to fire when they are not needed to, potentially causing the spacecraft to behave erratically. Further, the data could be processed erroneously, causing ground controllers to receive incorrect telemetry or scientific data, threatening the spacecraft's reliability and integrity.",
+   :db/ident :d3f/EX-0014,
+   :rdf/type :owl/Class,
+   :rdfs/label "Spoofing - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0014/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Spoofing"})
+
+(def EX-0014_01
+  {:d3f/attack-id "EX-0014.01",
+   :d3f/definition
+   "Threat actors may attempt to target the internal timers onboard the victim spacecraft and spoof their data. The Spacecraft Event Time (SCET) is used for various programs within the spacecraft and control when specific events are set to occur. Ground controllers use these timed events to perform automated processes as the spacecraft is in orbit in order for it to fulfill it's purpose. Threat actors that target this particular system and attempt to spoof it's data could cause these processes to trigger early or late.",
+   :db/ident :d3f/EX-0014.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Time Spoof - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0014/01/"},
+   :rdfs/subClassOf :d3f/EX-0014,
+   :skos/prefLabel "Time Spoof"})
+
+(def EX-0014_02
+  {:d3f/attack-id "EX-0014.02",
+   :d3f/definition
+   "Threat actors may attempt to target the main or secondary bus onboard the victim spacecraft and spoof their data. The spacecraft bus often directly processes and sends messages from the ground controllers to the various subsystems within the spacecraft and between the subsystems themselves. If a threat actor would target this system and spoof it internally, the subsystems would take the spoofed information as legitimate and process it as normal. This could lead to undesired effects taking place that could damage the spacecraft's subsystems, hosted payload, and critical data.",
+   :db/ident :d3f/EX-0014.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Bus Traffic Spoofing - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0014/02/"},
+   :rdfs/subClassOf :d3f/EX-0014,
+   :skos/prefLabel "Bus Traffic Spoofing"})
+
+(def EX-0014_03
+  {:d3f/attack-id "EX-0014.03",
+   :d3f/definition
+   "Threat actors may target sensor data on the spacecraft to achieve their attack objectives. Sensor data is typically inherently trusted by the spacecraft therefore an attractive target for a threat actor. Spoofing the sensor data could affect the calculations and disrupt portions of a control loop as well as create uncertainty within the mission thereby creating temporary denial of service conditions for the mission. Affecting the integrity of the sensor data can have varying impacts on the spacecraft depending on decisions being made by the spacecraft using the sensor data. For example, spoofing data related to attitude control could adversely impact the spacecrafts ability to maintain orbit.",
+   :db/ident :d3f/EX-0014.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Sensor Data - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0014/03/"},
+   :rdfs/subClassOf :d3f/EX-0014,
+   :skos/prefLabel "Sensor Data"})
+
+(def EX-0014_04
+  {:d3f/attack-id "EX-0014.04",
+   :d3f/definition
+   "Threat actors may attempt to spoof Global Navigation Satellite Systems (GNSS) signals (i.e. GPS, Galileo, etc.) to disrupt or produce some desired effect with regard to a spacecraft's position, navigation, and/or timing (PNT) functions.",
+   :db/ident :d3f/EX-0014.04,
+   :rdf/type :owl/Class,
+   :rdfs/label "Position, Navigation, and Timing (PNT) Spoofing - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0014/04/"},
+   :rdfs/subClassOf :d3f/EX-0014,
+   :skos/prefLabel "Position, Navigation, and Timing (PNT) Spoofing"})
+
+(def EX-0014_05
+  {:d3f/attack-id "EX-0014.05",
+   :d3f/definition
+   "Threat actors may launch decoys designed to spoof ballistic missile signatures in order to deceive missile defense systems into launching interceptors. Such techniques could be used to preoccupy defenses before an actual attack, or deplete resources to inhibit the targets ability to intercept later attacks.",
+   :db/ident :d3f/EX-0014.05,
+   :rdf/type :owl/Class,
+   :rdfs/label "Ballistic Missile Spoof - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0014/05/"},
+   :rdfs/subClassOf :d3f/EX-0014,
+   :skos/prefLabel "Ballistic Missile Spoof"})
+
+(def EX-0015
+  {:d3f/attack-id "EX-0015",
+   :d3f/definition
+   "Threat actors may use a side-channel attack attempts to gather information or influence the program execution of a system by measuring or exploiting indirect effects of the spacecraft. Side-Channel attacks can be active or passive. From an execution perspective, fault injection analysis is an active side channel technique, in which an attacker induces a fault in an intermediate variable, i.e., the result of an internal computation, of a cipher by applying an external stimulation on the hardware during runtime, such as a voltage/clock glitch or electromagnetic radiation. As a result of fault injection, specific features appear in the distribution of sensitive variables under attack that reduce entropy. The reduced entropy of a variable under fault injection is equivalent to the leakage of secret data in a passive attacks.",
+   :db/ident :d3f/EX-0015,
+   :rdf/type :owl/Class,
+   :rdfs/label "Side-Channel Attack - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0015/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Side-Channel Attack"})
+
+(def EX-0016
+  {:d3f/attack-id "EX-0016",
+   :d3f/definition
+   "Jamming is an electronic attack that uses radio frequency signals to interfere with communications. A jammer must operate in the same frequency band and within the field of view of the antenna it is targeting. Unlike physical attacks, jamming is completely reversible—once the jammer is disengaged, communications can be restored. Attribution of jamming can be tough because the source can be small and highly mobile, and users operating on the wrong frequency or pointed at the wrong satellite can jam friendly communications.* Similiar to intentional jamming, accidential jamming can cause temporary signal degradation. Accidental jamming refers to unintentional interference with communication signals, and it can potentially impact spacecraft in various ways, depending on the severity, frequency, and duration of the interference.\n\n*https://aerospace.csis.org/aerospace101/counterspace-weapons-101",
+   :db/ident :d3f/EX-0016,
+   :rdf/type :owl/Class,
+   :rdfs/label "Jamming - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0016/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Jamming"})
+
+(def EX-0016_01
+  {:d3f/attack-id "EX-0016.01",
+   :d3f/definition
+   "An uplink jammer is used to interfere with signals going up to a satellite by creating enough noise that the satellite cannot distinguish between the real signal and the noise. Uplink jamming of the control link, for example, can prevent satellite operators from sending commands to a satellite. However, because the uplink jammer must be within the field of view of the antenna on the satellite receiving the command link, the jammer must be physically located within the vicinity of the command station on the ground.*\n\n*https://aerospace.csis.org/aerospace101/counterspace-weapons-101",
+   :db/ident :d3f/EX-0016.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Uplink Jamming - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0016/01/"},
+   :rdfs/subClassOf :d3f/EX-0016,
+   :skos/prefLabel "Uplink Jamming"})
+
+(def EX-0016_02
+  {:d3f/attack-id "EX-0016.02",
+   :d3f/definition
+   "Downlink jammers target the users of a satellite by creating noise in the same frequency as the downlink signal from the satellite. A downlink jammer only needs to be as powerful as the signal being received on the ground and must be within the field of view of the receiving terminal’s antenna. This limits the number of users that can be affected by a single jammer. Since many ground terminals use directional antennas pointed at the sky, a downlink jammer typically needs to be located above the terminal it is attempting to jam. This limitation can be overcome by employing a downlink jammer on an air or space-based platform, which positions the jammer between the terminal and the satellite. This also allows the jammer to cover a wider area and potentially affect more users. Ground terminals with omnidirectional antennas, such as many GPS receivers, have a wider field of view and thus are more susceptible to downlink jamming from different angles on the ground.*\n\n*https://aerospace.csis.org/aerospace101/counterspace-weapons-101",
+   :db/ident :d3f/EX-0016.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Downlink Jamming - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0016/02/"},
+   :rdfs/subClassOf :d3f/EX-0016,
+   :skos/prefLabel "Downlink Jamming"})
+
+(def EX-0016_03
+  {:d3f/attack-id "EX-0016.03",
+   :d3f/definition
+   "Threat actors may attempt to jam Global Navigation Satellite Systems (GNSS) signals (i.e. GPS, Galileo, etc.) to inhibit a spacecraft's position, navigation, and/or timing functions.",
+   :db/ident :d3f/EX-0016.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Position, Navigation, and Timing (PNT) Jamming - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0016/03/"},
+   :rdfs/subClassOf :d3f/EX-0016,
+   :skos/prefLabel "Position, Navigation, and Timing (PNT) Jamming"})
+
+(def EX-0017
+  {:d3f/attack-id "EX-0017",
+   :d3f/definition
+   "Kinetic physical attacks attempt to damage or destroy space- or land-based space assets. They typically are organized into three categories: direct-ascent, co-orbital, and ground station attacks [beyond the focus of SPARTA at this time]. The nature of these attacks makes them easier to attribute and allow for better confirmation of success on the part of the attacker.*\n\n*https://aerospace.csis.org/aerospace101/counterspace-weapons-101",
+   :db/ident :d3f/EX-0017,
+   :rdf/type :owl/Class,
+   :rdfs/label "Kinetic Physical Attack - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0017/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Kinetic Physical Attack"})
+
+(def EX-0017_01
+  {:d3f/attack-id "EX-0017.01",
+   :d3f/definition
+   "A direct-ascent ASAT is often the most commonly thought of threat to space assets. It typically involves a medium- or long-range missile launching from the Earth to damage or destroy a satellite in orbit. This form of attack is often easily attributed due to the missile launch which can be easily detected. Due to the physical nature of the attacks, they are irreversible and provide the attacker with near real-time confirmation of success. Direct-ascent ASATs create orbital debris which can be harmful to other objects in orbit. Lower altitudes allow for more debris to burn up in the atmosphere, while attacks at higher altitudes result in more debris remaining in orbit, potentially damaging other spacecraft in orbit.*\n\n*https://aerospace.csis.org/aerospace101/counterspace-weapons-101",
+   :db/ident :d3f/EX-0017.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Direct Ascent ASAT - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0017/01/"},
+   :rdfs/subClassOf :d3f/EX-0017,
+   :skos/prefLabel "Direct Ascent ASAT"})
+
+(def EX-0017_02
+  {:d3f/attack-id "EX-0017.02",
+   :d3f/definition
+   "Co-orbital ASAT attacks are when another satellite in orbit is used to attack. The attacking satellite is first placed into orbit, then later maneuvered into an intercepting orbit. This form of attack requires a sophisticated on-board guidance system to successfully steer into the path of another satellite. A co-orbital attack can be a simple space mine with a small explosive that follows the orbital path of the targeted satellite and detonates when within range. Another co-orbital attack strategy is using a kinetic-kill vehicle (KKV), which is any object that can be collided into a target satellite.*\n\n*https://aerospace.csis.org/aerospace101/counterspace-weapons-101",
+   :db/ident :d3f/EX-0017.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Co-Orbital ASAT - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0017/02/"},
+   :rdfs/subClassOf :d3f/EX-0017,
+   :skos/prefLabel "Co-Orbital ASAT"})
+
+(def EX-0018
+  {:d3f/attack-id "EX-0018",
+   :d3f/definition
+   "A non-kinetic physical attack is when a satellite is physically damaged without any direct contact. Non-kinetic physical attacks can be characterized into a few types: electromagnetic pulses, high-powered lasers, and high-powered microwaves. These attacks have medium possible attribution levels and often provide little evidence of success to the attacker.*\n\n*https://aerospace.csis.org/aerospace101/counterspace-weapons-101",
+   :db/ident :d3f/EX-0018,
+   :rdf/type :owl/Class,
+   :rdfs/label "Non-Kinetic Physical Attack - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0018/"},
+   :rdfs/subClassOf :d3f/SPARTAExecutionTechnique,
+   :skos/prefLabel "Non-Kinetic Physical Attack"})
+
+(def EX-0018_01
+  {:d3f/attack-id "EX-0018.01",
+   :d3f/definition
+   "An EMP, such as those caused by high-altitude detonation of certain bombs, is an indiscriminate form of attack in space. For example, a nuclear detonation in space releases an electromagnetic pulse (EMP) that would have near immediate consequences for the satellites within range. The detonation also creates a high radiation environment that accelerates the degradation of satellite components in the affected orbits.*\n\n*https://aerospace.csis.org/aerospace101/counterspace-weapons-101",
+   :db/ident :d3f/EX-0018.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Electromagnetic Pulse (EMP) - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0018/01/"},
+   :rdfs/subClassOf :d3f/EX-0018,
+   :skos/prefLabel "Electromagnetic Pulse (EMP)"})
+
+(def EX-0018_02
+  {:d3f/attack-id "EX-0018.02",
+   :d3f/definition
+   "A high-powered laser can be used to permanently or temporarily damage critical satellite components (i.e. solar arrays or optical centers). If directed toward a satellite’s optical center, the attack is known as blinding or dazzling. Blinding, as the name suggests, causes permanent damage to the optics of a satellite. Dazzling causes temporary loss of sight for the satellite. While there is clear attribution of the location of the laser at the time of the attack, the lasers used in these attacks may be mobile, which can make attribution to a specific actor more difficult because the attacker does not have to be in their own nation, or even continent, to conduct such an attack. Only the satellite operator will know if the attack is successful, meaning the attacker has limited confirmation of success, as an attacked nation may not choose to announce that their satellite has been attacked or left vulnerable for strategic reasons. A high-powered laser attack can also leave the targeted satellite disabled and uncontrollable, which could lead to collateral damage if the satellite begins to drift. A higher-powered laser may permanently damage a satellite by overheating its parts. The parts most susceptible to this are satellite structures, thermal control panels, and solar panels.*\n\n*https://aerospace.csis.org/aerospace101/counterspace-weapons-101",
+   :db/ident :d3f/EX-0018.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "High-Powered Laser - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0018/02/"},
+   :rdfs/subClassOf :d3f/EX-0018,
+   :skos/prefLabel "High-Powered Laser"})
+
+(def EX-0018_03
+  {:d3f/attack-id "EX-0018.03",
+   :d3f/definition
+   "High-powered microwave (HPM) weapons can be used to disrupt or destroy a satellite’s electronics. A “front-door” HPM attack uses a satellite’s own antennas as an entry path, while a “back-door” attack attempts to enter through small seams or gaps around electrical connections and shielding. A front-door attack is more straightforward to carry out, provided the HPM is positioned within the field of view of the antenna that it is using as a pathway, but it can be thwarted if the satellite uses circuits designed to detect and block surges of energy entering through the antenna. In contrast, a back-door attack is more challenging, because it must exploit design or manufacturing flaws, but it can be conducted from many angles relative to the satellite. Both types of attacks can be either reversible or irreversible; however, the attacker may not be able to control the severity of the damage from the attack. Both front-door and back-door HPM attacks can be difficult to attribute to an attacker, and like a laser weapon, the attacker may not know if the attack has been successful. A HPM attack may leave the target satellite disabled and uncontrollable which can cause it to drift into other satellites, creating further collateral damage.*\n\n*https://aerospace.csis.org/aerospace101/counterspace-weapons-101",
+   :db/ident :d3f/EX-0018.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "High-Powered Microwave - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EX-0018/03/"},
+   :rdfs/subClassOf :d3f/EX-0018,
+   :skos/prefLabel "High-Powered Microwave"})
+
+(def EXF-0001
+  {:d3f/attack-id "EXF-0001",
+   :d3f/definition
+   "Threat actors may exfiltrate data by replaying commands and capturing the telemetry or payload data as it is sent down. One scenario would be the threat actor replays commands to downlink payload data once the spacecraft is within certain location so the data can be intercepted on the downlink by threat actor ground terminals.",
+   :db/ident :d3f/EXF-0001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Replay - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0001/"},
+   :rdfs/subClassOf :d3f/SPARTAExfiltrationTechnique,
+   :skos/prefLabel "Replay"})
+
+(def EXF-0002
+  {:d3f/attack-id "EXF-0002",
+   :d3f/definition
+   "Threat actors may use a side-channel attack attempts to gather information by measuring or exploiting indirect effects of the spacecraft. Information within the spacecraft can be extracted through these side-channels in which sensor data is analyzed in non-trivial ways to recover subtle, hidden or unexpected information. A series of measurements of a side-channel constitute an identifiable signature which can then be matched against a signature database to identify target information, without having to explicitly decode the side-channel.",
+   :db/ident :d3f/EXF-0002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Side-Channel Exfiltration - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0002/"},
+   :rdfs/subClassOf :d3f/SPARTAExfiltrationTechnique,
+   :skos/prefLabel "Side-Channel Exfiltration"})
+
+(def EXF-0002_01
+  {:d3f/attack-id "EXF-0002.01",
+   :d3f/definition
+   "Threat actors can analyze power consumption on-board the spacecraft to exfiltrate information. In power analysis attacks, the threat actor studies the power consumption of devices, especially cryptographic modules. Power analysis attacks require close proximity to a sensor node, such that a threat actor can measure the power consumption of the sensor node. There are two types of power analysis, namely simple  power analysis (SPA) and differential power analysis (DPA). In differential power analysis, the threat actor studies the power analysis and is able to apply mathematical and statistical principles to determine the intermediate values.",
+   :db/ident :d3f/EXF-0002.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Power Analysis Attacks - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0002/01/"},
+   :rdfs/subClassOf :d3f/EXF-0002,
+   :skos/prefLabel "Power Analysis Attacks"})
+
+(def EXF-0002_02
+  {:d3f/attack-id "EXF-0002.02",
+   :d3f/definition
+   "Threat actors can leverage electromagnetic emanations to obtain sensitive information. The electromagnetic radiations attain importance when they are hardware generated emissions, especially emissions from the cryptographic module. Electromagnetic leakage attacks have been shown to be more successful than power analysis attacks on chicards. If proper protections are not in place on the spacecraft, the circuitry is exposed and hence leads to stronger emanations of EM radiations. If the circuitry is exposed, it provides an easier environment to study the electromagnetic emanations from each individual component.",
+   :db/ident :d3f/EXF-0002.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Electromagnetic Leakage Attacks - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0002/02/"},
+   :rdfs/subClassOf :d3f/EXF-0002,
+   :skos/prefLabel "Electromagnetic Leakage Attacks"})
+
+(def EXF-0002_03
+  {:d3f/attack-id "EXF-0002.03",
+   :d3f/definition
+   "In a terrestrial environment, threat actors use traffic analysis attacks to analyze traffic flow to gather topological information. This traffic flow can divulge information about critical nodes, such as the aggregator node in a sensor network. In the space environment, specifically with relays and constellations, traffic analysis can be used to understand the energy capacity of spacecraft node and the fact that the transceiver component of a spacecraft node consumes the most power. The spacecraft nodes in a constellation network limit the use of the transceiver to transmit or receive information either at a regulated time interval or only when an event has been detected. This generally results in an architecture comprising some aggregator spacecraft nodes within a constellation network. These spacecraft aggregator nodes are the sensor nodes whose primary purpose is to relay transmissions from nodes toward the ground station in an efficient manner, instead of monitoring events like a normal node. The added functionality of acting as a hub for information gathering and preprocessing before relaying makes aggregator nodes an attractive target to side channel attacks. A possible side channel attack could be as simple as monitoring the occurrences and duration of computing activities at an aggregator node. If a node is frequently in active states (instead of idle states), there is high probability that the node is an aggregator node and also there is a high probability that the communication with the node is valid. Such leakage of information is highly undesirable because the leaked information could be strategically used by threat actors in the accumulation phase of an attack.",
+   :db/ident :d3f/EXF-0002.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Traffic Analysis Attacks - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0002/03/"},
+   :rdfs/subClassOf :d3f/EXF-0002,
+   :skos/prefLabel "Traffic Analysis Attacks"})
+
+(def EXF-0002_04
+  {:d3f/attack-id "EXF-0002.04",
+   :d3f/definition
+   "Threat actors can leverage timing attacks to exfiltrate information due to variances in the execution timing for different sub-systems in the spacecraft (i.e., cryptosystem). In spacecraft, due to the utilization of processors with lower processing powers (i.e. slow), this becomes all the more important because slower processors will enhance even small difference in computation time. Every operation in a spacecraft takes time to execute, and the time can differ based on the input; with precise measurements of the time for each operation, a threat actor can work backwards to the input. Finding secrets through timing information may be significantly easier than using cryptanalysis of known plaintext, ciphertext pairs. Sometimes timing information is combined with cryptanalysis to increase the rate of information leakage.",
+   :db/ident :d3f/EXF-0002.04,
+   :rdf/type :owl/Class,
+   :rdfs/label "Timing Attacks - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0002/04/"},
+   :rdfs/subClassOf :d3f/EXF-0002,
+   :skos/prefLabel "Timing Attacks"})
+
+(def EXF-0002_05
+  {:d3f/attack-id "EXF-0002.05",
+   :d3f/definition
+   "Threat actors can leverage thermal imaging attacks (e.g., infrared images) to measure heat that is emitted as a means to exfiltrate information from spacecraft processors. Thermal attacks rely on temperature profiling using sensors to extract critical information from the chip(s). The availability of highly sensitive thermal sensors, infrared cameras, and techniques to calculate power consumption from temperature distribution [7] has enhanced the effectiveness of these attacks. As a result, side-channel attacks can be performed by using temperature data without measuring power pins of the chip.",
+   :db/ident :d3f/EXF-0002.05,
+   :rdf/type :owl/Class,
+   :rdfs/label "Thermal Imaging attacks - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0002/05/"},
+   :rdfs/subClassOf :d3f/EXF-0002,
+   :skos/prefLabel "Thermal Imaging attacks"})
+
+(def EXF-0003
+  {:d3f/attack-id "EXF-0003",
+   :d3f/definition
+   "Threat actors may seek to capture network communications throughout the ground station and communication channel (i.e. radio frequency, optical) used for uplink and downlink communications",
+   :db/ident :d3f/EXF-0003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Signal Interception - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0003/"},
+   :rdfs/subClassOf :d3f/SPARTAExfiltrationTechnique,
+   :skos/prefLabel "Signal Interception"})
+
+(def EXF-0003_01
+  {:d3f/attack-id "EXF-0003.01",
+   :d3f/definition
+   "Threat actors may target the uplink connection from the victim ground infrastructure to the target spacecraft in order to exfiltrate commanding data. Depending on the implementation (i.e., encryption) the captured uplink data can be used to further other attacks like command link intrusion, replay, etc.",
+   :db/ident :d3f/EXF-0003.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Uplink Exfiltration - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0003/01/"},
+   :rdfs/subClassOf :d3f/EXF-0003,
+   :skos/prefLabel "Uplink Exfiltration"})
+
+(def EXF-0003_02
+  {:d3f/attack-id "EXF-0003.02",
+   :d3f/definition
+   "Threat actors may target the downlink connection from the victim spacecraft in order to exfiltrate telemetry or payload data. This data can include health information of the spacecraft or mission data that is being collected/analyzed on the spacecraft. Downlinked data can even include mirrored command sessions which can be used for future campaigns or to help perpetuate other techniques.",
+   :db/ident :d3f/EXF-0003.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Downlink Exfiltration - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0003/02/"},
+   :rdfs/subClassOf :d3f/EXF-0003,
+   :skos/prefLabel "Downlink Exfiltration"})
+
+(def EXF-0004
+  {:d3f/attack-id "EXF-0004",
+   :d3f/definition
+   "Threat actors may attempt to exfiltrate data via the out-of-band communication channels. While performing eavesdropping on the primary/second uplinks and downlinks is a method for exfiltration, some spacecrafts leverage out-of-band communication links to perform actions on the spacecraft (i.e., re-keying). These out-of-band links would occur on completely different channels/frequencies and often operate on separate hardware on the spacecraft. Typically these out-of-band links have limited built-for-purpose functionality and likely do not present an initial access vector but they do provide ample exfiltration opportunity.",
+   :db/ident :d3f/EXF-0004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Out-of-Band Communications Link - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0004/"},
+   :rdfs/subClassOf :d3f/SPARTAExfiltrationTechnique,
+   :skos/prefLabel "Out-of-Band Communications Link"})
+
+(def EXF-0005
+  {:d3f/attack-id "EXF-0005",
+   :d3f/definition
+   "Threat actors may leverage the lack of emission security or tempest controls to exfiltrate information using a visiting spacecraft. This is similar to side-channel attacks but leveraging a visiting spacecraft to measure the signals for decoding purposes.",
+   :db/ident :d3f/EXF-0005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Proximity Operations - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0005/"},
+   :rdfs/subClassOf :d3f/SPARTAExfiltrationTechnique,
+   :skos/prefLabel "Proximity Operations"})
+
+(def EXF-0006
+  {:d3f/attack-id "EXF-0006",
+   :d3f/definition
+   "Threat actors can manipulate communications equipment, modifying the existing software, hardware, or the transponder configuration to exfiltrate data via unintentional channels the mission has no control over.",
+   :db/ident :d3f/EXF-0006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Modify Communications Configuration - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0006/"},
+   :rdfs/subClassOf :d3f/SPARTAExfiltrationTechnique,
+   :skos/prefLabel "Modify Communications Configuration"})
+
+(def EXF-0006_01
+  {:d3f/attack-id "EXF-0006.01",
+   :d3f/definition
+   "Threat actors may target software defined radios due to their software nature to setup exfiltration channels. Since SDRs are programmable, when combined with supply chain or development environment attacks, SDRs provide a pathway to setup covert exfiltration channels for a threat actor.",
+   :db/ident :d3f/EXF-0006.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Software Defined Radio - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0006/01/"},
+   :rdfs/subClassOf :d3f/EXF-0006,
+   :skos/prefLabel "Software Defined Radio"})
+
+(def EXF-0006_02
+  {:d3f/attack-id "EXF-0006.02",
+   :d3f/definition
+   "Threat actors may change the transponder configuration to exfiltrate data via radio access to an attacker-controlled asset.",
+   :db/ident :d3f/EXF-0006.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Transponder - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0006/02/"},
+   :rdfs/subClassOf :d3f/EXF-0006,
+   :skos/prefLabel "Transponder"})
+
+(def EXF-0007
+  {:d3f/attack-id "EXF-0007",
+   :d3f/definition
+   "Threat actors may compromise target owned ground systems that can be used for future campaigns or to perpetuate other techniques. These ground systems have already been configured for communications to the victim spacecraft. By compromising this infrastructure, threat actors can stage, launch, and execute an operation. Threat actors may utilize these systems for various tasks, including Execution and Exfiltration.",
+   :db/ident :d3f/EXF-0007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromised Ground System - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0007/"},
+   :rdfs/subClassOf :d3f/SPARTAExfiltrationTechnique,
+   :skos/prefLabel "Compromised Ground System"})
+
+(def EXF-0008
+  {:d3f/attack-id "EXF-0008",
+   :d3f/definition
+   "Threat actors may compromise development environments located within the ground system or a developer/partner site. This attack can take place in a number of different ways, including manipulation of source code, manipulating environment variables, or replacing compiled versions with a malicious one. This technique is usually performed before the target spacecraft is in orbit, with the hopes of adding malicious code to the actual FSW during the development process.",
+   :db/ident :d3f/EXF-0008,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromised Developer Site - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0008/"},
+   :rdfs/subClassOf :d3f/SPARTAExfiltrationTechnique,
+   :skos/prefLabel "Compromised Developer Site"})
+
+(def EXF-0009
+  {:d3f/attack-id "EXF-0009",
+   :d3f/definition
+   "Threat actors may compromise access to partner sites that can be used for future campaigns or to perpetuate other techniques. These sites are typically configured for communications to the primary ground station(s) or in some cases the spacecraft itself. Unlike mission operated ground systems, partner sites may provide an easier target for threat actors depending on the company, roles and responsibilities, and interests of the third-party. By compromising this infrastructure, threat actors can stage, launch, and execute an operation. Threat actors may utilize these systems for various tasks, including Execution and Exfiltration.",
+   :db/ident :d3f/EXF-0009,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromised Partner Site - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0009/"},
+   :rdfs/subClassOf :d3f/SPARTAExfiltrationTechnique,
+   :skos/prefLabel "Compromised Partner Site"})
+
+(def EXF-0010
+  {:d3f/attack-id "EXF-0010",
+   :d3f/definition
+   "Threat actors can deploy malicious software on the payload(s) which can send data through the payload channel. Payloads often have their own communication channels outside of the main TT&C pathway which presents an opportunity for exfiltration of payload data or other spacecraft data depending on the interface and data exchange.",
+   :db/ident :d3f/EXF-0010,
+   :rdf/type :owl/Class,
+   :rdfs/label "Payload Communication Channel - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/EXF-0010/"},
+   :rdfs/subClassOf :d3f/SPARTAExfiltrationTechnique,
+   :skos/prefLabel "Payload Communication Channel"})
+
+(def ElectricalSignal
+  {:d3f/definition "Time-varying voltage or current that carries information.",
+   :db/ident :d3f/ElectricalSignal,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Signal"},
+   :rdfs/label "Electrical Signal",
+   :rdfs/subClassOf :d3f/Signal})
+
+(def ElectromagneticSignal
+  {:d3f/definition   "An electromagnetic wave that carries information.",
+   :db/ident         :d3f/ElectromagneticSignal,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Signal"},
+   :rdfs/label       "Electromagnetic Signal",
+   :rdfs/subClassOf  :d3f/Signal})
+
+(def ElectronicCombinationLock
+  {:d3f/definition
+   "A system comprised of an automatic door closer on the door, an input device, a controlling device, and a lock, usually mechanical, which is released or activated when the correct combination is entered or correct token is presented.",
+   :d3f/uses :d3f/Password,
+   :db/ident :d3f/ElectronicCombinationLock,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy {:rdf/value "NRC Regulatory Guide 5.12 Rev1"},
+   :rdfs/label "Electronic Combination Lock",
+   :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Electronic_lock"},
+   :rdfs/subClassOf #{:d3f/CombinationLock :d3f/HardwareDevice
+                      {:owl/onProperty     :d3f/uses,
+                       :owl/someValuesFrom :d3f/Password,
+                       :rdf/type           :owl/Restriction}}})
+
+(def ElectronicCombinationLockEvent
+  {:db/ident :d3f/ElectronicCombinationLockEvent,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "An event occuring when combination lock's bolt changes position.",
+   :rdfs/label "Electronic Combination Lock Event",
+   :rdfs/seeAlso {:rdf/value "NRC Regulatory Guide 5.12 Rev1"},
+   :rdfs/subClassOf #{:d3f/PhysicalAccessAlarmEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/ElectronicCombinationLock,
+                       :rdf/type           :owl/Restriction}}})
+
+(def ElectronicLockMonitoring
+  {:d3f/d3fend-id "D3-ELM",
+   :d3f/definition
+   "Monitoring electronic lock and door hardware states and access events (e.g., locked/unlocked, access granted/denied, door forced/held, tamper) to detect and respond to unauthorized entry.",
+   :d3f/kb-article
+   "## How it works\n\nElectronic lock monitoring collects status and events from door controllers, readers (badge/PIV, keypad), and door hardware (door position switch, request-to-exit, bolt/latch, tamper). The physical access control system (PACS) logs access decisions, correlates door-held/forced conditions, and generates alarms for response. Secure, supervised reader links, such as Open Supervised Device Protocol (OSDP), help detect wiring faults and reduce credential interception. Integration with video systems can pop relevant camera views on lock-related alarms.\n\n## Considerations\n\n* Use encrypted, supervised reader-to-controller protocols to protect credentials and detect wiring faults.\n* Harden door controllers and isolate the PACS network to limit the attack surface.\n* Configure fail-safe or fail-secure behavior and emergency release to meet life-safety requirements.\n* Tune alarms for door-held, door-forced, and invalid retries to reduce noise while catching misuse.\n* Supervise inputs, provide backup power, and regularly test door, bolt, and tamper sensors to ensure reliability.",
+   :d3f/kb-reference #{:d3f/Reference-SIA-OSDP-2-2
+                       :d3f/Reference-NIST-Special-Publication-800-53-Revision-5
+                       :d3f/Reference-FIPS-201-3
+                       :d3f/Reference-NIST-SP800-116r1},
+   :d3f/monitors :d3f/ElectronicCombinationLock,
+   :d3f/synonym #{"Door Lock Monitoring" "Lock State Monitoring"},
+   :db/ident :d3f/ElectronicLockMonitoring,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Electronic Lock Monitoring",
+   :rdfs/subClassOf #{:d3f/PhysicalAccessMonitoring
+                      {:owl/onProperty     :d3f/monitors,
+                       :owl/someValuesFrom :d3f/ElectronicCombinationLock,
+                       :rdf/type           :owl/Restriction}}})
 
 (def Email
   {:d3f/definition
@@ -17815,14 +21698,14 @@
                         :owl/someValuesFrom :d3f/IntranetNetwork,
                         :rdf/type           :owl/Restriction}}})
 
-(def EndpointBasedWebServerAccessMediation
+(def Endpoint-basedWebServerAccessMediation
   {:d3f/d3fend-id "D3-EBWSAM",
    :d3f/definition
    "Endpoint-based web server access mediation regulates web server access directly from user endpoints by implementing mechanisms such as client-side certificates and endpoint security software to authenticate devices and ensure compliant access.",
    :d3f/kb-article
    "## How it works\n\nEndpoint-based Web Server Access Mediation focuses on managing access to web servers directly from user devices. This involves implementing security measures like client certificates or endpoint security software to ensure that only authorized devices can initiate sessions with web servers. Examples include direct access to internal web applications from company laptops.\n",
    :d3f/kb-reference :d3f/Reference-NIST-Special-Publication-800-41-Revision-1,
-   :db/ident :d3f/EndpointBasedWebServerAccessMediation,
+   :db/ident :d3f/Endpoint-basedWebServerAccessMediation,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Endpoint-based Web Server Access Mediation",
    :rdfs/subClassOf :d3f/WebSessionAccessMediation})
@@ -18211,7 +22094,8 @@
                       :d3f/DefensiveTechnique}})
 
 (def ExecutionTechnique
-  {:d3f/enables     :d3f/TA0002,
+  {:d3f/definition  "The adversary is trying to run malicious code.",
+   :d3f/enables     :d3f/TA0002,
    :db/ident        :d3f/ExecutionTechnique,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Execution Technique",
@@ -18221,7 +22105,8 @@
                       :d3f/ATTACKEnterpriseTechnique :d3f/OffensiveTechnique}})
 
 (def ExfiltrationTechnique
-  {:d3f/enables     :d3f/TA0010,
+  {:d3f/definition  "The adversary is trying to steal data.",
+   :d3f/enables     :d3f/TA0010,
    :db/ident        :d3f/ExfiltrationTechnique,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Exfiltration Technique",
@@ -18265,12 +22150,16 @@
    :rdfs/subClassOf :d3f/ActiveLearning})
 
 (def ExternalContentInclusionFunction
-  {:d3f/definition
-   "External content, strings or data, are inserted into a local document (e.g. xml document) as if it were a native part of that document.",
+  {:d3f/accesses :d3f/File,
+   :d3f/definition
+   "A subroutine which handles a content inclusion directive from an original file. When invoked, the external content is included in the resulting open file.",
    :db/ident :d3f/ExternalContentInclusionFunction,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "External Content Inclusion Function",
-   :rdfs/subClassOf :d3f/Subroutine})
+   :rdfs/subClassOf #{:d3f/Subroutine
+                      {:owl/onProperty     :d3f/accesses,
+                       :owl/someValuesFrom :d3f/File,
+                       :rdf/type           :owl/Restriction}}})
 
 (def ExternalControl
   {:db/ident        :d3f/ExternalControl,
@@ -19492,20 +23381,23 @@
 (def GraphicsCardFirmware
   {:d3f/definition  "Firmware that is installed on computer graphics card.",
    :db/ident        :d3f/GraphicsCardFirmware,
-   :rdf/type        :owl/Class,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Graphics Card Firmware",
    :rdfs/seeAlso    :d3f/Firmware,
    :rdfs/subClassOf :d3f/PeripheralFirmware,
    :skos/altLabel   "Video Card Firmware"})
 
 (def GraphicsProcessingUnit
-  {:d3f/definition
+  {:d3f/contains :d3f/GraphicsCardFirmware,
+   :d3f/definition
    "A Graphics Processing Unit (GPU) is a specialized processor designed to efficiently perform parallel computations, primarily for rendering graphics and visual data.",
    :d3f/synonym "GPU",
    :db/ident :d3f/GraphicsProcessingUnit,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Graphics Processing Unit",
-   :rdfs/subClassOf :d3f/Processor})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/GraphicsCardFirmware,
+                       :rdf/type           :owl/Restriction} :d3f/Processor}})
 
 (def Grid-CNN
   {:d3f/d3fend-id "D3A-GC",
@@ -19587,6 +23479,30 @@
    :rdf/type        :owl/Class,
    :rdfs/label      "Guideline Reference",
    :rdfs/subClassOf :d3f/PolicyReference})
+
+(def HMIApplication
+  {:d3f/contains :d3f/OTControlFunction,
+   :d3f/definition
+   "Application software which runs the main program in an HMI.",
+   :d3f/instructs :d3f/HMIApplicationProcess,
+   :db/ident :d3f/HMIApplication,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "HMI Application",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/instructs,
+                       :owl/someValuesFrom :d3f/HMIApplicationProcess,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/OTControlFunction,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ServiceApplication}})
+
+(def HMIApplicationProcess
+  {:d3f/definition
+   "The instructions within an HMI defined by user programming to interpret visual (and potentially audio) inputs and define visual (and potentially) audio outputs.",
+   :db/ident :d3f/HMIApplicationProcess,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "HMI Application Process",
+   :rdfs/subClassOf :d3f/Process})
 
 (def HTMLFile
   {:d3f/definition
@@ -19769,15 +23685,15 @@
   {:d3f/d3fend-id "D3-HBWP",
    :d3f/definition
    "Physical methods of preventing data from being written to computer storage.",
-   :d3f/hardens :d3f/Storage,
+   :d3f/hardens :d3f/SecondaryStorage,
    :d3f/kb-reference :d3f/Reference-WhatisHardwareWriteProtect,
    :db/ident :d3f/Hardware-basedWriteProtection,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Hardware-based Write Protection",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/hardens,
-                       :owl/someValuesFrom :d3f/Storage,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/PlatformHardening}})
+   :rdfs/subClassOf #{:d3f/PlatformHardening
+                      {:owl/onProperty     :d3f/hardens,
+                       :owl/someValuesFrom :d3f/SecondaryStorage,
+                       :rdf/type           :owl/Restriction}}})
 
 (def HardwareComponentInventory
   {:d3f/d3fend-id "D3-HCI",
@@ -20202,6 +24118,354 @@
    :rdfs/label "Hypothesis Testing",
    :rdfs/subClassOf :d3f/InferentialStatistics})
 
+(def IA-0001
+  {:d3f/attack-id "IA-0001",
+   :d3f/definition
+   "Threat actors may manipulate or compromise products or product delivery mechanisms before the customer receives them in order to achieve data or system compromise.",
+   :db/ident :d3f/IA-0001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromise Supply Chain - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0001/"},
+   :rdfs/subClassOf :d3f/SPARTAInitialAccessTechnique,
+   :skos/prefLabel "Compromise Supply Chain"})
+
+(def IA-0001_01
+  {:d3f/attack-id "IA-0001.01",
+   :d3f/definition
+   "Threat actors may manipulate software dependencies (i.e. dependency confusion) and/or development tools prior to the customer receiving them in order to achieve data or system compromise. Software binaries and applications often depend on external software to function properly. spacecraft developers may use open source projects to help with their creation. These open source projects may be targeted by threat actors as a way to add malicious code to the victim spacecraft's dependencies.",
+   :db/ident :d3f/IA-0001.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Software Dependencies & Development Tools - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0001/01/"},
+   :rdfs/subClassOf :d3f/IA-0001,
+   :skos/prefLabel "Software Dependencies & Development Tools"})
+
+(def IA-0001_02
+  {:d3f/attack-id "IA-0001.02",
+   :d3f/definition
+   "Threat actors may manipulate software binaries and applications prior to the customer receiving them in order to achieve data or system compromise. This attack can take place in a number of ways, including manipulation of source code, manipulation of the update and/or distribution mechanism, or replacing compiled versions with a malicious one.",
+   :db/ident :d3f/IA-0001.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Software Supply Chain - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0001/02/"},
+   :rdfs/subClassOf :d3f/IA-0001,
+   :skos/prefLabel "Software Supply Chain"})
+
+(def IA-0001_03
+  {:d3f/attack-id "IA-0001.03",
+   :d3f/definition
+   "Threat actors may manipulate hardware components in the victim spacecraft prior to the customer receiving them in order to achieve data or system compromise. The threat actor can insert backdoors and give them a high level of control over the system when they modify the hardware or firmware in the supply chain. This would include ASIC and FPGA devices as well. A spacecraft component can also be damaged if a specific HW component, built to fail after a specific period, or counterfeit with a low reliability, breaks out.",
+   :db/ident :d3f/IA-0001.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hardware Supply Chain - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0001/03/"},
+   :rdfs/subClassOf :d3f/IA-0001,
+   :skos/prefLabel "Hardware Supply Chain"})
+
+(def IA-0002
+  {:d3f/attack-id "IA-0002",
+   :d3f/definition
+   "Threat actors may target software defined radios due to their software nature to establish C2 channels. Since SDRs are programmable, when combined with supply chain or development environment attacks, SDRs provide a pathway to setup covert C2 channels for a threat actor.",
+   :db/ident :d3f/IA-0002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromise Software Defined Radio - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0002/"},
+   :rdfs/subClassOf :d3f/SPARTAInitialAccessTechnique,
+   :skos/prefLabel "Compromise Software Defined Radio"})
+
+(def IA-0003
+  {:d3f/attack-id "IA-0003",
+   :d3f/definition
+   "Threat actors may compromise a victim spacecraft via the crosslink communications of a neighboring spacecraft that has been compromised. spacecraft in close proximity are able to send commands back and forth. Threat actors may be able to leverage this access to compromise other spacecraft once they have access to another that is nearby.",
+   :db/ident :d3f/IA-0003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Crosslink via Compromised Neighbor - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0003/"},
+   :rdfs/subClassOf :d3f/SPARTAInitialAccessTechnique,
+   :skos/prefLabel "Crosslink via Compromised Neighbor"})
+
+(def IA-0004
+  {:d3f/attack-id "IA-0004",
+   :d3f/definition
+   "Threat actors may compromise alternative communication pathways which may not be as protected as the primary pathway. Depending on implementation the contingency communication pathways/solutions may lack the same level of security (i.e., physical security, encryption, authentication, etc.) which if forced to use could provide a threat actor an opportunity to launch attacks. Typically these would have to be coupled with other denial of service techniques on the primary pathway to force usage of secondary pathways.",
+   :db/ident :d3f/IA-0004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Secondary/Backup Communication Channel - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0004/"},
+   :rdfs/subClassOf :d3f/SPARTAInitialAccessTechnique,
+   :skos/prefLabel "Secondary/Backup Communication Channel"})
+
+(def IA-0004_01
+  {:d3f/attack-id "IA-0004.01",
+   :d3f/definition
+   "Threat actors may  establish a foothold within the backup ground/mission operations center (MOC) and then perform attacks to force primary communication traffic through the backup communication channel so that other TTPs can be executed (man-in-the-middle, malicious commanding, malicious code, etc.). While an attacker would not be required to force the communications through the backup channel vice waiting until the backup is used for various reasons. Threat actors can also utilize compromised ground stations to chain command execution and payload delivery across geo-separated ground stations to extend reach and maintain access on spacecraft. The backup ground/MOC should be considered a viable attack vector and the appropriate/equivalent security controls from the primary communication channel should be on the backup ground/MOC as well.",
+   :db/ident :d3f/IA-0004.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Ground Station - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0004/01/"},
+   :rdfs/subClassOf :d3f/IA-0004,
+   :skos/prefLabel "Ground Station"})
+
+(def IA-0004_02
+  {:d3f/attack-id "IA-0004.02",
+   :d3f/definition
+   "Threat actors may target the backup/secondary receiver on the spacecraft as a method to inject malicious communications into the mission. The secondary receivers may come from different supply chains than the primary which could have different level of security and weaknesses. Similar to the ground station, the communication through the secondary receiver could be forced or happening naturally.",
+   :db/ident :d3f/IA-0004.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Receiver - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0004/02/"},
+   :rdfs/subClassOf :d3f/IA-0004,
+   :skos/prefLabel "Receiver"})
+
+(def IA-0005
+  {:d3f/attack-id "IA-0005",
+   :d3f/definition
+   "Threat actors may perform a space rendezvous which is a set of orbital maneuvers during which a spacecraft arrives at the same orbit and approach to a very close distance (e.g. within visual contact or close proximity) to a target spacecraft.",
+   :db/ident :d3f/IA-0005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Rendezvous & Proximity Operations - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0005/"},
+   :rdfs/subClassOf :d3f/SPARTAInitialAccessTechnique,
+   :skos/prefLabel "Rendezvous & Proximity Operations"})
+
+(def IA-0005_01
+  {:d3f/attack-id "IA-0005.01",
+   :d3f/definition
+   "Threat actors in close proximity may intercept and analyze electromagnetic radiation emanating from crypto equipment and/or the target spacecraft(i.e., main bus) to determine whether the emanations are information bearing. The data could be used to establish initial access.",
+   :db/ident :d3f/IA-0005.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromise Emanations - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0005/01/"},
+   :rdfs/subClassOf :d3f/IA-0005,
+   :skos/prefLabel "Compromise Emanations"})
+
+(def IA-0005_02
+  {:d3f/attack-id "IA-0005.02",
+   :d3f/definition
+   "Threat actors may leverage docking vehicles to laterally move into a target spacecraft. If information is known on docking plans, a threat actor may target vehicles on the ground or in space to deploy malware to laterally move or execute malware on the target spacecraft via the docking interface.",
+   :db/ident :d3f/IA-0005.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Docked Vehicle / OSAM - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0005/02/"},
+   :rdfs/subClassOf :d3f/IA-0005,
+   :skos/prefLabel "Docked Vehicle / OSAM"})
+
+(def IA-0005_03
+  {:d3f/attack-id "IA-0005.03",
+   :d3f/definition
+   "Threat actors may posses the capability to grapple target spacecraft once it has established the appropriate space rendezvous. If from a proximity / rendezvous perspective a threat actor has the ability to connect via docking interface or expose testing (i.e., JTAG port) once it has grappled the target spacecraft, they could perform various attacks depending on the access enabled via the physical connection.",
+   :db/ident :d3f/IA-0005.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Proximity Grappling - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0005/03/"},
+   :rdfs/subClassOf :d3f/IA-0005,
+   :skos/prefLabel "Proximity Grappling"})
+
+(def IA-0006
+  {:d3f/attack-id "IA-0006",
+   :d3f/definition
+   "Threat actors may compromise the target spacecraft hosted payload to initially access and/or persist within the system. Hosted payloads can usually be accessed from the ground via a specific command set. The command pathways can leverage the same ground infrastructure or some host payloads have their own ground infrastructure which can provide an access vector as well. Threat actors may be able to leverage the ability to command hosted payloads to upload files or modify memory addresses in order to compromise the system. Depending on the implementation, hosted payloads may provide some sort of lateral movement potential.",
+   :db/ident :d3f/IA-0006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromise Hosted Payload - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0006/"},
+   :rdfs/subClassOf :d3f/SPARTAInitialAccessTechnique,
+   :skos/prefLabel "Compromise Hosted Payload"})
+
+(def IA-0007
+  {:d3f/attack-id "IA-0007",
+   :d3f/definition
+   "Threat actors may initially compromise the ground system in order to access the target spacecraft. Once compromised, the threat actor can perform a multitude of initial access techniques, including replay, compromising FSW deployment, compromising encryption keys, and compromising authentication schemes. Threat actors may also perform further reconnaissance within the system to enumerate mission networks and gather information related to ground station logical topology, missions ran out of said ground station, birds that are in-band of targeted ground stations, and other mission system capabilities.",
+   :db/ident :d3f/IA-0007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromise Ground System - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0007/"},
+   :rdfs/subClassOf :d3f/SPARTAInitialAccessTechnique,
+   :skos/prefLabel "Compromise Ground System"})
+
+(def IA-0007_01
+  {:d3f/attack-id "IA-0007.01",
+   :d3f/definition
+   "Threat actors may manipulate and modify on-orbit updates before they are sent to the target spacecraft. This attack can be done in a number of ways, including manipulation of source code, manipulating environment variables, on-board table/memory values, or replacing compiled versions with a malicious one.",
+   :db/ident :d3f/IA-0007.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromise On-Orbit Update - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0007/01/"},
+   :rdfs/subClassOf :d3f/IA-0007,
+   :skos/prefLabel "Compromise On-Orbit Update"})
+
+(def IA-0007_02
+  {:d3f/attack-id "IA-0007.02",
+   :d3f/definition
+   "Threat actors may compromise target owned ground systems components (e.g., front end processors, command and control software, etc.) that can be used for future campaigns or to perpetuate other techniques. These ground systems components have already been configured for communications to the victim spacecraft. By compromising this infrastructure, threat actors can stage, launch, and execute an operation. Threat actors may utilize these systems for various tasks, including Execution and Exfiltration.",
+   :db/ident :d3f/IA-0007.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Malicious Commanding via Valid GS - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0007/02/"},
+   :rdfs/subClassOf :d3f/IA-0007,
+   :skos/prefLabel "Malicious Commanding via Valid GS"})
+
+(def IA-0008
+  {:d3f/attack-id "IA-0008",
+   :d3f/definition
+   "Threat actors may gain access to a victim spacecraft through the use of a rogue external entity. With this technique, the threat actor does not need access to a legitimate ground station or communication site.",
+   :db/ident :d3f/IA-0008,
+   :rdf/type :owl/Class,
+   :rdfs/label "Rogue External Entity - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0008/"},
+   :rdfs/subClassOf :d3f/SPARTAInitialAccessTechnique,
+   :skos/prefLabel "Rogue External Entity"})
+
+(def IA-0008_01
+  {:d3f/attack-id "IA-0008.01",
+   :d3f/definition
+   "Threat actors may gain access to a victim spacecraft through the use of a rogue ground system. With this technique, the threat actor does not need access to a legitimate ground station or communication site.",
+   :db/ident :d3f/IA-0008.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Rogue Ground Station - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0008/01/"},
+   :rdfs/subClassOf :d3f/IA-0008,
+   :skos/prefLabel "Rogue Ground Station"})
+
+(def IA-0008_02
+  {:d3f/attack-id "IA-0008.02",
+   :d3f/definition
+   "Threat actors may gain access to a target spacecraft using their own spacecraft that has the capability to maneuver within close proximity to a target spacecraft to carry out a variety of TTPs (i.e., eavesdropping, side-channel, etc.). Since many of the commercial and military assets in space are tracked, and that information is publicly available, attackers can identify the location of space assets to infer the best positioning for intersecting orbits. Proximity operations support avoidance of the larger attenuation that would otherwise affect the signal when propagating long distances, or environmental circumstances that may present interference.",
+   :db/ident :d3f/IA-0008.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Rogue Spacecraft - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0008/02/"},
+   :rdfs/subClassOf :d3f/IA-0008,
+   :skos/prefLabel "Rogue Spacecraft"})
+
+(def IA-0008_03
+  {:d3f/attack-id "IA-0008.03",
+   :d3f/definition
+   "Threat actors may utilize counterspace platforms to access/impact spacecraft. These counterspace capabilities vary significantly in the types of effects they create, the level of technological sophistication required, and the level of resources needed to develop and deploy them. These diverse capabilities also differ in how they are employed and how easy they are to detect and attribute and the permanence of the effects they have on their target.*\n\n*https://aerospace.csis.org/aerospace101/counterspace-weapons-101",
+   :db/ident :d3f/IA-0008.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "ASAT/Counterspace Weapon - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0008/03/"},
+   :rdfs/subClassOf :d3f/IA-0008,
+   :skos/prefLabel "ASAT/Counterspace Weapon"})
+
+(def IA-0009
+  {:d3f/attack-id "IA-0009",
+   :d3f/definition
+   "Access through trusted third-party relationship exploits an existing connection that has been approved for interconnection. Leveraging third party / approved interconnections to pivot into the target systems is a common technique for threat actors as these interconnections typically lack stringent access control due to the trusted status.",
+   :db/ident :d3f/IA-0009,
+   :rdf/type :owl/Class,
+   :rdfs/label "Trusted Relationship - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0009/"},
+   :rdfs/subClassOf :d3f/SPARTAInitialAccessTechnique,
+   :skos/prefLabel "Trusted Relationship"})
+
+(def IA-0009_01
+  {:d3f/attack-id "IA-0009.01",
+   :d3f/definition
+   "Threat actors may seek to exploit mission partners to gain an initial foothold for pivoting into the mission environment and eventually impacting the spacecraft. The complex nature of many space systems rely on contributions across organizations, including academic partners and even international collaborators. These organizations will undoubtedly vary in their system security posture and attack surface.",
+   :db/ident :d3f/IA-0009.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Mission Collaborator (academia, international, etc.) - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0009/01/"},
+   :rdfs/subClassOf :d3f/IA-0009,
+   :skos/prefLabel "Mission Collaborator (academia, international, etc.)"})
+
+(def IA-0009_02
+  {:d3f/attack-id "IA-0009.02",
+   :d3f/definition
+   "Threat actors may target the trust between vendors and the target spacecraft. Missions often grant elevated access to vendors in order to allow them to manage internal systems as well as cloud-based environments. The vendor's access may be intended to be limited to the infrastructure being maintained but it may provide laterally movement into the target spacecraft. Attackers may leverage security weaknesses in the vendor environment to gain access to more critical mission resources or network locations. In the spacecraft context vendors may have direct commanding and updating capabilities outside of the primary communication channel.",
+   :db/ident :d3f/IA-0009.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Vendor - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0009/02/"},
+   :rdfs/subClassOf :d3f/IA-0009,
+   :skos/prefLabel "Vendor"})
+
+(def IA-0009_03
+  {:d3f/attack-id "IA-0009.03",
+   :d3f/definition
+   "Threat actors can target the user segment in an effort to laterally move into other areas of the end-to-end mission architecture. When user segments are interconnected, threat actors can exploit lack of segmentation as the user segment's security undoubtedly varies in their system security posture and attack surface than the primary space mission. The user equipment and users themselves provide ample attack surface as the human element and their vulnerabilities (i.e., social engineering, phishing, iOT) are often the weakest security link and entry point into many systems.",
+   :db/ident :d3f/IA-0009.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "User Segment - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0009/03/"},
+   :rdfs/subClassOf :d3f/IA-0009,
+   :skos/prefLabel "User Segment"})
+
+(def IA-0010
+  {:d3f/attack-id "IA-0010",
+   :d3f/definition
+   "Threat actors may target a spacecraft in safe mode to establish initial access, taking advantage of reduced authentication, relaxed command filtering, or backup control pathways. Safe-mode is when all non-essential systems are shut down and only essential functions within the spacecraft are active. Since safe mode often prioritizes availability and fault recovery over security, it may process commands that would otherwise be rejected in nominal operations. This condition can provide an entry point into mission operations if improperly protected.",
+   :db/ident :d3f/IA-0010,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unauthorized Access During Safe-Mode - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0010/"},
+   :rdfs/subClassOf :d3f/SPARTAInitialAccessTechnique,
+   :skos/prefLabel "Unauthorized Access During Safe-Mode"})
+
+(def IA-0011
+  {:d3f/attack-id "IA-0011",
+   :d3f/definition
+   "Threat actors may exploit the auxiliary/peripheral devices that get plugged into spacecrafts. It is no longer atypical to see spacecrafts, especially CubeSats, with Universal Serial Bus (USB) ports or other ports where auxiliary/peripheral devices can be plugged in. Threat actors can execute malicious code on the spacecrafts by copying the malicious code to auxiliary/peripheral devices and taking advantage of logic on the spacecraft to execute code on these devices. This may occur through manual manipulation of the auxiliary/peripheral devices, modification of standard IT systems used to initially format/create the auxiliary/peripheral device, or modification to the auxiliary/peripheral devices' firmware itself.",
+   :db/ident :d3f/IA-0011,
+   :rdf/type :owl/Class,
+   :rdfs/label "Auxiliary Device Compromise - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0011/"},
+   :rdfs/subClassOf :d3f/SPARTAInitialAccessTechnique,
+   :skos/prefLabel "Auxiliary Device Compromise"})
+
+(def IA-0012
+  {:d3f/attack-id "IA-0012",
+   :d3f/definition
+   "Threat actors may target the spacecraft hardware and/or software while the spacecraft is at Assembly, Test, and Launch Operation (ATLO). ATLO is often the first time pieces of the spacecraft are fully integrated and exchanging data across interfaces. Malware could propagate from infected devices across the integrated spacecraft. For example, test equipment (i.e., transient cyber asset) is often brought in for testing elements of the spacecraft. Additionally, varying levels of physical security is in place which may be a reduction in physical security typically seen during development. The ATLO environment should be considered a viable attack vector and the appropriate/equivalent security controls from the primary development environment should be implemented during ATLO as well.",
+   :db/ident :d3f/IA-0012,
+   :rdf/type :owl/Class,
+   :rdfs/label "Assembly, Test, and Launch Operation Compromise - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0012/"},
+   :rdfs/subClassOf :d3f/SPARTAInitialAccessTechnique,
+   :skos/prefLabel "Assembly, Test, and Launch Operation Compromise"})
+
+(def IA-0013
+  {:d3f/attack-id "IA-0013",
+   :d3f/definition
+   "The inverse of IA-0006, this technique describes adversaries that are targeting a hosted payload, the host space vehicle (SV) can serve as an initial access vector to compromise the payload through vulnerabilities in the SV's onboard systems, communication interfaces, or software. If the SV's command and control systems are exploited, an attacker could gain unauthorized access to the vehicle's internal network. Once inside, the attacker may laterally move to the hosted payload, particularly if it shares data buses, processors, or communication links with the vehicle.",
+   :db/ident :d3f/IA-0013,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromise Host Spacecraft - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IA-0013/"},
+   :rdfs/subClassOf :d3f/SPARTAInitialAccessTechnique,
+   :skos/prefLabel "Compromise Host Spacecraft"})
+
 (def ID3
   {:d3f/d3fend-id "D3A-ID3",
    :d3f/definition
@@ -20213,11 +24477,83 @@
    :rdfs/label "ID3",
    :rdfs/subClassOf :d3f/DecisionTree})
 
+(def IMP-0001
+  {:d3f/attack-id "IMP-0001",
+   :d3f/definition
+   "Measures designed to mislead an adversary by manipulation, distortion, or falsification of evidence or information into a system to induce the adversary to react in a manner prejudicial to their interests. Threat actors may seek to deceive mission stakeholders (or even military decision makers) for a multitude of reasons. Telemetry values could be modified, attacks could be designed to intentionally mimic another threat actor's TTPs, and even allied ground infrastructure could be compromised and used as the source of communications to the spacecraft.",
+   :db/ident :d3f/IMP-0001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Deception (or Misdirection) - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IMP-0001/"},
+   :rdfs/subClassOf :d3f/SPARTAImpactTechnique,
+   :skos/prefLabel "Deception (or Misdirection)"})
+
+(def IMP-0002
+  {:d3f/attack-id "IMP-0002",
+   :d3f/definition
+   "Measures designed to temporarily impair the use or access to a system for a period of time. Threat actors may seek to disrupt communications from the victim spacecraft to the ground controllers or other interested parties. By disrupting communications during critical times, there is the potential impact of data being lost or critical actions not being performed. This could cause the spacecraft's purpose to be put into jeopardy depending on what communications were lost during the disruption. This behavior is different than Denial as this attack can also attempt to modify the data and messages as they are passed as a way to disrupt communications.",
+   :db/ident :d3f/IMP-0002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Disruption - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IMP-0002/"},
+   :rdfs/subClassOf :d3f/SPARTAImpactTechnique,
+   :skos/prefLabel "Disruption"})
+
+(def IMP-0003
+  {:d3f/attack-id "IMP-0003",
+   :d3f/definition
+   "Measures designed to temporarily eliminate the use, access, or operation of a system for a period of time, usually without physical damage to the affected system. Threat actors may seek to deny ground controllers and other interested parties access to the victim spacecraft. This would be done exhausting system resource, degrading subsystems, or blocking communications entirely. This behavior is different from Disruption as this seeks to deny communications entirely, rather than stop them for a length of time.",
+   :db/ident :d3f/IMP-0003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Denial - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IMP-0003/"},
+   :rdfs/subClassOf :d3f/SPARTAImpactTechnique,
+   :skos/prefLabel "Denial"})
+
+(def IMP-0004
+  {:d3f/attack-id "IMP-0004",
+   :d3f/definition
+   "Measures designed to permanently impair (either partially or totally) the use of a system. Threat actors may target various subsystems or the hosted payload in such a way to rapidly increase it's degradation. This could potentially shorten the lifespan of the victim spacecraft.",
+   :db/ident :d3f/IMP-0004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Degradation - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IMP-0004/"},
+   :rdfs/subClassOf :d3f/SPARTAImpactTechnique,
+   :skos/prefLabel "Degradation"})
+
+(def IMP-0005
+  {:d3f/attack-id "IMP-0005",
+   :d3f/definition
+   "Measures designed to permanently eliminate the use of a system, potentially through some physical damage to the system. Threat actors may destroy data, commands, subsystems, or attempt to destroy the victim spacecraft itself. This behavior is different from Degradation, as the individual parts are destroyed rather than put in a position in which they would slowly degrade over time.",
+   :db/ident :d3f/IMP-0005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Destruction - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IMP-0005/"},
+   :rdfs/subClassOf :d3f/SPARTAImpactTechnique,
+   :skos/prefLabel "Destruction"})
+
+(def IMP-0006
+  {:d3f/attack-id "IMP-0006",
+   :d3f/definition
+   "Threat actors may attempt to steal the data that is being gathered, processed, and sent from the victim spacecraft. Many spacecraft have a particular purpose associated with them and the data they gather is deemed mission critical. By attempting to steal this data, the mission, or purpose, of the spacecraft could be lost entirely.",
+   :db/ident :d3f/IMP-0006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Theft - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/IMP-0006/"},
+   :rdfs/subClassOf :d3f/SPARTAImpactTechnique,
+   :skos/prefLabel "Theft"})
+
 (def IOModule
   {:d3f/definition
    "An I/O Module is a hardware device that translates signals between external sensors or actuators and control systems. It typically handles analog-to-digital (and vice versa) conversion, serving as the data interface that allows physical processes to be monitored and controlled by digital controllers.",
    :db/ident :d3f/IOModule,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "I/O Module",
    :rdfs/subClassOf :d3f/HardwareDevice})
 
@@ -20226,6 +24562,7 @@
    :d3f/definition
    "Limiting access to computer input/output (IO) ports to restrict unauthorized devices.",
    :d3f/filters #{:d3f/InputDevice :d3f/RemovableMediaDevice},
+   :d3f/isolates :d3f/IOModule,
    :d3f/kb-article
    "## How It works\n\nSoftware-based restriction uses agent software installed on a computer system. The agent software monitors all IO port system traffic. The agent software is configurable to limit the use of certain devices connected to IO ports. The restriction software can also be configured to limit the access to files and applications on external storage devices connected to IO ports.\n\nHardware-based restriction can also be employed to limit access to IO ports. For example, a hardware USB filter device that is placed between the host system and the external devices can filter IO port connections based on configurable rules. When new devices are connected to the USB filter the type of device is determined. Using an allow list a connection determination is made for the device.\n\nSome implementations detect when a device is connected in order to authorize the connection against a list of approved devices, in some cases by device type. For example, if the device is determined to be a storage device, then the contained files and executables are examined to more accurately identify the device type.\n\nTypes of restrictions that may be applied:\n- Device connection\n- Device command filtering\n- Device file system read or write restrictions\n\n## Considerations\n * Agent software will need to be installed on host systems\n * Configurations for allow/deny for devices and files will need to be maintained",
    :d3f/kb-reference
@@ -20235,7 +24572,10 @@
    :db/ident :d3f/IOPortRestriction,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "IO Port Restriction",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/filters,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/isolates,
+                       :owl/someValuesFrom :d3f/IOModule,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/filters,
                        :owl/someValuesFrom :d3f/InputDevice,
                        :rdf/type           :owl/Restriction}
                       :d3f/AccessMediation
@@ -20438,10 +24778,12 @@
    :rdfs/subClassOf :d3f/GenerativeAdversarialNetwork})
 
 (def ImpactTechnique
-  {:d3f/enables     :d3f/TA0040,
-   :db/ident        :d3f/ImpactTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Impact Technique",
+  {:d3f/definition
+   "The adversary is trying to manipulate, interrupt, or destroy your systems and data.",
+   :d3f/enables :d3f/TA0040,
+   :db/ident :d3f/ImpactTechnique,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Impact Technique",
    :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTechnique
                       {:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/TA0040,
@@ -20626,7 +24968,8 @@
    :skos/altLabel "Initialization Script"})
 
 (def InitialAccessTechnique
-  {:d3f/enables     :d3f/TA0001,
+  {:d3f/definition  "The adversary is trying to get into your network.",
+   :d3f/enables     :d3f/TA0001,
    :db/ident        :d3f/InitialAccessTechnique,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Initial Access Technique",
@@ -20637,7 +24980,7 @@
 
 (def InputDevice
   {:d3f/definition
-   "In computing, an input device is a piece of equipment used to provide data and control signals to an information processing system such as a computer or information appliance. Examples of input devices include keyboards, mouse, scanners, digital cameras, joysticks, and microphones. Input devices can be categorized based on:",
+   "In computing, an input device is a piece of equipment used to provide data and control signals to an information processing system such as a computer or information appliance. Examples of input devices include keyboards, mouse, scanners, digital cameras, joysticks, and microphones.",
    :db/ident :d3f/InputDevice,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Input_device"},
@@ -21378,6 +25721,102 @@
    :rdf/type   #{:d3f/UserAccount :owl/NamedIndividual},
    :rdfs/label "LDIF Record"})
 
+(def LM-0001
+  {:d3f/attack-id "LM-0001",
+   :d3f/definition
+   "Threat actors may use the hosted payload within the victim spacecraft in order to gain access to other subsystems. The hosted payload often has a need to gather and send data to the internal subsystems, depending on its purpose. Threat actors may be able to take advantage of this communication in order to laterally move to the other subsystems and have commands be processed.",
+   :db/ident :d3f/LM-0001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hosted Payload - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/LM-0001/"},
+   :rdfs/subClassOf :d3f/SPARTALateralMovementTechnique,
+   :skos/prefLabel "Hosted Payload"})
+
+(def LM-0002
+  {:d3f/attack-id "LM-0002",
+   :d3f/definition
+   "Threat actors may exploit victim spacecraft on-board flat architecture for lateral movement purposes. Depending on implementation decisions, spacecraft can have a completely flat architecture where remote terminals, sub-systems, payloads, etc. can all communicate on the same main bus without any segmentation, authentication, etc. Threat actors can leverage this poor design to send specially crafted data from one compromised devices or sub-system. This could enable the threat actor to laterally move to another area of the spacecraft or escalate privileges (i.e., bus master, bus controller)",
+   :db/ident :d3f/LM-0002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exploit Lack of Bus Segregation - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/LM-0002/"},
+   :rdfs/subClassOf :d3f/SPARTALateralMovementTechnique,
+   :skos/prefLabel "Exploit Lack of Bus Segregation"})
+
+(def LM-0003
+  {:d3f/attack-id "LM-0003",
+   :d3f/definition
+   "Threat actors may attempt to command another neighboring spacecraft via crosslink. spacecraft in close proximity are often able to send commands back and forth. Threat actors may be able to leverage this access to compromise another spacecraft.",
+   :db/ident :d3f/LM-0003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Constellation Hopping via Crosslink - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/LM-0003/"},
+   :rdfs/subClassOf :d3f/SPARTALateralMovementTechnique,
+   :skos/prefLabel "Constellation Hopping via Crosslink"})
+
+(def LM-0004
+  {:d3f/attack-id "LM-0004",
+   :d3f/definition
+   "Threat actors may move from one spacecraft to another through visiting vehicle interfaces. When a vehicle docks with a spacecraft, many programs are automatically triggered in order to ensure docking mechanisms are locked. This entails several data points and commands being sent to and from the spacecraft and the visiting vehicle. If a threat actor were to compromise a visiting vehicle, they could target these specific programs in order to send malicious commands to the victim spacecraft once docked.",
+   :db/ident :d3f/LM-0004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Visiting Vehicle Interface(s) - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/LM-0004/"},
+   :rdfs/subClassOf :d3f/SPARTALateralMovementTechnique,
+   :skos/prefLabel "Visiting Vehicle Interface(s)"})
+
+(def LM-0005
+  {:d3f/attack-id "LM-0005",
+   :d3f/definition
+   "In virtualized environments, threat actors can use the open ports between the partitions to overcome the hypervisor's protection and damage another partition. Further, if the threat actor has compromised the payload, access to a critical partition can be gained through ports allowed by hypervisor.",
+   :db/ident :d3f/LM-0005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Virtualization Escape - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/LM-0005/"},
+   :rdfs/subClassOf :d3f/SPARTALateralMovementTechnique,
+   :skos/prefLabel "Virtualization Escape"})
+
+(def LM-0006
+  {:d3f/attack-id "LM-0006",
+   :d3f/definition
+   "Threat actors may attempt to exploit reduced protections placed on the interfaces between launch vehicles and payloads in order to move from one to the other.",
+   :db/ident :d3f/LM-0006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Launch Vehicle Interface - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/LM-0006/"},
+   :rdfs/subClassOf :d3f/SPARTALateralMovementTechnique,
+   :skos/prefLabel "Launch Vehicle Interface"})
+
+(def LM-0006_01
+  {:d3f/attack-id "LM-0006.01",
+   :d3f/definition
+   "Threat actors may attempt to move laterally between multiple co-located payloads onboard the same launch vehicle during shared launch missions (i.e., rideshare configurations). This differs from lateral movement between spacecraft subsystems or onboard hosted payloads. In this case, each payload may belong to a different customer or organization, but they share the same physical transport infrastructure. If insufficient isolation or segmentation exists between payloads during launch integration (e.g., shared avionics bus, data interface, or environmental control), threat actors may exploit the launch vehicle interface to enable cross-payload access or data compromise before separation.",
+   :db/ident :d3f/LM-0006.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Rideshare Payload - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/LM-0006/01/"},
+   :rdfs/subClassOf :d3f/LM-0006,
+   :skos/prefLabel "Rideshare Payload"})
+
+(def LM-0007
+  {:d3f/attack-id "LM-0007",
+   :d3f/definition
+   "Threat actors may leverage valid credentials to traverse across spacecraft subsystems, communication buses, or even to access other spacecraft within a constellation, all while avoiding detection. These credentials may include system service accounts, user accounts, maintenance credentials, cryptographic keys, or other authentication mechanisms that grant authorized access. Rather than exploiting vulnerabilities, this technique relies on the reuse or misuse of trusted credentials to move laterally within the space system architecture. When access control boundaries are weak, flat, or poorly enforced, valid credentials can enable attackers to reach restricted functions or domains without raising alarms. This traversal allows evasion of isolation mechanisms and facilitates further actions without triggering traditional anomaly detection tied to unauthorized access attempts.",
+   :db/ident :d3f/LM-0007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Credentialed Traversal - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/LM-0007/"},
+   :rdfs/subClassOf :d3f/SPARTALateralMovementTechnique,
+   :skos/prefLabel "Credentialed Traversal"})
+
 (def LaptopComputer
   {:d3f/definition
    "A laptop computer (also laptop), is a small, portable personal computer (PC) with a \"clamshell\" form factor, typically having a thin LCD or LED computer screen mounted on the inside of the upper lid of the clamshell and an alphanumeric keyboard on the inside of the lower lid. The clamshell is opened up to use the computer. Laptops are folded shut for transportation, and thus are suitable for mobile use. Its name comes from lap, as it was deemed to be placed on a person's lap when being used. Although originally there was a distinction between laptops and notebooks (the former being bigger and heavier than the latter), as of 2014, there is often no longer any difference. Today, laptops are commonly used in a variety of settings, such as at work, in education, for playing games, web browsing",
@@ -21389,7 +25828,8 @@
    :skos/altLabel #{"Laptop" "Notebook"}})
 
 (def LateralMovementTechnique
-  {:d3f/enables     :d3f/TA0008,
+  {:d3f/definition  "The adversary is trying to move through your environment.",
+   :d3f/enables     :d3f/TA0008,
    :db/ident        :d3f/LateralMovementTechnique,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Lateral Movement Technique",
@@ -22024,20 +26464,28 @@
    :rdfs/subClassOf :d3f/Attacker})
 
 (def LocalAuthenticationService
-  {:d3f/definition
+  {:d3f/authenticates :d3f/LocalUserAccount,
+   :d3f/definition
    "A local authentication service running on a host can authenticate a user logged into just that local host computer.",
    :db/ident :d3f/LocalAuthenticationService,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Local Authentication Service",
-   :rdfs/subClassOf #{:d3f/AuthenticationService :d3f/SystemServiceSoftware}})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/authenticates,
+                       :owl/someValuesFrom :d3f/LocalUserAccount,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/AuthenticationService}})
 
 (def LocalAuthorizationService
-  {:d3f/definition
+  {:d3f/authorizes :d3f/LocalUserAccount,
+   :d3f/definition
    "A local authorization service running on a host can authorize a user logged into just that local host computer.",
    :db/ident :d3f/LocalAuthorizationService,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Local Authorization Service",
-   :rdfs/subClassOf #{:d3f/AuthorizationService :d3f/SystemServiceSoftware}})
+   :rdfs/subClassOf #{:d3f/AuthorizationService
+                      {:owl/onProperty     :d3f/authorizes,
+                       :owl/someValuesFrom :d3f/LocalUserAccount,
+                       :rdf/type           :owl/Restriction}}})
 
 (def LocalFileAccessMediation
   {:d3f/d3fend-id "D3-LFAM",
@@ -22129,10 +26577,13 @@
 
 (def LogMessageFunction
   {:d3f/definition  "Produces an entry in a log.",
+   :d3f/produces    :d3f/DigitalEventRecord,
    :db/ident        :d3f/LogMessageFunction,
-   :rdf/type        :owl/Class,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Log Message Function",
-   :rdfs/subClassOf :d3f/Subroutine})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
+                       :owl/someValuesFrom :d3f/DigitalEventRecord,
+                       :rdf/type           :owl/Restriction} :d3f/Subroutine}})
 
 (def LogicProgramming
   {:d3f/d3fend-id "D3A-LP",
@@ -23259,6 +27710,43 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Moments",
    :rdfs/subClassOf :d3f/DistributionProperties})
+
+(def MotionDetectedEvent
+  {:db/ident        :d3f/MotionDetectedEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Motion Detected Event",
+   :rdfs/subClassOf #{:d3f/PhysicalAccessAlarmEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/MotionDetector,
+                       :rdf/type           :owl/Restriction}}})
+
+(def MotionDetector
+  {:d3f/definition
+   "An electrical device that utilizes a sensor to detect nearby motion.",
+   :db/ident :d3f/MotionDetector,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://dbpedia.org/page/Motion_detector"},
+   :rdfs/label "Motion Detector",
+   :rdfs/subClassOf #{:d3f/Sensor :d3f/HardwareDevice}})
+
+(def MotionSensorMonitoring
+  {:d3f/d3fend-id "D3-MSM",
+   :d3f/definition
+   "Monitoring events from motion detectors (e.g., passive IR, microwave, dual-technology) to detect presence or movement within protected areas.",
+   :d3f/kb-article
+   "## How it works\n\nMotion sensors generate events when movement is detected within their coverage pattern. Alarm panels or PACS correlate motion with arming schedules, door openings, and other sensors; video systems can use motion to trigger recording or bookmarks. Cross-zoning and sensitivity/pulse-count settings are commonly adjusted to balance detection and false-alarm rates.\n\n## Considerations\n\n* Place sensors at appropriate height and angle with clear line of sight, avoiding obstructions or reflective surfaces that can cause missed or false detections.\n* Reduce false alarms by tuning sensitivity and pulse-count, using cross-zoning when needed, and accounting for HVAC airflow or rapid thermal changes.\n* Monitor tamper and supervision signals; for wireless devices, verify periodic check-ins and battery levels; perform regular walk tests to validate coverage.\n* Integrate motion events with cameras and with door position switches and other sensors in the protected area to provide context and faster verification; use motion to trigger recording or bookmarks.",
+   :d3f/kb-reference #{:d3f/Reference-NIST-Special-Publication-800-53-Revision-5
+                       :d3f/Reference-Wikipedia-PIRSensor
+                       :d3f/Reference-Wikipedia-MotionDetector},
+   :d3f/monitors :d3f/MotionDetector,
+   :d3f/synonym #{"Motion Detector Monitoring" "Motion Alarm Monitoring"},
+   :db/ident :d3f/MotionSensorMonitoring,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Motion Sensor Monitoring",
+   :rdfs/subClassOf #{:d3f/PhysicalAccessMonitoring
+                      {:owl/onProperty     :d3f/monitors,
+                       :owl/someValuesFrom :d3f/MotionDetector,
+                       :rdf/type           :owl/Restriction}}})
 
 (def MouseInputDevice
   {:d3f/definition
@@ -24694,7 +29182,7 @@
   {:d3f/definition
    "Firmware that is installed on a network card (network interface controller).",
    :db/ident :d3f/NetworkCardFirmware,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Network Card Firmware",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/Network_interface_controller"},
@@ -24862,7 +29350,8 @@
    :rdfs/subClassOf #{:d3f/NetworkFileResource :d3f/InitScript}})
 
 (def NetworkInterfaceCard
-  {:d3f/definition
+  {:d3f/contains :d3f/NetworkCardFirmware,
+   :d3f/definition
    "A network interface card (NIC, also known as a network interface controller, network adapter, LAN adapter or physical network interface, and by similar terms) is a computer hardware component that connects a computer to a computer network.",
    :d3f/synonym "Network Interface Controller",
    :db/ident :d3f/NetworkInterfaceCard,
@@ -24870,7 +29359,10 @@
    :rdfs/isDefinedBy {:xsd/anyURI
                       "https://dbpedia.org/page/Network_interface_controller"},
    :rdfs/label "Network Interface Card",
-   :rdfs/subClassOf :d3f/HardwareDevice})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/NetworkCardFirmware,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/HardwareDevice}})
 
 (def NetworkIsolation
   {:d3f/d3fend-id "D3-NI",
@@ -25097,7 +29589,7 @@
   {:d3f/contains :d3f/NetworkPacket,
    :d3f/definition
    "Network traffic or data traffic is the data, or alternatively the amount of data, moving across a network at a given point of time.  Network data in computer networks is mostly encapsulated in network packets, which provide the load in the network.",
-   :d3f/may-contain :d3f/DomainName,
+   :d3f/may-contain #{:d3f/RemoteCommand :d3f/DomainName},
    :d3f/originates-from :d3f/PhysicalLocation,
    :db/ident :d3f/NetworkTraffic,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
@@ -25106,6 +29598,9 @@
                    {:xsd/anyURI
                     "https://schema.ocsf.io/objects/network_traffic"}},
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-contain,
+                       :owl/someValuesFrom :d3f/RemoteCommand,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/may-contain,
                        :owl/someValuesFrom :d3f/DomainName,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/contains,
@@ -25132,15 +29627,12 @@
 
 (def NetworkTrafficAnalysisSoftware
   {:d3f/definition
-   "A packet analyzer, also known as packet sniffer, protocol analyzer, or network analyzer, is a computer program or computer hardware such as a packet capture appliance, that can intercept and log traffic that passes over a computer network or part of a network.",
+   "A packet analyzer, also known as packet sniffer, protocol analyzer, or network analyzer, is a computer program or computer hardware such as a packet capture appliance, that can intercept and log traffic that passes over a computer network or part of a network.\"",
+   :d3f/synonym "Network Sniffer",
    :db/ident :d3f/NetworkTrafficAnalysisSoftware,
-   :rdf/type #{:d3f/DigitalArtifact :owl/NamedIndividual :owl/Class},
-   :rdfs/isDefinedBy {:xsd/anyURI "https://dbpedia.org/page/Packet_analyzer"},
+   :rdf/type :owl/Class,
    :rdfs/label "Network Traffic Analysis Software",
-   :rdfs/seeAlso {:xsd/anyURI
-                  "https://dbpedia.org/resource/Category:Network_analyzers"},
-   :rdfs/subClassOf :d3f/DeveloperApplication,
-   :skos/altLabel "Network Sniffer"})
+   :rdfs/subClassOf :d3f/DeveloperApplication})
 
 (def NetworkTrafficCommunityDeviation
   {:d3f/analyzes :d3f/NetworkTraffic,
@@ -25162,7 +29654,8 @@
 (def NetworkTrafficFiltering
   {:d3f/d3fend-id "D3-NTF",
    :d3f/definition "Restricting network traffic originating from any location.",
-   :d3f/filters :d3f/NetworkTraffic,
+   :d3f/filters #{:d3f/NetworkTraffic :d3f/OTProtocolMessage
+                  :d3f/RemoteCommand},
    :d3f/kb-reference
    #{:d3f/Reference-FirewallForInterentAccess_SecureComputingLLC
      :d3f/Reference-ActiveFirewallSystemAndMethodology_McAfeeLLC
@@ -25179,7 +29672,13 @@
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/filters,
                        :owl/someValuesFrom :d3f/NetworkTraffic,
                        :rdf/type           :owl/Restriction}
-                      :d3f/NetworkIsolation}})
+                      {:owl/onProperty     :d3f/filters,
+                       :owl/someValuesFrom :d3f/RemoteCommand,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/NetworkIsolation
+                      {:owl/onProperty     :d3f/filters,
+                       :owl/someValuesFrom :d3f/OTProtocolMessage,
+                       :rdf/type           :owl/Restriction}}})
 
 (def NetworkTrafficPolicyMapping
   {:d3f/d3fend-id "D3-NTPM",
@@ -25720,7 +30219,7 @@
 
 (def OTAbortCommand
   {:d3f/definition "Commands a device to abort a service/program.",
-   :d3f/modifies :d3f/OperatingMode,
+   :d3f/modifies :d3f/OTControllerOperatingMode,
    :db/ident :d3f/OTAbortCommand,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/comment
@@ -25734,21 +30233,21 @@
       "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
      {:xsd/anyURI
       "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
-                       :owl/someValuesFrom :d3f/OperatingMode,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/OTModifyDeviceOperatingModeCommand}})
+   :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommand
+                      {:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
+                       :rdf/type           :owl/Restriction}}})
 
 (def OTAbortCommandEvent
   {:db/ident        :d3f/OTAbortCommandEvent,
    :rdf/type        :owl/Class,
    :rdfs/label      "OT Abort Command Event",
    :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
+                       :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/preceded-by,
                        :owl/someValuesFrom :d3f/OTRunCommandEvent,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OperatingMode,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/has-participant,
                        :owl/someValuesFrom :d3f/OTAbortCommand,
@@ -25911,6 +30410,17 @@
                        :owl/someValuesFrom :d3f/OTControlCommand,
                        :rdf/type           :owl/Restriction}}})
 
+(def OTControlFunction
+  {:d3f/accesses    :d3f/OTLogicVariable,
+   :d3f/definition  "A function which accesses OT Control Variables",
+   :db/ident        :d3f/OTControlFunction,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label      "OT Control Function",
+   :rdfs/subClassOf #{:d3f/Subroutine
+                      {:owl/onProperty     :d3f/accesses,
+                       :owl/someValuesFrom :d3f/OTLogicVariable,
+                       :rdf/type           :owl/Restriction}}})
+
 (def OTControlLogicProcess
   {:d3f/communicates-with :d3f/OTIOModule,
    :d3f/contains :d3f/OTLogicVariable,
@@ -25965,6 +30475,7 @@
   {:d3f/contains :d3f/OTControlProgram,
    :d3f/definition
    "An OT Controller is an industrial control device that automatically regulates one or more controlled variables in response to command inputs and real-time feedback signals.",
+   :d3f/has-operating-mode :d3f/OTControllerOperatingMode,
    :d3f/manages :d3f/OTControlLogicProcess,
    :d3f/powered-by :d3f/OTPowerSupply,
    :db/ident :d3f/OTController,
@@ -25972,7 +30483,10 @@
    :rdfs/isDefinedBy {:xsd/anyURI
                       "https://csrc.nist.gov/glossary/term/controller"},
    :rdfs/label "OT Controller",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/manages,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-operating-mode,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/manages,
                        :owl/someValuesFrom :d3f/OTControlLogicProcess,
                        :rdf/type           :owl/Restriction}
                       :d3f/OTEmbeddedComputer
@@ -25982,6 +30496,15 @@
                       {:owl/onProperty     :d3f/powered-by,
                        :owl/someValuesFrom :d3f/OTPowerSupply,
                        :rdf/type           :owl/Restriction}}})
+
+(def OTControllerOperatingMode
+  {:d3f/definition
+   "The OT controller operating mode designates the specific, selectable state of an OT controller that delineates its operational behavior and governs access to engineering functions, commonly including Program, Run, Remote, Test, or Stop.",
+   :d3f/synonym "Keyswitch Position",
+   :db/ident :d3f/OTControllerOperatingMode,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Operating Mode",
+   :rdfs/subClassOf :d3f/OperatingMode})
 
 (def OTCreateDataCommand
   {:d3f/definition "OT command that creates data on a remote device.",
@@ -26184,39 +30707,12 @@
                        :owl/someValuesFrom :d3f/OTDeviceDescriptionMessage,
                        :rdf/type           :owl/Restriction}}})
 
-(def OTDeviceException
-  {:d3f/definition "An unknown or anomalous condition occurred in the system.",
-   :db/ident :d3f/OTDeviceException,
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   #{"Modbus: Read Exception Status\nModbus: Exception: Illegal Function\nModbus: Exception: Illegal Data Address\nModbus: Exception: Illegal Data Value\nModbus: Exception: Slave Device Failure\nModbus: Exception: Acknowledge\nModbus: Exception: Slave Device Busy\nModbus: Exception: Memory Parity Error\nModbus: Exception: Gateway Path Unavailable\nModbus: Exception: Gateway Target Device Failed to Respond"
-     "BACnet: Reject: 1\nBACnet: Reject: 2\nBACnet: Reject: 3\nBACnet: Reject: 4\nBACnet: Reject: 5\nBACnet: Reject: 6\nBACnet: Reject: 7\nBACnet: Reject: 8\nBACnet: Reject: 9\nBACnet: Reject: 10 "},
-   :rdfs/label "OT Exception Message",
-   :rdfs/seeAlso
-   #{{:xsd/anyURI
-      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
-     {:xsd/anyURI
-      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
-     {:xsd/anyURI
-      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
-   :rdfs/subClassOf :d3f/OTDiagnosticsMessage})
-
-(def OTDeviceExceptionEvent
-  {:d3f/definition  "An unknown or anomalous condition occurred in the system.",
-   :db/ident        :d3f/OTDeviceExceptionEvent,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "OT Exception Message Event",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTDeviceException,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/OTDiagnosticsMessageEvent}})
-
 (def OTDeviceFirmwareCommand
   {:d3f/definition
    "Interact with the software responsible for low-level control of the system.",
    :db/ident :d3f/OTDeviceFirmwareCommand,
-   :rdf/type :owl/Class,
-   :rdfs/label "OT Firmware Command",
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OT Device Firmware Command",
    :rdfs/seeAlso
    #{{:xsd/anyURI
       "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
@@ -26231,7 +30727,7 @@
    "Interact with the software responsible for low-level control of the system.",
    :db/ident :d3f/OTDeviceFirmwareCommandEvent,
    :rdf/type :owl/Class,
-   :rdfs/label "OT Firmware Command Event",
+   :rdfs/label "OT Device Firmware Command Event",
    :rdfs/subClassOf #{:d3f/OTDeviceManagementMessageEvent
                       {:owl/onProperty     :d3f/has-participant,
                        :owl/someValuesFrom :d3f/OTDeviceFirmwareCommand,
@@ -26381,7 +30877,7 @@
   {:d3f/definition
    "A ruggedized computational device, embedded in industrial control systems, designed to handle real-time tasks and environmental stressors common in OT.",
    :db/ident :d3f/OTEmbeddedComputer,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "OT Embedded Computer",
    :rdfs/subClassOf :d3f/EmbeddedComputer})
 
@@ -26402,10 +30898,10 @@
    :d3f/definition
    "An Engineering Workstation (EWS) is used to perform various maintenance, configuration, or diagnostics functions for a control system. The EWS will likely require dedicated application software to interface with various devices (e.g., RTUs, PLCs), and may be used to transfer data or files between the control system devices and other networks.",
    :d3f/runs :d3f/OTEngineeringSoftware,
-   :d3f/synonym #{"EWS" "Workstation" "Transient Cyber Asset"},
+   :d3f/synonym "EWS",
    :db/ident :d3f/OTEngineeringWorkstation,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/isDefinedBy {:xsd/anyURI "https://attack.mitre.org/assets/A0001/"},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://attack.mitre.org/assets/A0001"},
    :rdfs/label "OT Engineering Workstation",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/runs,
                        :owl/someValuesFrom :d3f/OTEngineeringSoftware,
@@ -26480,6 +30976,63 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/DigitalEvent}})
 
+(def OTExceptionMessage
+  {:d3f/definition "An unknown or anomalous condition occurred in the system.",
+   :db/ident :d3f/OTExceptionMessage,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   #{"Modbus: Read Exception Status\nModbus: Exception: Illegal Function\nModbus: Exception: Illegal Data Address\nModbus: Exception: Illegal Data Value\nModbus: Exception: Slave Device Failure\nModbus: Exception: Acknowledge\nModbus: Exception: Slave Device Busy\nModbus: Exception: Memory Parity Error\nModbus: Exception: Gateway Path Unavailable\nModbus: Exception: Gateway Target Device Failed to Respond"
+     "BACnet: Reject: 1\nBACnet: Reject: 2\nBACnet: Reject: 3\nBACnet: Reject: 4\nBACnet: Reject: 5\nBACnet: Reject: 6\nBACnet: Reject: 7\nBACnet: Reject: 8\nBACnet: Reject: 9\nBACnet: Reject: 10 "},
+   :rdfs/label "OT Exception Message",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf :d3f/OTDiagnosticsMessage})
+
+(def OTExceptionMessageEvent
+  {:d3f/definition  "An unknown or anomalous condition occurred in the system.",
+   :db/ident        :d3f/OTExceptionMessageEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "OT Exception Message Event",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTExceptionMessage,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTDiagnosticsMessageEvent}})
+
+(def OTHumanMachineInterface
+  {:d3f/contains #{:d3f/OutputDevice :d3f/HMIApplication :d3f/InputDevice},
+   :d3f/definition
+   "Human-Machine Interfaces (HMIs) are systems used by an operator to monitor the real-time status of an operational process and to perform necessary control functions, including the adjustment of device parameters.",
+   :d3f/modifies :d3f/OTLogicVariable,
+   :d3f/reads :d3f/OTProcessDataHistorian,
+   :d3f/synonym "HMI",
+   :db/ident :d3f/OTHumanMachineInterface,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "OT Human Machine Interface",
+   :rdfs/seeAlso
+   {:xsd/anyURI
+    "https://www.rockwellautomation.com/en-us/products/details.2711P-T12W21D8S.html#documentation"},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/InputDevice,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OTLogicVariable,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/OutputDevice,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/HMIApplication,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OTEmbeddedComputer
+                      {:owl/onProperty     :d3f/reads,
+                       :owl/someValuesFrom :d3f/OTProcessDataHistorian,
+                       :rdf/type           :owl/Restriction}}})
+
 (def OTIOModule
   {:d3f/communicates-with #{:d3f/OTSensor :d3f/OTActuator},
    :d3f/definition
@@ -26512,7 +31065,7 @@
    :rdfs/subClassOf :d3f/RuntimeVariable})
 
 (def OTModeSwitch
-  {:d3f/controls :d3f/OperatingMode,
+  {:d3f/controls :d3f/OTControllerOperatingMode,
    :d3f/definition
    "Keyswitch or mode switch is the mechanism for changing the operating mode of an OT controller or device.",
    :d3f/synonym #{"Mode Switch" "Programming Key Switch"},
@@ -26526,10 +31079,10 @@
       "https://isagca.org/hubfs/2023%20ISA%20Website%20Redesigns/ISAGCA/PDFs/Industrial%20Cybersecurity%20Knowledge%20FINAL.pdf?hsLang=en"}
      {:xsd/anyURI
       "https://www.dragos.com/blog/industry-news/value-of-plc-key-switch-monitoring/"}},
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/controls,
-                       :owl/someValuesFrom :d3f/OperatingMode,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/DigitalInformationBearer}})
+   :rdfs/subClassOf #{:d3f/ApplicationConfiguration
+                      {:owl/onProperty     :d3f/controls,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
+                       :rdf/type           :owl/Restriction}}})
 
 (def OTModifyControlProgramCommand
   {:d3f/definition
@@ -26597,7 +31150,7 @@
 (def OTModifyDeviceOperatingModeCommand
   {:d3f/definition
    "Modifies the running state of an application or program on a device.",
-   :d3f/modifies :d3f/OperatingMode,
+   :d3f/modifies :d3f/OTControllerOperatingMode,
    :db/ident :d3f/OTModifyDeviceOperatingModeCommand,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/comment
@@ -26613,7 +31166,7 @@
       "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
    :rdfs/subClassOf #{:d3f/OTModifyDeviceConfigurationCommand
                       {:owl/onProperty     :d3f/modifies,
-                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
                        :rdf/type           :owl/Restriction}}})
 
 (def OTModifyDeviceOperatingModeCommandEvent
@@ -26622,14 +31175,29 @@
    :db/ident :d3f/OTModifyDeviceOperatingModeCommandEvent,
    :rdf/type :owl/Class,
    :rdfs/label "OT Modify Device Operating Mode Command Event",
-   :rdfs/subClassOf #{{:owl/onProperty :d3f/has-participant,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty :d3f/has-participant,
                        :owl/someValuesFrom
                        :d3f/OTModifyDeviceOperatingModeCommand,
                        :rdf/type :owl/Restriction}
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OperatingMode,
-                       :rdf/type           :owl/Restriction}
                       :d3f/OTModifyDeviceConfigurationCommandEvent}})
+
+(def OTNetwork
+  {:d3f/contains    :d3f/OTEmbeddedComputer,
+   :d3f/definition  "A computer network which connects OT devices.",
+   :d3f/may-contain :d3f/OTEngineeringWorkstation,
+   :db/ident        :d3f/OTNetwork,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label      "OT Network",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-contain,
+                       :owl/someValuesFrom :d3f/OTEngineeringWorkstation,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/IntranetNetwork
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/OTEmbeddedComputer,
+                       :rdf/type           :owl/Restriction}}})
 
 (def OTNetworkManagementCommand
   {:d3f/definition "Manage message routing or network connection mechanisms.",
@@ -26649,7 +31217,7 @@
   {:d3f/definition  "Manage message routing or network connection mechanisms.",
    :db/ident        :d3f/OTNetworkManagementCommandEvent,
    :rdf/type        :owl/Class,
-   :rdfs/label      "OT Network Management Message Event",
+   :rdfs/label      "OT Network Management Command Event",
    :rdfs/subClassOf #{:d3f/OTEvent
                       {:owl/onProperty     :d3f/has-participant,
                        :owl/someValuesFrom :d3f/OTNetworkManagementCommand,
@@ -26669,7 +31237,7 @@
 
 (def OTPauseCommand
   {:d3f/definition "Commands a device to pause a service/program.",
-   :d3f/modifies :d3f/OperatingMode,
+   :d3f/modifies :d3f/OTControllerOperatingMode,
    :db/ident :d3f/OTPauseCommand,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/comment
@@ -26683,10 +31251,10 @@
       "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
      {:xsd/anyURI
       "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
-                       :owl/someValuesFrom :d3f/OperatingMode,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/OTModifyDeviceOperatingModeCommand}})
+   :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommand
+                      {:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
+                       :rdf/type           :owl/Restriction}}})
 
 (def OTPauseCommandEvent
   {:d3f/definition  "Commands a device to pause a service/program.",
@@ -26695,13 +31263,13 @@
    :rdfs/label      "OT Pause Command Event",
    :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommandEvent
                       {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
                        :owl/someValuesFrom :d3f/OTPauseCommand,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/preceded-by,
                        :owl/someValuesFrom :d3f/OTRunCommandEvent,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OperatingMode,
                        :rdf/type           :owl/Restriction}}})
 
 (def OTPowerSupply
@@ -26740,6 +31308,20 @@
                        :owl/someValuesFrom :d3f/OTProcessDataCommand,
                        :rdf/type           :owl/Restriction}}})
 
+(def OTProcessDataHistorian
+  {:d3f/contains :d3f/TimeSeriesDatabase,
+   :d3f/definition
+   "A system used to collect and store data, including telemetry, events, alerts, and alarms about the operational process and supporting devices.",
+   :db/ident :d3f/OTProcessDataHistorian,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "http://dbpedia.org/resource/Operational_historian"},
+   :rdfs/label "OT Process Data Historian",
+   :rdfs/subClassOf #{:d3f/Application
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/TimeSeriesDatabase,
+                       :rdf/type           :owl/Restriction}}})
+
 (def OTProcessVariable
   {:d3f/definition
    "Process variables are the current actual measurement of the physical characteristics of a system. Common process variables include but are not limited to Temperature, Pressure, Level, and Flow.",
@@ -26756,7 +31338,7 @@
 (def OTProgramModeCommand
   {:d3f/definition
    "Command that places the controller in a mode capable of reprogramming logic. This may or may not stop the program.",
-   :d3f/modifies :d3f/OperatingMode,
+   :d3f/modifies :d3f/OTControllerOperatingMode,
    :db/ident :d3f/OTProgramModeCommand,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/comment
@@ -26770,10 +31352,10 @@
       "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
      {:xsd/anyURI
       "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
-                       :owl/someValuesFrom :d3f/OperatingMode,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/OTModifyDeviceOperatingModeCommand}})
+   :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommand
+                      {:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
+                       :rdf/type           :owl/Restriction}}})
 
 (def OTProgramModeCommandEvent
   {:d3f/definition
@@ -26783,10 +31365,10 @@
    :rdfs/label "OT Program Mode Command Event",
    :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommandEvent
                       {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTProgramModeCommand,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :owl/someValuesFrom :d3f/OTProgramModeCommand,
                        :rdf/type           :owl/Restriction}}})
 
 (def OTProprietaryMessage
@@ -26852,9 +31434,9 @@
                        :owl/someValuesFrom :d3f/OTReadCommand,
                        :rdf/type           :owl/Restriction}}})
 
-(def OTReadDeviceConfigurationDataCommand
+(def OTReadDeviceConfigurationCommand
   {:d3f/definition "Read device configuration.",
-   :db/ident :d3f/OTReadDeviceConfigurationDataCommand,
+   :db/ident :d3f/OTReadDeviceConfigurationCommand,
    :rdf/type :owl/Class,
    :rdfs/comment #{"BACnet: deviceCommunicationControl"
                    "GE-SRTP: READ PROGRAM MEMORY"},
@@ -26868,16 +31450,16 @@
       "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
    :rdfs/subClassOf :d3f/OTDeviceConfigurationCommand})
 
-(def OTReadDeviceConfigurationDataCommandEvent
+(def OTReadDeviceConfigurationCommandEvent
   {:d3f/definition  "Read device configuration.",
-   :db/ident        :d3f/OTReadDeviceConfigurationDataCommandEvent,
+   :db/ident        :d3f/OTReadDeviceConfigurationCommandEvent,
    :rdf/type        :owl/Class,
    :rdfs/label      "OT Read Device Configuration Command Event",
-   :rdfs/subClassOf #{:d3f/OTDeviceConfigurationCommandEvent
-                      {:owl/onProperty :d3f/has-participant,
+   :rdfs/subClassOf #{{:owl/onProperty :d3f/has-participant,
                        :owl/someValuesFrom
-                       :d3f/OTReadDeviceConfigurationDataCommand,
-                       :rdf/type :owl/Restriction}}})
+                       :d3f/OTReadDeviceConfigurationCommand,
+                       :rdf/type :owl/Restriction}
+                      :d3f/OTDeviceConfigurationCommandEvent}})
 
 (def OTReadFileCommand
   {:d3f/definition
@@ -26913,44 +31495,6 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/OTReadCommandEvent}})
 
-(def OTReadSetValueCommand
-  {:d3f/definition
-   "Reads the contents of the specified number of consecutive parameter areawords starting from the specified word.",
-   :d3f/has-participant :d3f/OTLogicVariable,
-   :db/ident :d3f/OTReadSetValueCommand,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/comment
-   #{"GE-SRTP: READ SYSTEM MEMORY\nGE-SRTP: READ TASK MEMORY "
-     "CIP: Get Attributes All\nCIP: Get Attribute List\nCIP: Get Attribute Single\nCIP: Find Next Object Instance\nCIP: Get Member "
-     "BACnet: confirmedCOVNotification\nBACnet: subscribeCOV\nBACnet: readProperty\nBACnet: readPropertyConditional\nBACnet: readPropertyMultiple\nBACnet: unconfirmedCOVNotification\nBACnet: readRange\nBACnet: subscribeCOVProperty\nBACnet: getEventInformation\nBACnet: subscribe-cov-property-multiple\nBACnet: confirmed-cov-notification-multiple\nBACnet: unconfirmed-cov-notification-multiple "
-     "Modbus: Read Coils\nModbus: Read Discrete Inputs\nModbus: Read Holding Registers\nModbus: Read Input Registers\nModbus: Read FIFO Queue"},
-   :rdfs/label "OT Read Value Command",
-   :rdfs/seeAlso
-   #{{:xsd/anyURI
-      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
-     {:xsd/anyURI
-      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
-     {:xsd/anyURI
-      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
-   :rdfs/subClassOf #{:d3f/OTReadCommand
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTLogicVariable,
-                       :rdf/type           :owl/Restriction}}})
-
-(def OTReadSetValueCommandEvent
-  {:d3f/definition
-   "Reads the contents of the specified number of consecutive parameter areawords starting from the specified word.",
-   :db/ident :d3f/OTReadSetValueCommandEvent,
-   :rdf/type :owl/Class,
-   :rdfs/label "OT Read Value Command Event",
-   :rdfs/subClassOf #{:d3f/OTReadCommandEvent
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTLogicVariable,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTReadSetValueCommand,
-                       :rdf/type           :owl/Restriction}}})
-
 (def OTReadTimeCommand
   {:d3f/definition "Read timing mechanisms.",
    :db/ident :d3f/OTReadTimeCommand,
@@ -26976,10 +31520,48 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/OTTimeCommandEvent}})
 
+(def OTReadValueCommand
+  {:d3f/definition
+   "Reads the contents of the specified number of consecutive parameter areawords starting from the specified word.",
+   :d3f/has-participant :d3f/OTLogicVariable,
+   :db/ident :d3f/OTReadValueCommand,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   #{"GE-SRTP: READ SYSTEM MEMORY\nGE-SRTP: READ TASK MEMORY "
+     "CIP: Get Attributes All\nCIP: Get Attribute List\nCIP: Get Attribute Single\nCIP: Find Next Object Instance\nCIP: Get Member "
+     "BACnet: confirmedCOVNotification\nBACnet: subscribeCOV\nBACnet: readProperty\nBACnet: readPropertyConditional\nBACnet: readPropertyMultiple\nBACnet: unconfirmedCOVNotification\nBACnet: readRange\nBACnet: subscribeCOVProperty\nBACnet: getEventInformation\nBACnet: subscribe-cov-property-multiple\nBACnet: confirmed-cov-notification-multiple\nBACnet: unconfirmed-cov-notification-multiple "
+     "Modbus: Read Coils\nModbus: Read Discrete Inputs\nModbus: Read Holding Registers\nModbus: Read Input Registers\nModbus: Read FIFO Queue"},
+   :rdfs/label "OT Read Value Command",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI
+      "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf"}
+     {:xsd/anyURI
+      "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
+     {:xsd/anyURI
+      "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
+   :rdfs/subClassOf #{:d3f/OTReadCommand
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTLogicVariable,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OTReadValueCommandEvent
+  {:d3f/definition
+   "Reads the contents of the specified number of consecutive parameter areawords starting from the specified word.",
+   :db/ident :d3f/OTReadValueCommandEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Read Value Command Event",
+   :rdfs/subClassOf #{:d3f/OTReadCommandEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTLogicVariable,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTReadValueCommand,
+                       :rdf/type           :owl/Restriction}}})
+
 (def OTRemoteModeCommand
   {:d3f/definition
    "Command that places the controller in a mode capable of receiving read/write communication from a networked entity.",
-   :d3f/modifies :d3f/OperatingMode,
+   :d3f/modifies :d3f/OTControllerOperatingMode,
    :db/ident :d3f/OTRemoteModeCommand,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/comment
@@ -26993,10 +31575,10 @@
       "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
      {:xsd/anyURI
       "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
-                       :owl/someValuesFrom :d3f/OperatingMode,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/OTModifyDeviceOperatingModeCommand}})
+   :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommand
+                      {:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
+                       :rdf/type           :owl/Restriction}}})
 
 (def OTRemoteModeCommandEvent
   {:d3f/definition
@@ -27009,15 +31591,15 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/OTModifyDeviceOperatingModeCommandEvent
                       {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/NetworkTraffic,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :owl/someValuesFrom :d3f/NetworkTraffic,
                        :rdf/type           :owl/Restriction}}})
 
 (def OTRunCommand
   {:d3f/definition "Commands a device to start or resume a service/program.",
-   :d3f/modifies :d3f/OperatingMode,
+   :d3f/modifies :d3f/OTControllerOperatingMode,
    :db/ident :d3f/OTRunCommand,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/comment
@@ -27031,10 +31613,10 @@
       "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
      {:xsd/anyURI
       "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
-                       :owl/someValuesFrom :d3f/OperatingMode,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/OTModifyDeviceOperatingModeCommand}})
+   :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommand
+                      {:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
+                       :rdf/type           :owl/Restriction}}})
 
 (def OTRunCommandEvent
   {:d3f/definition  "Commands a device to start or resume a service/program.",
@@ -27046,8 +31628,16 @@
                        :owl/someValuesFrom :d3f/OTRunCommand,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
                        :rdf/type           :owl/Restriction}}})
+
+(def OTScanTime
+  {:d3f/definition
+   "An OT controller system variable that tracks the measured time it takes to read input status, apply logic, and write output values.",
+   :db/ident :d3f/OTScanTime,
+   :rdf/type :owl/Class,
+   :rdfs/label "OT Scan Time",
+   :rdfs/subClassOf :d3f/ApplicationScanTime})
 
 (def OTSecurityCommand
   {:d3f/definition
@@ -27080,7 +31670,7 @@
 (def OTSensor
   {:d3f/definition
    "An OT Sensor is an industrial-grade sensing device engineered for operational technology (OT) environments (e.g. SCADA, ICS). It measures physical variables—such as pressure, temperature, or flow—under demanding conditions, converting them into reliable signals for real-time monitoring and process control loops.",
-   :d3f/may-contain #{:d3f/ClientComputer :d3f/RFTransmitter},
+   :d3f/may-contain :d3f/ClientComputer,
    :d3f/writes :d3f/OTProcessVariable,
    :db/ident :d3f/OTSensor,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
@@ -27097,15 +31687,14 @@
       "https://www.emerson.com/en-us/catalog/rosemount-sku-708-wireless-acoustic-transmitter"}
      {:xsd/anyURI
       "https://www.vega.com/en-us/products/product-catalog/level/radar"}},
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-contain,
-                       :owl/someValuesFrom :d3f/RFTransmitter,
-                       :rdf/type           :owl/Restriction} :d3f/Sensor
+   :rdfs/subClassOf #{:d3f/Sensor
                       {:owl/onProperty     :d3f/writes,
                        :owl/someValuesFrom :d3f/OTProcessVariable,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/may-contain,
                        :owl/someValuesFrom :d3f/ClientComputer,
-                       :rdf/type           :owl/Restriction}}})
+                       :rdf/type           :owl/Restriction}
+                      :d3f/HardwareDevice}})
 
 (def OTSetTimeCommand
   {:d3f/definition "Set timing mechanisms.",
@@ -27133,7 +31722,7 @@
 
 (def OTStopCommand
   {:d3f/definition "Commands a device to stop a service/program.",
-   :d3f/modifies :d3f/OperatingMode,
+   :d3f/modifies :d3f/OTControllerOperatingMode,
    :db/ident :d3f/OTStopCommand,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/comment
@@ -27147,10 +31736,10 @@
       "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
      {:xsd/anyURI
       "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
-                       :owl/someValuesFrom :d3f/OperatingMode,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/OTModifyDeviceOperatingModeCommand}})
+   :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommand
+                      {:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
+                       :rdf/type           :owl/Restriction}}})
 
 (def OTStopCommandEvent
   {:d3f/definition  "Commands a device to stop a service/program.",
@@ -27159,13 +31748,13 @@
    :rdfs/label      "OT Stop Command Event",
    :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommandEvent
                       {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/has-participant,
                        :owl/someValuesFrom :d3f/OTStopCommand,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/preceded-by,
                        :owl/someValuesFrom :d3f/OTRunCommandEvent,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OperatingMode,
                        :rdf/type           :owl/Restriction}}})
 
 (def OTSynchronizeTimeCommand
@@ -27195,7 +31784,7 @@
 
 (def OTTestCommand
   {:d3f/definition "Commands a  device to run a program in Test mode.",
-   :d3f/modifies :d3f/OperatingMode,
+   :d3f/modifies :d3f/OTControllerOperatingMode,
    :db/ident :d3f/OTTestCommand,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/comment
@@ -27209,10 +31798,10 @@
       "https://icscsi.org/library/Documents/ICS_Protocols/Control%20Microsystems%20-%20DNP3%20User%20and%20Reference%20Manual.pdf"}
      {:xsd/anyURI
       "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2023.pdf"}},
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
-                       :owl/someValuesFrom :d3f/OperatingMode,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/OTModifyDeviceOperatingModeCommand}})
+   :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommand
+                      {:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
+                       :rdf/type           :owl/Restriction}}})
 
 (def OTTestCommandEvent
   {:d3f/definition  "Commands a  device to run a program in Test mode.",
@@ -27221,10 +31810,10 @@
    :rdfs/label      "OT Test Command Event",
    :rdfs/subClassOf #{:d3f/OTModifyDeviceOperatingModeCommandEvent
                       {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OTTestCommand,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :owl/someValuesFrom :d3f/OTTestCommand,
                        :rdf/type           :owl/Restriction}}})
 
 (def OTTimeCommand
@@ -27279,10 +31868,38 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/OTNetworkManagementCommandEvent}})
 
+(def OTVariableAccessRestriction
+  {:d3f/d3fend-id "D3-OVAR",
+   :d3f/definition
+   "Assign read/write access controls on designated registers or data tags to prevent unauthorized writes.",
+   :d3f/enables :d3f/Isolate,
+   :d3f/kb-article
+   " ## How it works\n\nMany OT Controllers and OT Communication Modules enable Read-Only or Read/Write access on a per-tag basis.\n\nAs an example, when configuring OT process tags which can be accessed using the Modbus protocol, configure the tag to a Modbus Input Register to leverage the protocol's registry ranges, restricting the ability of external sources to modify data.\n\nIn Siemens, each data block (DB) tag can be configured as \"data block write-protected in the device.\"\n",
+   :d3f/kb-reference #{:d3f/Reference-SecurePLCCodingPracticesTop20List
+                       :d3f/Reference-S7-1200-Programmable-controller
+                       :d3f/Reference-PLX3x-Series-Multi-Protocol-Gateways},
+   :d3f/limits :d3f/OTLogicVariable,
+   :d3f/restricts :d3f/OTWriteCommand,
+   :d3f/synonym "OT Variable Access Policy",
+   :db/ident :d3f/OTVariableAccessRestriction,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy {:rdf/value "Top 20 Secure Coding Practices, #10"},
+   :rdfs/label "OT Variable Access Restriction",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/limits,
+                       :owl/someValuesFrom :d3f/OTLogicVariable,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/Isolate,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/restricts,
+                       :owl/someValuesFrom :d3f/OTWriteCommand,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/AccessMediation}})
+
 (def OTWriteCommand
   {:d3f/definition "Write or store data.",
    :db/ident :d3f/OTWriteCommand,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/comment
    #{"Modbus: Write Single Coil\nModbus: Write Single Register\nModbus: Write Multiple Coils\nModbus: Write Multiple Registers\nModbus: Write File Record\nModbus: Mask Write Register\nModbus: Read Write Register"
      "CIP: Set Attributes All\nCIP: Set Attribute List\nCIP: Set Attribute Single\nCIP: Set Member\nCIP: Insert Member\nCIP: Remove Member "
@@ -27443,11 +32060,13 @@
 
 (def OperatingMode
   {:d3f/definition
-   "The Operating Mode designates the specific, selectable state of an OT controller that delineates its operational behavior and governs access to engineering functions, commonly including Program, Run, Remote, Test, or Stop.",
-   :d3f/synonym "Keyswitch Position",
+   "An operating mode designates the specific way a system, product, or service functions for a particular task, configuration, or phase of operation",
    :db/ident :d3f/OperatingMode,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/label "Operating Mode",
+   :rdfs/seeAlso
+   {:xsd/anyURI
+    "https://www.wassonstrategics.com/pdf/Wasson%20-%20System_Phases_Modes_and_States_Rev.%20D%20(10-29-14).pdf"},
    :rdfs/subClassOf :d3f/SystemPlatformVariable})
 
 (def OperatingModeMonitoring
@@ -27459,12 +32078,12 @@
    :d3f/kb-reference
    #{:d3f/Reference-TRITONMalwareRemainsThreattoGlobalCriticalInfrastructureICS
      :d3f/Reference-PLCKeySwitchMonitoring},
-   :d3f/monitors :d3f/OperatingMode,
+   :d3f/monitors :d3f/OTControllerOperatingMode,
    :db/ident :d3f/OperatingModeMonitoring,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Operating Mode Monitoring",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/monitors,
-                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
                        :rdf/type           :owl/Restriction}
                       :d3f/PlatformMonitoring}})
 
@@ -27477,12 +32096,12 @@
    :d3f/kb-reference
    #{:d3f/Reference-TRITONMalwareRemainsThreattoGlobalCriticalInfrastructureICS
      :d3f/Reference-MITREATTACKAuthorizationEnforcement},
-   :d3f/restricts :d3f/OperatingMode,
+   :d3f/restricts :d3f/OTControllerOperatingMode,
    :db/ident :d3f/OperatingModeRestriction,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Operating Mode Restriction",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/restricts,
-                       :owl/someValuesFrom :d3f/OperatingMode,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
                        :rdf/type           :owl/Restriction}
                       :d3f/AccessMediation}})
 
@@ -27642,6 +32261,23 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/DefensiveTechnique}})
 
+(def OperationalActivityPlan
+  {:d3f/definition
+   "An activity is a specific behavior representing a set of actions that may be accomplished by an agent.",
+   :d3f/synonym #{"Organizational Activity Plan" "Business Process"
+                  "Mission Function" "Mission Critical Function"},
+   :db/ident :d3f/OperationalActivityPlan,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Operational Activity Plan",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI "http://wordnet-rdf.princeton.edu/id/00408356-n"}
+     {:xsd/anyURI "https://en.wikipedia.org/wiki/IDEF0"}
+     {:xsd/anyURI
+      "https://enterpriseintegrationlab.github.io/icity/Activity/doc/index-en.html"}
+     {:xsd/anyURI
+      "https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation"}},
+   :rdfs/subClassOf :d3f/Plan})
+
 (def OperationalDependencyMapping
   {:d3f/d3fend-id "D3-ODM",
    :d3f/definition
@@ -27652,16 +32288,68 @@
      :d3f/Reference-DaggerFactSheet :d3f/Reference-CyberCommandSystemCYCS
      :d3f/Reference-DaggerModelingAndVisualizationForMissionImpactSituationalAwareness
      :d3f/Reference-MissionDependencyModelingForCyberSituationalAwareness},
-   :d3f/maps #{:d3f/OrganizationalActivity :d3f/Dependency},
+   :d3f/maps #{:d3f/OperationalActivityPlan :d3f/Dependency},
    :db/ident :d3f/OperationalDependencyMapping,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Operational Dependency Mapping",
-   :rdfs/subClassOf #{:d3f/OperationalActivityMapping
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/maps,
+                       :owl/someValuesFrom :d3f/OperationalActivityPlan,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/OperationalActivityMapping
                       {:owl/onProperty     :d3f/maps,
                        :owl/someValuesFrom :d3f/Dependency,
+                       :rdf/type           :owl/Restriction}}})
+
+(def OperationalEvent
+  {:d3f/definition
+   "An Operational Event is an action or occurrence within an organization's mission or business operations that happens over a period of time.",
+   :d3f/synonym #{"Business Event" "Business Process" "Operational Occurrence"
+                  "Operational Activity Event" "Mission Event"},
+   :db/ident :d3f/OperationalEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "Operational Event",
+   :rdfs/seeAlso
+   #{{:xsd/anyURI "https://en.wikipedia.org/wiki/Event_(BPMN)"}
+     {:xsd/anyURI "https://www.omg.org/spec/UAF/"}
+     {:xsd/anyURI
+      "https://en.wikipedia.org/wiki/Unified_Architecture_Framework"}},
+   :rdfs/subClassOf :d3f/Action})
+
+(def OperationalLogicValidation
+  {:d3f/d3fend-id "D3-OLV",
+   :d3f/definition
+   "Validation of variable state in the context of the control logic of the operational application.",
+   :d3f/kb-article
+   "## How it works\nValidates the type, value, and/or range of a variable taking into account the local operational logic and operational state.\n\nFor example, if a controller has a restricted range when in a specified state, this may crosscheck the value against the state in addition to a more general range validation. ",
+   :d3f/kb-reference :d3f/Reference-SecurePLCCodingPracticesTop20List,
+   :d3f/validates :d3f/OTControlFunction,
+   :db/ident :d3f/OperationalLogicValidation,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Operational Logic Validation",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/validates,
+                       :owl/someValuesFrom :d3f/OTControlFunction,
                        :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/maps,
-                       :owl/someValuesFrom :d3f/OrganizationalActivity,
+                      :d3f/DomainLogicValidation}})
+
+(def OperationalProcessMonitoring
+  {:d3f/d3fend-id "D3-OPM",
+   :d3f/definition
+   "Monitoring physical parameters and operator actions related to an operational environment.",
+   :d3f/kb-article
+   "## How it works\n\nWhile some Operational Technology systems are designed to operate without human intervention, most systems are designed with the ability to monitor and modify the physical process with user input.\n\nThis technique detects adversarial risks to operational processes by observing physical events and operator actions and analyzing event logs.\n\nKey steps in operational process security monitoring are:\n\n1. Read logs generated by controllers, and HMIs, through DAU's and DA agents;\n\n2. Produce digital event records;\n\n3. Display the aggregated data to a device such as an HMI or process historian, and write those records to event logs and/or to the OT process data historian for traceability and incident reconstruction.\n\n4. Monitor the procees and detect incidents or indicators of tampering such as:\n- malfunctions\n- unauthorized commands,\n- unsafe setpoint changes,\n- alarm suppression, and\n- anomalous mode transitions;\n\n",
+   :d3f/kb-reference :d3f/Reference-GuideToOTSecurity,
+   :d3f/monitors :d3f/EventLog,
+   :d3f/synonym "Supervisory Control Monitoring",
+   :d3f/uses :d3f/OTProcessDataHistorian,
+   :db/ident :d3f/OperationalProcessMonitoring,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Operational Process Monitoring",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/uses,
+                       :owl/someValuesFrom :d3f/OTProcessDataHistorian,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/PlatformMonitoring
+                      {:owl/onProperty     :d3f/monitors,
+                       :owl/someValuesFrom :d3f/EventLog,
                        :rdf/type           :owl/Restriction}}})
 
 (def OperationalRiskAssessment
@@ -27751,7 +32439,7 @@
    :db/ident :d3f/OrchestrationWorker,
    :rdf/type :owl/Class,
    :rdfs/label "Orchestration Worker",
-   :rdfs/seeAlso {:rdf/value "d3f:OrchestrationController"},
+   :rdfs/seeAlso :d3f/OrchestrationController,
    :rdfs/subClassOf :d3f/OrchestrationServer})
 
 (def Organization
@@ -27775,12 +32463,15 @@
                        :d3f/Reference-UnifiedArchitectureFrameworkUAF
                        :d3f/Reference-OrganizationalManagementInSAPERPHCM},
    :d3f/maps #{:d3f/Person :d3f/Organization :d3f/Dependency},
-   :d3f/may-map :d3f/OrganizationalActivity,
+   :d3f/may-map :d3f/OperationalActivityPlan,
    :db/ident :d3f/OrganizationMapping,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Organization Mapping",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/maps,
                        :owl/someValuesFrom :d3f/Organization,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/may-map,
+                       :owl/someValuesFrom :d3f/OperationalActivityPlan,
                        :rdf/type           :owl/Restriction}
                       :d3f/OperationalActivityMapping
                       {:owl/onProperty     :d3f/maps,
@@ -27788,27 +32479,7 @@
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/maps,
                        :owl/someValuesFrom :d3f/Person,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3f/may-map,
-                       :owl/someValuesFrom :d3f/OrganizationalActivity,
                        :rdf/type           :owl/Restriction}}})
-
-(def OrganizationalActivity
-  {:d3f/definition
-   "An activity is a specific behavior representing a set of actions that may be accomplished by an agent.",
-   :d3f/synonym #{"Business Process" "Mission Function"},
-   :db/ident :d3f/OrganizationalActivity,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label "Organizational Activity",
-   :rdfs/seeAlso
-   #{{:xsd/anyURI "http://wordnet-rdf.princeton.edu/id/00408356-n"}
-     {:xsd/anyURI "https://en.wikipedia.org/wiki/IDEF0"}
-     {:xsd/anyURI
-      "https://enterpriseintegrationlab.github.io/icity/Activity/doc/index-en.html"}
-     {:rdf/value "Mission Critical Function"}
-     {:xsd/anyURI
-      "https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation"}},
-   :rdfs/subClassOf :d3f/Plan})
 
 (def OutboundInternetDNSLookupTraffic
   {:d3f/definition
@@ -27942,7 +32613,7 @@
   {:d3f/definition
    "An output device is any piece of computer hardware equipment which converts information into human-readable form. It can be text, graphics, tactile, audio, and video. Some of the output devices are Visual Display Units (VDU) i.e. a Monitor, Printer, Graphic Output devices, Plotters, Speakers etc. A new type of Output device is been developed these days, known as Speech synthesizer, a mechanism attached to the computer which produces verbal output sounding almost like human speeches.",
    :db/ident :d3f/OutputDevice,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Output_device"},
    :rdfs/label "Output Device",
    :rdfs/subClassOf :d3f/HardwareDevice})
@@ -27967,6 +32638,90 @@
   {:db/ident   :d3f/PE32PLUSExecutableFile,
    :rdf/type   #{:d3f/ExecutableBinary :owl/NamedIndividual},
    :rdfs/label "PE32+ Executable File"})
+
+(def PER-0001
+  {:d3f/attack-id "PER-0001",
+   :d3f/definition
+   "Threat actors may manipulate memory (boot, RAM, etc.) in order for their malicious code and/or commands to remain on the victim spacecraft. The spacecraft may have mechanisms that allow for the automatic running of programs on system reboot, entering or returning to/from safe mode, or during specific events. Threat actors may target these specific memory locations in order to store their malicious code or file, ensuring that the attack remains on the system even after a reset.",
+   :db/ident :d3f/PER-0001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Memory Compromise - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/PER-0001/"},
+   :rdfs/subClassOf :d3f/SPARTAPersistenceTechnique,
+   :skos/prefLabel "Memory Compromise"})
+
+(def PER-0002
+  {:d3f/attack-id "PER-0002",
+   :d3f/definition
+   "Threat actors may find and target various backdoors, or inject their own, within the victim spacecraft in the hopes of maintaining their attack.",
+   :db/ident :d3f/PER-0002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Backdoor - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/PER-0002/"},
+   :rdfs/subClassOf :d3f/SPARTAPersistenceTechnique,
+   :skos/prefLabel "Backdoor"})
+
+(def PER-0002_01
+  {:d3f/attack-id "PER-0002.01",
+   :d3f/definition
+   "Threat actors may find and target various hardware backdoors within the victim spacecraft in the hopes of maintaining their attack. Once in orbit, mitigating the risk of various hardware backdoors becomes increasingly difficult for ground controllers. By targeting these specific vulnerabilities, threat actors are more likely to remain persistent on the victim spacecraft and perpetuate further attacks.",
+   :db/ident :d3f/PER-0002.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hardware Backdoor - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/PER-0002/01/"},
+   :rdfs/subClassOf :d3f/PER-0002,
+   :skos/prefLabel "Hardware Backdoor"})
+
+(def PER-0002_02
+  {:d3f/attack-id "PER-0002.02",
+   :d3f/definition
+   "Threat actors may inject code to create their own backdoor to establish persistent access to the spacecraft. This may be done through modification of code throughout the software supply chain or through modification of the software-defined radio configuration (if applicable).",
+   :db/ident :d3f/PER-0002.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Software Backdoor - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/PER-0002/02/"},
+   :rdfs/subClassOf :d3f/PER-0002,
+   :skos/prefLabel "Software Backdoor"})
+
+(def PER-0003
+  {:d3f/attack-id "PER-0003",
+   :d3f/definition
+   "Threat actors may compromise target owned ground systems that can be used for persistent access to the spacecraft or to perpetuate other techniques. These ground systems have already been configured for communications to the victim spacecraft. By compromising this infrastructure, threat actors can stage, launch, and execute persistently.",
+   :db/ident :d3f/PER-0003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Ground System Presence - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/PER-0003/"},
+   :rdfs/subClassOf :d3f/SPARTAPersistenceTechnique,
+   :skos/prefLabel "Ground System Presence"})
+
+(def PER-0004
+  {:d3f/attack-id "PER-0004",
+   :d3f/definition
+   "Threat actors may attempt to fully replace the cryptographic keys on the spacecraft which could lockout the mission operators and enable the threat actor's communication channel. Once the encryption key is changed on the spacecraft, the spacecraft is rendered inoperable from the operators perspective as they have lost commanding access. Threat actors may exploit weaknesses in the key management strategy. For example, the threat actor may exploit the over-the-air rekeying procedures to inject their own cryptographic keys.",
+   :db/ident :d3f/PER-0004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Replace Cryptographic Keys - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/PER-0004/"},
+   :rdfs/subClassOf :d3f/SPARTAPersistenceTechnique,
+   :skos/prefLabel "Replace Cryptographic Keys"})
+
+(def PER-0005
+  {:d3f/attack-id "PER-0005",
+   :d3f/definition
+   "Threat actors may acquire or leverage valid credentials to maintain persistent access to a spacecraft or its supporting command and control (C2) systems. These credentials may include system service accounts, user accounts, maintenance access credentials, cryptographic keys, or other authentication mechanisms that enable continued entry without triggering access alarms. By operating with legitimate credentials, adversaries can sustain access over extended periods, evade detection, and facilitate follow-on tactics such as command execution, data exfiltration, or lateral movement. Credentialed persistence is particularly effective in environments lacking strong credential lifecycle management, segmentation, or monitoring allowing threat actors to exploit trusted pathways while remaining embedded in mission operations.",
+   :db/ident :d3f/PER-0005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Credentialed Persistence - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/PER-0005/"},
+   :rdfs/subClassOf :d3f/SPARTAPersistenceTechnique,
+   :skos/prefLabel "Credentialed Persistence"})
 
 (def POSIXSymbolicLink
   {:d3f/definition
@@ -28204,14 +32959,18 @@
    :rdfs/subClassOf #{:d3f/PasswordDatabase :d3f/File}})
 
 (def PasswordManager
-  {:d3f/definition
+  {:d3f/contains :d3f/Credential,
+   :d3f/definition
    "A password manager is a software application or hardware that helps a user store and organize passwords. Password managers usually store passwords encrypted, requiring the user to create a master password: a single, ideally very strong password which grants the user access to their entire password database. Some password managers store passwords on the user's computer (called offline password managers), whereas others store data in the provider's cloud (often called online password managers). However offline password managers also offer data storage in the user's own cloud accounts rather than the provider's cloud. While the core functionality of a password manager is to securely store large collections of passwords, many provide additional features such as form filling and password generation.",
    :db/ident :d3f/PasswordManager,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Password_manager"},
    :rdfs/label "Password Manager",
-   :rdfs/subClassOf :d3f/Application})
+   :rdfs/subClassOf #{:d3f/Application
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/Credential,
+                       :rdf/type           :owl/Restriction}}})
 
 (def PasswordRotation
   {:d3f/d3fend-id "D3-PR",
@@ -28348,7 +33107,8 @@
    :rdfs/subClassOf :d3f/AccessControlAdministrationEvent})
 
 (def PersistenceTechnique
-  {:d3f/enables     :d3f/TA0003,
+  {:d3f/definition  "The adversary is trying to maintain their foothold.",
+   :d3f/enables     :d3f/TA0003,
    :db/ident        :d3f/PersistenceTechnique,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Persistence Technique",
@@ -28401,20 +33161,45 @@
    :rdfs/label "Phi Coefficient",
    :rdfs/subClassOf :d3f/Correlation})
 
+(def PhysicalAccessAlarmEvent
+  {:db/ident        :d3f/PhysicalAccessAlarmEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/comment    "An event occuring when a physical threshold is crossed.",
+   :rdfs/label      "Physical Access Alarm Event",
+   :rdfs/subClassOf :d3f/DigitalEvent})
+
 (def PhysicalAccessMediation
   {:d3f/d3fend-id "D3-PAM",
    :d3f/definition
    "Physical access mediation is the process of granting or denying specific requests to enter specific physical facilities (e.g., Federal buildings, military establishments, border crossing entrances.)",
    :d3f/isolates :d3f/PhysicalArtifact,
    :d3f/kb-reference :d3f/Reference-CNNSI-4009,
+   :d3f/mediates-access-to :d3f/PhysicalArtifact,
    :d3f/synonym "Physical Access Control",
    :db/ident :d3f/PhysicalAccessMediation,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Physical Access Mediation",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/isolates,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/mediates-access-to,
+                       :owl/someValuesFrom :d3f/PhysicalArtifact,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/isolates,
                        :owl/someValuesFrom :d3f/PhysicalArtifact,
                        :rdf/type           :owl/Restriction}
                       :d3f/AccessMediation}})
+
+(def PhysicalAccessMonitoring
+  {:d3f/d3fend-id "D3-PHAM",
+   :d3f/definition
+   "Monitoring the physical access of a specified environment through detection, recording, reviewing, and logging of who/what enters and exists areas.",
+   :d3f/enables :d3f/Detect,
+   :d3f/kb-reference :d3f/Reference-NIST-SP-800-53-R5,
+   :db/ident :d3f/PhysicalAccessMonitoring,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Physical Access Monitoring",
+   :rdfs/subClassOf #{:d3f/DefensiveTechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/Detect,
+                       :rdf/type           :owl/Restriction}}})
 
 (def PhysicalAddress
   {:d3f/definition
@@ -28448,15 +33233,73 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/LocalAttacker}})
 
-(def PhysicalLink
+(def PhysicalDataDiode
   {:d3f/definition
+   "A device that physically enforces one-way (unidirectional) network communication.",
+   :db/ident :d3f/PhysicalDataDiode,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy
+   {:xsd/anyURI
+    "https://isagca.org/hubfs/2023%20ISA%20Website%20Redesigns/ISAGCA/PDFs/Industrial%20Cybersecurity%20Knowledge%20FINAL.pdf?hsLang=en"},
+   :rdfs/label "Physical Data Diode",
+   :rdfs/subClassOf :d3f/HardwareDevice,
+   :skos/example {:xsd/anyURI
+                  "https://owlcyberdefense.com/products/data-diode-products/"}})
+
+(def PhysicalEnclosureHardening
+  {:d3f/d3fend-id "D3-PEH",
+   :d3f/definition
+   "Physical changes to a computer enclosure which reduce the ability for agents or the environment to affect the contained computer system.",
+   :d3f/hardens :d3f/ComputerEnclosure,
+   :d3f/kb-article
+   "## How it works\n\nSystem designers or operators make physical changes to a computer enclosure which reduce the ability for agents or the environment to affect the contained computer system. These additions to the enclosure may be of various materials to reduce the effects of heat, gases, vibration, or agent access.\n\n## Considerations\n\n* Use asset inventory tools to track physical equipment and monitor both people and devices for access control.\n* Consider relevant regulations to ensure enclosures are in compliance.\n\n* Properly hardened enclosures should be installed and maintained to ensure they are operable and free of tampering. Access to these enclosures is controlled through physical barriers, such as locks and bolts, and may include tamper-evident hardware.\n\n* Records should be maintained concerning maintenance performed, access, and any possible tampering marks or associated incidents.",
+   :d3f/kb-reference
+   #{:d3f/Reference-GuideToOTSecurity
+     :d3f/Reference-GeneralUseOfLocksInTheProtectionAndControlOfFacilitiesRadioActiveMaterialsClassifiedInformationClassifiedMatterAndSafeguardsInformation},
+   :db/ident :d3f/PhysicalEnclosureHardening,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Physical Enclosure Hardening",
+   :rdfs/subClassOf #{:d3f/PlatformHardening
+                      {:owl/onProperty     :d3f/hardens,
+                       :owl/someValuesFrom :d3f/ComputerEnclosure,
+                       :rdf/type           :owl/Restriction}}})
+
+(def PhysicalKey
+  {:d3f/definition
+   "A physical key is used to operate a lock, typically metal, designed with specific markers that match the internal mechanism of a lock, allowing it to rotate the lock when inserted.",
+   :db/ident :d3f/PhysicalKey,
+   :rdf/type :owl/Class,
+   :rdfs/label "Physical Key",
+   :rdfs/subClassOf #{:d3f/PhysicalArtifact
+                      {:owl/onProperty     :d3f/operates,
+                       :owl/someValuesFrom :d3f/PhysicalKeyLock,
+                       :rdf/type           :owl/Restriction}}})
+
+(def PhysicalKeyLock
+  {:d3f/definition
+   "A mechanical locking device for securing moveable portions of physical barriers (e.g., doors, gates, drawers) in a secured position.",
+   :d3f/synonym "keyed lock",
+   :db/ident :d3f/PhysicalKeyLock,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdf/value "NRC Regulatory Guide 5.12 Rev1"},
+   :rdfs/label "Physical Key Lock",
+   :rdfs/subClassOf #{:d3f/PhysicalLock
+                      {:owl/onProperty     :d3f/uses,
+                       :owl/someValuesFrom :d3f/PhysicalKey,
+                       :rdf/type           :owl/Restriction}}})
+
+(def PhysicalLink
+  {:d3f/carries :d3f/Signal,
+   :d3f/definition
    "A physical link is a dedicated connection for communication that uses some physical media (electrical, electromagnetic, optical, to include clear spaces or vacuums.)  A physical link represents only a single hop (link) in any larger communcations path, circuit, or network.\n\nNOTE: not synonymous with data link as a data link can be over a telecommunications circuit, which may be a virtual circuit composed of multiple phyical links.",
    :d3f/synonym "Layer-1 Link",
    :db/ident :d3f/PhysicalLink,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Physical Link",
    :rdfs/seeAlso {:xsd/anyURI "https://dbpedia.org/resource/Physical_layer"},
-   :rdfs/subClassOf :d3f/Link})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/carries,
+                       :owl/someValuesFrom :d3f/Signal,
+                       :rdf/type           :owl/Restriction} :d3f/Link}})
 
 (def PhysicalLinkConnectEvent
   {:d3f/definition
@@ -28571,6 +33414,33 @@
    :rdfs/seeAlso {:xsd/anyURI "https://schema.ocsf.io/objects/location"},
    :rdfs/subClassOf :d3f/D3FENDCore})
 
+(def PhysicalLock
+  {:d3f/definition
+   "A lock is a mechanical latching device for securing moveable portions of physical barriers in a secured position.",
+   :db/ident :d3f/PhysicalLock,
+   :rdf/type :owl/Class,
+   :rdfs/label "Physical Lock",
+   :rdfs/seeAlso {:xsd/anyURI "https://dbpedia.org/page/Lock_and_key"},
+   :rdfs/subClassOf :d3f/PhysicalArtifact})
+
+(def PhysicalLocking
+  {:d3f/d3fend-id "D3-EPL",
+   :d3f/definition
+   "Employ a mechanical locking device for securing moveable portions of physical barriers (e.g., doors, gates, drawers) in a secured position.",
+   :d3f/kb-article
+   "## How it works\n\nA physical mechanism which has a associated credential which when entered enables the lock bolt to operate, i.e. open or close.\n\n## Considerations\n\n* Consider that locks for specified materials should adhere to relevant regulations.\n\n* Lock equipment cabinets when not needed for operation or safety; set OT asset keys of devices (e.g., PLCs and safety systems) to the “RUN” position unless otherwise specified.\n\n* Locks and all associated hardware should be properly installed, operable, and free of substantive indications of tampering.\n\n* Records should be maintained concerning maintenance performed, access, and any possible tampering marks or associated incidents.\n\n* For locks operated by a physical key, a key management system should be implemented to manage and secure physical keys.\n\n* Key locks should provide a high degree of resistance to opening by force and tampering techniques.",
+   :d3f/kb-reference
+   #{:d3f/Reference-GuideToOTSecurity
+     :d3f/Reference-GeneralUseOfLocksInTheProtectionAndControlOfFacilitiesRadioActiveMaterialsClassifiedInformationClassifiedMatterAndSafeguardsInformation},
+   :d3f/mediates-access-to :d3f/ComputerEnclosure,
+   :db/ident :d3f/PhysicalLocking,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Physical Locking",
+   :rdfs/subClassOf #{:d3f/PhysicalAccessMediation
+                      {:owl/onProperty     :d3f/mediates-access-to,
+                       :owl/someValuesFrom :d3f/ComputerEnclosure,
+                       :rdf/type           :owl/Restriction}}})
+
 (def Pipe
   {:d3f/definition
    "In Unix-like computer operating systems, a pipeline is a mechanism for inter-process communication using message passing.  In the strictest sense, a pipe is a single segment of a pipeline, allowing one process to pass information forward to another.  Network pipes allow processes on different hosts to interact.",
@@ -28633,6 +33503,32 @@
                       {:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/Detect,
                        :rdf/type           :owl/Restriction}}})
+
+(def PlatformUptime
+  {:d3f/definition
+   "A variable that notes the amount of time a platform has been running since its last power cycle or reset.",
+   :db/ident :d3f/PlatformUptime,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   "In OT controllers this may not be a default tag rather something that should be defined using other system tags.",
+   :rdfs/label "Platform Uptime",
+   :rdfs/subClassOf :d3f/SystemPlatformVariable})
+
+(def PlatformUptimeMonitoring
+  {:d3f/d3fend-id "D3-PUM",
+   :d3f/definition
+   "Monitor the amount of time since the last power cycle or restart.",
+   :d3f/kb-article
+   "## How it works\nMonitoring the time since the last power cycle or restart alerts operators to unexpected restarts and their frequency. This can indicate potential issues or malicious activity, and provides valuable information for forensic investigations.\n\n## Considerations\nThe source of the variable may be mutable depending on the platform, and the provenance of the value.",
+   :d3f/kb-reference :d3f/Reference-SecurePLCCodingPracticesTop20List,
+   :d3f/monitors :d3f/PlatformUptime,
+   :db/ident :d3f/PlatformUptimeMonitoring,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Platform Uptime Monitoring",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/monitors,
+                       :owl/someValuesFrom :d3f/PlatformUptime,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/PlatformMonitoring}})
 
 (def Point-biserialCorrelationCoefficient
   {:d3f/d3fend-id "D3A-PBCC",
@@ -28727,6 +33623,17 @@
    :rdfs/label      "Policy Reference",
    :rdfs/subClassOf :d3f/TechniqueReference})
 
+(def PowerAndThermalDeviceEvent
+  {:d3f/definition
+   "An event involving power supplies, batteries, or thermal management devices. These events represent changes in power states, temperature thresholds, or cooling system activity.",
+   :db/ident :d3f/PowerAndThermalDeviceEvent,
+   :rdf/type :owl/Class,
+   :rdfs/label "Power and Thermal Device Event",
+   :rdfs/subClassOf #{:d3f/HardwareDeviceEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/Sensor,
+                       :rdf/type           :owl/Restriction}}})
+
 (def PowerShellProfileScript
   {:d3f/definition
    "A PowerShell profile script is a script that runs when PowerShell starts and can be used as a logon script to customize user environments.",
@@ -28746,17 +33653,6 @@
    :rdfs/label "Power Supply",
    :rdfs/seeAlso {:xsd/anyURI "http://dbpedia.org/resource/Power_supply"},
    :rdfs/subClassOf :d3f/HardwareDevice})
-
-(def PowerThermalDeviceEvent
-  {:d3f/definition
-   "An event involving power supplies, batteries, or thermal management devices. These events represent changes in power states, temperature thresholds, or cooling system activity.",
-   :db/ident :d3f/PowerThermalDeviceEvent,
-   :rdf/type :owl/Class,
-   :rdfs/label "Power and Thermal Device Event",
-   :rdfs/subClassOf #{:d3f/HardwareDeviceEvent
-                      {:owl/onProperty     :d3f/has-participant,
-                       :owl/someValuesFrom :d3f/Sensor,
-                       :rdf/type           :owl/Restriction}}})
 
 (def PowershellScriptFile
   {:db/ident   :d3f/PowershellScriptFile,
@@ -28841,15 +33737,20 @@
 (def PrivateKey
   {:d3f/definition
    "A private key can be used to decrypt messages encrypted using the corresponding public key, or used to sign a message that can be authenticated with the corresponding public key.",
+   :d3f/has-dependent :d3f/PublicKey,
    :db/ident :d3f/PrivateKey,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Private Key",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/Public-key_cryptography"},
-   :rdfs/subClassOf :d3f/AsymmetricKey})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/has-dependent,
+                       :owl/someValuesFrom :d3f/PublicKey,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/AsymmetricKey}})
 
 (def PrivilegeEscalationTechnique
-  {:d3f/enables     :d3f/TA0004,
+  {:d3f/definition  "The adversary is trying to gain higher-level permissions.",
+   :d3f/enables     :d3f/TA0004,
    :db/ident        :d3f/PrivilegeEscalationTechnique,
    :rdf/type        #{:owl/NamedIndividual :owl/Class},
    :rdfs/label      "Privilege Escalation Technique",
@@ -29440,14 +34341,51 @@
    :rdfs/label "Provider",
    :rdfs/subClassOf :d3f/Organization})
 
-(def ProxyBasedWebServerAccessMediation
+(def ProximitySensor
+  {:d3f/definition
+   "A sensor able to detect the presence of nearby objects without any physical contact.",
+   :db/ident :d3f/ProximitySensor,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy {:xsd/anyURI "https://dbpedia.org/page/Proximity_sensor"},
+   :rdfs/label "Proximity Sensor",
+   :rdfs/subClassOf #{:d3f/Sensor :d3f/HardwareDevice}})
+
+(def ProximitySensorEvent
+  {:db/ident        :d3f/ProximitySensorEvent,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Proximity Sensor Event",
+   :rdfs/subClassOf #{:d3f/PhysicalAccessAlarmEvent
+                      {:owl/onProperty     :d3f/has-participant,
+                       :owl/someValuesFrom :d3f/ProximitySensor,
+                       :rdf/type           :owl/Restriction}}})
+
+(def ProximitySensorMonitoring
+  {:d3f/d3fend-id "D3-PSM",
+   :d3f/definition
+   "Monitoring events from proximity sensors that indicate a credential or tagged asset is within the sensor’s read range or a defined zone. Common enabling technologies include RFID, Bluetooth Low Energy (BLE), and Ultra-Wideband (UWB).",
+   :d3f/kb-article
+   "## How it works\n\nProximity readers and sensors detect credentials or tagged assets within their read field, then report presence and, when applicable, authenticate to a controller for access decisions. Systems may use RSSI, dwell time, or time-of-flight to enforce zones and policies such as anti-passback. Secure, authenticated communication between readers and controllers helps prevent cloning and replay attacks.\n\n## Considerations\n\n * Place readers and align antennas to achieve consistent read ranges; account for materials like metal and liquids that can detune signals.\n* Use cryptographic credentials with mutual authentication and encrypted, supervised reader links to mitigate cloning and relay attacks.\n* Protect privacy by minimizing collected data, limiting retention, and restricting access to proximity logs.\n* Calibrate detection thresholds and zone boundaries; re-test after layout changes or equipment moves.\n* Monitor reader and tag health, including battery status for BLE and UWB tags and supervision signals for wired and wireless devices.",
+   :d3f/kb-reference #{:d3f/Reference-Wikipedia-ProximityCard
+                       :d3f/Reference-FIPS-201-3 :d3f/Reference-Wikipedia-RFID
+                       :d3f/Reference-NIST-SP800-116r1},
+   :d3f/monitors :d3f/ProximitySensor,
+   :d3f/synonym #{"RFID Reader Monitoring" "Proximity Reader Monitoring"},
+   :db/ident :d3f/ProximitySensorMonitoring,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Proximity Sensor Monitoring",
+   :rdfs/subClassOf #{:d3f/PhysicalAccessMonitoring
+                      {:owl/onProperty     :d3f/monitors,
+                       :owl/someValuesFrom :d3f/ProximitySensor,
+                       :rdf/type           :owl/Restriction}}})
+
+(def Proxy-basedWebServerAccessMediation
   {:d3f/d3fend-id "D3-PBWSAM",
    :d3f/definition
    "Proxy-based web server access mediation focuses on the regulation of web server access through intermediary proxy servers.",
    :d3f/kb-article
    "## How it works\n\nProxy-based Web Server Access Mediation involves controlling access to web servers via proxy servers, which act as intermediaries between users and web resources. This approach can enhance security by anonymizing user requests, filtering content, and enforcing access policies. Examples include using corporate proxies to access external websites or services.",
    :d3f/kb-reference :d3f/Reference-NIST-Special-Publication-800-41-Revision-1,
-   :db/ident :d3f/ProxyBasedWebServerAccessMediation,
+   :db/ident :d3f/Proxy-basedWebServerAccessMediation,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Proxy-based Web Server Access Mediation",
    :rdfs/subClassOf :d3f/WebSessionAccessMediation})
@@ -29465,12 +34403,16 @@
 (def PublicKey
   {:d3f/definition
    "A public key can be disseminated widely as part of an asymmetric cryptography framework and be used to encrypt messages to send to the public key's owner or to authenticate signed messages from that sender.",
+   :d3f/depends-on :d3f/PrivateKey,
    :db/ident :d3f/PublicKey,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Public Key",
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/Public-key_cryptography"},
-   :rdfs/subClassOf :d3f/AsymmetricKey})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/depends-on,
+                       :owl/someValuesFrom :d3f/PrivateKey,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/AsymmetricKey}})
 
 (def PythonPackage
   {:d3f/definition
@@ -29520,6 +34462,246 @@
                       "https://dbpedia.org/page/Random-access_memory"},
    :rdfs/label "RAM",
    :rdfs/subClassOf :d3f/PrimaryStorage})
+
+(def RD-0001
+  {:d3f/attack-id "RD-0001",
+   :d3f/definition
+   "Threat actors may buy, lease, or rent infrastructure that can be used for future campaigns or to perpetuate other techniques. A wide variety of infrastructure exists for threat actors to connect to and communicate with target spacecraft. Infrastructure can include:",
+   :db/ident :d3f/RD-0001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Acquire Infrastructure - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0001/"},
+   :rdfs/subClassOf :d3f/SPARTAResourceDevelopmentTechnique,
+   :skos/prefLabel "Acquire Infrastructure"})
+
+(def RD-0001_01
+  {:d3f/attack-id "RD-0001.01",
+   :d3f/definition
+   "Threat actors will likely need to acquire the following types of equipment to establish ground-to-space communications:\n\nAntenna positioners: which also usually come with satellite tracking antenna systems, in order to accurately send and receive signals along several different bands. This infrastructure is useful in pinpointing the location of a spacecraft in the sky.\n\nGround antennas: in order to send commands and receive telemetry from the victim spacecraft. Threat actors can utilize these antennas in relation to other tactics such as execution and exfiltration. Instead of compromising a third-part ground station, threat actors may opt to configure and run their own antennas in support of operations.\n\nGround data processors: in order to convert RF signals to TCP packets. This equipment is utilized in ground stations to convert the telemetry into human readable format.\n\nGround radio modems: in order to convert TCP packs to RF signals. This equipment is utilized in ground stations to convert commands into RF signals in order to send them to orbiting spacecraft.\n\nSignal generator: in order to configure amplitude, frequency, and apply modulations to the signal.\n\nAdditional examples of equipment include couplers, attenuators, power dividers, diplexers, low noise amplifiers, high power amplifiers, filters, mixers, spectrum analyzers, etc.",
+   :db/ident :d3f/RD-0001.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Ground Station Equipment - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0001/01/"},
+   :rdfs/subClassOf :d3f/RD-0001,
+   :skos/prefLabel "Ground Station Equipment"})
+
+(def RD-0001_02
+  {:d3f/attack-id "RD-0001.02",
+   :d3f/definition
+   "Threat actors may buy or rent commercial ground station services. These services often have all of the individual parts that are needed to properly communicate with spacecrafts. By utilizing existing infrastructure, threat actors may save time, money, and effort in order to support operations.",
+   :db/ident :d3f/RD-0001.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Commercial Ground Station Services - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0001/02/"},
+   :rdfs/subClassOf :d3f/RD-0001,
+   :skos/prefLabel "Commercial Ground Station Services"})
+
+(def RD-0001_03
+  {:d3f/attack-id "RD-0001.03",
+   :d3f/definition
+   "Threat actors may acquire their own spacecraft that has the capability to maneuver within close proximity to a target spacecraft. Since many of the commercial and military assets in space are tracked, and that information is publicly available, attackers can identify the location of space assets to infer the best positioning for intersecting orbits. Proximity operations support avoidance of the larger attenuation that would otherwise affect the signal when propagating long distances, or environmental circumstances that may present interference.",
+   :db/ident :d3f/RD-0001.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Spacecraft - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0001/03/"},
+   :rdfs/subClassOf :d3f/RD-0001,
+   :skos/prefLabel "Spacecraft"})
+
+(def RD-0001_04
+  {:d3f/attack-id "RD-0001.04",
+   :d3f/definition
+   "Threat actors may need to acquire a launch facility, which is a specialized location designed for launching spacecraft and rockets into space. These facilities typically include launch pads, control centers, and assembly buildings, and are often located near bodies of water or in remote areas to minimize potential safety hazards and provide enough room for rocket launches. Launch facilities can be operated by the military, national space agencies such as NASA in the United States or Roscosmos in Russia, or by private companies such as SpaceX or Blue Origin.",
+   :db/ident :d3f/RD-0001.04,
+   :rdf/type :owl/Class,
+   :rdfs/label "Launch Facility - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0001/04/"},
+   :rdfs/subClassOf :d3f/RD-0001,
+   :skos/prefLabel "Launch Facility"})
+
+(def RD-0002
+  {:d3f/attack-id "RD-0002",
+   :d3f/definition
+   "Threat actors may compromise third-party infrastructure that can be used for future campaigns or to perpetuate other techniques. Infrastructure solutions include physical devices such as antenna, amplifiers, and convertors, as well as software used by satellite communicators. Instead of buying or renting infrastructure, a threat actor may compromise infrastructure and use it during other phases of the campaign's lifecycle.",
+   :db/ident :d3f/RD-0002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromise Infrastructure - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0002/"},
+   :rdfs/subClassOf :d3f/SPARTAResourceDevelopmentTechnique,
+   :skos/prefLabel "Compromise Infrastructure"})
+
+(def RD-0002_01
+  {:d3f/attack-id "RD-0002.01",
+   :d3f/definition
+   "Threat actors may compromise mission owned/operated ground systems that can be used for future campaigns or to perpetuate other techniques. These ground systems have already been configured for communications to the victim spacecraft. By compromising this infrastructure, threat actors can stage, launch, and execute an operation. Threat actors may utilize these systems for various tasks, including Execution and Exfiltration.",
+   :db/ident :d3f/RD-0002.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Mission-Operated Ground System - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0002/01/"},
+   :rdfs/subClassOf :d3f/RD-0002,
+   :skos/prefLabel "Mission-Operated Ground System"})
+
+(def RD-0002_02
+  {:d3f/attack-id "RD-0002.02",
+   :d3f/definition
+   "Threat actors may compromise access to third-party ground systems that can be used for future campaigns or to perpetuate other techniques. These ground systems can be or may have already been configured for communications to the victim spacecraft. By compromising this infrastructure, threat actors can stage, launch, and execute an operation.",
+   :db/ident :d3f/RD-0002.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "3rd Party Ground System - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0002/02/"},
+   :rdfs/subClassOf :d3f/RD-0002,
+   :skos/prefLabel "3rd Party Ground System"})
+
+(def RD-0002_03
+  {:d3f/attack-id "RD-0002.03",
+   :d3f/definition
+   "Threat actors may compromise a 3rd-party spacecraft that has the capability to maneuver within close proximity to a target spacecraft. This technique enables historically lower-tier attackers the same capability as top tier nation-state actors without the initial development cost. Additionally, this technique complicates attribution of an attack. Since many of the commercial and military assets in space are tracked, and that information is publicly available, attackers can identify the location of space assets to infer the best positioning for intersecting orbits. Proximity operations support avoidance of the larger attenuation that would otherwise affect the signal when propagating long distances, or environmental circumstances that may present interference. Further, the compromised spacecraft may posses the capability to grapple target spacecraft once it has established the appropriate space rendezvous. If from a proximity / rendezvous perspective a threat actor has the ability to connect via docking interface or expose testing (i.e., JTAG port) once it has grappled the target spacecraft, they could perform various attacks depending on the access enabled via the physical connection.",
+   :db/ident :d3f/RD-0002.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "3rd-Party Spacecraft - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0002/03/"},
+   :rdfs/subClassOf :d3f/RD-0002,
+   :skos/prefLabel "3rd-Party Spacecraft"})
+
+(def RD-0003
+  {:d3f/attack-id "RD-0003",
+   :d3f/definition
+   "Threat actors may buy and/or steal cyber capabilities that can be used for future campaigns or to perpetuate other techniques. Rather than developing their own capabilities in-house, threat actors may purchase, download, or steal them. Activities may include the acquisition of malware, software, exploits, and information relating to vulnerabilities. Threat actors may obtain capabilities to support their operations throughout numerous phases of the campaign lifecycle.",
+   :db/ident :d3f/RD-0003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Obtain Cyber Capabilities - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0003/"},
+   :rdfs/subClassOf :d3f/SPARTAResourceDevelopmentTechnique,
+   :skos/prefLabel "Obtain Cyber Capabilities"})
+
+(def RD-0003_01
+  {:d3f/attack-id "RD-0003.01",
+   :d3f/definition
+   "Threat actors may buy, steal, or download exploits and payloads that can be used for future campaigns or to perpetuate other techniques. An exploit/payload takes advantage of a bug or vulnerability in order to cause unintended or unanticipated behavior to occur on the victim spacecraft's hardware, software, and/or subsystems. Rather than develop their own, threat actors may find/modify exploits from online or purchase them from exploit vendors.",
+   :db/ident :d3f/RD-0003.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exploit/Payload - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0003/01/"},
+   :rdfs/subClassOf :d3f/RD-0003,
+   :skos/prefLabel "Exploit/Payload"})
+
+(def RD-0003_02
+  {:d3f/attack-id "RD-0003.02",
+   :d3f/definition
+   "Threat actors may obtain encryption keys as they are used for the main commanding of the target spacecraft or any of its subsystems/payloads. Once obtained, threat actors may use any number of means to command the spacecraft without needing to go through a legitimate channel. These keys may be obtained through reconnaissance of the ground system or retrieved from the victim spacecraft.",
+   :db/ident :d3f/RD-0003.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cryptographic Keys - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0003/02/"},
+   :rdfs/subClassOf :d3f/RD-0003,
+   :skos/prefLabel "Cryptographic Keys"})
+
+(def RD-0004
+  {:d3f/attack-id "RD-0004",
+   :d3f/definition
+   "Threat actors may upload, install, or otherwise set up capabilities that can be used for future campaigns or to perpetuate other techniques. To support their operations, a threat actor may need to develop their own capabilities or obtain them in some way in order to stage them on infrastructure under their control. These capabilities may be staged on infrastructure that was previously purchased or rented by the threat actor or was otherwise compromised by them.",
+   :db/ident :d3f/RD-0004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Stage Capabilities - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0004/"},
+   :rdfs/subClassOf :d3f/SPARTAResourceDevelopmentTechnique,
+   :skos/prefLabel "Stage Capabilities"})
+
+(def RD-0004_01
+  {:d3f/attack-id "RD-0004.01",
+   :d3f/definition
+   "Threat actors may identify, select, and prepare a delivery mechanism in which to attack the space system (i.e., communicate with the victim spacecraft, deny the ground, etc.) to achieve their desired impact. This mechanism may be located on infrastructure that was previously purchased or rented by the threat actor or was otherwise compromised by them. The mechanism must include all aspects needed to communicate with the victim spacecraft, including ground antenna, converters, and amplifiers.",
+   :db/ident :d3f/RD-0004.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Identify/Select Delivery Mechanism - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0004/01/"},
+   :rdfs/subClassOf :d3f/RD-0004,
+   :skos/prefLabel "Identify/Select Delivery Mechanism"})
+
+(def RD-0004_02
+  {:d3f/attack-id "RD-0004.02",
+   :d3f/definition
+   "Threat actors may upload exploits and payloads to a third-party infrastructure that they have purchased or rented or stage it on an otherwise compromised ground station. Exploits and payloads would include files and commands to be uploaded to the victim spacecraft in order to conduct the threat actor's attack.",
+   :db/ident :d3f/RD-0004.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Upload Exploit/Payload - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0004/02/"},
+   :rdfs/subClassOf :d3f/RD-0004,
+   :skos/prefLabel "Upload Exploit/Payload"})
+
+(def RD-0005
+  {:d3f/attack-id "RD-0005",
+   :d3f/definition
+   "Threat actors may obtain non-cyber capabilities, primarily physical counterspace weapons or systems. These counterspace capabilities vary significantly in the types of effects they create, the level of technological sophistication required, and the level of resources needed to develop and deploy them. These diverse capabilities also differ in how they are employed and how easy they are to detect and attribute and the permanence of the effects they have on their target.*\n\n*https://aerospace.csis.org/aerospace101/counterspace-weapons-101",
+   :db/ident :d3f/RD-0005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Obtain Non-Cyber Capabilities - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0005/"},
+   :rdfs/subClassOf :d3f/SPARTAResourceDevelopmentTechnique,
+   :skos/prefLabel "Obtain Non-Cyber Capabilities"})
+
+(def RD-0005_01
+  {:d3f/attack-id "RD-0005.01",
+   :d3f/definition
+   "Threat actors may acquire launch capabilities through their own development or through space launch service providers (companies or organizations that specialize in launching payloads into space). Space launch service providers typically offer a range of services, including launch vehicle design, development, and manufacturing as well as payload integration and testing. These services are critical to the success of any space mission and require specialized expertise, advanced technology, and extensive infrastructure.",
+   :db/ident :d3f/RD-0005.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Launch Services - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0005/01/"},
+   :rdfs/subClassOf :d3f/RD-0005,
+   :skos/prefLabel "Launch Services"})
+
+(def RD-0005_02
+  {:d3f/attack-id "RD-0005.02",
+   :d3f/definition
+   "A non-kinetic physical ASAT attack is when a satellite is physically damaged without any direct contact. Non-kinetic physical attacks can be characterized into a few types: electromagnetic pulses, high-powered lasers, and high-powered microwaves. These attacks have medium possible attribution levels and often provide little evidence of success to the attacker.*\n\n*https://aerospace.csis.org/aerospace101/counterspace-weapons-101",
+   :db/ident :d3f/RD-0005.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Non-Kinetic Physical ASAT - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0005/02/"},
+   :rdfs/subClassOf :d3f/RD-0005,
+   :skos/prefLabel "Non-Kinetic Physical ASAT"})
+
+(def RD-0005_03
+  {:d3f/attack-id "RD-0005.03",
+   :d3f/definition
+   "Kinetic physical ASAT attacks attempt to damage or destroy space- or land-based space assets. They typically are organized into three categories: direct-ascent, co-orbital, and ground station attacks. The nature of these attacks makes them easier to attribute and allow for better confirmation of success on the part of the attacker. *\n\n*https://aerospace.csis.org/aerospace101/counterspace-weapons-101",
+   :db/ident :d3f/RD-0005.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Kinetic Physical ASAT - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0005/03/"},
+   :rdfs/subClassOf :d3f/RD-0005,
+   :skos/prefLabel "Kinetic Physical ASAT"})
+
+(def RD-0005_04
+  {:d3f/attack-id "RD-0005.04",
+   :d3f/definition
+   "Rather than attempting to damage the physical components of space systems, electronic ASAT attacks target the means by which space systems transmit and receive data. Both jamming and spoofing are forms of electronic attack that can be difficult to attribute and only have temporary effects.*\n\n*https://aerospace.csis.org/aerospace101/counterspace-weapons-101",
+   :db/ident :d3f/RD-0005.04,
+   :rdf/type :owl/Class,
+   :rdfs/label "Electronic ASAT - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/RD-0005/04/"},
+   :rdfs/subClassOf :d3f/RD-0005,
+   :skos/prefLabel "Electronic ASAT"})
 
 (def RDPConnectRequestEvent
   {:d3f/definition
@@ -29592,21 +34774,437 @@
    :rdfs/label "RDP TLS Handshake Event",
    :rdfs/subClassOf :d3f/RDPEvent})
 
-(def RFNode
-  {:d3f/definition
-   "An RF Node is a device or component that participates in the transmission, reception, or processing of radio frequency (RF) signals within a wireless communication system.",
-   :db/ident :d3f/RFNode,
+(def REC-0001
+  {:d3f/attack-id "REC-0001",
+   :d3f/definition
+   "Threat actors may gather information about the victim spacecraft's design that can be used for future campaigns or to help perpetuate other techniques. Information about the spacecraft can include software, firmware, encryption type, purpose, as well as various makes and models of subsystems.",
+   :db/ident :d3f/REC-0001,
    :rdf/type :owl/Class,
-   :rdfs/label "RF Node",
-   :rdfs/subClassOf :d3f/NetworkNode})
+   :rdfs/label "Gather Spacecraft Design Information - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0001/"},
+   :rdfs/subClassOf :d3f/SPARTAReconnaissanceTechnique,
+   :skos/prefLabel "Gather Spacecraft Design Information"})
 
-(def RFReceiver
-  {:d3f/definition
-   "An RF Receiver captures and processes incoming radio freqency signals.",
-   :db/ident :d3f/RFReceiver,
+(def REC-0001_01
+  {:d3f/attack-id "REC-0001.01",
+   :d3f/definition
+   "Threat actors may gather information about the victim spacecraft's internal software that can be used for future campaigns or to help perpetuate other techniques. Information (e.g. source code, binaries, etc.) about commercial, open-source, or custom developed software may include a variety of details such as types, versions, and memory maps. Leveraging this information threat actors may target vendors of operating systems, flight software, or open-source communities to embed backdoors or for performing reverse engineering research to support offensive cyber operations.",
+   :db/ident :d3f/REC-0001.01,
    :rdf/type :owl/Class,
-   :rdfs/label "RF Receiver",
-   :rdfs/subClassOf :d3f/RFNode})
+   :rdfs/label "Software Design - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0001/01/"},
+   :rdfs/subClassOf :d3f/REC-0001,
+   :skos/prefLabel "Software Design"})
+
+(def REC-0001_02
+  {:d3f/attack-id "REC-0001.02",
+   :d3f/definition
+   "Threat actors may gather information about the victim spacecraft's firmware that can be used for future campaigns or to help perpetuate other techniques. Information about the firmware may include a variety of details such as type and versions on specific devices, which may be used to infer more information (ex. configuration, purpose, age/patch level, etc.). Leveraging this information threat actors may target firmware vendors to embed backdoors or for performing reverse engineering research to support offensive cyber operations.",
+   :db/ident :d3f/REC-0001.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Firmware - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0001/02/"},
+   :rdfs/subClassOf :d3f/REC-0001,
+   :skos/prefLabel "Firmware"})
+
+(def REC-0001_03
+  {:d3f/attack-id "REC-0001.03",
+   :d3f/definition
+   "Threat actors may gather information about any cryptographic algorithms used on the victim spacecraft's that can be used for future campaigns or to help perpetuate other techniques. Information about the algorithms can include type and private keys. Threat actors may also obtain the authentication scheme (i.e., key/password/counter values) and leverage it to establish communications for commanding the target spacecraft or any of its subsystems. Some spacecraft only require authentication vice authentication and encryption, therefore once obtained, threat actors may use any number of means to command the spacecraft without needing to go through a legitimate channel. The authentication information may be obtained through reconnaissance of the ground system or retrieved from the victim spacecraft.",
+   :db/ident :d3f/REC-0001.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Cryptographic Algorithms - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0001/03/"},
+   :rdfs/subClassOf :d3f/REC-0001,
+   :skos/prefLabel "Cryptographic Algorithms"})
+
+(def REC-0001_04
+  {:d3f/attack-id "REC-0001.04",
+   :d3f/definition
+   "Threat actors may gather information about the data bus used within the victim spacecraft that can be used for future campaigns or to help perpetuate other techniques. Information about the data bus can include the make and model which could lead to more information (ex. protocol, purpose, controller, etc.), as well as locations/addresses of major subsystems residing on the bus.\n\nThreat actors may also gather information about the bus voltages of the victim spacecraft. This information can include optimal power levels, connectors, range, and transfer rate.",
+   :db/ident :d3f/REC-0001.04,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data Bus - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0001/04/"},
+   :rdfs/subClassOf :d3f/REC-0001,
+   :skos/prefLabel "Data Bus"})
+
+(def REC-0001_05
+  {:d3f/attack-id "REC-0001.05",
+   :d3f/definition
+   "Threat actors may gather information about the thermal control system used with the victim spacecraft that can be used for future campaigns or to help perpetuate other techniques. Information gathered can include type, make/model, and varies analysis programs that monitor it.",
+   :db/ident :d3f/REC-0001.05,
+   :rdf/type :owl/Class,
+   :rdfs/label "Thermal Control System - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0001/05/"},
+   :rdfs/subClassOf :d3f/REC-0001,
+   :skos/prefLabel "Thermal Control System"})
+
+(def REC-0001_06
+  {:d3f/attack-id "REC-0001.06",
+   :d3f/definition
+   "Threat actors may gather information about the station-keeping control systems within the victim spacecraft that can be used for future campaigns or to help perpetuate other techniques. Information gathered can include thruster types, propulsion types, attitude sensors, and data flows associated with the relevant subsystems.",
+   :db/ident :d3f/REC-0001.06,
+   :rdf/type :owl/Class,
+   :rdfs/label "Maneuver & Control - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0001/06/"},
+   :rdfs/subClassOf :d3f/REC-0001,
+   :skos/prefLabel "Maneuver & Control"})
+
+(def REC-0001_07
+  {:d3f/attack-id "REC-0001.07",
+   :d3f/definition
+   "Threat actors may gather information about the type(s) of payloads hosted on the victim spacecraft. This information could include specific commands, make and model, and relevant software. Threat actors may also gather information about the location of the payload on the bus and internal routing as it pertains to commands within the payload itself.",
+   :db/ident :d3f/REC-0001.07,
+   :rdf/type :owl/Class,
+   :rdfs/label "Payload - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0001/07/"},
+   :rdfs/subClassOf :d3f/REC-0001,
+   :skos/prefLabel "Payload"})
+
+(def REC-0001_08
+  {:d3f/attack-id "REC-0001.08",
+   :d3f/definition
+   "Threat actors may gather information about the power system used within the victim spacecraft. This information can include type, power intake, and internal algorithms. Threat actors may also gather information about the solar panel configurations such as positioning, automated tasks, and layout. Additionally, threat actors may gather information about the batteries used within the victim spacecraft. This information can include the type, quantity, storage capacity, make and model, and location.",
+   :db/ident :d3f/REC-0001.08,
+   :rdf/type :owl/Class,
+   :rdfs/label "Power - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0001/08/"},
+   :rdfs/subClassOf :d3f/REC-0001,
+   :skos/prefLabel "Power"})
+
+(def REC-0001_09
+  {:d3f/attack-id "REC-0001.09",
+   :d3f/definition
+   "Threat actors may gather information about any fault management that may be present on the victim spacecraft. This information can help threat actors construct specific attacks that may put the spacecraft into a fault condition and potentially a more vulnerable state depending on the fault response.",
+   :db/ident :d3f/REC-0001.09,
+   :rdf/type :owl/Class,
+   :rdfs/label "Fault Management - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0001/09/"},
+   :rdfs/subClassOf :d3f/REC-0001,
+   :skos/prefLabel "Fault Management"})
+
+(def REC-0002
+  {:d3f/attack-id "REC-0002",
+   :d3f/definition
+   "Threat actors may gather information about the victim spacecraft's descriptors that can be used for future campaigns or to help perpetuate other techniques. Information about the descriptors may include a variety of details such as identity attributes, organizational structures, and mission operational parameters.",
+   :db/ident :d3f/REC-0002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Gather Spacecraft Descriptors - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0002/"},
+   :rdfs/subClassOf :d3f/SPARTAReconnaissanceTechnique,
+   :skos/prefLabel "Gather Spacecraft Descriptors"})
+
+(def REC-0002_01
+  {:d3f/attack-id "REC-0002.01",
+   :d3f/definition
+   "Threat actors may gather information about the victim spacecraft's identity attributes that can be used for future campaigns or to help perpetuate other techniques. Information may include a variety of details such as the satellite catalog number, international designator, mission name, and more.",
+   :db/ident :d3f/REC-0002.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Identifiers - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0002/01/"},
+   :rdfs/subClassOf :d3f/REC-0002,
+   :skos/prefLabel "Identifiers"})
+
+(def REC-0002_02
+  {:d3f/attack-id "REC-0002.02",
+   :d3f/definition
+   "Threat actors may gather information about the victim spacecraft's associated organization(s) that can be used for future campaigns or to help perpetuate other techniques. Collection efforts may target the mission owner/operator in order to conduct further attacks against the organization, individual, or other interested parties. Threat actors may also seek information regarding the spacecraft's designer/builder, including physical locations, key employees, and roles and responsibilities as they pertain to the spacecraft, as well as information pertaining to the mission's end users/customers.",
+   :db/ident :d3f/REC-0002.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Organization - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0002/02/"},
+   :rdfs/subClassOf :d3f/REC-0002,
+   :skos/prefLabel "Organization"})
+
+(def REC-0002_03
+  {:d3f/attack-id "REC-0002.03",
+   :d3f/definition
+   "Threat actors may gather information about the victim spacecraft's operations that can be used for future campaigns or to help perpetuate other techniques. Collection efforts may target mission objectives, orbital parameters such as orbit slot and inclination, user guides and schedules, etc. Additionally, threat actors may seek information about constellation deployments and configurations where applicable.",
+   :db/ident :d3f/REC-0002.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Operations - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0002/03/"},
+   :rdfs/subClassOf :d3f/REC-0002,
+   :skos/prefLabel "Operations"})
+
+(def REC-0003
+  {:d3f/attack-id "REC-0003",
+   :d3f/definition
+   "Threat actors may obtain information on the victim spacecraft's communication channels in order to determine specific commands, protocols, and types. Information gathered can include commanding patterns, antenna shape and location, beacon frequency and polarization, and various transponder information.",
+   :db/ident :d3f/REC-0003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Gather Spacecraft Communications Information - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0003/"},
+   :rdfs/subClassOf :d3f/SPARTAReconnaissanceTechnique,
+   :skos/prefLabel "Gather Spacecraft Communications Information"})
+
+(def REC-0003_01
+  {:d3f/attack-id "REC-0003.01",
+   :d3f/definition
+   "Threat actors may gather information regarding the communications equipment and its configuration that will be used for communicating with the victim spacecraft. This includes:\n\nAntenna Shape: This information can help determine the range in which it can communicate, the power of it's transmission, and the receiving patterns.\n\nAntenna Configuration/Location:\tThis information can include positioning, transmission frequency, wavelength, and timing.\n\nTelemetry Signal Type: Information can include timing, radio frequency wavelengths, and other information that can provide insight into the spacecraft's telemetry system.\n\nBeacon Frequency: This information can provide insight into where the spacecrafts located, what it's orbit is, and how long it can take to communicate with a ground station.\n\nBeacon Polarization: This information can help triangulate the spacecrafts it orbits the earth and determine how a satellite must be oriented in order to communicate with the victim spacecraft.\n\nTransponder: This could include the number of transponders per band, transponder translation factor, transponder mappings, power utilization, and/or saturation point.",
+   :db/ident :d3f/REC-0003.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Communications Equipment - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0003/01/"},
+   :rdfs/subClassOf :d3f/REC-0003,
+   :skos/prefLabel "Communications Equipment"})
+
+(def REC-0003_02
+  {:d3f/attack-id "REC-0003.02",
+   :d3f/definition
+   "Threat actors may gather information regarding the commanding approach that will be used for communicating with the victim spacecraft. This includes:\n\nCommanding Signal Type: This can include timing, radio frequency wavelengths, and other information that can provide insight into the spacecraft's commanding system.\n\nValid Commanding Patterns: Most commonly, this comes in the form of a command database, but can also include other means that provide information on valid commands and the communication protocols used by the victim spacecraft.\n\nValid Commanding Periods: This information can provide insight into when a command will be accepted by the spacecraft and help the threat actor construct a viable attack campaign.",
+   :db/ident :d3f/REC-0003.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Commanding Details - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0003/02/"},
+   :rdfs/subClassOf :d3f/REC-0003,
+   :skos/prefLabel "Commanding Details"})
+
+(def REC-0003_03
+  {:d3f/attack-id "REC-0003.03",
+   :d3f/definition
+   "Threat actors may seek knowledge about mission-specific  communication channels dedicated to a payload. Such channels could be managed by a different organization than the owner of the spacecraft itself.",
+   :db/ident :d3f/REC-0003.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Mission-Specific Channel Scanning - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0003/03/"},
+   :rdfs/subClassOf :d3f/REC-0003,
+   :skos/prefLabel "Mission-Specific Channel Scanning"})
+
+(def REC-0003_04
+  {:d3f/attack-id "REC-0003.04",
+   :d3f/definition
+   "Threat actors may seek out valid credentials which can be utilized to facilitate several tactics throughout an attack. Credentials may include, but are not limited to: system service accounts, user accounts, maintenance accounts, cryptographic keys and other authentication mechanisms.",
+   :db/ident :d3f/REC-0003.04,
+   :rdf/type :owl/Class,
+   :rdfs/label "Valid Credentials - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0003/04/"},
+   :rdfs/subClassOf :d3f/REC-0003,
+   :skos/prefLabel "Valid Credentials"})
+
+(def REC-0004
+  {:d3f/attack-id "REC-0004",
+   :d3f/definition
+   "Threat actors may gather the launch date and time, location of the launch (country & specific site), organizations involved, launch vehicle, etc. This information can provide insight into protocols, regulations, and provide further targets for the threat actor, including specific vulnerabilities with the launch vehicle itself.",
+   :db/ident :d3f/REC-0004,
+   :rdf/type :owl/Class,
+   :rdfs/label "Gather Launch Information - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0004/"},
+   :rdfs/subClassOf :d3f/SPARTAReconnaissanceTechnique,
+   :skos/prefLabel "Gather Launch Information"})
+
+(def REC-0004_01
+  {:d3f/attack-id "REC-0004.01",
+   :d3f/definition
+   "Threat actor may obtain information regarding the vehicle's flight termination system. Threat actors may use this information to perform later attacks and target the vehicle's termination system to have desired impact on mission.",
+   :db/ident :d3f/REC-0004.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Flight Termination - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0004/01/"},
+   :rdfs/subClassOf :d3f/REC-0004,
+   :skos/prefLabel "Flight Termination"})
+
+(def REC-0005
+  {:d3f/attack-id "REC-0005",
+   :d3f/definition
+   "Threat actors may seek to capture network communications throughout the ground station and radio frequency (RF) communication used for uplink and downlink communications. RF communication frequencies vary between 30MHz and 60 GHz. Threat actors may capture RF communications using specialized hardware, such as software defined radio (SDR), handheld radio, or a computer with radio demodulator turned to the communication frequency. Network communications may be captured using packet capture software while the threat actor is on the target network.",
+   :db/ident :d3f/REC-0005,
+   :rdf/type :owl/Class,
+   :rdfs/label "Eavesdropping - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0005/"},
+   :rdfs/subClassOf :d3f/SPARTAReconnaissanceTechnique,
+   :skos/prefLabel "Eavesdropping"})
+
+(def REC-0005_01
+  {:d3f/attack-id "REC-0005.01",
+   :d3f/definition
+   "Threat actors may capture the RF communications as it pertains to the uplink to the victim spacecraft. This information can contain commanding information that the threat actor can use to perform other attacks against the victim spacecraft.",
+   :db/ident :d3f/REC-0005.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Uplink Intercept Eavesdropping - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0005/01/"},
+   :rdfs/subClassOf :d3f/REC-0005,
+   :skos/prefLabel "Uplink Intercept Eavesdropping"})
+
+(def REC-0005_02
+  {:d3f/attack-id "REC-0005.02",
+   :d3f/definition
+   "Threat actors may capture the RF communications as it pertains to the downlink of the victim spacecraft. This information can contain important telemetry such as onboard status and mission data.",
+   :db/ident :d3f/REC-0005.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Downlink Intercept - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0005/02/"},
+   :rdfs/subClassOf :d3f/REC-0005,
+   :skos/prefLabel "Downlink Intercept"})
+
+(def REC-0005_03
+  {:d3f/attack-id "REC-0005.03",
+   :d3f/definition
+   "Threat actors may capture signals and/or network communications as they travel on-board the vehicle (i.e., EMSEC/TEMPEST), via RF, or terrestrial networks. This information can be decoded to determine commanding and telemetry protocols, command times, and other information that could be used for future attacks.",
+   :db/ident :d3f/REC-0005.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Proximity Operations - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0005/03/"},
+   :rdfs/subClassOf :d3f/REC-0005,
+   :skos/prefLabel "Proximity Operations"})
+
+(def REC-0005_04
+  {:d3f/attack-id "REC-0005.04",
+   :d3f/definition
+   "Threat actors may interfere with the link by actively transmitting packets to activate the transmitter and induce a reply. The scan can be similar to a brute force attack, aiming to guess the used frequencies and protocols to obtain a reply.",
+   :db/ident :d3f/REC-0005.04,
+   :rdf/type :owl/Class,
+   :rdfs/label "Active Scanning (RF/Optical) - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0005/04/"},
+   :rdfs/subClassOf :d3f/REC-0005,
+   :skos/prefLabel "Active Scanning (RF/Optical)"})
+
+(def REC-0006
+  {:d3f/attack-id "REC-0006",
+   :d3f/definition
+   "Threat actors may obtain information regarding the flight software (FSW) development environment for the victim spacecraft. This information may include the development environment, source code, compiled binaries, testing tools, and fault management.",
+   :db/ident :d3f/REC-0006,
+   :rdf/type :owl/Class,
+   :rdfs/label "Gather FSW Development Information - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0006/"},
+   :rdfs/subClassOf :d3f/SPARTAReconnaissanceTechnique,
+   :skos/prefLabel "Gather FSW Development Information"})
+
+(def REC-0006_01
+  {:d3f/attack-id "REC-0006.01",
+   :d3f/definition
+   "Threat actors may gather information regarding the development environment for the victim spacecraft's FSW. This information can include IDEs, configurations, source code, environment variables, source code repositories, code \"secrets\", and compiled binaries.",
+   :db/ident :d3f/REC-0006.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Development Environment - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0006/01/"},
+   :rdfs/subClassOf :d3f/REC-0006,
+   :skos/prefLabel "Development Environment"})
+
+(def REC-0006_02
+  {:d3f/attack-id "REC-0006.02",
+   :d3f/definition
+   "Threat actors may gather information regarding how a victim spacecraft is tested in regards to the FSW. Understanding the testing approach including tools could identify gaps and vulnerabilities that could be discovered and exploited by a threat actor.",
+   :db/ident :d3f/REC-0006.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Security Testing Tools - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0006/02/"},
+   :rdfs/subClassOf :d3f/REC-0006,
+   :skos/prefLabel "Security Testing Tools"})
+
+(def REC-0007
+  {:d3f/attack-id "REC-0007",
+   :d3f/definition
+   "Threat actors may gather information regarding safe-mode indicators on the victim spacecraft. Safe-mode is when all non-essential systems are shut down and only essential functions within the spacecraft are active. During this mode, several commands are available to be processed that are not normally processed. Further, many protections may be disabled at this time.",
+   :db/ident :d3f/REC-0007,
+   :rdf/type :owl/Class,
+   :rdfs/label "Monitor for Safe-Mode Indicators - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0007/"},
+   :rdfs/subClassOf :d3f/SPARTAReconnaissanceTechnique,
+   :skos/prefLabel "Monitor for Safe-Mode Indicators"})
+
+(def REC-0008
+  {:d3f/attack-id "REC-0008",
+   :d3f/definition
+   "Threat actors may gather information about a mission's supply chain or product delivery mechanisms that can be used for future campaigns or to help perpetuate other techniques.",
+   :db/ident :d3f/REC-0008,
+   :rdf/type :owl/Class,
+   :rdfs/label "Gather Supply Chain Information - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0008/"},
+   :rdfs/subClassOf :d3f/SPARTAReconnaissanceTechnique,
+   :skos/prefLabel "Gather Supply Chain Information"})
+
+(def REC-0008_01
+  {:d3f/attack-id "REC-0008.01",
+   :d3f/definition
+   "Threat actors may gather information that can be used to facilitate a future attack where they manipulate hardware components in the victim spacecraft prior to the customer receiving them in order to achieve data or system compromise. The threat actor can insert backdoors and give them a high level of control over the system when they modify the hardware or firmware in the supply chain. This would include ASIC and FPGA devices as well.",
+   :db/ident :d3f/REC-0008.01,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hardware Recon - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0008/01/"},
+   :rdfs/subClassOf :d3f/REC-0008,
+   :skos/prefLabel "Hardware Recon"})
+
+(def REC-0008_02
+  {:d3f/attack-id "REC-0008.02",
+   :d3f/definition
+   "Threat actors may gather information relating to the mission's software supply chain in order to facilitate future attacks to achieve data or system compromise. This attack can take place in a number of ways, including manipulation of source code, manipulation of the update and/or distribution mechanism, or replacing compiled versions with a malicious one.",
+   :db/ident :d3f/REC-0008.02,
+   :rdf/type :owl/Class,
+   :rdfs/label "Software Recon - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0008/02/"},
+   :rdfs/subClassOf :d3f/REC-0008,
+   :skos/prefLabel "Software Recon"})
+
+(def REC-0008_03
+  {:d3f/attack-id "REC-0008.03",
+   :d3f/definition
+   "Threat actors may gather information about vulnerabilities that can be used for future campaigns or to perpetuate other techniques. A vulnerability is a weakness in the victim spacecraft's hardware, subsystems, bus, or software that can, potentially, be exploited by a threat actor to cause unintended or unanticipated behavior to occur.  During reconnaissance as threat actors identify the types/versions of software (i.e., COTS, open-source) being used, they will look for well-known vulnerabilities that could affect the spacecraft. Threat actors may find vulnerability information by searching leaked documents, vulnerability databases/scanners, compromising ground systems, and searching through online databases.",
+   :db/ident :d3f/REC-0008.03,
+   :rdf/type :owl/Class,
+   :rdfs/label "Known Vulnerabilities - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0008/03/"},
+   :rdfs/subClassOf :d3f/REC-0008,
+   :skos/prefLabel "Known Vulnerabilities"})
+
+(def REC-0008_04
+  {:d3f/attack-id "REC-0008.04",
+   :d3f/definition
+   "Adversaries may gather information about the victim's business relationships that can be used during targeting. Information about an mission’s business relationships may include a variety of details, including second or third-party organizations/domains (ex: managed service providers, contractors/sub-contractors, etc.) that have connected (and potentially elevated) network access or sensitive information. This information may also reveal supply chains and shipment paths for the victim’s hardware and software resources.",
+   :db/ident :d3f/REC-0008.04,
+   :rdf/type :owl/Class,
+   :rdfs/label "Business Relationships - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0008/04/"},
+   :rdfs/subClassOf :d3f/REC-0008,
+   :skos/prefLabel "Business Relationships"})
+
+(def REC-0009
+  {:d3f/attack-id "REC-0009",
+   :d3f/definition
+   "Threat actors may initially seek to gain an understanding of a target mission by gathering information commonly captured in a Concept of Operations (or similar) document and related artifacts. Information of interest includes, but is not limited to:\n\t- the needs, goals, and objectives of the system\n\t- system overview and key elements/instruments\n\t- modes of operations (including operational constraints)\n\t- proposed capabilities and the underlying science/technology used to provide capabilities (i.e., scientific papers, research studies, etc.)\n\t- physical and support environments",
+   :db/ident :d3f/REC-0009,
+   :rdf/type :owl/Class,
+   :rdfs/label "Gather Mission Information - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://sparta.aerospace.org/technique/REC-0009/"},
+   :rdfs/subClassOf :d3f/SPARTAReconnaissanceTechnique,
+   :skos/prefLabel "Gather Mission Information"})
 
 (def RFShielding
   {:d3f/d3fend-id "D3-RFS",
@@ -29619,21 +35217,6 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "RF Shielding",
    :rdfs/subClassOf :d3f/PlatformHardening})
-
-(def RFTransceiver
-  {:d3f/definition
-   "An RF Transceiver can send and receive RF signals - a combination of RF transmitter and RF receiver.",
-   :db/ident :d3f/RFTransceiver,
-   :rdf/type :owl/Class,
-   :rdfs/label "RF Transceiver",
-   :rdfs/subClassOf :d3f/RFNode})
-
-(def RFTransmitter
-  {:d3f/definition  "An RF Transmitter generates and sends RF signals.",
-   :db/ident        :d3f/RFTransmitter,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "RF Transmitter",
-   :rdfs/subClassOf :d3f/RFNode})
 
 (def ROM
   {:d3f/definition
@@ -29781,11 +35364,27 @@
                        :owl/someValuesFrom :d3f/MemoryBlock,
                        :rdf/type           :owl/Restriction} :d3f/SystemCall}})
 
+(def Receiver
+  {:d3f/definition
+   "A receiver is a device or system that acquires signals and converts them into usable information. It senses a physical carrier (such as electromagnetic fields, light, electrical currents, or acoustic waves), conditions the input, and extracts the intended content through operations like filtering, amplification, detection, synchronization, demodulation, decoding, and error correction. A receiver may be analog or digital, implemented in hardware, software, or both, and is designed to mitigate impairments such as noise, interference, and distortion while delivering recovered data or media to downstream processes.",
+   :d3f/receives :d3f/Signal,
+   :db/ident :d3f/Receiver,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Receiver",
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://www.analog.com/en/resources/glossary/receiver.html"},
+   :rdfs/subClassOf #{:d3f/HardwareDevice
+                      {:owl/onProperty     :d3f/receives,
+                       :owl/someValuesFrom :d3f/Signal,
+                       :rdf/type           :owl/Restriction}}})
+
 (def ReconnaissanceTechnique
-  {:d3f/enables     :d3f/TA0043,
-   :db/ident        :d3f/ReconnaissanceTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Reconnaissance Technique",
+  {:d3f/definition
+   "The adversary is trying to gather information they can use to plan future operations.",
+   :d3f/enables :d3f/TA0043,
+   :db/ident :d3f/ReconnaissanceTechnique,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Reconnaissance Technique",
    :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTechnique
                       {:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/TA0043,
@@ -31083,6 +36682,19 @@
    :rdfs/label
    "Reference - Continuous authentication by analysis of keyboard typing characteristics - Bradford Univ., UK"})
 
+(def Reference-ControlLogix5570and5560Controllers
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://literature.rockwellautomation.com/idc/groups/literature/documents/um/1756-um001_-en-p.pdf"},
+   :d3f/kb-abstract
+   "There are five types of ControlLogix controllers available. These types include the following: Standard ControlLogix controllers, Extreme environment ControlLogix controllers, Armor™ ControlLogix controllers, Standard GuardLogix® controllers, Armor GuardLogix controllers. This manual explains how to use standard, extreme environment, and Armor ControlLogix controllers.",
+   :d3f/kb-organization "Rockwell Automation",
+   :d3f/kb-reference-of :d3f/DisableRemoteAccess,
+   :d3f/kb-reference-title "ControlLogix 5570 and 5560 Controllers",
+   :db/ident :d3f/Reference-ControlLogix5570and5560Controllers,
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
+   :rdfs/label "Reference - ControlLogix 5570 and 5560 Controllers"})
+
 (def Reference-CreateRemoteProcessViaWMIC_MITRE_Other
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2016-03-002/"},
@@ -31174,6 +36786,19 @@
    :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Cybersecurity Incident and Vulnerability Response Playbooks"})
+
+(def Reference-DHS-CCTV-Technology-Handbook
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://www.dhs.gov/sites/default/files/publications/CCTV-Tech-HBK_0713-508.pdf"},
+   :d3f/kb-abstract
+   "A publicly available handbook describing CCTV technologies, components, and considerations for deployment.",
+   :d3f/kb-author "U.S. Department of Homeland Security",
+   :d3f/kb-reference-of :d3f/VideoSurveillance,
+   :d3f/kb-reference-title "CCTV Technology Handbook",
+   :db/ident :d3f/Reference-DHS-CCTV-Technology-Handbook,
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
+   :rdfs/label "Reference - DHS CCTV Technology Handbook"})
 
 (def Reference-DLLInjectionViaLoadLibrary_MITRE
   {:d3f/has-link {:xsd/anyURI
@@ -31675,6 +37300,20 @@
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2013-08-001: Execution with schtasks - MITRE"})
 
+(def Reference-FIPS-201-3
+  {:d3f/has-link {:xsd/anyURI
+                  "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.201-3.pdf"},
+   :d3f/kb-abstract
+   "This document establishes a standard for a Personal Identity Verification (PIV) system that meets the control and security objectives of Homeland Security Presidential Directive-12. It is based on secure and reliable forms of identity credentials issued by the Federal Government to its employees and contractors. These credentials are used by mechanisms that authenticate individuals who require access to federally controlled facilities, information systems, and applications. This Standard addresses requirements for initial identity proofing, infrastructure to support interoperability of identity credentials, and accreditation of organizations and processes issuing PIV credentials.",
+   :d3f/kb-author "NIST",
+   :d3f/kb-reference-of #{:d3f/ElectronicLockMonitoring
+                          :d3f/ProximitySensorMonitoring},
+   :d3f/kb-reference-title
+   "FIPS 201-3: Personal Identity Verification (PIV) of Federal Employees and Contractors",
+   :db/ident :d3f/Reference-FIPS-201-3,
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
+   :rdfs/label "Reference - FIPS 201-3"})
+
 (def Reference-FWTK-FirewallToolkit_
   {:d3f/has-link
    {:xsd/anyURI
@@ -31992,6 +37631,26 @@
    :rdfs/label
    "Reference - Gathering Evidence: Model-Driven Software Engineering in Automated Digital Forensics"})
 
+(def
+  Reference-GeneralUseOfLocksInTheProtectionAndControlOfFacilitiesRadioActiveMaterialsClassifiedInformationClassifiedMatterAndSafeguardsInformation
+  {:d3f/has-link {:xsd/anyURI
+                  "https://www.nrc.gov/docs/ML1535/ML15357A411.pdf"},
+   :d3f/kb-abstract
+   "This regulatory guide (RG) describes methods and procedures that the staff of the U.S. Nuclear\nRegulatory Commission (NRC) considers acceptable for the selection, use, and control of locking\ndevices. Locks can be used in the protection of: areas, facilities, certain radioactive materials, and\nspecific types of information (e.g., classified matter, National Security Information (NSI), Restricted Data\n(RD), Formerly Restricted Data (FRD), Safeguards Information (SGI)).",
+   :d3f/kb-author
+   "U.S. NUCLEAR REGULATORY COMMISSION OFFICE OF NUCLEAR REGULATORY RESEARCH",
+   :d3f/kb-mitre-analysis "",
+   :d3f/kb-organization
+   "U.S. NUCLEAR REGULATORY COMMISSION OFFICE OF NUCLEAR REGULATORY RESEARCH",
+   :d3f/kb-reference-of #{:d3f/PhysicalEnclosureHardening :d3f/PhysicalLocking},
+   :d3f/kb-reference-title
+   "REGULATORY GUIDE 5.12 GENERAL USE OF LOCKS IN THE PROTECTION AND CONTROL OF: FACILITIES, RADIOACTIVE MATERIALS, CLASSIFIED INFORMATION, CLASSIFIED MATTER, AND SAFEGUARDS INFORMATION",
+   :db/ident
+   :d3f/Reference-GeneralUseOfLocksInTheProtectionAndControlOfFacilitiesRadioActiveMaterialsClassifiedInformationClassifiedMatterAndSafeguardsInformation,
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - REGULATORY GUIDE 5.12 GENERAL USE OF LOCKS IN THE PROTECTION AND CONTROL OF: FACILITIES, RADIOACTIVE MATERIALS, CLASSIFIED INFORMATION, CLASSIFIED MATTER, AND SAFEGUARDS INFORMATION"})
+
 (def Reference-GenericRegsvr32_MITRE
   {:d3f/has-link {:xsd/anyURI
                   "https://car.mitre.org/analytics/CAR-2019-04-002/"},
@@ -32024,6 +37683,20 @@
    :rdfs/label
    "Reference - Guards for application in software tamperproofing - Purdue Research Foundation"})
 
+(def Reference-GuideToOTSecurity
+  {:d3f/has-link {:xsd/anyURI "https://csrc.nist.gov/pubs/sp/800/82/r3/final"},
+   :d3f/kb-abstract
+   "This document provides guidance on how to secure operational technology (OT) while addressing their unique performance, reliability, and safety requirements. OT encompasses a broad range of programmable systems and devices that interact with the physical environment (or manage devices that interact with the physical environment). These systems and devices detect or cause a direct change through the monitoring and/or control of devices, processes, and events. Examples include industrial control systems, building automation systems, transportation systems, physical access control systems, physical environment monitoring systems, and physical environment measurement systems. The document provides an overview of OT and typical system topologies, identifies common threats and vulnerabilities to these systems, and provides recommended security countermeasures to mitigate the associated risks.",
+   :d3f/kb-author "NIST",
+   :d3f/kb-reference-of #{:d3f/PhysicalEnclosureHardening
+                          :d3f/ChangeDefaultPassword :d3f/UserGroupPermissions
+                          :d3f/PhysicalLocking},
+   :d3f/kb-reference-title "Guide to Operational Technology (OT) Security",
+   :db/ident :d3f/Reference-GuideToOTSecurity,
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - NIST SP 800-82R3 Guide to Operational Technology (OT) Security, Section 6.2.1.4.5 Password Authentication"})
+
 (def Reference-GuideToStorageEncryptionTechnologiesForEndUserDevices
   {:d3f/has-link
    {:xsd/anyURI
@@ -32041,16 +37714,8 @@
    "Reference - Guide to Storage Encryption Technologies for End User Devices"})
 
 (def Reference-GuidetoOTSecurity
-  {:d3f/has-link {:xsd/anyURI "https://csrc.nist.gov/pubs/sp/800/82/r3/final"},
-   :d3f/kb-abstract
-   "This document provides guidance on how to secure operational technology (OT) while addressing their unique performance, reliability, and safety requirements. OT encompasses a broad range of programmable systems and devices that interact with the physical environment (or manage devices that interact with the physical environment). These systems and devices detect or cause a direct change through the monitoring and/or control of devices, processes, and events. Examples include industrial control systems, building automation systems, transportation systems, physical access control systems, physical environment monitoring systems, and physical environment measurement systems. The document provides an overview of OT and typical system topologies, identifies common threats and vulnerabilities to these systems, and provides recommended security countermeasures to mitigate the associated risks.",
-   :d3f/kb-author "NIST",
-   :d3f/kb-reference-of :d3f/ChangeDefaultPassword,
-   :d3f/kb-reference-title "Guide to Operational Technology (OT) Security",
-   :db/ident :d3f/Reference-GuidetoOTSecurity,
-   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
-   :rdfs/label
-   "Reference - NIST SP 800-82R3 Guide to Operational Technology (OT) Security, Section 6.2.1.4.5 Password Authentication"})
+  {:db/ident :d3f/Reference-GuidetoOTSecurity,
+   :rdf/type :owl/NamedIndividual})
 
 (def
   Reference-Hardware-assistedSystemAndMethodForDetectingAndAnalyzingSystemCallsMadeToAnOpertingSystemKernel_EndgameInc
@@ -32578,6 +38243,22 @@
    :rdfs/label
    "Reference - Malware detection using local computational models - Crowdstrike Inc"})
 
+(def
+  Reference-MethodAndApparatusForDetectingAnomaliesOfAnInfrastructureInANetwork
+  {:d3f/has-link {:xsd/anyURI
+                  "https://patents.google.com/patent/AU2023200991A1/"},
+   :d3f/kb-abstract
+   "The present invention relates to a method and to an apparatus for detecting anomalies of an infrastructure in a network comprising analysing a data packet (PD) exchanged in a network and identifying the network protocol and all the fields, through a network analyser (101), defining an identified protocol and identified fields of said data packet (PD), and, by means of computerized data processing means (102), extracting identification fields, to identify a device of the infrastructure in the network, matching the identified device with a plurality of predefined standard devices in a predefined devices knowledge database, to recognise a matching device, retrieving one or more allowed fields and one or more allowed protocols of the matching device from the predefined devices knowledge database, comparing the allowed fields and the allowed protocols respectively with the identified fields and the identified protocol, defining at least one critical state of the infrastructure when the identified fields differ from the allowed fields or when the identified protocol differ from the allowed protocols and signalling an anomaly of the infrastructure when at least one of the critical states is identified.",
+   :d3f/kb-organization "Nozomi Networks",
+   :d3f/kb-reference-of :d3f/ApplicationProtocolCommandAnalysis,
+   :d3f/kb-reference-title
+   "Method and apparatus for detecting anomalies of an infrastructure in a network",
+   :db/ident
+   :d3f/Reference-MethodAndApparatusForDetectingAnomaliesOfAnInfrastructureInANetwork,
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - Method and apparatus for detecting anomalies of an infrastructure in a network"})
+
 (def Reference-MethodAndApparatusForDetectingMaliciousWebsites_EndgameInc
   {:d3f/has-link {:xsd/anyURI
                   "https://patents.google.com/patent/US20140331319A1"},
@@ -32862,6 +38543,21 @@
    "Reference - Method for controlling computer network security - Checkpoint Software Technologies Ltd"})
 
 (def
+  Reference-MethodForDetectingAnomaliesInTimeSeriesDataProducedByDevicesOfAnInfrastructureInANetwork
+  {:d3f/has-link {:xsd/anyURI "https://patents.google.com/patent/CA3191230A1/"},
+   :d3f/kb-abstract
+   "The present invention relates to a method for detecting anomalies in time series data produced by devices of an infrastructure in a network comprising, for each of the devices through computerized data processing means, retrieving a time series data for the device in the network, extracting a plurality of time series samples relating to respective time windows and having a predefined window size and a predefined stride, by sliding the time windows to overlap the time series data, supplying the time series samples as input to a Convolutional Autoencoder to define reconstructed time series values having a predefined percentile intervals, analysing the reconstructed time series values to identify anomalous behaviours of the time series data, signalling an anomaly of the device when at least one anomalous behaviour is identified.",
+   :d3f/kb-organization "Nozomi Networks",
+   :d3f/kb-reference-of :d3f/RemoteFirmwareUpdateMonitoring,
+   :d3f/kb-reference-title
+   "Method for detecting anomalies in time series data produced by devices of an infrastructure in a network",
+   :db/ident
+   :d3f/Reference-MethodForDetectingAnomaliesInTimeSeriesDataProducedByDevicesOfAnInfrastructureInANetwork,
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - Method for detecting anomalies in time series data produced by devices of an infrastructure in a network"})
+
+(def
   Reference-MethodUsingKernelModeAssistanceForTheDetectionAndRemovalOfThreatsWhichAreActivelyPreventingDetectionAndRemovalFromARunningSystem_SymantecCorporation
   {:d3f/has-link {:xsd/anyURI "https://patents.google.com/patent/US8239947B1"},
    :d3f/kb-abstract
@@ -32970,6 +38666,36 @@
    :rdfs/label
    "Reference - NIST RMF Quick Start Guide - Assess Step - Frequently Asked Questions (FAQ)"})
 
+(def Reference-NIST-SP-800-53-R5
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf"},
+   :d3f/kb-abstract
+   "This publication provides a catalog of security and privacy controls for information systems and organizations to protect organizational operations and assets, individuals, other organizations, and the Nation from a diverse set of threats and risks, including hostile attacks, human errors, natural disasters, structural failures, foreign intelligence entities, and privacy risks. The controls are flexible and customizable and implemented as part of an organization-wide process to manage risk. The controls address diverse requirements derived from mission and business needs, laws, executive orders, directives, regulations, policies, standards, and guidelines. Finally, the consolidated control catalog addresses security and privacy from a functionality perspective (i.e., the strength of functions and mechanisms provided by the controls) and from an assurance perspective (i.e., the measure of confidence in the security or privacy capability provided by the controls). Addressing functionality and assurance helps to ensure that information technology products and the systems that rely on those products are sufficiently trustworthy",
+   :d3f/kb-organization "NIST",
+   :d3f/kb-reference-of :d3f/PhysicalAccessMonitoring,
+   :d3f/kb-reference-title
+   "NIST Special Publication 800-53 Revision 5: Security and Privacy Controls for Information Systems and Organizations",
+   :db/ident :d3f/Reference-NIST-SP-800-53-R5,
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - NIST Special Publication 800-53 Revision 5: Security and Privacy Controls for Information Systems and Organizations"})
+
+(def Reference-NIST-SP800-116r1
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-116r1.pdf"},
+   :d3f/kb-abstract
+   "This recommendation provides a technical guideline to use Personal Identity Verification (PIV) Cards in facility access; enabling federal agencies to operate as government-wide interoperable enterprises. These guidelines cover the risk-based strategy to select appropriate PIV authentication mechanisms as expressed within Federal Information Processing Standard (FIPS) 201.",
+   :d3f/kb-author "NIST",
+   :d3f/kb-reference-of #{:d3f/ElectronicLockMonitoring
+                          :d3f/ProximitySensorMonitoring},
+   :d3f/kb-reference-title
+   "Guidelines for the Use of PIV Credentials in Facility Acces",
+   :db/ident :d3f/Reference-NIST-SP800-116r1,
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
+   :rdfs/label "Reference - NIST SP 800-116 Rev. 1"})
+
 (def Reference-NIST-Special-Publication-800-160-Volume-1
   {:d3f/has-link {:xsd/anyURI "https://doi.org/10.6028/NIST.SP.800-160v1"},
    :d3f/kb-abstract
@@ -33002,9 +38728,9 @@
    :d3f/kb-abstract
    "Firewalls are devices or programs that control the flow of network traffic between networks or hosts employing differing security postures. This publication provides an overview of several types of firewall technologies and discusses their security capabilities and their relative advantages and disadvantages in detail. It also makes recommendations for establishing firewall policies and for selecting, configuring, testing, deploying, and managing firewall solutions.",
    :d3f/kb-organization "NIST",
-   :d3f/kb-reference-of #{:d3f/ProxyBasedWebServerAccessMediation
-                          :d3f/WebSessionAccessMediation
-                          :d3f/EndpointBasedWebServerAccessMediation},
+   :d3f/kb-reference-of #{:d3f/Proxy-basedWebServerAccessMediation
+                          :d3f/Endpoint-basedWebServerAccessMediation
+                          :d3f/WebSessionAccessMediation},
    :d3f/kb-reference-title
    "Special Publication 800-41 Revision 1 Guidelines on Firewalls and Firewall Policy",
    :db/ident :d3f/Reference-NIST-Special-Publication-800-41-Revision-1,
@@ -33018,9 +38744,10 @@
    "This publication provides a catalog of security and privacy controls for information systems and organizations to protect organizational operations and assets, individuals, other organizations, and the Nation from a diverse set of threats and risks, including hostile attacks, human errors, natural disasters, structural failures, foreign intelligence entities, and privacy risks. The controls are flexible and customizable and implemented as part of an organization-wide process to manage risk. The controls address diverse requirements derived from mission and business needs, laws, executive orders, directives, regulations, policies, standards, and guidelines. Finally, the consolidated control catalog addresses security and privacy from a functionality perspective (i.e., the strength of functions and mechanisms provided by the controls) and from an assurance perspective (i.e., the measure of confidence in the security or privacy capability provided by the controls). Addressing functionality and assurance helps to ensure that information technology products and the systems that rely on those products are sufficiently trustworthy.",
    :d3f/kb-organization "NIST",
    :d3f/kb-reference-of
-   #{:d3f/NetworkResourceAccessMediation :d3f/ProxyBasedWebServerAccessMediation
-     :d3f/WebSessionAccessMediation :d3f/PasswordAuthentication
-     :d3f/AccessPolicyAdministration :d3f/EndpointBasedWebServerAccessMediation
+   #{:d3f/NetworkResourceAccessMediation
+     :d3f/Proxy-basedWebServerAccessMediation
+     :d3f/Endpoint-basedWebServerAccessMediation :d3f/WebSessionAccessMediation
+     :d3f/PasswordAuthentication :d3f/AccessPolicyAdministration
      :d3f/RemoteFileAccessMediation},
    :d3f/kb-reference-title
    "NIST Special Publication 800-53 Revision 5 - Security and Privacy Controls for Information Systems and Organizations",
@@ -33145,6 +38872,17 @@
    :rdf/type     #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label   "Reference - Null Pointer Dereferencing - CWE-476"})
 
+(def Reference-ONVIF-ProfileS
+  {:d3f/has-link {:xsd/anyURI "https://www.onvif.org/profiles/profile-s/"},
+   :d3f/kb-abstract
+   "Profile S specifies common interfaces for streaming video, PTZ, and related functions in IP-based video systems.",
+   :d3f/kb-author "ONVIF",
+   :d3f/kb-reference-of :d3f/VideoSurveillance,
+   :d3f/kb-reference-title "ONVIF Profile S Specification",
+   :db/ident :d3f/Reference-ONVIF-ProfileS,
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
+   :rdfs/label "Reference - ONVIF Profile S"})
+
 (def Reference-OSQueryWindowsUserCollectionCode
   {:d3f/has-link
    {:xsd/anyURI
@@ -33223,6 +38961,19 @@
    :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Value of PLC Key Switch Monitoring to Keep Critical Systems More Secure"})
+
+(def Reference-PLX3x-Series-Multi-Protocol-Gateways
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://www.prosoft-technology.com/prosoft/download/9671/182665/file/PLX3x_UserManual"},
+   :d3f/kb-abstract
+   "This document explains the features of the PLX3x gateway. It guides you through\nconfiguration, showing how to map data between a device or network, through the\ngateway, to a PLC or PAC. The ProSoft Configuration Builder software creates files to\nimport into the PLC or PAC programming software, integrating the gateway into your\nsystem. You can also map data between areas in the gateway's internal database. This\nallows you to copy data to different addresses within the gateway database in order to\ncreate easier data requests and control.\nThe PLX3x gateways are stand-alone DIN-rail mounted units that provide one Ethernet\nport for communications, remote configuration, and diagnostics. Your specific gateway\nmay include additional ports depending on the supported protocols. The gateway has an\nSD Card slot (SD card optional) that allows you to store configuration files that you can\nuse for recovery, transferring the configuration to another gateway, or general\nconfiguration backup.",
+   :d3f/kb-organization "ProSoft Technology",
+   :d3f/kb-reference-of :d3f/OTVariableAccessRestriction,
+   :d3f/kb-reference-title "PLX3x Series Multi-Protocol Gateways",
+   :db/ident :d3f/Reference-PLX3x-Series-Multi-Protocol-Gateways,
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
+   :rdfs/label "Reference - PLX3x Series Multi-Protocol Gateways"})
 
 (def Reference-PasswordandKeyRotation-SSH
   {:d3f/has-link {:xsd/anyURI
@@ -33467,6 +39218,20 @@
    :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - Protecting web applications from untrusted endpoints using remote browser isolation"})
+
+(def Reference-ProtocolBasedDetectionOfSuspiciousNetworkTraffic
+  {:d3f/has-link {:xsd/anyURI
+                  "https://patents.google.com/patent/US10084816B2/"},
+   :d3f/kb-abstract
+   "Embodiments of the present invention relate to identification of suspicious network traffic indicative of a Botnet and/or an Advanced Persistent Threat (APT) based on network protocol of such traffic. According to one embodiment, a traffic file is received at a network security device that is protecting a private network. The traffic file contains therein network traffic associated with the private network that has been captured and stored. The received traffic file is processed by the network security device to determine whether the network traffic relates to a network protocol that is indicative of existence of a network security threat within the private network. When existence of the network security threat is detected, then the network security device reports details regarding the network security threat.",
+   :d3f/kb-organization "Fortinet",
+   :d3f/kb-reference-of :d3f/ApplicationProtocolCommandAnalysis,
+   :d3f/kb-reference-title
+   "Protocol based detection of suspicious network traffic",
+   :db/ident :d3f/Reference-ProtocolBasedDetectionOfSuspiciousNetworkTraffic,
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - Protocol based detection of suspicious network traffic"})
 
 (def Reference-PsSuspend
   {:d3f/has-link
@@ -33850,6 +39615,19 @@
    :rdf/type #{:d3f/ExternalKnowledgeBase :owl/NamedIndividual},
    :rdfs/label "Reference - CAR-2014-03-006: RunDLL32.exe monitoring - MITRE"})
 
+(def Reference-S7-1200-Programmable-controller
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://docs.tia.siemens.cloud/r/simatic_s7_1200_manual_collection_enus_20/programming-concepts/using-blocks-to-structure-your-program/data-block-db"},
+   :d3f/kb-abstract
+   "The S7-1200 programmable logic controllers (PLCs) can control a variety of automation applications. Compact design, affordable price, and a powerful instruction set make the S7-1200 CPU and modules a perfect solution for controlling a wide variety of applications. Together with the STEP 7 configuration and programming tool, you have the flexibility you need to design your automation solutions. This documentation provides information about the S7-1200 CPU and modules. It contains information for engineers, programmers, installers, and electricians.",
+   :d3f/kb-organization "SIEMENS",
+   :d3f/kb-reference-of :d3f/OTVariableAccessRestriction,
+   :d3f/kb-reference-title "S7-1200 Programmable controller",
+   :db/ident :d3f/Reference-S7-1200-Programmable-controller,
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
+   :rdfs/label "Reference - S7-1200 Programmable controller"})
+
 (def Reference-SAFESEH_ImageHasSafeExceptionHandlers_MicrosoftDocs
   {:d3f/has-link
    {:xsd/anyURI
@@ -33866,6 +39644,19 @@
    :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
    :rdfs/label
    "Reference - /SAFESEH (Image has Safe Exception Handlers) - Microsoft Docs"})
+
+(def Reference-SIA-OSDP-2-2
+  {:d3f/has-link
+   {:xsd/anyURI
+    "https://www.securityindustry.org/industry-standards/open-supervised-device-protocol/"},
+   :d3f/kb-abstract
+   "Open Supervised Device Protocol (OSDP) is an access control communications standard developed by the Security Industry Association (SIA) to improve interoperability among access control and security products.",
+   :d3f/kb-author "Security Industry Association (SIA)",
+   :d3f/kb-reference-of :d3f/ElectronicLockMonitoring,
+   :d3f/kb-reference-title "Open Supervised Device Protocol (OSDP) v2.2",
+   :db/ident :d3f/Reference-SIA-OSDP-2-2,
+   :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
+   :rdfs/label "Reference - SIA OSDP v2.2"})
 
 (def Reference-SMBCopyAndExecution_MITRE
   {:d3f/has-link {:xsd/anyURI
@@ -33991,6 +39782,33 @@
    :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label
    "Reference - Secure/Multipurpose Internet Mail Extensions (S/MIME) Version 3.1"})
+
+(def Reference-SecureOneWayDataTransferUsingCommunicationInterfaceCircuitry
+  {:d3f/has-link {:xsd/anyURI "https://patents.google.com/patent/US8068415B2"},
+   :d3f/kb-abstract
+   "Network interface circuitry for a secure one-way data transfer from a sender's computer (“Send Node”) to a receiver's computer (“Receive Node”) over a data link, such as an optical fiber or shielded twisted pair copper wire communication cable, comprising send-only network interface circuitry for transmitting data from the Send Node to the data link, and receive-only network interface circuitry for receiving the data from the data link and transmitting the received data to the Receive Node, wherein the send-only network interface circuitry is configured not to receive any data from the data link, and the receive-only network interface circuitry is configured not to send any data to the data link. The network interface circuitry may use various interface means such as PCI interface, USB connection, FireWire connection, or serial port connection for coupling to the Send Node and the Receive Node.",
+   :d3f/kb-organization "OWL Computing Technologies Inc",
+   :d3f/kb-reference-of :d3f/DirectionalNetworkLink,
+   :d3f/kb-reference-title
+   "Secure one-way data transfer using communication interface circuitry",
+   :db/ident
+   :d3f/Reference-SecureOneWayDataTransferUsingCommunicationInterfaceCircuitry,
+   :rdf/type #{:d3f/PatentReference :owl/NamedIndividual},
+   :rdfs/label
+   "Reference - Secure one-way data transfer using communication interface circuitry"})
+
+(def Reference-SecurePLCCodingPracticesTop20List
+  {:d3f/has-link {:xsd/anyURI "https://plc-security.com/"},
+   :d3f/kb-abstract
+   "The aim of this project is to provide guidelines to engineers that are creating software (ladder logic, function charts etc.) to help improve the security posture of Industrial Control Systems.\n\nThese practices leverage natively available functionality in the PLC/DCS. Little to no additional software tools or hardware is needed to implement these practices. They can all be fit into the normal PLC programming and operating workflow. More than security expertise, good knowledge of the PLCs to be protected, their logic, and the underlying process is needed for implementing these practices.\n\nTo fit the scope of the Top 20 Secure PLC Coding practices list, practices need to involve changes made directly to a PLC.",
+   :d3f/kb-organization "PLC Security",
+   :d3f/kb-reference-of
+   #{:d3f/ApplicationPerformanceMonitoring :d3f/PlatformUptimeMonitoring
+     :d3f/OTVariableAccessRestriction :d3f/ApplicationExceptionMonitoring},
+   :d3f/kb-reference-title "Secure PLC Coding Practices: Top 20 List",
+   :db/ident :d3f/Reference-SecurePLCCodingPracticesTop20List,
+   :rdf/type #{:d3f/GuidelineReference :owl/NamedIndividual},
+   :rdfs/label "Reference - Secure PLC Coding Practices: Top 20 List"})
 
 (def Reference-SecuringWebTransactions
   {:d3f/has-link
@@ -34867,6 +40685,18 @@
    :rdfs/label
    "Reference - Tamper proof mutating software - ARXAN TECHNOLOGIES Inc"})
 
+(def Reference-TechnicalProductGuideTriconSystems
+  {:d3f/has-link {:xsd/anyURI
+                  "https://www.nrc.gov/docs/ml0932/ml093290424.pdf"},
+   :d3f/kb-abstract
+   "Information in this document is subject to change without notice. Companies, names and data used in examples herein are fictitious unless otherwise noted. No part of this document may be reproduced or transmitted in any form or by any means, electronic or mechanical, for any purpose, without the express written permission of Triconex",
+   :d3f/kb-organization "Rockwell Automation",
+   :d3f/kb-reference-of :d3f/DisableRemoteAccess,
+   :d3f/kb-reference-title "Technical Product Guide Tricon Systems",
+   :db/ident :d3f/Reference-TechnicalProductGuideTriconSystems,
+   :rdf/type #{:d3f/UserManualReference :owl/NamedIndividual},
+   :rdfs/label "Reference - Technical Product Guide Tricon Systems"})
+
 (def
   Reference-Technical_Specifications_for_Construction_and_Management_of_Sensitive_Compartmented_Information_Facilities
   {:d3f/has-link
@@ -35283,7 +41113,7 @@
    :rdf/type     #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label   "Reference - Web-Based Enterprise Management"})
 
-(def Reference-WebAuthentication_AnAPIForAccessingPublicKeyCredentials%0ALevel2
+(def Reference-WebAuthentication_AnAPIForAccessingPublicKeyCredentialsLevel2
   {:d3f/has-link {:xsd/anyURI "https://www.w3.org/TR/webauthn-2/"},
    :d3f/kb-abstract
    "This specification defines an API enabling the creation and use of strong, attested, scoped, public key-based credentials by web applications, for the purpose of strongly authenticating users. Conceptually, one or more public key credentials, each scoped to a given WebAuthn Relying Party, are created by and bound to authenticators as requested by the web application. The user agent mediates access to authenticators and their public key credentials in order to preserve user privacy. Authenticators are responsible for ensuring that no operation is performed without user consent. Authenticators provide cryptographic proof of their properties to Relying Parties via attestation. This specification also describes the functional model for WebAuthn conformant authenticators, including their signature and attestation functionality.",
@@ -35292,7 +41122,7 @@
    :d3f/kb-reference-title
    "Web Authentication: An API for accessing Public Key Credentials\nLevel 2",
    :db/ident
-   :d3f/Reference-WebAuthentication_AnAPIForAccessingPublicKeyCredentials%0ALevel2,
+   :d3f/Reference-WebAuthentication_AnAPIForAccessingPublicKeyCredentialsLevel2,
    :rdf/type #{:owl/NamedIndividual :d3f/SpecificationReference},
    :rdfs/label
    "Reference - Web Authentication: An API for accessing Public Key Credentials\nLevel 2"})
@@ -35336,6 +41166,51 @@
    :db/ident :d3f/Reference-WhatisHardwareWriteProtect,
    :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
    :rdfs/label "Reference - What is Hardware Write Protect?"})
+
+(def Reference-Wikipedia-MotionDetector
+  {:d3f/has-link {:xsd/anyURI "https://en.wikipedia.org/wiki/Motion_detector"},
+   :d3f/kb-abstract
+   "Overview of motion detectors, including PIR and microwave technologies, applications, and limitations.",
+   :d3f/kb-author "Wikipedia contributors",
+   :d3f/kb-reference-of :d3f/MotionSensorMonitoring,
+   :d3f/kb-reference-title "Motion detector",
+   :db/ident :d3f/Reference-Wikipedia-MotionDetector,
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdfs/label "Reference - Wikipedia: Motion detector"})
+
+(def Reference-Wikipedia-PIRSensor
+  {:d3f/has-link {:xsd/anyURI
+                  "https://en.wikipedia.org/wiki/Passive_infrared_sensor"},
+   :d3f/kb-abstract
+   "Background on passive infrared sensors, principles of operation, and typical deployment considerations.",
+   :d3f/kb-author "Wikipedia contributors",
+   :d3f/kb-reference-of :d3f/MotionSensorMonitoring,
+   :d3f/kb-reference-title "Passive infrared sensor",
+   :db/ident :d3f/Reference-Wikipedia-PIRSensor,
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdfs/label "Reference - Wikipedia: Passive infrared sensor"})
+
+(def Reference-Wikipedia-ProximityCard
+  {:d3f/has-link {:xsd/anyURI "https://en.wikipedia.org/wiki/Proximity_card"},
+   :d3f/kb-abstract
+   "Overview of proximity cards used in access control, their operating principles, and security aspects.",
+   :d3f/kb-author "Wikipedia contributors",
+   :d3f/kb-reference-of :d3f/ProximitySensorMonitoring,
+   :d3f/kb-reference-title "Proximity card",
+   :db/ident :d3f/Reference-Wikipedia-ProximityCard,
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdfs/label "Reference - Wikipedia: Proximity card"})
+
+(def Reference-Wikipedia-RFID
+  {:d3f/has-link {:xsd/anyURI "https://en.wikipedia.org/wiki/RFID"},
+   :d3f/kb-abstract
+   "General overview of radio-frequency identification systems, tags, readers, and security considerations.",
+   :d3f/kb-author "Wikipedia contributors",
+   :d3f/kb-reference-of :d3f/ProximitySensorMonitoring,
+   :d3f/kb-reference-title "RFID",
+   :db/ident :d3f/Reference-Wikipedia-RFID,
+   :rdf/type #{:d3f/InternetArticleReference :owl/NamedIndividual},
+   :rdfs/label "Reference - Wikipedia: RFID"})
 
 (def Reference-Windows-Management-Infrastructure
   {:d3f/has-link
@@ -35605,9 +41480,9 @@
 
 (def RemoteCommand
   {:d3f/definition
-   "A remote command is a command sent from one computer to another to be executed on the remote computer.  One example of this, is through a command-line interface (CLI) like using Invoke-Command from PowerShell or a command sent through an ssh session. This class generalizes to all means of sending a command through an established protocol to control capabilities on a remote computer.",
+   "A remote command is an instruction or set of instructions issued from a geographically or logically distant location to control, configure, or elicit a response from a target system, device, or entity. The execution of a remote command does not require direct physical interaction with the target; instead, it relies on a communication link to transmit the instruction and receive any resulting feedback or data.",
    :db/ident :d3f/RemoteCommand,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Remote Command",
    :rdfs/subClassOf :d3f/Command})
 
@@ -35617,6 +41492,9 @@
    :db/ident :d3f/RemoteDatabaseQuery,
    :rdf/type :owl/Class,
    :rdfs/label "Remote Database Query",
+   :rdfs/seeAlso
+   {:xsd/anyURI
+    "https://www.sciencedirect.com/topics/computer-science/remote-database-server"},
    :rdfs/subClassOf #{:d3f/DatabaseQuery :d3f/RemoteCommand}})
 
 (def RemoteFileAccessMediation
@@ -35635,6 +41513,30 @@
                       {:owl/onProperty     :d3f/isolates,
                        :owl/someValuesFrom :d3f/File,
                        :rdf/type           :owl/Restriction}}})
+
+(def RemoteFirmwareUpdateMonitoring
+  {:d3f/d3fend-id "D3-RFUM",
+   :d3f/definition
+   "Monitoring of remote firmware update commands to identify unauthorized software installations.",
+   :d3f/detects :d3f/OTDeviceFirmwareCommand,
+   :d3f/kb-article
+   "## How it works\nBy deploying sensors within the OT environment to passively monitor network traffic, tools can leverage deep packet inspection to identify protocol-specific commands and generate logs of relevant firmware activity. Additionally, these tools may incorporate behavioral and signature-based analysis to enhance detection and alerting capabilities.",
+   :d3f/kb-reference
+   :d3f/Reference-MethodForDetectingAnomaliesInTimeSeriesDataProducedByDevicesOfAnInfrastructureInANetwork,
+   :d3f/monitors :d3f/OTNetworkTraffic,
+   :db/ident :d3f/RemoteFirmwareUpdateMonitoring,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Remote Firmware Update Monitoring",
+   :rdfs/seeAlso
+   {:xsd/anyURI
+    "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-82r2.pdf"},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/detects,
+                       :owl/someValuesFrom :d3f/OTDeviceFirmwareCommand,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/monitors,
+                       :owl/someValuesFrom :d3f/OTNetworkTraffic,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/ApplicationProtocolCommandAnalysis}})
 
 (def RemoteLoginSession
   {:d3f/definition
@@ -35671,6 +41573,15 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Remote Session",
    :rdfs/subClassOf :d3f/NetworkSession})
+
+(def RemoteShellCommand
+  {:d3f/definition
+   "A remote shell command is a command sent from one computer to another to be executed on the remote computer.  One example of this, is through a command-line interface (CLI) like using Invoke-Command from PowerShell or a command sent through an ssh session. This class generalizes to all means of sending a command through an established protocol to control capabilities on a remote computer.",
+   :db/ident :d3f/RemoteShellCommand,
+   :rdf/type :owl/Class,
+   :rdfs/label "Remote Shell Command",
+   :rdfs/seeAlso {:xsd/anyURI "https://dbpedia.org/resource/Remote_Shell"},
+   :rdfs/subClassOf :d3f/RemoteCommand})
 
 (def RemoteTerminalSession
   {:d3f/definition
@@ -35799,10 +41710,12 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def ResourceDevelopmentTechnique
-  {:d3f/enables     :d3f/TA0042,
-   :db/ident        :d3f/ResourceDevelopmentTechnique,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Resource Development Technique",
+  {:d3f/definition
+   "The adversary is trying to establish resources they can use to support operations.",
+   :d3f/enables :d3f/TA0042,
+   :db/ident :d3f/ResourceDevelopmentTechnique,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Resource Development Technique",
    :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTechnique
                       {:owl/onProperty     :d3f/enables,
                        :owl/someValuesFrom :d3f/TA0042,
@@ -36156,6 +42069,114 @@
    :rdfs/label "SMB File Supersede Event",
    :rdfs/subClassOf :d3f/SMBEvent})
 
+(def SPARTADefenseEvasionTechnique
+  {:db/ident        :d3f/SPARTADefenseEvasionTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Defense Evasion Technique - SPARTA",
+   :rdfs/subClassOf #{:d3f/SPARTATechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/ST0006,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Defense Evasion Technique"})
+
+(def SPARTAExecutionTechnique
+  {:db/ident        :d3f/SPARTAExecutionTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Execution Technique - SPARTA",
+   :rdfs/subClassOf #{:d3f/SPARTATechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/ST0004,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Execution Technique"})
+
+(def SPARTAExfiltrationTechnique
+  {:db/ident        :d3f/SPARTAExfiltrationTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Exfiltration Technique - SPARTA",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/ST0008,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/SPARTATechnique},
+   :skos/prefLabel  "Exfiltration Technique"})
+
+(def SPARTAImpactTechnique
+  {:db/ident        :d3f/SPARTAImpactTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Impact Technique - SPARTA",
+   :rdfs/subClassOf #{:d3f/SPARTATechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/ST0009,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Impact Technique"})
+
+(def SPARTAInitialAccessTechnique
+  {:db/ident        :d3f/SPARTAInitialAccessTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Initial Access Technique - SPARTA",
+   :rdfs/subClassOf #{:d3f/SPARTATechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/ST0003,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Initial Access Technique"})
+
+(def SPARTALateralMovementTechnique
+  {:db/ident        :d3f/SPARTALateralMovementTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Lateral Movement Technique - SPARTA",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/ST0007,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/SPARTATechnique},
+   :skos/prefLabel  "Lateral Movement Technique"})
+
+(def SPARTAPersistenceTechnique
+  {:db/ident        :d3f/SPARTAPersistenceTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Persistence Technique - SPARTA",
+   :rdfs/subClassOf #{:d3f/SPARTATechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/ST0005,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Persistence Technique"})
+
+(def SPARTAReconnaissanceTechnique
+  {:db/ident        :d3f/SPARTAReconnaissanceTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Reconnaissance Technique - SPARTA",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/ST0001,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/SPARTATechnique},
+   :skos/prefLabel  "Reconnaissance Technique"})
+
+(def SPARTAResourceDevelopmentTechnique
+  {:db/ident        :d3f/SPARTAResourceDevelopmentTechnique,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Resource Development Technique - SPARTA",
+   :rdfs/subClassOf #{:d3f/SPARTATechnique
+                      {:owl/onProperty     :d3f/enables,
+                       :owl/someValuesFrom :d3f/ST0002,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel  "Resource Development Technique"})
+
+(def SPARTATactic
+  {:d3f/definition
+   "SPARTA Tactics represent the 'why' of a SPARTA technique. They denote the tactical goal of a threat actor and the reason for performing a technique.",
+   :db/ident :d3f/SPARTATactic,
+   :rdf/type :owl/Class,
+   :rdfs/label "SPARTA Tactic",
+   :rdfs/seeAlso {:xsd/anyURI "https://sparta.aerospace.org/tactic/SPARTA"},
+   :rdfs/subClassOf :d3f/SPARTAThing})
+
+(def SPARTATechnique
+  {:d3f/definition
+   "SPARTA Techniques represent 'how' a threat actor achieves a tactical goal by performing a threat action.",
+   :db/ident :d3f/SPARTATechnique,
+   :rdf/type :owl/Class,
+   :rdfs/label "SPARTA Technique",
+   :rdfs/seeAlso {:xsd/anyURI "https://sparta.aerospace.org/technique/SPARTA"},
+   :rdfs/subClassOf :d3f/SPARTAThing})
+
 (def SPARTAThing
   {:db/ident        :d3f/SPARTAThing,
    :rdf/type        :owl/Class,
@@ -36238,6 +42259,105 @@
    :rdfs/seeAlso {:xsd/anyURI
                   "http://dbpedia.org/resource/Secure_Shell_Protocol"},
    :rdfs/subClassOf :d3f/RemoteSession})
+
+(def ST0001
+  {:d3f/definition
+   "Threat actor is trying to gather information they can use to plan future operations.",
+   :d3f/display-order 1,
+   :db/ident :d3f/ST0001,
+   :rdf/type #{:d3f/SPARTATactic :owl/NamedIndividual :owl/Class},
+   :rdfs/label "Reconnaissance - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI "https://sparta.aerospace.org/tactic/ST0001"},
+   :rdfs/subClassOf #{:d3f/SPARTATactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Reconnaissance"})
+
+(def ST0002
+  {:d3f/definition
+   "Threat actor is trying to establish resources they can use to support operations.",
+   :d3f/display-order 2,
+   :db/ident :d3f/ST0002,
+   :rdf/type #{:d3f/SPARTATactic :owl/NamedIndividual :owl/Class},
+   :rdfs/label "Resource Development - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI "https://sparta.aerospace.org/tactic/ST0002"},
+   :rdfs/subClassOf #{:d3f/SPARTATactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Resource Development"})
+
+(def ST0003
+  {:d3f/definition
+   "Threat actor is trying to get point of presence/command execution on the spacecraft.",
+   :d3f/display-order 3,
+   :db/ident :d3f/ST0003,
+   :rdf/type #{:d3f/SPARTATactic :owl/NamedIndividual :owl/Class},
+   :rdfs/label "Initial Access - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI "https://sparta.aerospace.org/tactic/ST0003"},
+   :rdfs/subClassOf #{:d3f/SPARTATactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Initial Access"})
+
+(def ST0004
+  {:d3f/definition
+   "Threat actor is trying to execute malicious code on the spacecraft.",
+   :d3f/display-order 4,
+   :db/ident :d3f/ST0004,
+   :rdf/type #{:d3f/SPARTATactic :owl/NamedIndividual :owl/Class},
+   :rdfs/label "Execution - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI "https://sparta.aerospace.org/tactic/ST0004"},
+   :rdfs/subClassOf #{:d3f/SPARTATactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Execution"})
+
+(def ST0005
+  {:d3f/definition
+   "Threat actor is trying to maintain their foothold/access to command/execute code on the spacecraft.",
+   :d3f/display-order 5,
+   :db/ident :d3f/ST0005,
+   :rdf/type #{:d3f/SPARTATactic :owl/NamedIndividual :owl/Class},
+   :rdfs/label "Persistence - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI "https://sparta.aerospace.org/tactic/ST0005"},
+   :rdfs/subClassOf #{:d3f/SPARTATactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Persistence"})
+
+(def ST0006
+  {:d3f/definition    "Threat actor is trying to avoid being detected.",
+   :d3f/display-order 6,
+   :db/ident          :d3f/ST0006,
+   :rdf/type          #{:d3f/SPARTATactic :owl/NamedIndividual :owl/Class},
+   :rdfs/label        "Defense Evasion - SPARTA",
+   :rdfs/seeAlso      {:xsd/anyURI
+                       "https://sparta.aerospace.org/tactic/ST0006"},
+   :rdfs/subClassOf   #{:d3f/SPARTATactic :d3f/OffensiveTactic},
+   :skos/prefLabel    "Defense Evasion"})
+
+(def ST0007
+  {:d3f/definition
+   "Threat actor is trying to move through across sub-systems of the spacecraft.",
+   :d3f/display-order 7,
+   :db/ident :d3f/ST0007,
+   :rdf/type #{:d3f/SPARTATactic :owl/NamedIndividual :owl/Class},
+   :rdfs/label "Lateral Movement - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI "https://sparta.aerospace.org/tactic/ST0007"},
+   :rdfs/subClassOf #{:d3f/SPARTATactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Lateral Movement"})
+
+(def ST0008
+  {:d3f/definition    "Threat actor is trying to steal information.",
+   :d3f/display-order 8,
+   :db/ident          :d3f/ST0008,
+   :rdf/type          #{:d3f/SPARTATactic :owl/NamedIndividual :owl/Class},
+   :rdfs/label        "Exfiltration - SPARTA",
+   :rdfs/seeAlso      {:xsd/anyURI
+                       "https://sparta.aerospace.org/tactic/ST0008"},
+   :rdfs/subClassOf   #{:d3f/SPARTATactic :d3f/OffensiveTactic},
+   :skos/prefLabel    "Exfiltration"})
+
+(def ST0009
+  {:d3f/definition
+   "Threat actor is trying to manipulate, interrupt, or destroy the space system(s) and/or data.",
+   :d3f/display-order 9,
+   :db/ident :d3f/ST0009,
+   :rdf/type #{:d3f/SPARTATactic :owl/NamedIndividual :owl/Class},
+   :rdfs/label "Impact - SPARTA",
+   :rdfs/seeAlso {:xsd/anyURI "https://sparta.aerospace.org/tactic/ST0009"},
+   :rdfs/subClassOf #{:d3f/SPARTATactic :d3f/OffensiveTactic},
+   :skos/prefLabel "Impact"})
 
 (def SaveRegister
   {:d3f/copies      :d3f/ProcessorRegister,
@@ -36565,7 +42685,7 @@
 (def Semi-supervisedInductiveLearning
   {:d3f/d3fend-id "D3A-SSIL",
    :d3f/definition
-   "The goal of inductive learning is to infer the correct mapping from\nX to Y",
+   "The goal of inductive learning is to infer the correct mapping from X to Y.",
    :d3f/kb-article
    "## References\nSemi-Supervised Learning. Wikipedia.  [Link](https://en.wikipedia.org/wiki/Semi-Supervised_Learning#Semi-supervised_learning).\n\nZhou, D., & Li, M. (2005). Semi-supervised learning by higher order regularization. In Proceedings of the 43rd Annual Meeting of the Association for Computational Linguistics (ACL) (pp. 1-9).  [Link](https://www.cs.sfu.ca/~anoop/papers/pdf/semisup_naacl.pdf).",
    :db/ident :d3f/Semi-supervisedInductiveLearning,
@@ -37055,6 +43175,27 @@
                        :owl/someValuesFrom :d3f/Resource,
                        :rdf/type           :owl/Restriction} :d3f/Subroutine}})
 
+(def ShellCommand
+  {:d3f/definition
+   "A shell command is a directive to some kind of command-line interface, such as a shell.",
+   :d3f/may-create :d3f/Process,
+   :d3f/may-execute :d3f/ExecutableFile,
+   :d3f/recorded-in :d3f/CommandHistoryLog,
+   :db/ident :d3f/ShellCommand,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "http://dbpedia.org/resource/Command_(computing)"},
+   :rdfs/label "Shell Command",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-execute,
+                       :owl/someValuesFrom :d3f/ExecutableFile,
+                       :rdf/type           :owl/Restriction} :d3f/Command
+                      {:owl/onProperty     :d3f/may-create,
+                       :owl/someValuesFrom :d3f/Process,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/recorded-in,
+                       :owl/someValuesFrom :d3f/CommandHistoryLog,
+                       :rdf/type           :owl/Restriction}}})
+
 (def Shim
   {:d3f/definition
    "In computer programming, a shim is a small library that transparently intercepts API calls and changes the arguments passed, handles the operation itself, or redirects the operation elsewhere. Shims can be used to support an old API in a newer environment, or a new API in an older environment. Shims can also be used for running programs on different software platforms than those for which they were developed.",
@@ -37084,6 +43225,18 @@
    #{{:xsd/anyURI "http://dbpedia.org/resource/Shortcut_(computing)"}
      {:xsd/anyURI "http://dbpedia.org/resource/Symbolic_link#Shortcuts"}},
    :rdfs/subClassOf :d3f/File})
+
+(def Signal
+  {:d3f/definition
+   "In electronics and telecommunications, signal refers to any time-varying voltage, current, or electromagnetic wave that carries information.",
+   :db/ident :d3f/Signal,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Signal"},
+   :rdfs/label "Signal",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/carries,
+                       :owl/someValuesFrom :d3f/DigitalInformation,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/PhysicalArtifact}})
 
 (def Simulation
   {:db/ident        :d3f/Simulation,
@@ -37515,7 +43668,7 @@
   {:d3f/definition
    "Computer data storage, often called storage or memory, is a technology consisting of computer components and recording media used to retain digital data. It is a core function and fundamental component of computers. In the Von Neumann architecture, the CPU consists of two main parts: The control unit and the arithmetic / logic unit (ALU). The former controls the flow of data between the CPU and memory, while the latter performs arithmetic and logical operations on data.",
    :d3f/may-contain :d3f/FileSystem,
-   :d3f/synonym #{"Storage" "Computer data storage"},
+   :d3f/synonym #{"Memory" "Computer data storage"},
    :db/ident :d3f/Storage,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI
@@ -37795,6 +43948,17 @@
                       "http://wordnet-rdf.princeton.edu/id/04384144-n"},
    :rdfs/label "System",
    :rdfs/subClassOf :d3f/Artifact})
+
+(def SystemApplicationCycleCount
+  {:d3f/definition
+   "A system variable that tracks the number of times the controller has completed its main program loop (scan cycle) since startup or last reset.",
+   :d3f/synonym "Controller Cycle Count",
+   :db/ident :d3f/SystemApplicationCycleCount,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/comment
+   "In most controllers this is not a default tag rather something that should be programmed.",
+   :rdfs/label "System Application Cycle Count",
+   :rdfs/subClassOf :d3f/SystemPlatformVariable})
 
 (def SystemCall
   {:d3f/definition
@@ -38110,9 +44274,10 @@
 (def SystemPlatformVariable
   {:d3f/definition
    "Runtime variables  which may consist of memory usage, internal temperature, operating mode, clock time, scan time, hardware status, etc.",
-   :d3f/synonym #{"System Properties" "Configuration Resource" "System Data"},
+   :d3f/synonym #{"System Properties" "Configuration Resource" "System Data"
+                  "System Variable"},
    :db/ident :d3f/SystemPlatformVariable,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "System Platform Variable",
    :rdfs/seeAlso
    #{{:xsd/anyURI
@@ -38195,6 +44360,997 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/SystemMapping}})
 
+(def T0800
+  {:d3f/attack-id "T0800",
+   :d3f/definition
+   "Adversaries may activate firmware update mode on devices to prevent expected response functions from engaging in reaction to an emergency or process malfunction. For example, devices such as protection relays may have an operation mode designed for firmware installation. This mode may halt process monitoring and related functions to allow new firmware to be loaded. A device left in update mode may be placed in an inactive holding state if no firmware is provided to it. By entering and leaving a device in this mode, the adversary may deny its usual functionalities.",
+   :db/ident :d3f/T0800,
+   :rdf/type :owl/Class,
+   :rdfs/label "Activate Firmware Update Mode - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInhibitResponseFunctionTechnique,
+   :skos/prefLabel "Activate Firmware Update Mode"})
+
+(def T0801
+  {:d3f/attack-id "T0801",
+   :d3f/definition
+   "Adversaries may gather information about the physical process state. This information may be used to gain more information about the process itself or used as a trigger for malicious actions. The sources of process state information may vary such as, OPC tags, historian data, specific PLC block information, or network traffic.",
+   :db/ident :d3f/T0801,
+   :rdf/type :owl/Class,
+   :rdfs/label "Monitor Process State - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSCollectionTechnique,
+   :skos/prefLabel "Monitor Process State"})
+
+(def T0802
+  {:d3f/attack-id "T0802",
+   :d3f/definition
+   "Adversaries may automate collection of industrial environment information using tools or scripts. This automated collection may leverage native control protocols and tools available in the control systems environment. For example, the OPC protocol may be used to enumerate and gather information. Access to a system or interface with these native protocols may allow collection and enumeration of other attached, communicating servers and devices.",
+   :db/ident :d3f/T0802,
+   :rdf/type :owl/Class,
+   :rdfs/label "Automated Collection - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSCollectionTechnique,
+   :skos/prefLabel "Automated Collection"})
+
+(def T0803
+  {:d3f/attack-id "T0803",
+   :d3f/definition
+   "Adversaries may block a command message from reaching its intended target to prevent command execution. In OT networks, command messages are sent to provide instructions to control system devices. A blocked command message can inhibit response functions from correcting a disruption or unsafe condition. (Citation: Bonnie Zhu, Anthony Joseph, Shankar Sastry 2011)  (Citation: Electricity Information Sharing and Analysis Center; SANS Industrial Control Systems March 2016)",
+   :db/ident :d3f/T0803,
+   :rdf/type :owl/Class,
+   :rdfs/label "Block Command Message - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInhibitResponseFunctionTechnique,
+   :skos/prefLabel "Block Command Message"})
+
+(def T0804
+  {:d3f/attack-id "T0804",
+   :d3f/definition
+   "Adversaries may block or prevent a reporting message from reaching its intended target. In control systems, reporting messages contain telemetry data (e.g., I/O values) pertaining to the current state of equipment and the industrial process. By blocking these reporting messages, an adversary can potentially hide their actions from an operator.",
+   :db/ident :d3f/T0804,
+   :rdf/type :owl/Class,
+   :rdfs/label "Block Reporting Message - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInhibitResponseFunctionTechnique,
+   :skos/prefLabel "Block Reporting Message"})
+
+(def T0805
+  {:d3f/attack-id "T0805",
+   :d3f/definition
+   "Adversaries may block access to serial COM to prevent instructions or configurations from reaching target devices. Serial Communication ports (COM) allow communication with control system devices. Devices can receive command and configuration messages over such serial COM. Devices also use serial COM to send command and reporting messages. Blocking device serial COM may also block command messages and block reporting messages.",
+   :db/ident :d3f/T0805,
+   :rdf/type :owl/Class,
+   :rdfs/label "Block Serial COM - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInhibitResponseFunctionTechnique,
+   :skos/prefLabel "Block Serial COM"})
+
+(def T0806
+  {:d3f/attack-id "T0806",
+   :d3f/definition
+   "Adversaries may repetitively or successively change I/O point values to perform an action. Brute Force I/O may be achieved by changing either a range of I/O point values or a single point value repeatedly to manipulate a process function. The adversary's goal and the information they have about the target environment will influence which of the options they choose. In the case of brute forcing a range of point values, the adversary may be able to achieve an impact without targeting a specific point. In the case where a single point is targeted, the adversary may be able to generate instability on the process function associated with that particular point.",
+   :db/ident :d3f/T0806,
+   :rdf/type :owl/Class,
+   :rdfs/label "Brute Force I/O - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSImpairProcessControlTechnique,
+   :skos/prefLabel "Brute Force I/O"})
+
+(def T0807
+  {:d3f/attack-id "T0807",
+   :d3f/definition
+   "Adversaries may utilize command-line interfaces (CLIs) to interact with systems and execute commands. CLIs provide a means of interacting with computer systems and are a common feature across many types of platforms and devices within control systems environments. (Citation: Enterprise ATT&CK January 2018) Adversaries may also use CLIs to install and run new software, including malicious tools that may be installed over the course of an operation.",
+   :db/ident :d3f/T0807,
+   :rdf/type :owl/Class,
+   :rdfs/label "Command-Line Interface - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSExecutionTechnique,
+   :skos/prefLabel "Command-Line Interface"})
+
+(def T0808
+  {:d3f/attack-id "T0808",
+   :d3f/definition
+   "Adversaries may perform control device identification to determine the make and model of a target device. Management software and device APIs may be utilized by the adversary to gain this information. By identifying and obtaining device specifics, the adversary may be able to determine device vulnerabilities. This device information can also be used to understand device functionality and inform the decision to target the environment.",
+   :db/ident :d3f/T0808,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Control Device Identification - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSDiscoveryTechnique,
+   :skos/prefLabel "Control Device Identification"})
+
+(def T0809
+  {:d3f/attack-id "T0809",
+   :d3f/definition
+   "Adversaries may perform data destruction over the course of an operation. The adversary may drop or create malware, tools, or other non-native files on a target system to accomplish this, potentially leaving behind traces of malicious activities. Such non-native files and other data may be removed over the course of an intrusion to maintain a small footprint or as a standard part of the post-intrusion cleanup process. (Citation: Enterprise ATT&CK January 2018)",
+   :db/ident :d3f/T0809,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data Destruction - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInhibitResponseFunctionTechnique,
+   :skos/prefLabel "Data Destruction"})
+
+(def T0810
+  {:d3f/attack-id "T0810",
+   :d3f/definition
+   "Adversaries may compromise and gain control of a data historian to gain a foothold into the control system environment. Access to a data historian may be used to learn stored database archival and analysis information on the control system. A dual-homed data historian may provide adversaries an interface from the IT environment to the OT environment.",
+   :db/ident :d3f/T0810,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Data Historian Compromise - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInitialAccessTechnique,
+   :skos/prefLabel "Data Historian Compromise"})
+
+(def T0811
+  {:d3f/attack-id "T0811",
+   :d3f/definition
+   "Adversaries may target and collect data from information repositories. This can include sensitive data such as specifications, schematics, or diagrams of control system layouts, devices, and processes. Examples of information repositories include reference databases in the process environment, as well as databases in the corporate network that might contain information about the ICS.(Citation: Cybersecurity & Infrastructure Security Agency March 2018)",
+   :db/ident :d3f/T0811,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data from Information Repositories - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSCollectionTechnique,
+   :skos/prefLabel "Data from Information Repositories"})
+
+(def T0812
+  {:d3f/attack-id "T0812",
+   :d3f/definition
+   "Adversaries may leverage manufacturer or supplier set default credentials on control system devices. These default credentials may have administrative permissions and may be necessary for initial configuration of the device. It is general best practice to change the passwords for these accounts as soon as possible, but some manufacturers may have devices that have passwords or usernames that cannot be changed. (Citation: Keith Stouffer May 2015)",
+   :db/ident :d3f/T0812,
+   :rdf/type :owl/Class,
+   :rdfs/label "Default Credentials - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSLateralMovementTechnique,
+   :skos/prefLabel "Default Credentials"})
+
+(def T0813
+  {:d3f/attack-id "T0813",
+   :d3f/definition
+   "Adversaries may cause a denial of control to temporarily prevent operators and engineers from interacting with process controls. An adversary may attempt to deny process control access to cause a temporary loss of communication with the control device or to prevent operator adjustment of process controls. An affected process may still be operating during the period of control loss, but not necessarily in a desired state. (Citation: Corero) (Citation: Michael J. Assante and Robert M. Lee) (Citation: Tyson Macaulay)",
+   :db/ident :d3f/T0813,
+   :rdf/type :owl/Class,
+   :rdfs/label "Denial of Control - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSImpactTechnique,
+   :skos/prefLabel "Denial of Control"})
+
+(def T0814
+  {:d3f/attack-id "T0814",
+   :d3f/definition
+   "Adversaries may perform Denial-of-Service (DoS) attacks to disrupt expected device functionality. Examples of DoS attacks include overwhelming the target device with a high volume of requests in a short time period and sending the target device a request it does not know how to handle. Disrupting device state may temporarily render it unresponsive, possibly lasting until a reboot can occur. When placed in this state, devices may be unable to send and receive requests, and may not perform expected response functions in reaction to other events in the environment.",
+   :db/ident :d3f/T0814,
+   :rdf/type :owl/Class,
+   :rdfs/label "Denial of Service - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInhibitResponseFunctionTechnique,
+   :skos/prefLabel "Denial of Service"})
+
+(def T0815
+  {:d3f/attack-id "T0815",
+   :d3f/definition
+   "Adversaries may cause a denial of view in attempt to disrupt and prevent operator oversight on the status of an ICS environment. This may manifest itself as a temporary communication failure between a device and its control source, where the interface recovers and becomes available once the interference ceases. (Citation: Corero) (Citation: Michael J. Assante and Robert M. Lee) (Citation: Tyson Macaulay)",
+   :db/ident :d3f/T0815,
+   :rdf/type :owl/Class,
+   :rdfs/label "Denial of View - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSImpactTechnique,
+   :skos/prefLabel "Denial of View"})
+
+(def T0816
+  {:d3f/attack-id "T0816",
+   :d3f/definition
+   "Adversaries may forcibly restart or shutdown a device in an ICS environment to disrupt and potentially negatively impact physical processes. Methods of device restart and shutdown exist in some devices as built-in, standard functionalities. These functionalities can be executed using interactive device web interfaces, CLIs, and network protocol commands.",
+   :db/ident :d3f/T0816,
+   :rdf/type :owl/Class,
+   :rdfs/label "Device Restart/Shutdown - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInhibitResponseFunctionTechnique,
+   :skos/prefLabel "Device Restart/Shutdown"})
+
+(def T0817
+  {:d3f/attack-id "T0817",
+   :d3f/definition
+   "Adversaries may gain access to a system during a drive-by compromise, when a user visits a website as part of a regular browsing session. With this technique, the user's web browser is targeted and exploited simply by visiting the compromised website.",
+   :db/ident :d3f/T0817,
+   :rdf/type :owl/Class,
+   :rdfs/label "Drive-by Compromise - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInitialAccessTechnique,
+   :skos/prefLabel "Drive-by Compromise"})
+
+(def T0818
+  {:d3f/attack-id "T0818",
+   :d3f/definition
+   "Adversaries will compromise and gain control of an engineering workstation for Initial Access into the control system environment. Access to an engineering workstation may occur through or physical means, such as a Valid Accounts with privileged access or infection by removable media. A dual-homed engineering workstation may allow the adversary access into multiple networks. For example, unsegregated process control, safety system, or information system networks. An Engineering Workstation is designed as a reliable computing platform that configures, maintains, and diagnoses control system equipment and applications. Compromise of an engineering workstation may provide access to, and control of, other control system applications and equipment. In the Maroochy attack, the adversary utilized a computer, possibly stolen, with proprietary engineering software to communicate with a wastewater system.",
+   :db/ident :d3f/T0818,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Engineering Workstation Compromise - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInitialAccessTechnique,
+   :skos/prefLabel "Engineering Workstation Compromise"})
+
+(def T0819
+  {:d3f/attack-id "T0819",
+   :d3f/definition
+   "Adversaries may leverage weaknesses to exploit internet-facing software for initial access into an industrial network. Internet-facing software may be user applications, underlying networking implementations, an assets operating system, weak defenses, etc. Targets of this technique may be intentionally exposed for the purpose of remote management and visibility.",
+   :db/ident :d3f/T0819,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exploit Public-Facing Application - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInitialAccessTechnique,
+   :skos/prefLabel "Exploit Public-Facing Application"})
+
+(def T0820
+  {:d3f/attack-id "T0820",
+   :d3f/definition
+   "Adversaries may exploit a software vulnerability to take advantage of a programming error in a program, service, or within the operating system software or kernel itself to evade detection. Vulnerabilities may exist in software that can be used to disable or circumvent security features.",
+   :db/ident :d3f/T0820,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exploitation for Evasion - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSEvasionTechnique,
+   :skos/prefLabel "Exploitation for Evasion"})
+
+(def T0821
+  {:d3f/attack-id "T0821",
+   :d3f/definition
+   "Adversaries may modify the tasking of a controller to allow for the execution of their own programs. This can allow an adversary to manipulate the execution flow and behavior of a controller.",
+   :db/ident :d3f/T0821,
+   :rdf/type :owl/Class,
+   :rdfs/label "Modify Controller Tasking - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSExecutionTechnique,
+   :skos/prefLabel "Modify Controller Tasking"})
+
+(def T0822
+  {:d3f/attack-id "T0822",
+   :d3f/definition
+   "Adversaries may leverage external remote services as a point of initial access into your network. These services allow users to connect to internal network resources from external locations. Examples are VPNs, Citrix, and other access mechanisms. Remote service gateways often manage connections and credential authentication for these services. (Citation: Daniel Oakley, Travis Smith, Tripwire)",
+   :db/ident :d3f/T0822,
+   :rdf/type :owl/Class,
+   :rdfs/label "External Remote Services - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInitialAccessTechnique,
+   :skos/prefLabel "External Remote Services"})
+
+(def T0823
+  {:d3f/attack-id "T0823",
+   :d3f/definition
+   "Adversaries may attempt to gain access to a machine via a Graphical User Interface (GUI) to enhance execution capabilities. Access to a GUI allows a user to interact with a computer in a more visual manner than a CLI. A GUI allows users to move a cursor and click on interface objects, with a mouse and keyboard as the main input devices, as opposed to just using the keyboard.",
+   :db/ident :d3f/T0823,
+   :rdf/type :owl/Class,
+   :rdfs/label "Graphical User Interface - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSExecutionTechnique,
+   :skos/prefLabel "Graphical User Interface"})
+
+(def T0824
+  {:d3f/attack-id "T0824",
+   :d3f/definition
+   "Adversaries may use input/output (I/O) module discovery to gather key information about a control system device. An I/O module is a device that allows the control system device to either receive or send signals to other devices. These signals can be analog or digital, and may support a number of different protocols. Devices are often able to use attachable I/O modules to increase the number of inputs and outputs that it can utilize. An adversary with access to a device can use native device functions to enumerate I/O modules that are connected to the device. Information regarding the I/O modules can aid the adversary in understanding related control processes.",
+   :db/ident :d3f/T0824,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "I/O Module Discovery - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSDiscoveryTechnique,
+   :skos/prefLabel "I/O Module Discovery"})
+
+(def T0825
+  {:d3f/attack-id "T0825",
+   :d3f/definition
+   "Adversaries may perform location identification using device data to inform operations and targeted impact for attacks. Location identification data can come in a number of forms, including geographic location, location relative to other control system devices, time zone, and current time. An adversary may use an embedded global positioning system (GPS) module in a device to figure out the physical coordinates of a device. NIST SP800-82 recommends that devices utilize GPS or another location determining mechanism to attach appropriate timestamps to log entries (Citation: Guidance - NIST SP800-82). While this assists in logging and event tracking, an adversary could use the underlying positioning mechanism to determine the general location of a device. An adversary can also infer the physical location of serially connected devices by using serial connection enumeration.",
+   :db/ident :d3f/T0825,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Location Identification - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSCollectionTechnique,
+   :skos/prefLabel "Location Identification"})
+
+(def T0826
+  {:d3f/attack-id "T0826",
+   :d3f/definition
+   "Adversaries may attempt to disrupt essential components or systems to prevent owner and operator from delivering products or services. (Citation: Corero) (Citation: Michael J. Assante and Robert M. Lee) (Citation: Tyson Macaulay)",
+   :db/ident :d3f/T0826,
+   :rdf/type :owl/Class,
+   :rdfs/label "Loss of Availability - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSImpactTechnique,
+   :skos/prefLabel "Loss of Availability"})
+
+(def T0827
+  {:d3f/attack-id "T0827",
+   :d3f/definition
+   "Adversaries may seek to achieve a sustained loss of control or a runaway condition in which operators cannot issue any commands even if the malicious interference has subsided. (Citation: Corero) (Citation: Michael J. Assante and Robert M. Lee) (Citation: Tyson Macaulay)",
+   :db/ident :d3f/T0827,
+   :rdf/type :owl/Class,
+   :rdfs/label "Loss of Control - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSImpactTechnique,
+   :skos/prefLabel "Loss of Control"})
+
+(def T0828
+  {:d3f/attack-id "T0828",
+   :d3f/definition
+   "Adversaries may cause loss of productivity and revenue through disruption and even damage to the availability and integrity of control system operations, devices, and related processes. This technique may manifest as a direct effect of an ICS-targeting attack or tangentially, due to an IT-targeting attack against non-segregated environments.",
+   :db/ident :d3f/T0828,
+   :rdf/type :owl/Class,
+   :rdfs/label "Loss of Productivity and Revenue - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSImpactTechnique,
+   :skos/prefLabel "Loss of Productivity and Revenue"})
+
+(def T0829
+  {:d3f/attack-id "T0829",
+   :d3f/definition
+   "Adversaries may cause a sustained or permanent loss of view where the ICS equipment will require local, hands-on operator intervention; for instance, a restart or manual operation. By causing a sustained reporting or visibility loss, the adversary can effectively hide the present state of operations. This loss of view can occur without affecting the physical processes themselves. (Citation: Corero) (Citation: Michael J. Assante and Robert M. Lee) (Citation: Tyson Macaulay)",
+   :db/ident :d3f/T0829,
+   :rdf/type :owl/Class,
+   :rdfs/label "Loss of View - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSImpactTechnique,
+   :skos/prefLabel "Loss of View"})
+
+(def T0830
+  {:d3f/attack-id "T0830",
+   :d3f/definition
+   "Adversaries with privileged network access may seek to modify network traffic in real time using adversary-in-the-middle (AiTM) attacks. (Citation: Gabriel Sanchez October 2017) This type of attack allows the adversary to intercept traffic to and/or from a particular device on the network. If a AiTM attack is established, then the adversary has the ability to block, log, modify, or inject traffic into the communication stream. There are several ways to accomplish this attack, but some of the most-common are Address Resolution Protocol (ARP) poisoning and the use of a proxy. (Citation: Bonnie Zhu, Anthony Joseph, Shankar Sastry 2011)",
+   :db/ident :d3f/T0830,
+   :rdf/type :owl/Class,
+   :rdfs/label "Adversary-in-the-Middle - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSCollectionTechnique,
+   :skos/prefLabel "Adversary-in-the-Middle"})
+
+(def T0831
+  {:d3f/attack-id "T0831",
+   :d3f/definition
+   "Adversaries may manipulate physical process control within the industrial environment. Methods of manipulating control can include changes to set point values, tags, or other parameters. Adversaries may manipulate control systems devices or possibly leverage their own, to communicate with and command physical control processes. The duration of manipulation may be temporary or longer sustained, depending on operator detection.",
+   :db/ident :d3f/T0831,
+   :rdf/type :owl/Class,
+   :rdfs/label "Manipulation of Control - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSImpactTechnique,
+   :skos/prefLabel "Manipulation of Control"})
+
+(def T0832
+  {:d3f/attack-id "T0832",
+   :d3f/definition
+   "Adversaries may attempt to manipulate the information reported back to operators or controllers. This manipulation may be short term or sustained. During this time the process itself could be in a much different state than what is reported. (Citation: Corero) (Citation: Michael J. Assante and Robert M. Lee) (Citation: Tyson Macaulay)",
+   :db/ident :d3f/T0832,
+   :rdf/type :owl/Class,
+   :rdfs/label "Manipulation of View - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSImpactTechnique,
+   :skos/prefLabel "Manipulation of View"})
+
+(def T0833
+  {:d3f/attack-id "T0833",
+   :d3f/definition
+   "Adversaries may place malicious code in a system, which can cause the system to malfunction by modifying its control logic. Control system devices use programming languages (e.g. relay ladder logic) to control physical processes by affecting actuators, which cause machines to operate, based on environment sensor readings. These devices often include the ability to perform remote control logic updates.",
+   :db/ident :d3f/T0833,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Modify Control Logic - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSImpairProcessControlTechnique
+                      :d3f/ATTACKICSInhibitResponseFunctionTechnique},
+   :skos/prefLabel "Modify Control Logic"})
+
+(def T0834
+  {:d3f/attack-id "T0834",
+   :d3f/definition
+   "Adversaries may directly interact with the native OS application programming interface (API) to access system functions. Native APIs provide a controlled means of calling low-level OS services within the kernel, such as those involving hardware/devices, memory, and processes. (Citation: The MITRE Corporation May 2017) These native APIs are leveraged by the OS during system boot (when other system components are not yet initialized) as well as carrying out tasks and requests during routine operations.",
+   :db/ident :d3f/T0834,
+   :rdf/type :owl/Class,
+   :rdfs/label "Native API - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSExecutionTechnique,
+   :skos/prefLabel "Native API"})
+
+(def T0835
+  {:d3f/attack-id "T0835",
+   :d3f/definition
+   "Adversaries may manipulate the I/O image of PLCs through various means to prevent them from functioning as expected. Methods of I/O image manipulation may include overriding the I/O table via direct memory manipulation or using the override function used for testing PLC programs. (Citation: Dr. Kelvin T. Erickson December 2010) During the scan cycle, a PLC reads the status of all inputs and stores them in an image table. (Citation: Nanjundaiah, Vaidyanath) The image table is the PLCs internal storage location where values of inputs/outputs for one scan are stored while it executes the user program. After the PLC has solved the entire logic program, it updates the output image table. The contents of this output image table are written to the corresponding output points in I/O Modules.",
+   :db/ident :d3f/T0835,
+   :rdf/type :owl/Class,
+   :rdfs/label "Manipulate I/O Image - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInhibitResponseFunctionTechnique,
+   :skos/prefLabel "Manipulate I/O Image"})
+
+(def T0836
+  {:d3f/attack-id "T0836",
+   :d3f/definition
+   "Adversaries may modify parameters used to instruct industrial control system devices. These devices operate via programs that dictate how and when to perform actions based on such parameters. Such parameters can determine the extent to which an action is performed and may specify additional options. For example, a program on a control system device dictating motor processes may take a parameter defining the total number of seconds to run that motor.",
+   :db/ident :d3f/T0836,
+   :rdf/type :owl/Class,
+   :rdfs/label "Modify Parameter - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSImpairProcessControlTechnique,
+   :skos/prefLabel "Modify Parameter"})
+
+(def T0837
+  {:d3f/attack-id "T0837",
+   :d3f/definition
+   "Adversaries may compromise protective system functions designed to prevent the effects of faults and abnormal conditions. This can result in equipment damage, prolonged process disruptions and hazards to personnel.",
+   :db/ident :d3f/T0837,
+   :rdf/type :owl/Class,
+   :rdfs/label "Loss of Protection - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSImpactTechnique,
+   :skos/prefLabel "Loss of Protection"})
+
+(def T0838
+  {:d3f/attack-id "T0838",
+   :d3f/definition
+   "Adversaries may modify alarm settings to prevent alerts that may inform operators of their presence or to prevent responses to dangerous and unintended scenarios. Reporting messages are a standard part of data acquisition in control systems. Reporting messages are used as a way to transmit system state information and acknowledgements that specific actions have occurred. These messages provide vital information for the management of a physical process, and keep operators, engineers, and administrators aware of the state of system devices and physical processes.",
+   :db/ident :d3f/T0838,
+   :rdf/type :owl/Class,
+   :rdfs/label "Modify Alarm Settings - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInhibitResponseFunctionTechnique,
+   :skos/prefLabel "Modify Alarm Settings"})
+
+(def T0839
+  {:d3f/attack-id "T0839",
+   :d3f/definition
+   "Adversaries may install malicious or vulnerable firmware onto modular hardware devices. Control system devices often contain modular hardware devices. These devices may have their own set of firmware that is separate from the firmware of the main control system equipment.",
+   :db/ident :d3f/T0839,
+   :rdf/type :owl/Class,
+   :rdfs/label "Module Firmware - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSImpairProcessControlTechnique
+                      :d3f/ATTACKICSPersistenceTechnique},
+   :skos/prefLabel "Module Firmware"})
+
+(def T0840
+  {:d3f/attack-id "T0840",
+   :d3f/definition
+   "Adversaries may perform network connection enumeration to discover information about device communication patterns. If an adversary can inspect the state of a network connection with tools, such as Netstat(Citation: Netstat), in conjunction with [System Firmware](https://attack.mitre.org/techniques/T0857), then they can determine the role of certain devices on the network  (Citation: MITRE). The adversary can also use [Network Sniffing](https://attack.mitre.org/techniques/T0842) to watch network traffic for details about the source, destination, protocol, and content.",
+   :db/ident :d3f/T0840,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Connection Enumeration - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSDiscoveryTechnique,
+   :skos/prefLabel "Network Connection Enumeration"})
+
+(def T0841
+  {:d3f/attack-id "T0841",
+   :d3f/definition
+   "Network Service Scanning is the process of discovering services on networked systems.  This can be achieved through a technique called port scanning or probing.  Port scanning interacts with the TCP/IP ports on a target system to determine whether ports are open, closed, or filtered by a firewall.  This does not reveal the service that is running behind the port, but since many common services are run on [https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml specific port numbers], the type of service can be assumed.  More in-depth testing includes interaction with the actual service to determine the service type and specific version.  One of the most-popular tools to use for Network Service Scanning is [https://nmap.org/ Nmap].",
+   :db/ident :d3f/T0841,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Network Service Scanning - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSDiscoveryTechnique,
+   :skos/prefLabel "Network Service Scanning"})
+
+(def T0842
+  {:d3f/attack-id "T0842",
+   :d3f/definition
+   "Network sniffing is the practice of using a network interface on a computer system to monitor or capture information (Citation: Enterprise ATT&CK January 2018) regardless of whether it is the specified destination for the information.",
+   :db/ident :d3f/T0842,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Sniffing - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSDiscoveryTechnique,
+   :skos/prefLabel "Network Sniffing"})
+
+(def T0843
+  {:d3f/attack-id "T0843",
+   :d3f/definition
+   "Adversaries may perform a program download to transfer a user program to a controller.",
+   :db/ident :d3f/T0843,
+   :rdf/type :owl/Class,
+   :rdfs/label "Program Download - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSLateralMovementTechnique,
+   :skos/prefLabel "Program Download"})
+
+(def T0844
+  {:d3f/attack-id "T0844",
+   :d3f/definition
+   "Program Organizational Units (POUs) are block structures used within PLC programming to create programs and projects. (Citation: Guidance - IEC61131) POUs can be used to hold user programs written in IEC 61131-3 languages: Structured text, Instruction list, Function block, and Ladder logic. (Citation: Guidance - IEC61131) Application - 201203 They can also provide additional functionality, such as establishing connections between the PLC and other devices using TCON. (Citation: PLCBlaster - Spenneberg)",
+   :db/ident :d3f/T0844,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Program Organization Units - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSExecutionTechnique
+                      :d3f/ATTACKICSLateralMovementTechnique},
+   :skos/prefLabel "Program Organization Units"})
+
+(def T0845
+  {:d3f/attack-id "T0845",
+   :d3f/definition
+   "Adversaries may attempt to upload a program from a PLC to gather information about an industrial process. Uploading a program may allow them to acquire and study the underlying logic. Methods of program upload include vendor software, which enables the user to upload and read a program running on a PLC. This software can be used to upload the target program to a workstation, jump box, or an interfacing device.",
+   :db/ident :d3f/T0845,
+   :rdf/type :owl/Class,
+   :rdfs/label "Program Upload - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSCollectionTechnique,
+   :skos/prefLabel "Program Upload"})
+
+(def T0846
+  {:d3f/attack-id "T0846",
+   :d3f/definition
+   "Adversaries may attempt to get a listing of other systems by IP address, hostname, or other logical identifier on a network that may be used for subsequent Lateral Movement or Discovery techniques. Functionality could exist within adversary tools to enable this, but utilities available on the operating system or vendor software could also be used. (Citation: Enterprise ATT&CK January 2018)",
+   :db/ident :d3f/T0846,
+   :rdf/type :owl/Class,
+   :rdfs/label "Remote System Discovery - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSDiscoveryTechnique,
+   :skos/prefLabel "Remote System Discovery"})
+
+(def T0847
+  {:d3f/attack-id "T0847",
+   :d3f/definition
+   "Adversaries may move onto systems, such as those separated from the enterprise network, by copying malware to removable media which is inserted into the control systems environment. The adversary may rely on unknowing trusted third parties, such as suppliers or contractors with access privileges, to introduce the removable media. This technique enables initial access to target devices that never connect to untrusted networks, but are physically accessible.",
+   :db/ident :d3f/T0847,
+   :rdf/type :owl/Class,
+   :rdfs/label "Replication Through Removable Media - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInitialAccessTechnique,
+   :skos/prefLabel "Replication Through Removable Media"})
+
+(def T0848
+  {:d3f/attack-id "T0848",
+   :d3f/definition
+   "Adversaries may setup a rogue master to leverage control server functions to communicate with outstations. A rogue master can be used to send legitimate control messages to other control system devices, affecting processes in unintended ways. It may also be used to disrupt network communications by capturing and receiving the network traffic meant for the actual master. Impersonating a master may also allow an adversary to avoid detection.",
+   :db/ident :d3f/T0848,
+   :rdf/type :owl/Class,
+   :rdfs/label "Rogue Master - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInitialAccessTechnique,
+   :skos/prefLabel "Rogue Master"})
+
+(def T0849
+  {:d3f/attack-id "T0849",
+   :d3f/definition
+   "Adversaries may use masquerading to disguise a malicious application or executable as another file, to avoid operator and engineer suspicion. Possible disguises of these masquerading files can include commonly found programs, expected vendor executables and configuration files, and other commonplace application and naming conventions. By impersonating expected and vendor-relevant files and applications, operators and engineers may not notice the presence of the underlying malicious content and possibly end up running those masquerading as legitimate functions.",
+   :db/ident :d3f/T0849,
+   :rdf/type :owl/Class,
+   :rdfs/label "Masquerading - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSEvasionTechnique,
+   :skos/prefLabel "Masquerading"})
+
+(def T0850
+  {:d3f/attack-id "T0850",
+   :d3f/definition
+   "Adversaries may perform role identification of devices involved with physical processes of interest in a target control system. Control systems devices often work in concert to control a physical process. Each device can have one or more roles that it performs within that control process. By collecting this role-based data, an adversary can construct a more targeted attack.",
+   :db/ident :d3f/T0850,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Role Identification - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSCollectionTechnique,
+   :skos/prefLabel "Role Identification"})
+
+(def T0851
+  {:d3f/attack-id "T0851",
+   :d3f/definition
+   "Adversaries may deploy rootkits to hide the presence of programs, files, network connections, services, drivers, and other system components. Rootkits are programs that hide the existence of malware by intercepting and modifying operating-system API calls that supply system information. Rootkits or rootkit-enabling functionality may reside at the user or kernel level in the operating system, or lower. (Citation: Enterprise ATT&CK January 2018)",
+   :db/ident :d3f/T0851,
+   :rdf/type :owl/Class,
+   :rdfs/label "Rootkit - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSEvasionTechnique
+                      :d3f/ATTACKICSInhibitResponseFunctionTechnique},
+   :skos/prefLabel "Rootkit"})
+
+(def T0852
+  {:d3f/attack-id "T0852",
+   :d3f/definition
+   "Adversaries may attempt to perform screen capture of devices in the control system environment. Screenshots may be taken of workstations, HMIs, or other devices that display environment-relevant process, device, reporting, alarm, or related data. These device displays may reveal information regarding the ICS process, layout, control, and related schematics. In particular, an HMI can provide a lot of important industrial process information. (Citation: ICS-CERT October 2017) Analysis of screen captures may provide the adversary with an understanding of intended operations and interactions between critical devices.",
+   :db/ident :d3f/T0852,
+   :rdf/type :owl/Class,
+   :rdfs/label "Screen Capture - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSCollectionTechnique,
+   :skos/prefLabel "Screen Capture"})
+
+(def T0853
+  {:d3f/attack-id "T0853",
+   :d3f/definition
+   "Adversaries may use scripting languages to execute arbitrary code in the form of a pre-written script or in the form of user-supplied code to an interpreter. Scripting languages are programming languages that differ from compiled languages, in that scripting languages use an interpreter, instead of a compiler. These interpreters read and compile part of the source code just before it is executed, as opposed to compilers, which compile each and every line of code to an executable file. Scripting allows software developers to run their code on any system where the interpreter exists. This way, they can distribute one package, instead of precompiling executables for many different systems. Scripting languages, such as Python, have their interpreters shipped as a default with many Linux distributions.",
+   :db/ident :d3f/T0853,
+   :rdf/type :owl/Class,
+   :rdfs/label "Scripting - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSExecutionTechnique,
+   :skos/prefLabel "Scripting"})
+
+(def T0854
+  {:d3f/attack-id "T0854",
+   :d3f/definition
+   "Adversaries may perform serial connection enumeration to gather situational awareness after gaining access to devices in the OT network. Control systems devices often communicate to each other via various types of serial communication mediums. These serial communications are used to facilitate informational communication, as well as commands.  Serial Connection Enumeration differs from I/O Module Discovery, as I/O modules are auxiliary systems to the main system, and devices that are connected via serial connection are normally discrete systems.",
+   :db/ident :d3f/T0854,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Serial Connection Enumeration - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSDiscoveryTechnique,
+   :skos/prefLabel "Serial Connection Enumeration"})
+
+(def T0855
+  {:d3f/attack-id "T0855",
+   :d3f/definition
+   "Adversaries may send unauthorized command messages to instruct control system assets to perform actions outside of their intended functionality, or without the logical preconditions to trigger their expected function. Command messages are used in ICS networks to give direct instructions to control systems devices. If an adversary can send an unauthorized command message to a control system, then it can instruct the control systems device to perform an action outside the normal bounds of the device's actions. An adversary could potentially instruct a control systems device to perform an action that will cause an [Impact](https://attack.mitre.org/tactics/TA0105). (Citation: Bonnie Zhu, Anthony Joseph, Shankar Sastry 2011)",
+   :db/ident :d3f/T0855,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unauthorized Command Message - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSImpairProcessControlTechnique,
+   :skos/prefLabel "Unauthorized Command Message"})
+
+(def T0856
+  {:d3f/attack-id "T0856",
+   :d3f/definition
+   "Adversaries may spoof reporting messages in control system environments for evasion and to impair process control. In control systems, reporting messages contain telemetry data (e.g., I/O values) pertaining to the current state of equipment and the industrial process. Reporting messages are important for monitoring the normal operation of a system or identifying important events such as deviations from expected values.",
+   :db/ident :d3f/T0856,
+   :rdf/type :owl/Class,
+   :rdfs/label "Spoof Reporting Message - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSEvasionTechnique
+                      :d3f/ATTACKICSImpairProcessControlTechnique},
+   :skos/prefLabel "Spoof Reporting Message"})
+
+(def T0857
+  {:d3f/attack-id "T0857",
+   :d3f/definition
+   "System firmware on modern assets is often designed with an update feature. Older device firmware may be factory installed and require special reprograming equipment. When available, the firmware update feature enables vendors to remotely patch bugs and perform upgrades. Device firmware updates are often delegated to the user and may be done using a software update package. It may also be possible to perform this task over the network.",
+   :db/ident :d3f/T0857,
+   :rdf/type :owl/Class,
+   :rdfs/label "System Firmware - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSInhibitResponseFunctionTechnique
+                      :d3f/ATTACKICSPersistenceTechnique},
+   :skos/prefLabel "System Firmware"})
+
+(def T0858
+  {:d3f/attack-id "T0858",
+   :d3f/definition
+   "Adversaries may change the operating mode of a controller to gain additional access to engineering functions such as Program Download.   Programmable controllers typically have several modes of operation that control the state of the user program and control access to the controllers API. Operating modes can be physically selected using a key switch on the face of the controller but may also be selected with calls to the controllers API. Operating modes and the mechanisms by which they are selected often vary by vendor and product line. Some commonly implemented operating modes are described below:",
+   :db/ident :d3f/T0858,
+   :rdf/type :owl/Class,
+   :rdfs/label "Change Operating Mode - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSEvasionTechnique
+                      :d3f/ATTACKICSExecutionTechnique
+                      {:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/OTControllerOperatingMode,
+                       :rdf/type           :owl/Restriction}},
+   :skos/prefLabel "Change Operating Mode"})
+
+(def T0859
+  {:d3f/attack-id "T0859",
+   :d3f/definition
+   "Adversaries may steal the credentials of a specific user or service account using credential access techniques. In some cases, default credentials for control system devices may be publicly available. Compromised credentials may be used to bypass access controls placed on various resources on hosts and within the network, and may even be used for persistent access to remote systems. Compromised and default credentials may also grant an adversary increased privilege to specific systems and devices or access to restricted areas of the network. Adversaries may choose not to use malware or tools, in conjunction with the legitimate access those credentials provide, to make it harder to detect their presence or to control devices and send legitimate commands in an unintended way.",
+   :db/ident :d3f/T0859,
+   :rdf/type :owl/Class,
+   :rdfs/label "Valid Accounts - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSLateralMovementTechnique
+                      :d3f/ATTACKICSPersistenceTechnique},
+   :skos/prefLabel "Valid Accounts"})
+
+(def T0860
+  {:d3f/attack-id "T0860",
+   :d3f/definition
+   "Adversaries may perform wireless compromise as a method of gaining communications and unauthorized access to a wireless network. Access to a wireless network may be gained through the compromise of a wireless device. (Citation: Alexander Bolshev, Gleb Cherbov July 2014) (Citation: Alexander Bolshev March 2014) Adversaries may also utilize radios and other wireless communication devices on the same frequency as the wireless network. Wireless compromise can be done as an initial access vector from a remote distance.",
+   :db/ident :d3f/T0860,
+   :rdf/type :owl/Class,
+   :rdfs/label "Wireless Compromise - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInitialAccessTechnique,
+   :skos/prefLabel "Wireless Compromise"})
+
+(def T0861
+  {:d3f/attack-id "T0861",
+   :d3f/definition
+   "Adversaries may collect point and tag values to gain a more comprehensive understanding of the process environment. Points may be values such as inputs, memory locations, outputs or other process specific variables. (Citation: Dennis L. Sloatman September 2016) Tags are the identifiers given to points for operator convenience.",
+   :db/ident :d3f/T0861,
+   :rdf/type :owl/Class,
+   :rdfs/label "Point & Tag Identification - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSCollectionTechnique,
+   :skos/prefLabel "Point & Tag Identification"})
+
+(def T0862
+  {:d3f/attack-id "T0862",
+   :d3f/definition
+   "Adversaries may perform supply chain compromise to gain control systems environment access by means of infected products, software, and workflows. Supply chain compromise is the manipulation of products, such as devices or software, or their delivery mechanisms before receipt by the end consumer. Adversary compromise of these products and mechanisms is done for the goal of data or system compromise, once infected products are introduced to the target environment.",
+   :db/ident :d3f/T0862,
+   :rdf/type :owl/Class,
+   :rdfs/label "Supply Chain Compromise - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInitialAccessTechnique,
+   :skos/prefLabel "Supply Chain Compromise"})
+
+(def T0863
+  {:d3f/attack-id "T0863",
+   :d3f/definition
+   "Adversaries may rely on a targeted organizations user interaction for the execution of malicious code. User interaction may consist of installing applications, opening email attachments, or granting higher permissions to documents.",
+   :db/ident :d3f/T0863,
+   :rdf/type :owl/Class,
+   :rdfs/label "User Execution - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSExecutionTechnique,
+   :skos/prefLabel "User Execution"})
+
+(def T0864
+  {:d3f/attack-id "T0864",
+   :d3f/definition
+   "Adversaries may target devices that are transient across ICS networks and external networks. Normally, transient assets are brought into an environment by authorized personnel and do not remain in that environment on a permanent basis. (Citation: North American Electric Reliability Corporation June 2021) Transient assets are commonly needed to support management functions and may be more common in systems where a remotely managed asset is not feasible, external connections for remote access do not exist, or 3rd party contractor/vendor access is required.",
+   :db/ident :d3f/T0864,
+   :rdf/type :owl/Class,
+   :rdfs/label "Transient Cyber Asset - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInitialAccessTechnique,
+   :skos/prefLabel "Transient Cyber Asset"})
+
+(def T0865
+  {:d3f/attack-id "T0865",
+   :d3f/definition
+   "Adversaries may use a spearphishing attachment, a variant of spearphishing, as a form of a social engineering attack against specific targets. Spearphishing attachments are different from other forms of spearphishing in that they employ malware attached to an email. All forms of spearphishing are electronically delivered and target a specific individual, company, or industry. In this scenario, adversaries attach a file to the spearphishing email and usually rely upon [User Execution](https://attack.mitre.org/techniques/T0863) to gain execution and access. (Citation: Enterprise ATT&CK October 2019)",
+   :db/ident :d3f/T0865,
+   :rdf/type :owl/Class,
+   :rdfs/label "Spearphishing Attachment - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInitialAccessTechnique,
+   :skos/prefLabel "Spearphishing Attachment"})
+
+(def T0866
+  {:d3f/attack-id "T0866",
+   :d3f/definition
+   "Adversaries may exploit a software vulnerability to take advantage of a programming error in a program, service, or within the operating system software or kernel itself to enable remote service abuse. A common goal for post-compromise exploitation of remote services is for initial access into and lateral movement throughout the ICS environment to enable access to targeted systems. (Citation: Enterprise ATT&CK)",
+   :db/ident :d3f/T0866,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exploitation of Remote Services - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSInitialAccessTechnique
+                      :d3f/ATTACKICSLateralMovementTechnique},
+   :skos/prefLabel "Exploitation of Remote Services"})
+
+(def T0867
+  {:d3f/attack-id "T0867",
+   :d3f/definition
+   "Adversaries may transfer tools or other files from one system to another to stage adversary tools or other files over the course of an operation. (Citation: Enterprise ATT&CK) Copying of files may also be performed laterally between internal victim systems to support Lateral Movement with remote Execution using inherent file sharing protocols such as file sharing over SMB to connected network shares. (Citation: Enterprise ATT&CK)",
+   :db/ident :d3f/T0867,
+   :rdf/type :owl/Class,
+   :rdfs/label "Lateral Tool Transfer - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSLateralMovementTechnique,
+   :skos/prefLabel "Lateral Tool Transfer"})
+
+(def T0868
+  {:d3f/attack-id "T0868",
+   :d3f/definition
+   "Adversaries may gather information about a PLCs or controllers current operating mode. Operating modes dictate what change or maintenance functions can be manipulated and are often controlled by a key switch on the PLC (e.g.,  run, prog [program], and remote). Knowledge of these states may be valuable to an adversary to determine if they are able to reprogram the PLC. Operating modes and the mechanisms by which they are selected often vary by vendor and product line. Some commonly implemented operating modes are described below:",
+   :db/ident :d3f/T0868,
+   :rdf/type :owl/Class,
+   :rdfs/label "Detect Operating Mode - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSCollectionTechnique,
+   :skos/prefLabel "Detect Operating Mode"})
+
+(def T0869
+  {:d3f/attack-id "T0869",
+   :d3f/definition
+   "Adversaries may establish command and control capabilities over commonly used application layer protocols such as HTTP(S), OPC, RDP, telnet, DNP3, and modbus. These protocols may be used to disguise adversary actions as benign network traffic. Standard protocols may be seen on their associated port or in some cases over a non-standard port.  Adversaries may use these protocols to reach out of the network for command and control, or in some cases to other infected devices within the network.",
+   :db/ident :d3f/T0869,
+   :rdf/type :owl/Class,
+   :rdfs/label "Standard Application Layer Protocol - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSCommandAndControlTechnique,
+   :skos/prefLabel "Standard Application Layer Protocol"})
+
+(def T0870
+  {:d3f/attack-id "T0870",
+   :d3f/definition
+   "Adversaries may seek to gather information about the current state of a program on a PLC. State information reveals information about the program, including whether it's running, halted, stopped, or has generated an exception. This information may be leveraged as a verification of malicious program execution or to determine if a PLC is ready to download a new program.",
+   :db/ident :d3f/T0870,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Detect Program State - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSCollectionTechnique,
+   :skos/prefLabel "Detect Program State"})
+
+(def T0871
+  {:d3f/attack-id "T0871",
+   :d3f/definition
+   "Adversaries may attempt to leverage Application Program Interfaces (APIs) used for communication between control software and the hardware. Specific functionality is often coded into APIs which can be called by software to engage specific functions on a device or other software.",
+   :db/ident :d3f/T0871,
+   :rdf/type :owl/Class,
+   :rdfs/label "Execution through API - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSExecutionTechnique,
+   :skos/prefLabel "Execution through API"})
+
+(def T0872
+  {:d3f/attack-id "T0872",
+   :d3f/definition
+   "Adversaries may attempt to remove indicators of their presence on a system in an effort to cover their tracks. In cases where an adversary may feel detection is imminent, they may try to overwrite, delete, or cover up changes they have made to the device.",
+   :db/ident :d3f/T0872,
+   :rdf/type :owl/Class,
+   :rdfs/label "Indicator Removal on Host - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSEvasionTechnique,
+   :skos/prefLabel "Indicator Removal on Host"})
+
+(def T0873
+  {:d3f/attack-id "T0873",
+   :d3f/definition
+   "Adversaries may attempt to infect project files with malicious code. These project files may consist of objects, program organization units, variables such as tags, documentation, and other configurations needed for PLC programs to function. (Citation: Beckhoff) Using built in functions of the engineering software, adversaries may be able to download an infected program to a PLC in the operating environment enabling further [Execution](https://attack.mitre.org/tactics/TA0104) and [Persistence](https://attack.mitre.org/tactics/TA0110) techniques. (Citation: PLCdev)",
+   :db/ident :d3f/T0873,
+   :rdf/type :owl/Class,
+   :rdfs/label "Project File Infection - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSPersistenceTechnique,
+   :skos/prefLabel "Project File Infection"})
+
+(def T0874
+  {:d3f/attack-id "T0874",
+   :d3f/definition
+   "Adversaries may hook into application programming interface (API) functions used by processes to redirect calls for execution and privilege escalation means. Windows processes often leverage these API functions to perform tasks that require reusable system resources. Windows API functions are typically stored in dynamic-link libraries (DLLs) as exported functions. (Citation: Enterprise ATT&CK)",
+   :db/ident :d3f/T0874,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hooking - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSPrivilegeEscalationTechnique
+                      :d3f/ATTACKICSExecutionTechnique},
+   :skos/prefLabel "Hooking"})
+
+(def T0875
+  {:d3f/attack-id "T0875",
+   :d3f/definition
+   "Adversaries may attempt to change the state of the current program on a control device. Program state changes may be used to allow for another program to take over control or be loaded onto the device.",
+   :db/ident :d3f/T0875,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Change Program State - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSImpairProcessControlTechnique
+                      :d3f/ATTACKICSExecutionTechnique},
+   :skos/prefLabel "Change Program State"})
+
+(def T0877
+  {:d3f/attack-id "T0877",
+   :d3f/definition
+   "Adversaries may seek to capture process values related to the inputs and outputs of a PLC. During the scan cycle, a PLC reads the status of all inputs and stores them in an image table. (Citation: Nanjundaiah, Vaidyanath) The image table is the PLCs internal storage location where values of inputs/outputs for one scan are stored while it executes the user program. After the PLC has solved the entire logic program, it updates the output image table. The contents of this output image table are written to the corresponding output points in I/O Modules.",
+   :db/ident :d3f/T0877,
+   :rdf/type :owl/Class,
+   :rdfs/label "I/O Image - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSCollectionTechnique,
+   :skos/prefLabel "I/O Image"})
+
+(def T0878
+  {:d3f/attack-id "T0878",
+   :d3f/definition
+   "Adversaries may target protection function alarms to prevent them from notifying operators of critical conditions. Alarm messages may be a part of an overall reporting system and of particular interest for adversaries. Disruption of the alarm system does not imply the disruption of the reporting system as a whole.",
+   :db/ident :d3f/T0878,
+   :rdf/type :owl/Class,
+   :rdfs/label "Alarm Suppression - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInhibitResponseFunctionTechnique,
+   :skos/prefLabel "Alarm Suppression"})
+
+(def T0879
+  {:d3f/attack-id "T0879",
+   :d3f/definition
+   "Adversaries may cause damage and destruction of property to infrastructure, equipment, and the surrounding environment when attacking control systems. This technique may result in device and operational equipment breakdown, or represent tangential damage from other techniques used in an attack. Depending on the severity of physical damage and disruption caused to control processes and systems, this technique may result in [Loss of Safety](https://attack.mitre.org/techniques/T0880). Operations that result in [Loss of Control](https://attack.mitre.org/techniques/T0827) may also cause damage to property, which may be directly or indirectly motivated by an adversary seeking to cause impact in the form of [Loss of Productivity and Revenue](https://attack.mitre.org/techniques/T0828).",
+   :db/ident :d3f/T0879,
+   :rdf/type :owl/Class,
+   :rdfs/label "Damage to Property - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSImpactTechnique,
+   :skos/prefLabel "Damage to Property"})
+
+(def T0880
+  {:d3f/attack-id "T0880",
+   :d3f/definition
+   "Adversaries may compromise safety system functions designed to maintain safe operation of a process when unacceptable or dangerous conditions occur. Safety systems are often composed of the same elements as control systems but have the sole purpose of ensuring the process fails in a predetermined safe manner.",
+   :db/ident :d3f/T0880,
+   :rdf/type :owl/Class,
+   :rdfs/label "Loss of Safety - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSImpactTechnique,
+   :skos/prefLabel "Loss of Safety"})
+
+(def T0881
+  {:d3f/attack-id "T0881",
+   :d3f/definition
+   "Adversaries may stop or disable services on a system to render those services unavailable to legitimate users. Stopping critical services can inhibit or stop response to an incident or aid in the adversary's overall objectives to cause damage to the environment. (Citation: Enterprise ATT&CK)  Services may not allow for modification of their data stores while running. Adversaries may stop services in order to conduct Data Destruction. (Citation: Enterprise ATT&CK)",
+   :db/ident :d3f/T0881,
+   :rdf/type :owl/Class,
+   :rdfs/label "Service Stop - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInhibitResponseFunctionTechnique,
+   :skos/prefLabel "Service Stop"})
+
+(def T0882
+  {:d3f/attack-id "T0882",
+   :d3f/definition
+   "Adversaries may steal operational information on a production environment as a direct mission outcome for personal gain or to inform future operations. This information may include design documents, schedules, rotational data, or similar artifacts that provide insight on operations.    In the Bowman Dam incident, adversaries probed systems for operational data. (Citation: Mark Thompson March 2016) (Citation: Danny Yadron December 2015)",
+   :db/ident :d3f/T0882,
+   :rdf/type :owl/Class,
+   :rdfs/label "Theft of Operational Information - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSImpactTechnique,
+   :skos/prefLabel "Theft of Operational Information"})
+
+(def T0883
+  {:d3f/attack-id "T0883",
+   :d3f/definition
+   "Adversaries may gain access into industrial environments through systems exposed directly to the internet for remote access rather than through [External Remote Services](https://attack.mitre.org/techniques/T0822). Internet Accessible Devices are exposed to the internet unintentionally or intentionally without adequate protections. This may allow for adversaries to move directly into the control system network. Access onto these devices is accomplished without the use of exploits, these would be represented within the [Exploit Public-Facing Application](https://attack.mitre.org/techniques/T0819) technique.",
+   :db/ident :d3f/T0883,
+   :rdf/type :owl/Class,
+   :rdfs/label "Internet Accessible Device - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInitialAccessTechnique,
+   :skos/prefLabel "Internet Accessible Device"})
+
+(def T0884
+  {:d3f/attack-id "T0884",
+   :d3f/definition
+   "Adversaries may use a connection proxy to direct network traffic between systems or act as an intermediary for network communications.",
+   :db/ident :d3f/T0884,
+   :rdf/type :owl/Class,
+   :rdfs/label "Connection Proxy - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSCommandAndControlTechnique,
+   :skos/prefLabel "Connection Proxy"})
+
+(def T0885
+  {:d3f/attack-id "T0885",
+   :d3f/definition
+   "Adversaries may communicate over a commonly used port to bypass firewalls or network detection systems and to blend in with normal network activity, to avoid more detailed inspection. They may use the protocol associated with the port, or a completely different protocol. They may use commonly open ports, such as the examples provided below.",
+   :db/ident :d3f/T0885,
+   :rdf/type :owl/Class,
+   :rdfs/label "Commonly Used Port - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSCommandAndControlTechnique,
+   :skos/prefLabel "Commonly Used Port"})
+
+(def T0886
+  {:d3f/attack-id "T0886",
+   :d3f/definition
+   "Adversaries may leverage remote services to move between assets and network segments. These services are often used to allow operators to interact with systems remotely within the network, some examples are RDP, SMB, SSH, and other similar mechanisms. (Citation: Blake Johnson, Dan Caban, Marina Krotofil, Dan Scali, Nathan Brubaker, Christopher Glyer December 2017) (Citation: Dragos December 2017) (Citation: Joe Slowik April 2019)",
+   :db/ident :d3f/T0886,
+   :rdf/type :owl/Class,
+   :rdfs/label "Remote Services - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSInitialAccessTechnique
+                      :d3f/ATTACKICSLateralMovementTechnique},
+   :skos/prefLabel "Remote Services"})
+
+(def T0887
+  {:d3f/attack-id "T0887",
+   :d3f/definition
+   "Adversaries may seek to capture radio frequency (RF) communication used for remote control and reporting in distributed environments. RF communication frequencies vary between 3 kHz to 300 GHz, although are commonly between 300 MHz to 6 GHz. (Citation: Candell, R., Hany, M., Lee, K. B., Liu,Y., Quimby, J., Remley, K. April 2018)  The wavelength and frequency of the signal affect how the signal propagates through open air, obstacles (e.g. walls and trees) and the type of radio required to capture them. These characteristics are often standardized in the protocol and hardware and may have an effect on how the signal is captured. Some examples of wireless protocols that may be found in cyber-physical environments are: WirelessHART, Zigbee, WIA-FA, and 700 MHz Public Safety Spectrum.",
+   :db/ident :d3f/T0887,
+   :rdf/type :owl/Class,
+   :rdfs/label "Wireless Sniffing - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSDiscoveryTechnique
+                      :d3f/ATTACKICSCollectionTechnique},
+   :skos/prefLabel "Wireless Sniffing"})
+
+(def T0888
+  {:d3f/attack-id "T0888",
+   :d3f/definition
+   "An adversary may attempt to get detailed information about remote systems and their peripherals, such as make/model, role, and configuration. Adversaries may use information from Remote System Information Discovery to aid in targeting and shaping follow-on behaviors. For example, the system's operational role and model information can dictate whether it is a relevant target for the adversary's operational objectives. In addition, the system's configuration may be used to scope subsequent technique usage.",
+   :db/ident :d3f/T0888,
+   :rdf/type :owl/Class,
+   :rdfs/label "Remote System Information Discovery - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSDiscoveryTechnique,
+   :skos/prefLabel "Remote System Information Discovery"})
+
+(def T0889
+  {:d3f/attack-id "T0889",
+   :d3f/definition
+   "Adversaries may modify or add a program on a controller to affect how it interacts with the physical process, peripheral devices and other hosts on the network. Modification to controller programs can be accomplished using a Program Download in addition to other types of program modification such as online edit and program append.",
+   :db/ident :d3f/T0889,
+   :rdf/type :owl/Class,
+   :rdfs/label "Modify Program - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSPersistenceTechnique,
+   :skos/prefLabel "Modify Program"})
+
+(def T0890
+  {:d3f/attack-id "T0890",
+   :d3f/definition
+   "Adversaries may exploit software vulnerabilities in an attempt to elevate privileges. Exploitation of a software vulnerability occurs when an adversary takes advantage of a programming error in a program, service, or within the operating system software or kernel itself to execute adversary-controlled code. Security constructs such as permission levels will often hinder access to information and use of certain techniques, so adversaries will likely need to perform privilege escalation to include use of software exploitation to circumvent those restrictions. (Citation: The MITRE Corporation)",
+   :db/ident :d3f/T0890,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exploitation for Privilege Escalation - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSPrivilegeEscalationTechnique,
+   :skos/prefLabel "Exploitation for Privilege Escalation"})
+
+(def T0891
+  {:d3f/attack-id "T0891",
+   :d3f/definition
+   "Adversaries may leverage credentials that are hardcoded in software or firmware to gain an unauthorized interactive user session to an asset. Examples credentials that may be hardcoded in an asset include:",
+   :db/ident :d3f/T0891,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hardcoded Credentials - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSLateralMovementTechnique
+                      :d3f/ATTACKICSPersistenceTechnique},
+   :skos/prefLabel "Hardcoded Credentials"})
+
+(def T0892
+  {:d3f/attack-id "T0892",
+   :d3f/definition
+   "Adversaries may modify software and device credentials to prevent operator and responder access. Depending on the device, the modification or addition of this password could prevent any device configuration actions from being accomplished and may require a factory reset or replacement of hardware. These credentials are often built-in features provided by the device vendors as a means to restrict access to management interfaces.",
+   :db/ident :d3f/T0892,
+   :rdf/type :owl/Class,
+   :rdfs/label "Change Credential - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSInhibitResponseFunctionTechnique,
+   :skos/prefLabel "Change Credential"})
+
+(def T0893
+  {:d3f/attack-id "T0893",
+   :d3f/definition
+   "Adversaries may target and collect data from local system sources, such as file systems, configuration files, or local databases. This can include sensitive data such as specifications, schematics, or diagrams of control system layouts, devices, and processes.",
+   :db/ident :d3f/T0893,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data from Local System - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSCollectionTechnique,
+   :skos/prefLabel "Data from Local System"})
+
+(def T0894
+  {:d3f/attack-id "T0894",
+   :d3f/definition
+   "Adversaries may bypass process and/or signature-based defenses by proxying execution of malicious content with signed, or otherwise trusted, binaries. Binaries used in this technique are often Microsoft-signed files, indicating that they have been either downloaded from Microsoft or are already native in the operating system. (Citation: LOLBAS Project) Binaries signed with trusted digital certificates can typically execute on Windows systems protected by digital signature validation. Several Microsoft signed binaries that are default on Windows installations can be used to proxy execution of other files or commands. Similarly, on Linux systems adversaries may abuse trusted binaries such as split to proxy execution of malicious commands. (Citation: split man page)(Citation: GTFO split)",
+   :db/ident :d3f/T0894,
+   :rdf/type :owl/Class,
+   :rdfs/label "System Binary Proxy Execution - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSEvasionTechnique,
+   :skos/prefLabel "System Binary Proxy Execution"})
+
+(def T0895
+  {:d3f/attack-id "T0895",
+   :d3f/definition
+   "Adversaries may leverage AutoRun functionality or scripts to execute malicious code. Devices configured to enable AutoRun functionality or legacy operating systems may be susceptible to abuse of these features to run malicious code stored on various forms of removeable media (i.e., USB, Disk Images [.ISO]). Commonly, AutoRun or AutoPlay are disabled in many operating systems configurations to mitigate against this technique. If a device is configured to enable AutoRun or AutoPlay, adversaries may execute code on the device by mounting the removable media to the device, either through physical or virtual means. This may be especially relevant for virtual machine environments where disk images may be dynamically mapped to a guest system on a hypervisor.",
+   :db/ident :d3f/T0895,
+   :rdf/type :owl/Class,
+   :rdfs/label "Autorun Image - ATTACK ICS",
+   :rdfs/subClassOf :d3f/ATTACKICSExecutionTechnique,
+   :skos/prefLabel "Autorun Image"})
+
 (def T1001
   {:d3f/attack-id "T1001",
    :d3f/definition
@@ -38244,7 +45400,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1560",
    :rdfs/label "Data Compressed",
-   :rdfs/seeAlso {:rdf/value "T1560"},
+   :rdfs/seeAlso :d3f/T1560,
    :rdfs/subClassOf :d3f/ExfiltrationTechnique})
 
 (def T1003
@@ -38389,7 +45545,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1547.004",
    :rdfs/label "Winlogon Helper DLL",
-   :rdfs/seeAlso {:rdf/value "T1547.004"},
+   :rdfs/seeAlso :d3f/T1547.004,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1005
@@ -38459,7 +45615,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1027.001",
    :rdfs/label "Binary Padding",
-   :rdfs/seeAlso {:rdf/value "T1027.001"},
+   :rdfs/seeAlso :d3f/T1027.001,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1010
@@ -38526,7 +45682,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1547.010",
    :rdfs/label "Port Monitors",
-   :rdfs/seeAlso {:rdf/value "T1547.010"},
+   :rdfs/seeAlso :d3f/T1547.010,
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -38565,7 +45721,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1546.008",
    :rdfs/label "Accessibility Features",
-   :rdfs/seeAlso {:rdf/value "T1546.008"},
+   :rdfs/seeAlso :d3f/T1546.008,
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -38616,7 +45772,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1072",
    :rdfs/label "Application Deployment Software",
-   :rdfs/seeAlso {:rdf/value "T1072"},
+   :rdfs/seeAlso :d3f/T1072,
    :rdfs/subClassOf :d3f/LateralMovementTechnique})
 
 (def T1018
@@ -38653,7 +45809,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1542.001",
    :rdfs/label "System Firmware",
-   :rdfs/seeAlso {:rdf/value "T1542.001"},
+   :rdfs/seeAlso :d3f/T1542.001,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1020
@@ -38786,7 +45942,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1560",
    :rdfs/label "Data Encrypted",
-   :rdfs/seeAlso {:rdf/value "T1560"},
+   :rdfs/seeAlso :d3f/T1560,
    :rdfs/subClassOf :d3f/ExfiltrationTechnique})
 
 (def T1023
@@ -38798,7 +45954,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1547.009",
    :rdfs/label "Shortcut Modification",
-   :rdfs/seeAlso {:rdf/value "T1547.009"},
+   :rdfs/seeAlso :d3f/T1547.009,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1024
@@ -38810,7 +45966,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1573",
    :rdfs/label "Custom Cryptographic Protocol",
-   :rdfs/seeAlso {:rdf/value "T1573"},
+   :rdfs/seeAlso :d3f/T1573,
    :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def T1025
@@ -39026,7 +46182,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1021.006",
    :rdfs/label "Windows Remote Management",
-   :rdfs/seeAlso {:rdf/value "T1021.006"},
+   :rdfs/seeAlso :d3f/T1021.006,
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/LateralMovementTechnique}})
 
 (def T1029
@@ -39064,7 +46220,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1543.003",
    :rdfs/label "Modify Existing Service",
-   :rdfs/seeAlso {:rdf/value "T1543.003"},
+   :rdfs/seeAlso :d3f/T1543.003,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1032
@@ -39076,7 +46232,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1573",
    :rdfs/label "Standard Cryptographic Protocol",
-   :rdfs/seeAlso {:rdf/value "T1573"},
+   :rdfs/seeAlso :d3f/T1573,
    :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def T1033
@@ -39131,7 +46287,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1569.002",
    :rdfs/label "Service Execution",
-   :rdfs/seeAlso {:rdf/value "T1569.002"},
+   :rdfs/seeAlso :d3f/T1569.002,
    :rdfs/subClassOf :d3f/ExecutionTechnique})
 
 (def T1036
@@ -39357,7 +46513,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1574.001",
    :rdfs/label "DLL Search Order Hijacking",
-   :rdfs/seeAlso {:rdf/value "T1574.001"},
+   :rdfs/seeAlso :d3f/T1574.001,
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -39413,7 +46569,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1546.001",
    :rdfs/label "Change Default File Association",
-   :rdfs/seeAlso {:rdf/value "T1546.001"},
+   :rdfs/seeAlso :d3f/T1546.001,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1043
@@ -39437,7 +46593,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1574.010",
    :rdfs/label "File System Permissions Weakness",
-   :rdfs/seeAlso {:rdf/value "T1574.010"},
+   :rdfs/seeAlso :d3f/T1574.010,
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -39450,7 +46606,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1027.002",
    :rdfs/label "Software Packing",
-   :rdfs/seeAlso {:rdf/value "T1027.002"},
+   :rdfs/seeAlso :d3f/T1027.002,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1046
@@ -39559,7 +46715,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1543.003",
    :rdfs/label "New Service",
-   :rdfs/seeAlso {:rdf/value "T1543.003"},
+   :rdfs/seeAlso :d3f/T1543.003,
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -39628,7 +46784,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1053.002",
    :rdfs/label "At (Linux) Execution",
-   :rdfs/seeAlso {:rdf/value "T1053.002"},
+   :rdfs/seeAlso :d3f/T1053.002,
    :rdfs/subClassOf :d3f/T1053})
 
 (def T1053_002
@@ -39668,7 +46824,7 @@
 (def T1053_005
   {:d3f/attack-id "T1053.005",
    :d3f/definition
-   "Renamed from ATT&CK to be consistent with at, launchd, cron siblings; name as is looks like parent.  Not sure why parent is not just Scheduled Task [Execution[.",
+   "Adversaries may abuse the Windows Task Scheduler to perform task scheduling for initial or recurring execution of malicious code. There are multiple ways to access the Task Scheduler in Windows. The [schtasks](https://attack.mitre.org/software/S0111) utility can be run directly on the command line, or the Task Scheduler can be opened through the GUI within the Administrator Tools section of the Control Panel.(Citation: Stack Overflow) In some cases, adversaries have used a .NET wrapper for the Windows Task Scheduler, and alternatively, adversaries have used the Windows netapi32 library and [Windows Management Instrumentation](https://attack.mitre.org/techniques/T1047) (WMI) to create a scheduled task. Adversaries may also utilize the Powershell Cmdlet `Invoke-CimMethod`, which leverages WMI class `PS_ScheduledTask` to create a scheduled task via an XML path.(Citation: Red Canary - Atomic Red Team)",
    :d3f/executes :d3f/ScheduledJob,
    :db/ident :d3f/T1053.005,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
@@ -39705,7 +46861,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1562.006",
    :rdfs/label "Indicator Blocking",
-   :rdfs/seeAlso {:rdf/value "T1562.006"},
+   :rdfs/seeAlso :d3f/T1562.006,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1055
@@ -39918,14 +47074,13 @@
   {:d3f/attack-id "T1056.003",
    :d3f/definition
    "Adversaries may install code on externally facing portals, such as a VPN login page, to capture and transmit credentials of users who attempt to log into the service. For example, a compromised login page may log provided user credentials before logging the user in to the service.",
-   :d3f/modifies :d3f/WebServerApplication,
+   :d3f/modifies :d3f/WebApplication,
    :db/ident :d3f/T1056.003,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Web Portal Capture",
-   :rdfs/subClassOf #{:d3f/T1056
-                      {:owl/onProperty     :d3f/modifies,
-                       :owl/someValuesFrom :d3f/WebServerApplication,
-                       :rdf/type           :owl/Restriction}}})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
+                       :owl/someValuesFrom :d3f/WebApplication,
+                       :rdf/type           :owl/Restriction} :d3f/T1056}})
 
 (def T1056_004
   {:d3f/attack-id "T1056.004",
@@ -39965,7 +47120,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1574.011",
    :rdfs/label "Service Registry Permissions Weakness",
-   :rdfs/seeAlso {:rdf/value "T1574.011"},
+   :rdfs/seeAlso :d3f/T1574.011,
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -40100,7 +47255,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1547.001",
    :rdfs/label "Registry Run Keys / Startup Folder",
-   :rdfs/seeAlso {:rdf/value "T1547.001"},
+   :rdfs/seeAlso :d3f/T1547.001,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1061
@@ -40136,7 +47291,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1518.001",
    :rdfs/label "Security Software Discovery",
-   :rdfs/seeAlso {:rdf/value "T1518.001"},
+   :rdfs/seeAlso :d3f/T1518.001,
    :rdfs/subClassOf :d3f/DiscoveryTechnique})
 
 (def T1064
@@ -40160,7 +47315,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1571",
    :rdfs/label "Uncommonly Used Port",
-   :rdfs/seeAlso {:rdf/value "T1571"},
+   :rdfs/seeAlso :d3f/T1571,
    :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def T1066
@@ -40172,7 +47327,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1027.005",
    :rdfs/label "Indicator Removal from Tools",
-   :rdfs/seeAlso {:rdf/value "T1027.005"},
+   :rdfs/seeAlso :d3f/T1027.005,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1067
@@ -40184,7 +47339,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1542.003",
    :rdfs/label "Bootkit",
-   :rdfs/seeAlso {:rdf/value "T1542.003"},
+   :rdfs/seeAlso :d3f/T1542.003,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1068
@@ -40480,7 +47635,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1574.002",
    :rdfs/label "DLL Side-Loading",
-   :rdfs/seeAlso {:rdf/value "T1574.002"},
+   :rdfs/seeAlso :d3f/T1574.002,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1074
@@ -40533,7 +47688,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1550.002",
    :rdfs/label "Pass the Hash",
-   :rdfs/seeAlso {:rdf/value "T1550.002"},
+   :rdfs/seeAlso :d3f/T1550.002,
    :rdfs/subClassOf :d3f/LateralMovementTechnique})
 
 (def T1076
@@ -40545,7 +47700,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1021.001",
    :rdfs/label "Remote Desktop Protocol",
-   :rdfs/seeAlso {:rdf/value "T1021.001"},
+   :rdfs/seeAlso :d3f/T1021.001,
    :rdfs/subClassOf :d3f/LateralMovementTechnique})
 
 (def T1077
@@ -40557,7 +47712,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1021.002",
    :rdfs/label "Windows Admin Shares",
-   :rdfs/seeAlso {:rdf/value "T1021.002"},
+   :rdfs/seeAlso :d3f/T1021.002,
    :rdfs/subClassOf :d3f/LateralMovementTechnique})
 
 (def T1078
@@ -40639,16 +47794,17 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1573",
    :rdfs/label "Multilayer Encryption",
-   :rdfs/seeAlso {:rdf/value "T1573"},
+   :rdfs/seeAlso :d3f/T1573,
    :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def T1080
-  {:d3f/attack-id   "T1080",
-   :d3f/definition  "",
-   :d3f/modifies    :d3f/NetworkResource,
-   :db/ident        :d3f/T1080,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Taint Shared Content",
+  {:d3f/attack-id "T1080",
+   :d3f/definition
+   "Adversaries may deliver payloads to remote systems by adding content to shared storage locations, such as network drives or internal code repositories. Content stored on network drives or in other shared locations may be tainted by adding malicious programs, scripts, or exploit code to otherwise valid files. Once a user opens the shared tainted content, the malicious portion can be executed to run the adversary's code on a remote system. Adversaries may use tainted shared content to move laterally.",
+   :d3f/modifies :d3f/NetworkResource,
+   :db/ident :d3f/T1080,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Taint Shared Content",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/NetworkResource,
                        :rdf/type           :owl/Restriction}
@@ -40663,7 +47819,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1552.001",
    :rdfs/label "Credentials in Files",
-   :rdfs/seeAlso {:rdf/value "T1552.001"},
+   :rdfs/seeAlso :d3f/T1552.001,
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1082
@@ -40708,7 +47864,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1546.003",
    :rdfs/label "Windows Management Instrumentation Event Subscription",
-   :rdfs/seeAlso {:rdf/value "T1546.003"},
+   :rdfs/seeAlso :d3f/T1546.003,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1085
@@ -40720,7 +47876,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1218.011",
    :rdfs/label "Rundll32",
-   :rdfs/seeAlso {:rdf/value "T1218.011"},
+   :rdfs/seeAlso :d3f/T1218.011,
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1086
@@ -40732,7 +47888,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1059.001",
    :rdfs/label "PowerShell",
-   :rdfs/seeAlso {:rdf/value "T1059.001"},
+   :rdfs/seeAlso :d3f/T1059.001,
    :rdfs/subClassOf :d3f/ExecutionTechnique})
 
 (def T1087
@@ -40802,7 +47958,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1548.002",
    :rdfs/label "Bypass User Account Control",
-   :rdfs/seeAlso {:rdf/value "T1548.002"},
+   :rdfs/seeAlso :d3f/T1548.002,
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -40815,7 +47971,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1562.001",
    :rdfs/label "Disabling Security Tools",
-   :rdfs/seeAlso {:rdf/value "T1562.001"},
+   :rdfs/seeAlso :d3f/T1562.001,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1090
@@ -40916,7 +48072,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1055.012",
    :rdfs/label "Process Hollowing",
-   :rdfs/seeAlso {:rdf/value "T1055.012"},
+   :rdfs/seeAlso :d3f/T1055.012,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1094
@@ -40928,7 +48084,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1095",
    :rdfs/label "Custom Command and Control Protocol",
-   :rdfs/seeAlso {:rdf/value "T1095"},
+   :rdfs/seeAlso :d3f/T1095,
    :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def T1095
@@ -40953,7 +48109,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1564.004",
    :rdfs/label "NTFS File Attributes",
-   :rdfs/seeAlso {:rdf/value "T1564.004"},
+   :rdfs/seeAlso :d3f/T1564.004,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1097
@@ -40965,7 +48121,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1550.003",
    :rdfs/label "Pass the Ticket",
-   :rdfs/seeAlso {:rdf/value "T1550.003"},
+   :rdfs/seeAlso :d3f/T1550.003,
    :rdfs/subClassOf :d3f/LateralMovementTechnique})
 
 (def T1098
@@ -40977,6 +48133,7 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Account Manipulation",
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
+                      :d3f/PrivilegeEscalationTechnique
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/UserAccount,
                        :rdf/type           :owl/Restriction}}})
@@ -41068,7 +48225,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1070.006",
    :rdfs/label "Timestomp",
-   :rdfs/seeAlso {:rdf/value "T1070.006"},
+   :rdfs/seeAlso :d3f/T1070.006,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1100
@@ -41080,7 +48237,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1505.003",
    :rdfs/label "Web Shell",
-   :rdfs/seeAlso {:rdf/value "T1505.003"},
+   :rdfs/seeAlso :d3f/T1505.003,
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -41093,7 +48250,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1547.005",
    :rdfs/label "Security Support Provider",
-   :rdfs/seeAlso {:rdf/value "T1547.005"},
+   :rdfs/seeAlso :d3f/T1547.005,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1102
@@ -41145,7 +48302,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1546.010",
    :rdfs/label "AppInit DLLs",
-   :rdfs/seeAlso {:rdf/value "T1546.010"},
+   :rdfs/seeAlso :d3f/T1546.010,
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -41197,7 +48354,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1070.004",
    :rdfs/label "File Deletion",
-   :rdfs/seeAlso {:rdf/value "T1070.004"},
+   :rdfs/seeAlso :d3f/T1070.004,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1108
@@ -41221,7 +48378,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1542.002",
    :rdfs/label "Component Firmware",
-   :rdfs/seeAlso {:rdf/value "T1542.002"},
+   :rdfs/seeAlso :d3f/T1542.002,
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique}})
 
 (def T1110
@@ -41336,7 +48493,7 @@
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/WindowsRegistry,
                        :rdf/type           :owl/Restriction}
-                      :d3f/DefenseEvasionTechnique}})
+                      :d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique}})
 
 (def T1113
   {:d3f/attack-id "T1113",
@@ -41426,7 +48583,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1553.002",
    :rdfs/label "Code Signing",
-   :rdfs/seeAlso {:rdf/value "T1553.002"},
+   :rdfs/seeAlso :d3f/T1553.002,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1117
@@ -41438,7 +48595,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1218.010",
    :rdfs/label "Regsvr32",
-   :rdfs/seeAlso {:rdf/value "T1218.010"},
+   :rdfs/seeAlso :d3f/T1218.010,
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1118
@@ -41450,7 +48607,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1218.004",
    :rdfs/label "InstallUtil",
-   :rdfs/seeAlso {:rdf/value "T1218.004"},
+   :rdfs/seeAlso :d3f/T1218.004,
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1119
@@ -41484,7 +48641,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1218.009",
    :rdfs/label "Regsvcs/Regasm",
-   :rdfs/seeAlso {:rdf/value "T1218.009"},
+   :rdfs/seeAlso :d3f/T1218.009,
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1122
@@ -41496,7 +48653,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1546.015",
    :rdfs/label "Component Object Model Hijacking",
-   :rdfs/seeAlso {:rdf/value "T1546.015"},
+   :rdfs/seeAlso :d3f/T1546.015,
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique}})
 
 (def T1123
@@ -41529,7 +48686,7 @@
                        :rdf/type           :owl/Restriction}}})
 
 (def T1125
-  {:d3f/accesses :d3f/VideoInputDevice,
+  {:d3f/accesses #{:d3f/DigitalCamera :d3f/VideoInputDevice},
    :d3f/attack-id "T1125",
    :d3f/definition
    "An adversary can leverage a computer's peripheral devices (e.g., integrated cameras or webcams) or applications (e.g., video call services) to capture video recordings for the purpose of gathering information. Images may also be captured from devices or applications, potentially in specified intervals, in lieu of video files.",
@@ -41537,6 +48694,9 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Video Capture",
    :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
+                       :owl/someValuesFrom :d3f/DigitalCamera,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/VideoInputDevice,
                        :rdf/type           :owl/Restriction}
                       :d3f/CollectionTechnique}})
@@ -41550,7 +48710,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1070.005",
    :rdfs/label "Network Share Connection Removal",
-   :rdfs/seeAlso {:rdf/value "T1070.005"},
+   :rdfs/seeAlso :d3f/T1070.005,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1127
@@ -41606,7 +48766,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1546.007",
    :rdfs/label "Netsh Helper DLL",
-   :rdfs/seeAlso {:rdf/value "T1546.007"},
+   :rdfs/seeAlso :d3f/T1546.007,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1129
@@ -41627,7 +48787,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1553.004",
    :rdfs/label "Install Root Certificate",
-   :rdfs/seeAlso {:rdf/value "T1553.004"},
+   :rdfs/seeAlso :d3f/T1553.004,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1131
@@ -41639,7 +48799,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1547.002",
    :rdfs/label "Authentication Package",
-   :rdfs/seeAlso {:rdf/value "T1547.002"},
+   :rdfs/seeAlso :d3f/T1547.002,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1132
@@ -41949,7 +49109,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1546.011",
    :rdfs/label "Application Shimming",
-   :rdfs/seeAlso {:rdf/value "T1546.011"},
+   :rdfs/seeAlso :d3f/T1546.011,
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -41962,7 +49122,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1552.003",
    :rdfs/label "Bash History",
-   :rdfs/seeAlso {:rdf/value "T1552.003"},
+   :rdfs/seeAlso :d3f/T1552.003,
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1140
@@ -41995,7 +49155,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1056.002",
    :rdfs/label "Input Prompt",
-   :rdfs/seeAlso {:rdf/value "T1056.002"},
+   :rdfs/seeAlso :d3f/T1056.002,
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1142
@@ -42008,7 +49168,7 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/comment "This technique has been revoked by T1555.001",
    :rdfs/label "Keychain",
-   :rdfs/seeAlso {:rdf/value "T1555.001"},
+   :rdfs/seeAlso :d3f/T1555.001,
    :rdfs/subClassOf #{:d3f/CredentialAccessTechnique
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/EncryptedCredential,
@@ -42023,7 +49183,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1564.003",
    :rdfs/label "Hidden Window",
-   :rdfs/seeAlso {:rdf/value "T1564.003"},
+   :rdfs/seeAlso :d3f/T1564.003,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1144
@@ -42035,7 +49195,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1553.001",
    :rdfs/label "Gatekeeper Bypass",
-   :rdfs/seeAlso {:rdf/value "T1553.001"},
+   :rdfs/seeAlso :d3f/T1553.001,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1145
@@ -42047,7 +49207,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1552.004",
    :rdfs/label "Private Keys",
-   :rdfs/seeAlso {:rdf/value "T1552.004"},
+   :rdfs/seeAlso :d3f/T1552.004,
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1146
@@ -42059,7 +49219,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1070.003",
    :rdfs/label "Clear Command History",
-   :rdfs/seeAlso {:rdf/value "T1070.003"},
+   :rdfs/seeAlso :d3f/T1070.003,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1147
@@ -42071,7 +49231,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1564.002",
    :rdfs/label "Hidden Users",
-   :rdfs/seeAlso {:rdf/value "T1564.002"},
+   :rdfs/seeAlso :d3f/T1564.002,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1148
@@ -42083,7 +49243,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1562.003",
    :rdfs/label "HISTCONTROL",
-   :rdfs/seeAlso {:rdf/value "T1562.003"},
+   :rdfs/seeAlso :d3f/T1562.003,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1149
@@ -42107,7 +49267,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1547.011",
    :rdfs/label "Plist Modification",
-   :rdfs/seeAlso {:rdf/value "T1547.011"},
+   :rdfs/seeAlso :d3f/T1547.011,
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -42120,7 +49280,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1036.006",
    :rdfs/label "Space after Filename",
-   :rdfs/seeAlso {:rdf/value "T1036.006"},
+   :rdfs/seeAlso :d3f/T1036.006,
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1152
@@ -42132,7 +49292,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1569.001",
    :rdfs/label "Launchctl",
-   :rdfs/seeAlso {:rdf/value "T1569.001"},
+   :rdfs/seeAlso :d3f/T1569.001,
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique
                       :d3f/PersistenceTechnique}})
 
@@ -42157,7 +49317,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1546.005",
    :rdfs/label "Trap",
-   :rdfs/seeAlso {:rdf/value "T1546.005"},
+   :rdfs/seeAlso :d3f/T1546.005,
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/PersistenceTechnique}})
 
 (def T1155
@@ -42169,7 +49329,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1059.002",
    :rdfs/label "AppleScript",
-   :rdfs/seeAlso {:rdf/value "T1059.002"},
+   :rdfs/seeAlso :d3f/T1059.002,
    :rdfs/subClassOf :d3f/ExecutionTechnique})
 
 (def T1156
@@ -42181,7 +49341,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1546.004",
    :rdfs/label "Malicious Shell Modification",
-   :rdfs/seeAlso {:rdf/value "T1546.004"},
+   :rdfs/seeAlso :d3f/T1546.004,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1157
@@ -42193,7 +49353,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1574.004",
    :rdfs/label "Dylib Hijacking",
-   :rdfs/seeAlso {:rdf/value "T1574.004"},
+   :rdfs/seeAlso :d3f/T1574.004,
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -42206,7 +49366,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1564.001",
    :rdfs/label "Hidden Files and Directories",
-   :rdfs/seeAlso {:rdf/value "T1564.001"},
+   :rdfs/seeAlso :d3f/T1564.001,
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique}})
 
 (def T1159
@@ -42218,7 +49378,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1543.001",
    :rdfs/label "Launch Agent",
-   :rdfs/seeAlso {:rdf/value "T1543.001"},
+   :rdfs/seeAlso :d3f/T1543.001,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1160
@@ -42230,7 +49390,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1543.004",
    :rdfs/label "Launch Daemon",
-   :rdfs/seeAlso {:rdf/value "T1543.004"},
+   :rdfs/seeAlso :d3f/T1543.004,
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -42243,7 +49403,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1546.006",
    :rdfs/label "LC_LOAD_DYLIB Addition",
-   :rdfs/seeAlso {:rdf/value "T1546.006"},
+   :rdfs/seeAlso :d3f/T1546.006,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1162
@@ -42255,7 +49415,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1547.011",
    :rdfs/label "Login Item",
-   :rdfs/seeAlso {:rdf/value "T1547.011"},
+   :rdfs/seeAlso :d3f/T1547.011,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1163
@@ -42267,7 +49427,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1037.004",
    :rdfs/label "Rc.common",
-   :rdfs/seeAlso {:rdf/value "T1037.004"},
+   :rdfs/seeAlso :d3f/T1037.004,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1164
@@ -42279,7 +49439,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1547.007",
    :rdfs/label "Re-opened Applications",
-   :rdfs/seeAlso {:rdf/value "T1547.007"},
+   :rdfs/seeAlso :d3f/T1547.007,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1165
@@ -42291,7 +49451,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1037.005",
    :rdfs/label "Startup Items",
-   :rdfs/seeAlso {:rdf/value "T1037.005"},
+   :rdfs/seeAlso :d3f/T1037.005,
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -42304,7 +49464,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1548.001",
    :rdfs/label "Setuid and Setgid",
-   :rdfs/seeAlso {:rdf/value "T1548.001"},
+   :rdfs/seeAlso :d3f/T1548.001,
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -42317,7 +49477,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1555.002",
    :rdfs/label "Securityd Memory",
-   :rdfs/seeAlso {:rdf/value "T1555.002"},
+   :rdfs/seeAlso :d3f/T1555.002,
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1168
@@ -42329,7 +49489,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1053",
    :rdfs/label "Local Job Scheduling",
-   :rdfs/seeAlso {:rdf/value "T1053"},
+   :rdfs/seeAlso :d3f/T1053,
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/PersistenceTechnique}})
 
 (def T1169
@@ -42341,7 +49501,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1548.003",
    :rdfs/label "Sudo",
-   :rdfs/seeAlso {:rdf/value "T1548.003"},
+   :rdfs/seeAlso :d3f/T1548.003,
    :rdfs/subClassOf :d3f/PrivilegeEscalationTechnique})
 
 (def T1170
@@ -42353,7 +49513,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1218.005",
    :rdfs/label "Mshta",
-   :rdfs/seeAlso {:rdf/value "T1218.005"},
+   :rdfs/seeAlso :d3f/T1218.005,
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1171
@@ -42365,7 +49525,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1557.001",
    :rdfs/label "LLMNR/NBT-NS Poisoning and Relay",
-   :rdfs/seeAlso {:rdf/value "T1557.001"},
+   :rdfs/seeAlso :d3f/T1557.001,
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1172
@@ -42377,7 +49537,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1090.004",
    :rdfs/label "Domain Fronting",
-   :rdfs/seeAlso {:rdf/value "T1090.004"},
+   :rdfs/seeAlso :d3f/T1090.004,
    :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def T1173
@@ -42389,7 +49549,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1559.002",
    :rdfs/label "Dynamic Data Exchange",
-   :rdfs/seeAlso {:rdf/value "T1559.002"},
+   :rdfs/seeAlso :d3f/T1559.002,
    :rdfs/subClassOf :d3f/ExecutionTechnique})
 
 (def T1174
@@ -42401,7 +49561,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1556.002",
    :rdfs/label "Password Filter DLL",
-   :rdfs/seeAlso {:rdf/value "T1556.002"},
+   :rdfs/seeAlso :d3f/T1556.002,
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1175
@@ -42456,7 +49616,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1547.008",
    :rdfs/label "LSASS Driver",
-   :rdfs/seeAlso {:rdf/value "T1547.008"},
+   :rdfs/seeAlso :d3f/T1547.008,
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/PersistenceTechnique}})
 
 (def T1178
@@ -42468,7 +49628,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1134.005",
    :rdfs/label "SID-History Injection",
-   :rdfs/seeAlso {:rdf/value "T1134.005"},
+   :rdfs/seeAlso :d3f/T1134.005,
    :rdfs/subClassOf :d3f/PrivilegeEscalationTechnique})
 
 (def T1179
@@ -42480,7 +49640,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1056.004",
    :rdfs/label "Hooking",
-   :rdfs/seeAlso {:rdf/value "T1056.004"},
+   :rdfs/seeAlso :d3f/T1056.004,
    :rdfs/subClassOf #{:d3f/CredentialAccessTechnique :d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -42493,7 +49653,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1546.002",
    :rdfs/label "Screensaver",
-   :rdfs/seeAlso {:rdf/value "T1546.002"},
+   :rdfs/seeAlso :d3f/T1546.002,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1181
@@ -42505,7 +49665,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1055.011",
    :rdfs/label "Extra Window Memory Injection",
-   :rdfs/seeAlso {:rdf/value "T1055.011"},
+   :rdfs/seeAlso :d3f/T1055.011,
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -42518,7 +49678,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1546.009",
    :rdfs/label "AppCert DLLs",
-   :rdfs/seeAlso {:rdf/value "T1546.009"},
+   :rdfs/seeAlso :d3f/T1546.009,
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -42531,7 +49691,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1546.012",
    :rdfs/label "Image File Execution Options Injection",
-   :rdfs/seeAlso {:rdf/value "T1546.012"},
+   :rdfs/seeAlso :d3f/T1546.012,
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -42544,7 +49704,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1563.001",
    :rdfs/label "SSH Hijacking",
-   :rdfs/seeAlso {:rdf/value "T1563.001"},
+   :rdfs/seeAlso :d3f/T1563.001,
    :rdfs/subClassOf :d3f/LateralMovementTechnique})
 
 (def T1185
@@ -42569,7 +49729,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1055.013",
    :rdfs/label "Process Doppelgänging",
-   :rdfs/seeAlso {:rdf/value "T1055.013"},
+   :rdfs/seeAlso :d3f/T1055.013,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1187
@@ -42602,7 +49762,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1090.003",
    :rdfs/label "Multi-hop Proxy",
-   :rdfs/seeAlso {:rdf/value "T1090.003"},
+   :rdfs/seeAlso :d3f/T1090.003,
    :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def T1189
@@ -42655,7 +49815,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1218.003",
    :rdfs/label "CMSTP",
-   :rdfs/seeAlso {:rdf/value "T1218.003"},
+   :rdfs/seeAlso :d3f/T1218.003,
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1192
@@ -42667,7 +49827,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1566.002",
    :rdfs/label "Spearphishing Link",
-   :rdfs/seeAlso {:rdf/value "T1566.002"},
+   :rdfs/seeAlso :d3f/T1566.002,
    :rdfs/subClassOf :d3f/InitialAccessTechnique})
 
 (def T1193
@@ -42679,7 +49839,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1566.001",
    :rdfs/label "Spearphishing Attachment",
-   :rdfs/seeAlso {:rdf/value "T1566.001"},
+   :rdfs/seeAlso :d3f/T1566.001,
    :rdfs/subClassOf :d3f/InitialAccessTechnique})
 
 (def T1194
@@ -42691,7 +49851,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1566.003",
    :rdfs/label "Spearphishing via Service",
-   :rdfs/seeAlso {:rdf/value "T1566.003"},
+   :rdfs/seeAlso :d3f/T1566.003,
    :rdfs/subClassOf :d3f/InitialAccessTechnique})
 
 (def T1195
@@ -42754,7 +49914,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1218.002",
    :rdfs/label "Control Panel Items",
-   :rdfs/seeAlso {:rdf/value "T1218.002"},
+   :rdfs/seeAlso :d3f/T1218.002,
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1197
@@ -42787,7 +49947,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1553.003",
    :rdfs/label "SIP and Trust Provider Hijacking",
-   :rdfs/seeAlso {:rdf/value "T1553.003"},
+   :rdfs/seeAlso :d3f/T1553.003,
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique}})
 
 (def T1199
@@ -42954,7 +50114,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1548.003",
    :rdfs/label "Sudo Caching",
-   :rdfs/seeAlso {:rdf/value "T1548.003"},
+   :rdfs/seeAlso :d3f/T1548.003,
    :rdfs/subClassOf :d3f/PrivilegeEscalationTechnique})
 
 (def T1207
@@ -42983,7 +50143,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1558.003",
    :rdfs/label "Kerberoasting",
-   :rdfs/seeAlso {:rdf/value "T1558.003"},
+   :rdfs/seeAlso :d3f/T1558.003,
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1209
@@ -42995,7 +50155,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1547.003",
    :rdfs/label "Time Providers",
-   :rdfs/seeAlso {:rdf/value "T1547.003"},
+   :rdfs/seeAlso :d3f/T1547.003,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1210
@@ -43070,19 +50230,19 @@
    :db/ident :d3f/T1213,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Data from Information Repositories",
-   :rdfs/subClassOf #{:d3f/DiscoveryTechnique
-                      {:owl/onProperty     :d3f/accesses,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/Resource,
                        :rdf/type           :owl/Restriction}
                       :d3f/CollectionTechnique}})
 
 (def T1213_001
-  {:d3f/accesses    :d3f/WebFileResource,
-   :d3f/attack-id   "T1213.001",
-   :d3f/definition  "",
-   :db/ident        :d3f/T1213.001,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "Confluence",
+  {:d3f/accesses :d3f/WebFileResource,
+   :d3f/attack-id "T1213.001",
+   :d3f/definition
+   "Adversaries may leverage Confluence repositories to mine valuable information. Often found in development environments alongside Atlassian JIRA, Confluence is generally used to store development-related documentation, however, in general may contain more diverse categories of useful information, such as:",
+   :db/ident :d3f/T1213.001,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Confluence",
    :rdfs/subClassOf #{:d3f/T1213
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/WebFileResource,
@@ -43140,7 +50300,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1552.002",
    :rdfs/label "Credentials in Registry",
-   :rdfs/seeAlso {:rdf/value "T1552.002"},
+   :rdfs/seeAlso :d3f/T1552.002,
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1215
@@ -43152,7 +50312,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1547.006",
    :rdfs/label "Kernel Modules and Extensions",
-   :rdfs/seeAlso {:rdf/value "T1547.006"},
+   :rdfs/seeAlso :d3f/T1547.006,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1216
@@ -43162,7 +50322,7 @@
    :db/ident :d3f/T1216,
    :rdf/type :owl/Class,
    :rdfs/label "System Script Proxy Execution",
-   :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
+   :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1216_001
   {:d3f/attack-id "T1216.001",
@@ -43198,7 +50358,7 @@
    :db/ident :d3f/T1218,
    :rdf/type :owl/Class,
    :rdfs/label "System Binary Proxy Execution",
-   :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
+   :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1218_001
   {:d3f/attack-id "T1218.001",
@@ -43359,21 +50519,21 @@
   {:d3f/attack-id "T1218.014",
    :d3f/definition
    "Adversaries may abuse mmc.exe to proxy execution of malicious .msc files. Microsoft Management Console (MMC) is a binary that may be signed by Microsoft and is used in several ways in either its GUI or in a command prompt.(Citation: win_mmc)(Citation: what_is_mmc) MMC can be used to create, open, and save custom consoles that contain administrative tools created by Microsoft, called snap-ins. These snap-ins may be used to manage Windows systems locally or remotely. MMC can also be used to open Microsoft created .msc files to manage system configuration.(Citation: win_msc_files_overview)",
-   :d3f/executes :d3f/Command,
+   :d3f/executes :d3f/ShellCommand,
    :d3f/may-add :d3f/Software,
    :d3f/may-modify :d3f/SystemConfigurationDatabase,
    :db/ident :d3f/T1218.014,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "MMC",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/executes,
+                       :owl/someValuesFrom :d3f/ShellCommand,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/may-add,
                        :owl/someValuesFrom :d3f/Software,
-                       :rdf/type           :owl/Restriction} :d3f/T1218
-                      {:owl/onProperty     :d3f/executes,
-                       :owl/someValuesFrom :d3f/Command,
-                       :rdf/type           :owl/Restriction}}})
+                       :rdf/type           :owl/Restriction} :d3f/T1218}})
 
 (def T1218_015
   {:d3f/attack-id "T1218.015",
@@ -43494,8 +50654,815 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1218.001",
    :rdfs/label "Compiled HTML File",
-   :rdfs/seeAlso {:rdf/value "T1218.001"},
+   :rdfs/seeAlso :d3f/T1218.001,
    :rdfs/subClassOf #{:d3f/ExecutionTechnique :d3f/DefenseEvasionTechnique}})
+
+(def T1398
+  {:d3f/attack-id "T1398",
+   :d3f/definition
+   "Adversaries may use scripts automatically executed at boot or logon initialization to establish persistence. Initialization scripts are part of the underlying operating system and are not accessible to the user unless the device has been rooted or jailbroken.",
+   :db/ident :d3f/T1398,
+   :rdf/type :owl/Class,
+   :rdfs/label "Boot or Logon Initialization Scripts - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobilePersistenceTechnique,
+   :skos/prefLabel "Boot or Logon Initialization Scripts"})
+
+(def T1399
+  {:d3f/attack-id "T1399",
+   :d3f/definition
+   "If an adversary can escalate privileges, he or she may be able to use those privileges to place malicious code in the device's Trusted Execution Environment (TEE) or other similar isolated execution environment where the code can evade detection, may persist after device resets, and may not be removable by the device user. Running code within the TEE may provide an adversary with the ability to monitor or tamper with overall device behavior.(Citation: Roth-Rootkits)",
+   :db/ident :d3f/T1399,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Modify Trusted Execution Environment - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobilePersistenceTechnique
+                      :d3f/ATTACKMobileDefenseEvasionTechnique},
+   :skos/prefLabel "Modify Trusted Execution Environment"})
+
+(def T1400
+  {:d3f/attack-id "T1400",
+   :d3f/definition
+   "If an adversary can escalate privileges, he or she may be able to use those privileges to place malicious code in the device system partition, where it may persist after device resets and may not be easily removed by the device user.",
+   :db/ident :d3f/T1400,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1625.001",
+   :rdfs/label "Modify System Partition - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1625.001,
+   :rdfs/subClassOf #{:d3f/ATTACKMobileImpactTechnique
+                      :d3f/ATTACKMobilePersistenceTechnique
+                      :d3f/ATTACKMobileDefenseEvasionTechnique},
+   :skos/prefLabel "Modify System Partition"})
+
+(def T1401
+  {:d3f/attack-id "T1401",
+   :d3f/definition
+   "Adversaries may request device administrator permissions to perform malicious actions.",
+   :db/ident :d3f/T1401,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1626.001",
+   :rdfs/label "Device Administrator Permissions - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1626.001,
+   :rdfs/subClassOf :d3f/ATTACKMobilePrivilegeEscalationTechnique,
+   :skos/prefLabel "Device Administrator Permissions"})
+
+(def T1402
+  {:d3f/attack-id "T1402",
+   :d3f/definition
+   "An intent is a message passed between Android application or system components. Applications can register to receive broadcast intents at runtime, which are system-wide intents delivered to each app when certain events happen on the device, such as network changes or the user unlocking the screen. Malicious applications can then trigger certain actions within the app based on which broadcast intent was received.",
+   :db/ident :d3f/T1402,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1624.001",
+   :rdfs/label "Broadcast Receivers - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1624.001,
+   :rdfs/subClassOf #{:d3f/ATTACKMobileExecutionTechnique
+                      :d3f/ATTACKMobilePersistenceTechnique},
+   :skos/prefLabel "Broadcast Receivers"})
+
+(def T1403
+  {:d3f/attack-id "T1403",
+   :d3f/definition
+   "ART (the Android Runtime) compiles optimized code on the device itself to improve performance. An adversary may be able to use escalated privileges to modify the cached code in order to hide malicious behavior. Since the code is compiled on the device, it may not receive the same level of integrity checks that are provided to code running in the system partition.(Citation: Sabanal-ART)",
+   :db/ident :d3f/T1403,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Modify Cached Executable Code - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobilePersistenceTechnique,
+   :skos/prefLabel "Modify Cached Executable Code"})
+
+(def T1404
+  {:d3f/attack-id "T1404",
+   :d3f/definition
+   "Adversaries may exploit software vulnerabilities in order to elevate privileges. Exploitation of a software vulnerability occurs when an adversary takes advantage of a programming error in an application, service, within the operating system software, or kernel itself to execute adversary-controlled code. Security constructions, such as permission levels, will often hinder access to information and use of certain techniques. Adversaries will likely need to perform privilege escalation to include use of software exploitation to circumvent those restrictions.",
+   :db/ident :d3f/T1404,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exploitation for Privilege Escalation - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobilePrivilegeEscalationTechnique,
+   :skos/prefLabel "Exploitation for Privilege Escalation"})
+
+(def T1405
+  {:d3f/attack-id "T1405",
+   :d3f/definition
+   "A malicious app or other attack vector could be used to exploit vulnerabilities in code running within the Trusted Execution Environment (TEE) (Citation: Thomas-TrustZone). The adversary could then obtain privileges held by the TEE potentially including the ability to access cryptographic keys or other sensitive data (Citation: QualcommKeyMaster). Escalated operating system privileges may be first required in order to have the ability to attack the TEE (Citation: EkbergTEE). If not, privileges within the TEE can potentially be used to exploit the operating system (Citation: laginimaineb-TEE).",
+   :db/ident :d3f/T1405,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Exploit TEE Vulnerability - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileCredentialAccessTechnique
+                      :d3f/ATTACKMobilePrivilegeEscalationTechnique},
+   :skos/prefLabel "Exploit TEE Vulnerability"})
+
+(def T1406
+  {:d3f/attack-id "T1406",
+   :d3f/definition
+   "Adversaries may attempt to make a payload or file difficult to discover or analyze by encrypting, encoding, or otherwise obfuscating its contents on the device or in transit. This is common behavior that can be used across different platforms and the network to evade defenses.",
+   :db/ident :d3f/T1406,
+   :rdf/type :owl/Class,
+   :rdfs/label "Obfuscated Files or Information - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :skos/prefLabel "Obfuscated Files or Information"})
+
+(def T1406_001
+  {:d3f/attack-id "T1406.001",
+   :d3f/definition
+   "Adversaries may use steganography techniques in order to prevent the detection of hidden information. Steganographic techniques can be used to hide data in digital media such as images, audio tracks, video clips, or text files.",
+   :db/ident :d3f/T1406.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Steganography - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1406,
+   :skos/prefLabel "Steganography"})
+
+(def T1406_002
+  {:d3f/attack-id "T1406.002",
+   :d3f/definition
+   "Adversaries may perform software packing to conceal their code. Software packing is a method of compressing or encrypting an executable. Packing an executable changes the file signature in an attempt to avoid signature-based detection. Most decompression techniques decompress the executable code in memory.",
+   :db/ident :d3f/T1406.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Software Packing - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1406,
+   :skos/prefLabel "Software Packing"})
+
+(def T1407
+  {:d3f/attack-id "T1407",
+   :d3f/definition
+   "Adversaries may download and execute dynamic code not included in the original application package after installation. This technique is primarily used to evade static analysis checks and pre-publication scans in official app stores. In some cases, more advanced dynamic or behavioral analysis techniques could detect this behavior. However, in conjunction with [Execution Guardrails](https://attack.mitre.org/techniques/T1627) techniques, detecting malicious code downloaded after installation could be difficult.",
+   :db/ident :d3f/T1407,
+   :rdf/type :owl/Class,
+   :rdfs/label "Download New Code at Runtime - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :skos/prefLabel "Download New Code at Runtime"})
+
+(def T1408
+  {:d3f/attack-id "T1408",
+   :d3f/definition
+   "An adversary could use knowledge of the techniques used by security software to evade detection(Citation: Brodie)(Citation: Tan). For example, some mobile security products perform compromised device detection by searching for particular artifacts such as an installed \"su\" binary, but that check could be evaded by naming the binary something else. Similarly, polymorphic code techniques could be used to evade signature-based detection(Citation: Rastogi).",
+   :db/ident :d3f/T1408,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1630.003",
+   :rdfs/label "Disguise Root/Jailbreak Indicators - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1630.003,
+   :rdfs/subClassOf :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :skos/prefLabel "Disguise Root/Jailbreak Indicators"})
+
+(def T1409
+  {:d3f/attack-id "T1409",
+   :d3f/definition
+   "Adversaries may try to access and collect application data resident on the device. Adversaries often target popular applications, such as Facebook, WeChat, and Gmail.(Citation: SWB Exodus March 2019)",
+   :db/ident :d3f/T1409,
+   :rdf/type :owl/Class,
+   :rdfs/label "Stored Application Data - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCollectionTechnique,
+   :skos/prefLabel "Stored Application Data"})
+
+(def T1410
+  {:d3f/attack-id "T1410",
+   :d3f/definition
+   "An adversary may capture network traffic to and from the device to obtain credentials or other sensitive data, or redirect network traffic to flow through an adversary-controlled gateway to do the same.",
+   :db/ident :d3f/T1410,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1638",
+   :rdfs/label "Network Traffic Capture or Redirection - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1638,
+   :rdfs/subClassOf #{:d3f/ATTACKMobileCollectionTechnique
+                      :d3f/ATTACKMobileCredentialAccessTechnique},
+   :skos/prefLabel "Network Traffic Capture or Redirection"})
+
+(def T1411
+  {:d3f/attack-id "T1411",
+   :d3f/definition
+   "The operating system and installed applications often have legitimate needs to prompt the user for sensitive information such as account credentials, bank account information, or Personally Identifiable Information (PII). Adversaries may mimic this functionality to prompt users for sensitive information.",
+   :db/ident :d3f/T1411,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1417.002",
+   :rdfs/label "Input Prompt - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1417.002,
+   :rdfs/subClassOf :d3f/ATTACKMobileCredentialAccessTechnique,
+   :skos/prefLabel "Input Prompt"})
+
+(def T1412
+  {:d3f/attack-id "T1412",
+   :d3f/definition
+   "A malicious application could capture sensitive data sent via SMS, including authentication credentials. SMS is frequently used to transmit codes used for multi-factor authentication.",
+   :db/ident :d3f/T1412,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1636.004",
+   :rdfs/label "Capture SMS Messages - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1636.004,
+   :rdfs/subClassOf #{:d3f/ATTACKMobileCollectionTechnique
+                      :d3f/ATTACKMobileCredentialAccessTechnique},
+   :skos/prefLabel "Capture SMS Messages"})
+
+(def T1413
+  {:d3f/attack-id "T1413",
+   :d3f/definition
+   "On versions of Android prior to 4.1, an adversary may use a malicious application that holds the READ_LOGS permission to obtain private keys, passwords, other credentials, or other sensitive data stored in the device's system log. On Android 4.1 and later, an adversary would need to attempt to perform an operating system privilege escalation attack to be able to access the log.",
+   :db/ident :d3f/T1413,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Access Sensitive Data in Device Logs - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileCollectionTechnique
+                      :d3f/ATTACKMobileCredentialAccessTechnique},
+   :skos/prefLabel "Access Sensitive Data in Device Logs"})
+
+(def T1414
+  {:d3f/attack-id "T1414",
+   :d3f/definition
+   "Adversaries may abuse clipboard manager APIs to obtain sensitive information copied to the device clipboard. For example, passwords being copied and pasted from a password manager application could be captured by a malicious application installed on the device.(Citation: Fahl-Clipboard)",
+   :db/ident :d3f/T1414,
+   :rdf/type :owl/Class,
+   :rdfs/label "Clipboard Data - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileCollectionTechnique
+                      :d3f/ATTACKMobileCredentialAccessTechnique},
+   :skos/prefLabel "Clipboard Data"})
+
+(def T1415
+  {:d3f/attack-id "T1415",
+   :d3f/definition
+   "An iOS application may be able to maliciously claim a URL scheme, allowing it to intercept calls that are meant for a different application(Citation: FireEye-Masque2)(Citation: Dhanjani-URLScheme). This technique, for example, could be used to capture OAuth authorization codes(Citation: IETF-PKCE) or to phish user credentials(Citation: MobileIron-XARA).",
+   :db/ident :d3f/T1415,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by",
+   :rdfs/label "URL Scheme Hijacking - ATTACK Mobile",
+   :rdfs/seeAlso {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend.owl#"},
+   :rdfs/subClassOf :d3f/ATTACKMobileCredentialAccessTechnique,
+   :skos/prefLabel "URL Scheme Hijacking"})
+
+(def T1416
+  {:d3f/attack-id "T1416",
+   :d3f/definition
+   "Adversaries may register Uniform Resource Identifiers (URIs) to intercept sensitive data.",
+   :db/ident :d3f/T1416,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1635.001",
+   :rdfs/label "URI Hijacking - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1635.001,
+   :rdfs/subClassOf :d3f/ATTACKMobileCredentialAccessTechnique,
+   :skos/prefLabel "URI Hijacking"})
+
+(def T1417
+  {:d3f/attack-id "T1417",
+   :d3f/definition
+   "Adversaries may use methods of capturing user input to obtain credentials or collect information. During normal device usage, users often provide credentials to various locations, such as login pages/portals or system dialog boxes. Input capture mechanisms may be transparent to the user (e.g. [Keylogging](https://attack.mitre.org/techniques/T1417/001)) or rely on deceiving the user into providing input into what they believe to be a genuine application prompt (e.g. [GUI Input Capture](https://attack.mitre.org/techniques/T1417/002)).",
+   :db/ident :d3f/T1417,
+   :rdf/type :owl/Class,
+   :rdfs/label "Input Capture - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileCollectionTechnique
+                      :d3f/ATTACKMobileCredentialAccessTechnique},
+   :skos/prefLabel "Input Capture"})
+
+(def T1417_001
+  {:d3f/attack-id "T1417.001",
+   :d3f/definition
+   "Adversaries may log user keystrokes to intercept credentials or other information from the user as the user types them.",
+   :db/ident :d3f/T1417.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Keylogging - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1417,
+   :skos/prefLabel "Keylogging"})
+
+(def T1417_002
+  {:d3f/attack-id "T1417.002",
+   :d3f/definition
+   "Adversaries may mimic common operating system GUI components to prompt users for sensitive information with a seemingly legitimate prompt. The operating system and installed applications often have legitimate needs to prompt the user for sensitive information such as account credentials, bank account information, or Personally Identifiable Information (PII). Compared to traditional PCs, the constrained display size of mobile devices may impair the ability to provide users with contextual information, making users more susceptible to this technique’s use.(Citation: Felt-PhishingOnMobileDevices)",
+   :db/ident :d3f/T1417.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "GUI Input Capture - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1417,
+   :skos/prefLabel "GUI Input Capture"})
+
+(def T1418
+  {:d3f/attack-id "T1418",
+   :d3f/definition
+   "Adversaries may attempt to get a listing of applications that are installed on a device. Adversaries may use the information from [Software Discovery](https://attack.mitre.org/techniques/T1418) during automated discovery to shape follow-on behaviors, including whether or not to fully infect the target and/or attempts specific actions.",
+   :db/ident :d3f/T1418,
+   :rdf/type :owl/Class,
+   :rdfs/label "Software Discovery - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDiscoveryTechnique,
+   :skos/prefLabel "Software Discovery"})
+
+(def T1418_001
+  {:d3f/attack-id "T1418.001",
+   :d3f/definition
+   "Adversaries may attempt to get a listing of security applications and configurations that are installed on a device. This may include things such as mobile security products. Adversaries may use the information from [Security Software Discovery](https://attack.mitre.org/techniques/T1418/001) during automated discovery to shape follow-on behaviors, including whether or not to fully infect the target and/or attempt specific actions.",
+   :db/ident :d3f/T1418.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Security Software Discovery - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1418,
+   :skos/prefLabel "Security Software Discovery"})
+
+(def T1419
+  {:d3f/attack-id "T1419",
+   :d3f/definition
+   "On Android, device type information is accessible to apps through the android.os.Build class (Citation: Android-Build). Device information could be used to target privilege escalation exploits.",
+   :db/ident :d3f/T1419,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by",
+   :rdfs/label "Device Type Discovery - ATTACK Mobile",
+   :rdfs/seeAlso {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend.owl#"},
+   :rdfs/subClassOf :d3f/ATTACKMobileDiscoveryTechnique,
+   :skos/prefLabel "Device Type Discovery"})
+
+(def T1420
+  {:d3f/attack-id "T1420",
+   :d3f/definition
+   "Adversaries may enumerate files and directories or search in specific device locations for desired information within a filesystem. Adversaries may use the information from [File and Directory Discovery](https://attack.mitre.org/techniques/T1420) during automated discovery to shape follow-on behaviors, including deciding if the adversary should fully infect the target and/or attempt specific actions.",
+   :db/ident :d3f/T1420,
+   :rdf/type :owl/Class,
+   :rdfs/label "File and Directory Discovery - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDiscoveryTechnique,
+   :skos/prefLabel "File and Directory Discovery"})
+
+(def T1421
+  {:d3f/attack-id "T1421",
+   :d3f/definition
+   "Adversaries may attempt to get a listing of network connections to or from the compromised device they are currently accessing or from remote systems by querying for information over the network.",
+   :db/ident :d3f/T1421,
+   :rdf/type :owl/Class,
+   :rdfs/label "System Network Connections Discovery - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDiscoveryTechnique,
+   :skos/prefLabel "System Network Connections Discovery"})
+
+(def T1422
+  {:d3f/attack-id "T1422",
+   :d3f/definition
+   "Adversaries may look for details about the network configuration and settings, such as IP and/or MAC addresses, of devices they access or through information discovery of remote systems.",
+   :db/ident :d3f/T1422,
+   :rdf/type :owl/Class,
+   :rdfs/label "System Network Configuration Discovery - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDiscoveryTechnique,
+   :skos/prefLabel "System Network Configuration Discovery"})
+
+(def T1422_001
+  {:d3f/attack-id "T1422.001",
+   :d3f/definition
+   "Adversaries may check for Internet connectivity on compromised systems. This may be performed during automated discovery and can be accomplished in numerous ways such as using `adb shell netstat` for Android.(Citation: adb_commands)",
+   :db/ident :d3f/T1422.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Internet Connection Discovery - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1422,
+   :skos/prefLabel "Internet Connection Discovery"})
+
+(def T1422_002
+  {:d3f/attack-id "T1422.002",
+   :d3f/definition
+   "Adversaries may search for information about Wi-Fi networks, such as network names and passwords, on compromised systems. Adversaries may use Wi-Fi information as part of [Discovery](https://attack.mitre.org/tactics/TA0032) or [Credential Access](https://attack.mitre.org/tactics/TA0031) activity to support both ongoing and future campaigns.",
+   :db/ident :d3f/T1422.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Wi-Fi Discovery - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1422,
+   :skos/prefLabel "Wi-Fi Discovery"})
+
+(def T1423
+  {:d3f/attack-id "T1423",
+   :d3f/definition
+   "Adversaries may attempt to get a listing of services running on remote hosts, including those that may be vulnerable to remote software exploitation. Methods to acquire this information include port scans and vulnerability scans from the mobile device. This technique may take advantage of the mobile device's access to an internal enterprise network either through local connectivity or through a Virtual Private Network (VPN).",
+   :db/ident :d3f/T1423,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Service Scanning - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDiscoveryTechnique,
+   :skos/prefLabel "Network Service Scanning"})
+
+(def T1424
+  {:d3f/attack-id "T1424",
+   :d3f/definition
+   "Adversaries may attempt to get information about running processes on a device. Information obtained could be used to gain an understanding of common software/applications running on devices within a network. Adversaries may use the information from [Process Discovery](https://attack.mitre.org/techniques/T1424) during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.",
+   :db/ident :d3f/T1424,
+   :rdf/type :owl/Class,
+   :rdfs/label "Process Discovery - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDiscoveryTechnique,
+   :skos/prefLabel "Process Discovery"})
+
+(def T1426
+  {:d3f/attack-id "T1426",
+   :d3f/definition
+   "Adversaries may attempt to get detailed information about a device’s operating system and hardware, including versions, patches, and architecture. Adversaries may use the information from [System Information Discovery](https://attack.mitre.org/techniques/T1426) during automated discovery to shape follow-on behaviors, including whether or not to fully infects the target and/or attempts specific actions.",
+   :db/ident :d3f/T1426,
+   :rdf/type :owl/Class,
+   :rdfs/label "System Information Discovery - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDiscoveryTechnique,
+   :skos/prefLabel "System Information Discovery"})
+
+(def T1427
+  {:d3f/attack-id "T1427",
+   :d3f/definition
+   "With escalated privileges, an adversary could program the mobile device to impersonate USB devices such as input devices (keyboard and mouse), storage devices, and/or networking devices in order to attack a physically connected PC(Citation: Wang-ExploitingUSB)(Citation: ArsTechnica-PoisonTap) This technique has been demonstrated on Android. We are unaware of any demonstrations on iOS.",
+   :db/ident :d3f/T1427,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Attack PC via USB Connection - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileLateralMovementTechnique,
+   :skos/prefLabel "Attack PC via USB Connection"})
+
+(def T1428
+  {:d3f/attack-id "T1428",
+   :d3f/definition
+   "Adversaries may exploit remote services of enterprise servers, workstations, or other resources to gain unauthorized access to internal systems once inside of a network. Adversaries may exploit remote services by taking advantage of a mobile device’s access to an internal enterprise network through local connectivity or through a Virtual Private Network (VPN). Exploitation of a software vulnerability occurs when an adversary takes advantage of a programming error in a program, service, or within the operating system software or kernel itself to execute adversary-controlled code. A common goal for post-compromise exploitation of remote services is for lateral movement to enable access to a remote system.",
+   :db/ident :d3f/T1428,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exploitation of Remote Services - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileLateralMovementTechnique,
+   :skos/prefLabel "Exploitation of Remote Services"})
+
+(def T1429
+  {:d3f/attack-id "T1429",
+   :d3f/definition
+   "Adversaries may capture audio to collect information by leveraging standard operating system APIs of a mobile device. Examples of audio information adversaries may target include user conversations, surroundings, phone calls, or other sensitive information.",
+   :db/ident :d3f/T1429,
+   :rdf/type :owl/Class,
+   :rdfs/label "Audio Capture - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCollectionTechnique,
+   :skos/prefLabel "Audio Capture"})
+
+(def T1430
+  {:d3f/attack-id "T1430",
+   :d3f/definition
+   "Adversaries may track a device’s physical location through use of standard operating system APIs via malicious or exploited applications on the compromised device.",
+   :db/ident :d3f/T1430,
+   :rdf/type :owl/Class,
+   :rdfs/label "Location Tracking - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileCollectionTechnique
+                      :d3f/ATTACKMobileDiscoveryTechnique},
+   :skos/prefLabel "Location Tracking"})
+
+(def T1430_001
+  {:d3f/attack-id "T1430.001",
+   :d3f/definition
+   "An adversary may use access to cloud services (e.g. Google's Android Device Manager or Apple iCloud's Find my iPhone) or to an enterprise mobility management (EMM)/mobile device management (MDM) server console to track the location of mobile devices managed by the service.(Citation: Krebs-Location)",
+   :db/ident :d3f/T1430.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Remote Device Management Services - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1430,
+   :skos/prefLabel "Remote Device Management Services"})
+
+(def T1430_002
+  {:d3f/attack-id "T1430.002",
+   :d3f/definition
+   "Adversaries may exploit the lack of authentication in signaling system network nodes to track the location of mobile devices by impersonating a node.(Citation: Engel-SS7)(Citation: Engel-SS7-2008)(Citation: 3GPP-Security)(Citation: Positive-SS7)(Citation: CSRIC5-WG10-FinalReport)",
+   :db/ident :d3f/T1430.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Impersonate SS7 Nodes - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1430,
+   :skos/prefLabel "Impersonate SS7 Nodes"})
+
+(def T1432
+  {:d3f/attack-id "T1432",
+   :d3f/definition
+   "An adversary could call standard operating system APIs from a malicious application to gather contact list (i.e., address book) data, or with escalated privileges could directly access files containing contact list data.",
+   :db/ident :d3f/T1432,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1636.003",
+   :rdfs/label "Access Contact List - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1636.003,
+   :rdfs/subClassOf :d3f/ATTACKMobileCollectionTechnique,
+   :skos/prefLabel "Access Contact List"})
+
+(def T1433
+  {:d3f/attack-id "T1433",
+   :d3f/definition
+   "On Android, an adversary could call standard operating system APIs from a malicious application to gather call log data, or with escalated privileges could directly access files containing call log data.",
+   :db/ident :d3f/T1433,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1636.002",
+   :rdfs/label "Access Call Log - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1636.002,
+   :rdfs/subClassOf :d3f/ATTACKMobileCollectionTechnique,
+   :skos/prefLabel "Access Call Log"})
+
+(def T1435
+  {:d3f/attack-id "T1435",
+   :d3f/definition
+   "An adversary could call standard operating system APIs from a malicious application to gather calendar entry data, or with escalated privileges could directly access files containing calendar data.",
+   :db/ident :d3f/T1435,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1636.001",
+   :rdfs/label "Access Calendar Entries - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1636.001,
+   :rdfs/subClassOf :d3f/ATTACKMobileCollectionTechnique,
+   :skos/prefLabel "Access Calendar Entries"})
+
+(def T1436
+  {:d3f/attack-id "T1436",
+   :d3f/definition
+   "Adversaries may communicate over a commonly used port to bypass firewalls or network detection systems and to blend with normal network activity to avoid more detailed inspection.",
+   :db/ident :d3f/T1436,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Commonly Used Port - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileExfiltrationTechnique
+                      :d3f/ATTACKMobileCommandAndControlTechnique},
+   :skos/prefLabel "Commonly Used Port"})
+
+(def T1437
+  {:d3f/attack-id "T1437",
+   :d3f/definition
+   "Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the mobile device, and often the results of those commands, will be embedded within the protocol traffic between the mobile device and server.",
+   :db/ident :d3f/T1437,
+   :rdf/type :owl/Class,
+   :rdfs/label "Application Layer Protocol - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCommandAndControlTechnique,
+   :skos/prefLabel "Application Layer Protocol"})
+
+(def T1437_001
+  {:d3f/attack-id "T1437.001",
+   :d3f/definition
+   "Adversaries may communicate using application layer protocols associated with web protocols traffic to avoid detection/network filtering by blending in with existing traffic. Commands to remote mobile devices, and often the results of those commands, will be embedded within the protocol traffic between the mobile client and server.",
+   :db/ident :d3f/T1437.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Web Protocols - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1437,
+   :skos/prefLabel "Web Protocols"})
+
+(def T1438
+  {:d3f/attack-id "T1438",
+   :d3f/definition
+   "Adversaries may attempt to exfiltrate data over a different network medium than the command and control channel. If the command and control network is a standard Internet connection, the exfiltration may occur, for example, via Bluetooth, or another radio frequency (RF) channel.",
+   :db/ident :d3f/T1438,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1644",
+   :rdfs/label "Exfiltration Over Other Network Medium - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1644,
+   :rdfs/subClassOf :d3f/ATTACKMobileCommandAndControlTechnique,
+   :skos/prefLabel "Exfiltration Over Other Network Medium"})
+
+(def T1444
+  {:d3f/attack-id "T1444",
+   :d3f/definition
+   "An adversary could distribute developed malware by masquerading the malware as a legitimate application. This can be done in two different ways: by embedding the malware in a legitimate application, or by pretending to be a legitimate application.",
+   :db/ident :d3f/T1444,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Masquerade as Legitimate Application - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileInitialAccessTechnique
+                      :d3f/ATTACKMobileDefenseEvasionTechnique},
+   :skos/prefLabel "Masquerade as Legitimate Application"})
+
+(def T1446
+  {:d3f/attack-id "T1446",
+   :d3f/definition
+   "An adversary may seek to lock the legitimate user out of the device, for example to inhibit user interaction or to obtain a ransom payment.",
+   :db/ident :d3f/T1446,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1629.002",
+   :rdfs/label "Device Lockout - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1629.002,
+   :rdfs/subClassOf #{:d3f/ATTACKMobileImpactTechnique
+                      :d3f/ATTACKMobileDefenseEvasionTechnique},
+   :skos/prefLabel "Device Lockout"})
+
+(def T1447
+  {:d3f/attack-id "T1447",
+   :d3f/definition
+   "Adversaries may wipe a device or delete individual files in order to manipulate external outcomes or hide activity. An application must have administrator access to fully wipe the device, while individual files may not require special permissions to delete depending on their storage location. (Citation: Android DevicePolicyManager 2019)",
+   :db/ident :d3f/T1447,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1630.002",
+   :rdfs/label "Delete Device Data - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1630.002,
+   :rdfs/subClassOf #{:d3f/ATTACKMobileImpactTechnique
+                      :d3f/ATTACKMobileDefenseEvasionTechnique},
+   :skos/prefLabel "Delete Device Data"})
+
+(def T1448
+  {:d3f/attack-id "T1448",
+   :d3f/definition
+   "A malicious app may trigger fraudulent charges on a victim’s carrier billing statement in several different ways, including SMS toll fraud and SMS shortcodes that make purchases.",
+   :db/ident :d3f/T1448,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1643",
+   :rdfs/label "Carrier Billing Fraud - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1643,
+   :rdfs/subClassOf :d3f/ATTACKMobileImpactTechnique,
+   :skos/prefLabel "Carrier Billing Fraud"})
+
+(def T1451
+  {:d3f/attack-id "T1451",
+   :d3f/definition
+   "Adversaries may gain access to mobile devices through transfers or swaps from victims’ phone numbers to adversary-controlled SIM cards and mobile devices.(Citation: ATT SIM Swap Scams)(Citation: Verizon SIM Swapping)",
+   :db/ident :d3f/T1451,
+   :rdf/type :owl/Class,
+   :rdfs/label "SIM Card Swap - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileInitialAccessTechnique,
+   :skos/prefLabel "SIM Card Swap"})
+
+(def T1452
+  {:d3f/attack-id "T1452",
+   :d3f/definition
+   "An adversary could use access to a compromised device's credentials to attempt to manipulate app store rankings or ratings by triggering application downloads or posting fake reviews of applications. This technique likely requires privileged access (a rooted or jailbroken device).",
+   :db/ident :d3f/T1452,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1643",
+   :rdfs/label "Manipulate App Store Rankings or Ratings - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1643,
+   :rdfs/subClassOf :d3f/ATTACKMobileImpactTechnique,
+   :skos/prefLabel "Manipulate App Store Rankings or Ratings"})
+
+(def T1453
+  {:d3f/attack-id "T1453",
+   :d3f/definition
+   "**This technique has been deprecated. Please use [Input Capture](https://attack.mitre.org/techniques/T1417), [Input Injection](https://attack.mitre.org/techniques/T1516), and [Input Prompt](https://attack.mitre.org/techniques/T1411) where appropriate.**",
+   :db/ident :d3f/T1453,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "**This technique has been deprecated. Please use [Input Capture](https://attack.mitre.org/techniques/T1417), [Input Injection](https://attack.mitre.org/techniques/T1516), and [Input Prompt](https://attack.mitre.org/techniques/T1411) where appropriate.**",
+   :rdfs/label "Abuse Accessibility Features - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileCollectionTechnique
+                      :d3f/ATTACKMobileCredentialAccessTechnique
+                      :d3f/ATTACKMobileImpactTechnique
+                      :d3f/ATTACKMobileDefenseEvasionTechnique},
+   :skos/prefLabel "Abuse Accessibility Features"})
+
+(def T1454
+  {:d3f/attack-id   "T1454",
+   :d3f/definition  "Test",
+   :db/ident        :d3f/T1454,
+   :owl/deprecated  true,
+   :rdf/type        :owl/Class,
+   :rdfs/comment    "This technique has been revoked by",
+   :rdfs/label      "Malicious SMS Message - ATTACK Mobile",
+   :rdfs/seeAlso    {:xsd/anyURI
+                     "http://d3fend.mitre.org/ontologies/d3fend.owl#"},
+   :rdfs/subClassOf :d3f/ATTACKMobileCollectionTechnique,
+   :skos/prefLabel  "Malicious SMS Message"})
+
+(def T1456
+  {:d3f/attack-id "T1456",
+   :d3f/definition
+   "Adversaries may gain access to a system through a user visiting a website over the normal course of browsing. With this technique, the user's web browser is typically targeted for exploitation, but adversaries may also use compromised websites for non-exploitation behavior such as acquiring an [Application Access Token](https://attack.mitre.org/techniques/T1550/001).",
+   :db/ident :d3f/T1456,
+   :rdf/type :owl/Class,
+   :rdfs/label "Drive-By Compromise - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileInitialAccessTechnique,
+   :skos/prefLabel "Drive-By Compromise"})
+
+(def T1458
+  {:d3f/attack-id "T1458",
+   :d3f/definition
+   "Adversaries may move onto devices by exploiting or copying malware to devices connected via USB. In the case of Lateral Movement, adversaries may utilize the physical connection of a device to a compromised or malicious charging station or PC to bypass application store requirements and install malicious applications directly.(Citation: Lau-Mactans) In the case of Initial Access, adversaries may attempt to exploit the device via the connection to gain access to data stored on the device.(Citation: Krebs-JuiceJacking) Examples of this include:",
+   :db/ident :d3f/T1458,
+   :rdf/type :owl/Class,
+   :rdfs/label "Replication Through Removable Media - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileLateralMovementTechnique
+                      :d3f/ATTACKMobileInitialAccessTechnique},
+   :skos/prefLabel "Replication Through Removable Media"})
+
+(def T1461
+  {:d3f/attack-id "T1461",
+   :d3f/definition
+   "An adversary with physical access to a mobile device may seek to bypass the device’s lockscreen. Several methods exist to accomplish this, including:",
+   :db/ident :d3f/T1461,
+   :rdf/type :owl/Class,
+   :rdfs/label "Lockscreen Bypass - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileInitialAccessTechnique,
+   :skos/prefLabel "Lockscreen Bypass"})
+
+(def T1464
+  {:d3f/attack-id "T1464",
+   :d3f/definition
+   "Adversaries may perform Network Denial of Service (DoS) attacks to degrade or block the availability of targeted resources to users. Network DoS can be performed by exhausting the network bandwidth that services rely on, or by jamming the signal going to or coming from devices.",
+   :db/ident :d3f/T1464,
+   :rdf/type :owl/Class,
+   :rdfs/label "Network Denial of Service - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileImpactTechnique,
+   :skos/prefLabel "Network Denial of Service"})
+
+(def T1471
+  {:d3f/attack-id "T1471",
+   :d3f/definition
+   "An adversary may encrypt files stored on a mobile device to prevent the user from accessing them. This may be done in order to extract monetary compensation from a victim in exchange for decryption or a decryption key (ransomware) or to render data permanently inaccessible in cases where the key is not saved or transmitted.",
+   :db/ident :d3f/T1471,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data Encrypted for Impact - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileImpactTechnique,
+   :skos/prefLabel "Data Encrypted for Impact"})
+
+(def T1472
+  {:d3f/attack-id "T1472",
+   :d3f/definition
+   "An adversary could seek to generate fraudulent advertising revenue from mobile devices, for example by triggering automatic clicks of advertising links without user involvement.",
+   :db/ident :d3f/T1472,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1643",
+   :rdfs/label "Generate Fraudulent Advertising Revenue - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1643,
+   :rdfs/subClassOf :d3f/ATTACKMobileImpactTechnique,
+   :skos/prefLabel "Generate Fraudulent Advertising Revenue"})
+
+(def T1474
+  {:d3f/attack-id "T1474",
+   :d3f/definition
+   "Adversaries may manipulate products or product delivery mechanisms prior to receipt by a final consumer for the purpose of data or system compromise.",
+   :db/ident :d3f/T1474,
+   :rdf/type :owl/Class,
+   :rdfs/label "Supply Chain Compromise - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileInitialAccessTechnique,
+   :skos/prefLabel "Supply Chain Compromise"})
+
+(def T1474_001
+  {:d3f/attack-id "T1474.001",
+   :d3f/definition
+   "Adversaries may manipulate products or product delivery mechanisms prior to receipt by a final consumer for the purpose of data or system compromise. Applications often depend on external software to function properly. Popular open source projects that are used as dependencies in many applications may be targeted as a means to add malicious code to users of the dependency.(Citation: Grace-Advertisement)",
+   :db/ident :d3f/T1474.001,
+   :rdf/type :owl/Class,
+   :rdfs/label
+   "Compromise Software Dependencies and Development Tools - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1474,
+   :skos/prefLabel "Compromise Software Dependencies and Development Tools"})
+
+(def T1474_002
+  {:d3f/attack-id "T1474.002",
+   :d3f/definition
+   "Adversaries may manipulate hardware components in products prior to receipt by a final consumer for the purpose of data or system compromise. By modifying hardware or firmware in the supply chain, adversaries can insert a backdoor into consumer networks that may be difficult to detect and give the adversary a high degree of control over the system.",
+   :db/ident :d3f/T1474.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromise Hardware Supply Chain - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1474,
+   :skos/prefLabel "Compromise Hardware Supply Chain"})
+
+(def T1474_003
+  {:d3f/attack-id "T1474.003",
+   :d3f/definition
+   "Adversaries may manipulate application software prior to receipt by a final consumer for the purpose of data or system compromise. Supply chain compromise of software can take place in a number of ways, including manipulation of the application source code, manipulation of the update/distribution mechanism for that software, or replacing compiled releases with a modified version.",
+   :db/ident :d3f/T1474.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromise Software Supply Chain - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1474,
+   :skos/prefLabel "Compromise Software Supply Chain"})
+
+(def T1475
+  {:d3f/attack-id "T1475",
+   :d3f/definition
+   "Malicious applications are a common attack vector used by adversaries to gain a presence on mobile devices. Mobile devices often are configured to allow application installation only from an authorized app store (e.g., Google Play Store or Apple App Store). An adversary may seek to place a malicious application in an authorized app store, enabling the application to be installed onto targeted devices.",
+   :db/ident :d3f/T1475,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Deliver Malicious App via Authorized App Store - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileInitialAccessTechnique,
+   :skos/prefLabel "Deliver Malicious App via Authorized App Store"})
+
+(def T1476
+  {:d3f/attack-id "T1476",
+   :d3f/definition
+   "Malicious applications are a common attack vector used by adversaries to gain a presence on mobile devices. This technique describes installing a malicious application on targeted mobile devices without involving an authorized app store (e.g., Google Play Store or Apple App Store). Adversaries may wish to avoid placing malicious applications in an authorized app store due to increased potential risk of detection or other reasons. However, mobile devices often are configured to allow application installation only from an authorized app store which would prevent this technique from working.",
+   :db/ident :d3f/T1476,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Deliver Malicious App via Other Means - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileInitialAccessTechnique,
+   :skos/prefLabel "Deliver Malicious App via Other Means"})
+
+(def T1477
+  {:d3f/attack-id "T1477",
+   :d3f/definition
+   "The mobile device may be targeted for exploitation through its interface to cellular networks or other radio interfaces.",
+   :db/ident :d3f/T1477,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been deprecated.",
+   :rdfs/label "Exploit via Radio Interfaces - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileInitialAccessTechnique,
+   :skos/prefLabel "Exploit via Radio Interfaces"})
+
+(def T1478
+  {:d3f/attack-id "T1478",
+   :d3f/definition
+   "An adversary could attempt to install insecure or malicious configuration settings on the mobile device, through means such as phishing emails or text messages either directly containing the configuration settings as an attachment, or containing a web link to the configuration settings. The device user may be tricked into installing the configuration settings through social engineering techniques (Citation: Symantec-iOSProfile).",
+   :db/ident :d3f/T1478,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1632.001",
+   :rdfs/label "Install Insecure or Malicious Configuration - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1632.001,
+   :rdfs/subClassOf #{:d3f/ATTACKMobileInitialAccessTechnique
+                      :d3f/ATTACKMobileDefenseEvasionTechnique},
+   :skos/prefLabel "Install Insecure or Malicious Configuration"})
 
 (def T1480
   {:d3f/attack-id "T1480",
@@ -43524,6 +51491,46 @@
    :rdfs/label "Mutual Exclusion",
    :rdfs/subClassOf :d3f/T1480})
 
+(def T1481
+  {:d3f/attack-id "T1481",
+   :d3f/definition
+   "Adversaries may use an existing, legitimate external Web service as a means for relaying data to/from a compromised system. Popular websites and social media, acting as a mechanism for C2, may give a significant amount of cover. This is due to the likelihood that hosts within a network are already communicating with them prior to a compromise. Using common services, such as those offered by Google or Twitter, makes it easier for adversaries to hide in expected noise. Web service providers commonly use SSL/TLS encryption, giving adversaries an added level of protection.",
+   :db/ident :d3f/T1481,
+   :rdf/type :owl/Class,
+   :rdfs/label "Web Service - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCommandAndControlTechnique,
+   :skos/prefLabel "Web Service"})
+
+(def T1481_001
+  {:d3f/attack-id "T1481.001",
+   :d3f/definition
+   "Adversaries may use an existing, legitimate external Web service to host information that points to additional command and control (C2) infrastructure. Adversaries may post content, known as a dead drop resolver, on Web services with embedded (and often obfuscated/encoded) domains or IP addresses. Once infected, victims will reach out to and be redirected by these resolvers.",
+   :db/ident :d3f/T1481.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Dead Drop Resolver - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1481,
+   :skos/prefLabel "Dead Drop Resolver"})
+
+(def T1481_002
+  {:d3f/attack-id "T1481.002",
+   :d3f/definition
+   "Adversaries may use an existing, legitimate external Web service channel as a means for sending commands to and receiving output from a compromised system. Compromised systems may leverage popular websites and social media to host command and control (C2) instructions. Those infected systems can then send the output from those commands back over that Web service channel. The return traffic may occur in a variety of ways, depending on the Web service being utilized. For example, the return traffic may take the form of the compromised system posting a comment on a forum, issuing a pull request to development project, updating a document hosted on a Web service, or by sending a Tweet.",
+   :db/ident :d3f/T1481.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Bidirectional Communication - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1481,
+   :skos/prefLabel "Bidirectional Communication"})
+
+(def T1481_003
+  {:d3f/attack-id "T1481.003",
+   :d3f/definition
+   "Adversaries may use an existing, legitimate external Web service channel as a means for sending commands to a compromised system without receiving return output. Compromised systems may leverage popular websites and social media to host command and control (C2) instructions. Those infected systems may opt to send the output from those commands back over a different C2 channel, including to another distinct Web service. Alternatively, compromised systems may return no output at all in cases where adversaries want to send instructions to systems and do not want a response.",
+   :db/ident :d3f/T1481.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "One-Way Communication - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1481,
+   :skos/prefLabel "One-Way Communication"})
+
 (def T1482
   {:d3f/attack-id "T1482",
    :d3f/definition
@@ -43542,7 +51549,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1568.002",
    :rdfs/label "Domain Generation Algorithms",
-   :rdfs/seeAlso {:rdf/value "T1568.002"},
+   :rdfs/seeAlso :d3f/T1568.002,
    :rdfs/subClassOf :d3f/CommandAndControlTechnique})
 
 (def T1484
@@ -43613,7 +51620,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1561.002",
    :rdfs/label "Disk Structure Wipe",
-   :rdfs/seeAlso {:rdf/value "T1561.002"},
+   :rdfs/seeAlso :d3f/T1561.002,
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1488
@@ -43625,7 +51632,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1561.001",
    :rdfs/label "Disk Content Wipe",
-   :rdfs/seeAlso {:rdf/value "T1561.001"},
+   :rdfs/seeAlso :d3f/T1561.001,
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1489
@@ -43689,7 +51696,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1565.001",
    :rdfs/label "Stored Data Manipulation",
-   :rdfs/seeAlso {:rdf/value "T1565.001"},
+   :rdfs/seeAlso :d3f/T1565.001,
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1493
@@ -43701,7 +51708,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1565.002",
    :rdfs/label "Transmitted Data Manipulation",
-   :rdfs/seeAlso {:rdf/value "T1565.002"},
+   :rdfs/seeAlso :d3f/T1565.002,
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1494
@@ -43713,7 +51720,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1565.003",
    :rdfs/label "Runtime Data Manipulation",
-   :rdfs/seeAlso {:rdf/value "T1565.003"},
+   :rdfs/seeAlso :d3f/T1565.003,
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
 (def T1495
@@ -43777,7 +51784,7 @@
    :db/ident :d3f/T1497,
    :rdf/type :owl/Class,
    :rdfs/label "Virtualization/Sandbox Evasion",
-   :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
+   :rdfs/subClassOf #{:d3f/DiscoveryTechnique :d3f/DefenseEvasionTechnique}})
 
 (def T1497_001
   {:d3f/attack-id "T1497.001",
@@ -43872,7 +51879,8 @@
    :db/ident :d3f/T1499.002,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Service Exhaustion Flood",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/produces,
+   :rdfs/subClassOf #{:d3f/T1499
+                      {:owl/onProperty     :d3f/produces,
                        :owl/someValuesFrom :d3f/InboundInternetNetworkTraffic,
                        :rdf/type           :owl/Restriction} :d3f/T1498}})
 
@@ -43903,7 +51911,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1027.004",
    :rdfs/label "Compile After Delivery",
-   :rdfs/seeAlso {:rdf/value "T1027.004"},
+   :rdfs/seeAlso :d3f/T1027.004,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1501
@@ -43915,7 +51923,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1543.002",
    :rdfs/label "Systemd Service",
-   :rdfs/seeAlso {:rdf/value "T1543.002"},
+   :rdfs/seeAlso :d3f/T1543.002,
    :rdfs/subClassOf :d3f/PersistenceTechnique})
 
 (def T1502
@@ -43927,7 +51935,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1134.004",
    :rdfs/label "Parent PID Spoofing",
-   :rdfs/seeAlso {:rdf/value "T1134.004"},
+   :rdfs/seeAlso :d3f/T1134.004,
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -43940,7 +51948,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1555.003",
    :rdfs/label "Credentials from Web Browsers",
-   :rdfs/seeAlso {:rdf/value "T1555.003"},
+   :rdfs/seeAlso :d3f/T1555.003,
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
 
 (def T1504
@@ -43952,7 +51960,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1546.013",
    :rdfs/label "PowerShell Profile",
-   :rdfs/seeAlso {:rdf/value "T1546.013"},
+   :rdfs/seeAlso :d3f/T1546.013,
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
 
@@ -44058,9 +52066,78 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1550.004",
    :rdfs/label "Web Session Cookie",
-   :rdfs/seeAlso {:rdf/value "T1550.004"},
+   :rdfs/seeAlso :d3f/T1550.004,
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique
                       :d3f/LateralMovementTechnique}})
+
+(def T1507
+  {:d3f/attack-id "T1507",
+   :d3f/definition
+   "Adversaries may use device sensors to collect information about nearby networks, such as Wi-Fi and Bluetooth.",
+   :db/ident :d3f/T1507,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1421",
+   :rdfs/label "Network Information Discovery - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1421,
+   :rdfs/subClassOf :d3f/ATTACKMobileCollectionTechnique,
+   :skos/prefLabel "Network Information Discovery"})
+
+(def T1508
+  {:d3f/attack-id "T1508",
+   :d3f/definition
+   "A malicious application could suppress its icon from being displayed to the user in the application launcher to hide the fact that it is installed, and to make it more difficult for the user to uninstall the application. Hiding the application's icon programmatically does not require any special permissions.",
+   :db/ident :d3f/T1508,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1628.001",
+   :rdfs/label "Suppress Application Icon - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1628.001,
+   :rdfs/subClassOf :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :skos/prefLabel "Suppress Application Icon"})
+
+(def T1509
+  {:d3f/attack-id "T1509",
+   :d3f/definition
+   "Adversaries may generate network traffic using a protocol and port pairing that are typically not associated. For example, HTTPS over port 8088 or port 587 as opposed to the traditional port 443. Adversaries may make changes to the standard port used by a protocol to bypass filtering or muddle analysis/parsing of network data.",
+   :db/ident :d3f/T1509,
+   :rdf/type :owl/Class,
+   :rdfs/label "Non-Standard Port - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCommandAndControlTechnique,
+   :skos/prefLabel "Non-Standard Port"})
+
+(def T1510
+  {:d3f/attack-id "T1510",
+   :d3f/definition
+   "Adversaries may abuse clipboard functionality to intercept and replace information in the Android device clipboard.(Citation: ESET Clipboard Modification February 2019)(Citation: Welivesecurity Clipboard Modification February 2019)(Citation: Syracuse Clipboard Modification 2014) Malicious applications may monitor the clipboard activity through the <code>ClipboardManager.OnPrimaryClipChangedListener</code> interface on Android to determine when the clipboard contents have changed.(Citation: Dr.Webb Clipboard Modification origin2 August 2018)(Citation: Dr.Webb Clipboard Modification origin August 2018) Listening to clipboard activity, reading the clipboard contents, and modifying the clipboard contents requires no explicit application permissions and can be performed by applications running in the background, however, this behavior has changed with the release of Android 10.(Citation: Android 10 Privacy Changes)",
+   :db/ident :d3f/T1510,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1641.001",
+   :rdfs/label "Clipboard Modification - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1641.001,
+   :rdfs/subClassOf :d3f/ATTACKMobileImpactTechnique,
+   :skos/prefLabel "Clipboard Modification"})
+
+(def T1512
+  {:d3f/attack-id "T1512",
+   :d3f/definition
+   "An adversary can leverage a device’s cameras to gather information by capturing video recordings. Images may also be captured, potentially in specified intervals, in lieu of video files.",
+   :db/ident :d3f/T1512,
+   :rdf/type :owl/Class,
+   :rdfs/label "Video Capture - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCollectionTechnique,
+   :skos/prefLabel "Video Capture"})
+
+(def T1513
+  {:d3f/attack-id "T1513",
+   :d3f/definition
+   "Adversaries may use screen capture to collect additional information about a target device, such as applications running in the foreground, user data, credentials, or other sensitive information. Applications running in the background can capture screenshots or videos of another application running in the foreground by using the Android `MediaProjectionManager` (generally requires the device user to grant consent).(Citation: Fortinet screencap July 2019)(Citation: Android ScreenCap1 2019) Background applications can also use Android accessibility services to capture screen contents being displayed by a foreground application.(Citation: Lookout-Monokle) An adversary with root access or Android Debug Bridge (adb) access could call the Android `screencap` or `screenrecord` commands.(Citation: Android ScreenCap2 2019)(Citation: Trend Micro ScreenCap July 2015)",
+   :db/ident :d3f/T1513,
+   :rdf/type :owl/Class,
+   :rdfs/label "Screen Capture - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCollectionTechnique,
+   :skos/prefLabel "Screen Capture"})
 
 (def T1514
   {:d3f/attack-id "T1514",
@@ -44071,8 +52148,30 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1548.004",
    :rdfs/label "Elevated Execution with Prompt",
-   :rdfs/seeAlso {:rdf/value "T1548.004"},
+   :rdfs/seeAlso :d3f/T1548.004,
    :rdfs/subClassOf :d3f/PrivilegeEscalationTechnique})
+
+(def T1516
+  {:d3f/attack-id "T1516",
+   :d3f/definition
+   "A malicious application can inject input to the user interface to mimic user interaction through the abuse of Android's accessibility APIs.",
+   :db/ident :d3f/T1516,
+   :rdf/type :owl/Class,
+   :rdfs/label "Input Injection - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileImpactTechnique
+                      :d3f/ATTACKMobileDefenseEvasionTechnique},
+   :skos/prefLabel "Input Injection"})
+
+(def T1517
+  {:d3f/attack-id "T1517",
+   :d3f/definition
+   "Adversaries may collect data within notifications sent by the operating system or other applications. Notifications may contain sensitive data such as one-time authentication codes sent over SMS, email, or other mediums. In the case of Credential Access, adversaries may attempt to intercept one-time code sent to the device. Adversaries can also dismiss notifications to prevent the user from noticing that the notification has arrived and can trigger action buttons contained within notifications.(Citation: ESET 2FA Bypass)",
+   :db/ident :d3f/T1517,
+   :rdf/type :owl/Class,
+   :rdfs/label "Access Notifications - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileCollectionTechnique
+                      :d3f/ATTACKMobileCredentialAccessTechnique},
+   :skos/prefLabel "Access Notifications"})
 
 (def T1518
   {:d3f/attack-id "T1518",
@@ -44120,9 +52219,62 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1546.014",
    :rdfs/label "Emond",
-   :rdfs/seeAlso {:rdf/value "T1546.014"},
+   :rdfs/seeAlso :d3f/T1546.014,
    :rdfs/subClassOf #{:d3f/PersistenceTechnique
                       :d3f/PrivilegeEscalationTechnique}})
+
+(def T1520
+  {:d3f/attack-id "T1520",
+   :d3f/definition
+   "Adversaries may use [Domain Generation Algorithms](https://attack.mitre.org/techniques/T1520) (DGAs) to procedurally generate domain names for command and control communication, and other uses such as malicious application distribution.(Citation: securelist rotexy 2018)",
+   :db/ident :d3f/T1520,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1637.001",
+   :rdfs/label "Domain Generation Algorithms - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1637.001,
+   :rdfs/subClassOf :d3f/ATTACKMobileCommandAndControlTechnique,
+   :skos/prefLabel "Domain Generation Algorithms"})
+
+(def T1521
+  {:d3f/attack-id "T1521",
+   :d3f/definition
+   "Adversaries may explicitly employ a known encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol. Despite the use of a secure algorithm, these implementations may be vulnerable to reverse engineering if necessary secret keys are encoded and/or generated within malware samples/configuration files.",
+   :db/ident :d3f/T1521,
+   :rdf/type :owl/Class,
+   :rdfs/label "Encrypted Channel - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCommandAndControlTechnique,
+   :skos/prefLabel "Encrypted Channel"})
+
+(def T1521_001
+  {:d3f/attack-id "T1521.001",
+   :d3f/definition
+   "Adversaries may employ a known symmetric encryption algorithm to conceal command and control traffic, rather than relying on any inherent protections provided by a communication protocol. Symmetric encryption algorithms use the same key for plaintext encryption and ciphertext decryption. Common symmetric encryption algorithms include AES, Blowfish, and RC4.",
+   :db/ident :d3f/T1521.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Symmetric Cryptography - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1521,
+   :skos/prefLabel "Symmetric Cryptography"})
+
+(def T1521_002
+  {:d3f/attack-id "T1521.002",
+   :d3f/definition
+   "Adversaries may employ a known asymmetric encryption algorithm to conceal command and control traffic, rather than relying on any inherent protections provided by a communication protocol. Asymmetric cryptography, also known as public key cryptography, uses a keypair per party: one public that can be freely distributed, and one private that should not be distributed. Due to how asymmetric algorithms work, the sender encrypts data with the receiver’s public key and the receiver decrypts the data with their private key. This ensures that only the intended recipient can read the encrypted data. Common public key encryption algorithms include RSA, ElGamal, and ECDSA.",
+   :db/ident :d3f/T1521.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Asymmetric Cryptography - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1521,
+   :skos/prefLabel "Asymmetric Cryptography"})
+
+(def T1521_003
+  {:d3f/attack-id "T1521.003",
+   :d3f/definition
+   "Adversaries may use [SSL Pinning](https://attack.mitre.org/techniques/T1521/003)  to protect the C2 traffic from being intercepted and analyzed.",
+   :db/ident :d3f/T1521.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "SSL Pinning - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1521,
+   :skos/prefLabel "SSL Pinning"})
 
 (def T1522
   {:d3f/attack-id "T1522",
@@ -44133,8 +52285,22 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1552.005",
    :rdfs/label "Cloud Instance Metadata API",
-   :rdfs/seeAlso {:rdf/value "T1552.005"},
+   :rdfs/seeAlso :d3f/T1552.005,
    :rdfs/subClassOf :d3f/CredentialAccessTechnique})
+
+(def T1523
+  {:d3f/attack-id "T1523",
+   :d3f/definition
+   "Malicious applications may attempt to detect their operating environment prior to fully executing their payloads. These checks are often used to ensure the application is not running within an analysis environment such as a sandbox used for application vetting, security research, or reverse engineering.",
+   :db/ident :d3f/T1523,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1633.001",
+   :rdfs/label "Evade Analysis Environment - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1633.001,
+   :rdfs/subClassOf #{:d3f/ATTACKMobileDefenseEvasionTechnique
+                      :d3f/ATTACKMobileDiscoveryTechnique},
+   :skos/prefLabel "Evade Analysis Environment"})
 
 (def T1525
   {:d3f/adds :d3f/ContainerImage,
@@ -44171,7 +52337,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1550.001",
    :rdfs/label "Application Access Token",
-   :rdfs/seeAlso {:rdf/value "T1550.001"},
+   :rdfs/seeAlso :d3f/T1550.001,
    :rdfs/subClassOf #{:d3f/DefenseEvasionTechnique
                       :d3f/LateralMovementTechnique}})
 
@@ -44218,6 +52384,26 @@
                        :owl/someValuesFrom :d3f/UserAccount,
                        :rdf/type           :owl/Restriction}}})
 
+(def T1532
+  {:d3f/attack-id "T1532",
+   :d3f/definition
+   "Adversaries may compress and/or encrypt data that is collected prior to exfiltration. Compressing data can help to obfuscate its contents and minimize use of network resources. Encryption can be used to hide information that is being exfiltrated from detection or make exfiltration less conspicuous upon inspection by a defender.",
+   :db/ident :d3f/T1532,
+   :rdf/type :owl/Class,
+   :rdfs/label "Archive Collected Data - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCollectionTechnique,
+   :skos/prefLabel "Archive Collected Data"})
+
+(def T1533
+  {:d3f/attack-id "T1533",
+   :d3f/definition
+   "Adversaries may search local system sources, such as file systems or local databases, to find files of interest and sensitive data prior to exfiltration.",
+   :db/ident :d3f/T1533,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data from Local System - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCollectionTechnique,
+   :skos/prefLabel "Data from Local System"})
+
 (def T1534
   {:d3f/attack-id "T1534",
    :d3f/definition
@@ -44249,7 +52435,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "This technique has been revoked by T1578.004",
    :rdfs/label "Revert Cloud Instance",
-   :rdfs/seeAlso {:rdf/value "T1578.004"},
+   :rdfs/seeAlso :d3f/T1578.004,
    :rdfs/subClassOf :d3f/DefenseEvasionTechnique})
 
 (def T1537
@@ -44286,6 +52472,32 @@
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/SessionCookie,
                        :rdf/type           :owl/Restriction}}})
+
+(def T1540
+  {:d3f/attack-id "T1540",
+   :d3f/definition
+   "Adversaries may use code injection attacks to implant arbitrary code into the address space of a running application. Code is then executed or interpreted by that application. Adversaries utilizing this technique may exploit capabilities to load code in at runtime through dynamic libraries.",
+   :db/ident :d3f/T1540,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1631.001",
+   :rdfs/label "Code Injection - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1631.001,
+   :rdfs/subClassOf #{:d3f/ATTACKMobilePrivilegeEscalationTechnique
+                      :d3f/ATTACKMobilePersistenceTechnique
+                      :d3f/ATTACKMobileDefenseEvasionTechnique},
+   :skos/prefLabel "Code Injection"})
+
+(def T1541
+  {:d3f/attack-id "T1541",
+   :d3f/definition
+   "Adversaries may abuse Android's `startForeground()` API method to maintain continuous sensor access. Beginning in Android 9, idle applications running in the background no longer have access to device sensors, such as the camera, microphone, and gyroscope.(Citation: Android-SensorsOverview) Applications can retain sensor access by running in the foreground, using Android’s `startForeground()` API method. This informs the system that the user is actively interacting with the application, and it should not be killed. The only requirement to start a foreground service is showing a persistent notification to the user.(Citation: Android-ForegroundServices)",
+   :db/ident :d3f/T1541,
+   :rdf/type :owl/Class,
+   :rdfs/label "Foreground Persistence - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobilePersistenceTechnique
+                      :d3f/ATTACKMobileDefenseEvasionTechnique},
+   :skos/prefLabel "Foreground Persistence"})
 
 (def T1542
   {:d3f/attack-id "T1542",
@@ -44443,6 +52655,16 @@
    :rdfs/label "Container Service",
    :rdfs/subClassOf :d3f/T1543})
 
+(def T1544
+  {:d3f/attack-id "T1544",
+   :d3f/definition
+   "Adversaries may transfer tools or other files from an external system onto a compromised device to facilitate follow-on actions. Files may be copied from an external adversary-controlled system through the command and control channel  or through alternate protocols with another tool such as FTP.",
+   :db/ident :d3f/T1544,
+   :rdf/type :owl/Class,
+   :rdfs/label "Ingress Tool Transfer - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCommandAndControlTechnique,
+   :skos/prefLabel "Ingress Tool Transfer"})
+
 (def T1546
   {:d3f/attack-id "T1546",
    :d3f/definition
@@ -44516,14 +52738,17 @@
   {:d3f/attack-id "T1546.005",
    :d3f/definition
    "Adversaries may establish persistence by executing malicious content triggered by an interrupt signal. The <code>trap</code> command allows programs and shells to specify commands that will be executed upon receiving interrupt signals. A common situation is a script allowing for graceful termination and handling of common keyboard interrupts like <code>ctrl+c</code> and <code>ctrl+d</code>.",
-   :d3f/executes :d3f/Command,
+   :d3f/executes :d3f/ShellCommand,
    :d3f/may-create :d3f/ExecutableScript,
    :d3f/may-modify :d3f/ExecutableScript,
    :d3f/modifies :d3f/EventLog,
    :db/ident :d3f/T1546.005,
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Trap",
-   :rdfs/subClassOf #{{:owl/onProperty     :d3f/may-modify,
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/executes,
+                       :owl/someValuesFrom :d3f/ShellCommand,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3f/may-modify,
                        :owl/someValuesFrom :d3f/ExecutableScript,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/modifies,
@@ -44531,10 +52756,7 @@
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3f/may-create,
                        :owl/someValuesFrom :d3f/ExecutableScript,
-                       :rdf/type           :owl/Restriction} :d3f/T1546
-                      {:owl/onProperty     :d3f/executes,
-                       :owl/someValuesFrom :d3f/Command,
-                       :rdf/type           :owl/Restriction}}})
+                       :rdf/type           :owl/Restriction} :d3f/T1546}})
 
 (def T1546_006
   {:d3f/attack-id "T1546.006",
@@ -44885,7 +53107,7 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/comment "This technique has been revoked by T1647",
    :rdfs/label "Plist Modification",
-   :rdfs/seeAlso {:rdf/value "T1647"},
+   :rdfs/seeAlso :d3f/T1647,
    :rdfs/subClassOf #{:d3f/T1547
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/ApplicationConfigurationFile,
@@ -45396,7 +53618,7 @@
    :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/label "Modify Authentication Process",
    :rdfs/subClassOf #{:d3f/CredentialAccessTechnique
-                      :d3f/DefenseEvasionTechnique
+                      :d3f/DefenseEvasionTechnique :d3f/PersistenceTechnique
                       {:owl/onProperty     :d3f/modifies,
                        :owl/someValuesFrom :d3f/AuthenticationService,
                        :rdf/type           :owl/Restriction}}})
@@ -46677,6 +54899,40 @@
    :rdfs/label "AppDomainManager",
    :rdfs/subClassOf :d3f/T1574})
 
+(def T1575
+  {:d3f/attack-id "T1575",
+   :d3f/definition
+   "Adversaries may use Android’s Native Development Kit (NDK) to write native functions that can achieve execution of binaries or functions. Like system calls on a traditional desktop operating system, native code achieves execution on a lower level than normal Android SDK calls.",
+   :db/ident :d3f/T1575,
+   :rdf/type :owl/Class,
+   :rdfs/label "Native API - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileExecutionTechnique
+                      :d3f/ATTACKMobileDefenseEvasionTechnique},
+   :skos/prefLabel "Native API"})
+
+(def T1576
+  {:d3f/attack-id "T1576",
+   :d3f/definition
+   "Adversaries may include functionality in malware that uninstalls the malicious application from the device. This can be achieved by:",
+   :db/ident :d3f/T1576,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1630.001",
+   :rdfs/label "Uninstall Malicious Application - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1630.001,
+   :rdfs/subClassOf :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :skos/prefLabel "Uninstall Malicious Application"})
+
+(def T1577
+  {:d3f/attack-id "T1577",
+   :d3f/definition
+   "Adversaries may modify applications installed on a device to establish persistent access to a victim. These malicious modifications can be used to make legitimate applications carry out adversary tasks when these applications are in use.",
+   :db/ident :d3f/T1577,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromise Application Executable - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobilePersistenceTechnique,
+   :skos/prefLabel "Compromise Application Executable"})
+
 (def T1578
   {:d3f/attack-id "T1578",
    :d3f/definition
@@ -46731,6 +54987,19 @@
    :rdfs/label "Modify Cloud Compute Configurations",
    :rdfs/subClassOf :d3f/T1578})
 
+(def T1579
+  {:d3f/attack-id "T1579",
+   :d3f/definition
+   "Adversaries may collect the keychain storage data from an iOS device to acquire credentials. Keychains are the built-in way for iOS to keep track of users' passwords and credentials for many services and features such as Wi-Fi passwords, websites, secure notes, certificates, private keys, and VPN credentials.",
+   :db/ident :d3f/T1579,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1634.001",
+   :rdfs/label "Keychain - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1634.001,
+   :rdfs/subClassOf :d3f/ATTACKMobileCredentialAccessTechnique,
+   :skos/prefLabel "Keychain"})
+
 (def T1580
   {:d3f/attack-id "T1580",
    :d3f/definition
@@ -46739,6 +55008,29 @@
    :rdf/type :owl/Class,
    :rdfs/label "Cloud Infrastructure Discovery",
    :rdfs/subClassOf :d3f/DiscoveryTechnique})
+
+(def T1581
+  {:d3f/attack-id "T1581",
+   :d3f/definition
+   "Adversaries may use a device’s geographical location to limit certain malicious behaviors. For example, malware operators may limit the distribution of a second stage payload to certain geographic regions.(Citation: Lookout eSurv)",
+   :db/ident :d3f/T1581,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1627.001",
+   :rdfs/label "Geofencing - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1627.001,
+   :rdfs/subClassOf :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :skos/prefLabel "Geofencing"})
+
+(def T1582
+  {:d3f/attack-id "T1582",
+   :d3f/definition
+   "Adversaries may delete, alter, or send SMS messages without user authorization. This could be used to hide C2 SMS messages, spread malware, or various external effects.",
+   :db/ident :d3f/T1582,
+   :rdf/type :owl/Class,
+   :rdfs/label "SMS Control - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileImpactTechnique,
+   :skos/prefLabel "SMS Control"})
 
 (def T1583
   {:d3f/attack-id "T1583",
@@ -47586,6 +55878,40 @@
    :rdfs/label "Network Device Configuration Dump",
    :rdfs/subClassOf :d3f/T1602})
 
+(def T1603
+  {:d3f/attack-id "T1603",
+   :d3f/definition
+   "Adversaries may abuse task scheduling functionality to facilitate initial or recurring execution of malicious code. On Android and iOS, APIs and libraries exist to facilitate scheduling tasks to execute at a specified date, time, or interval.",
+   :db/ident :d3f/T1603,
+   :rdf/type :owl/Class,
+   :rdfs/label "Scheduled Task/Job - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileExecutionTechnique
+                      :d3f/ATTACKMobilePersistenceTechnique},
+   :skos/prefLabel "Scheduled Task/Job"})
+
+(def T1604
+  {:d3f/attack-id "T1604",
+   :d3f/definition
+   "Adversaries may use a compromised device as a proxy server to the Internet. By utilizing a proxy, adversaries hide the true IP address of their C2 server and associated infrastructure from the destination of the network traffic. This masquerades an adversary’s traffic as legitimate traffic originating from the compromised device, which can evade IP-based restrictions and alerts on certain services, such as bank accounts and social media websites.(Citation: Threat Fabric Exobot)",
+   :db/ident :d3f/T1604,
+   :rdf/type :owl/Class,
+   :rdfs/label "Proxy Through Victim - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :skos/prefLabel "Proxy Through Victim"})
+
+(def T1605
+  {:d3f/attack-id "T1605",
+   :d3f/definition
+   "Adversaries may use built-in command-line interfaces to interact with the device and execute commands. Android provides a bash shell that can be interacted with over the Android Debug Bridge (ADB) or programmatically using Java’s `Runtime` package. On iOS, adversaries can interact with the underlying runtime shell if the device has been jailbroken.",
+   :db/ident :d3f/T1605,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1623.001",
+   :rdfs/label "Command-Line Interface - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1623.001,
+   :rdfs/subClassOf :d3f/ATTACKMobileExecutionTechnique,
+   :skos/prefLabel "Command-Line Interface"})
+
 (def T1606
   {:d3f/attack-id "T1606",
    :d3f/definition
@@ -47722,12 +56048,13 @@
    :rdfs/subClassOf :d3f/DiscoveryTechnique})
 
 (def T1614
-  {:d3f/accesses    :d3f/ConfigurationResource,
-   :d3f/attack-id   "T1614",
-   :d3f/definition  "",
-   :db/ident        :d3f/T1614,
-   :rdf/type        #{:owl/NamedIndividual :owl/Class},
-   :rdfs/label      "System Location Discovery",
+  {:d3f/accesses :d3f/ConfigurationResource,
+   :d3f/attack-id "T1614",
+   :d3f/definition
+   "Adversaries may gather information in an attempt to calculate the geographical location of a victim host. Adversaries may use the information from [System Location Discovery](https://attack.mitre.org/techniques/T1614) during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.",
+   :db/ident :d3f/T1614,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "System Location Discovery",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/ConfigurationResource,
@@ -47758,6 +56085,41 @@
                       {:owl/onProperty     :d3f/reads,
                        :owl/someValuesFrom :d3f/GroupPolicy,
                        :rdf/type           :owl/Restriction}}})
+
+(def T1616
+  {:d3f/attack-id "T1616",
+   :d3f/definition
+   "Adversaries may make, forward, or block phone calls without user authorization. This could be used for adversary goals such as audio surveillance, blocking or forwarding calls from the device owner, or C2 communication.",
+   :db/ident :d3f/T1616,
+   :rdf/type :owl/Class,
+   :rdfs/label "Call Control - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileCollectionTechnique
+                      :d3f/ATTACKMobileImpactTechnique
+                      :d3f/ATTACKMobileCommandAndControlTechnique},
+   :skos/prefLabel "Call Control"})
+
+(def T1617
+  {:d3f/attack-id "T1617",
+   :d3f/definition
+   "Adversaries may utilize hooking to hide the presence of artifacts associated with their behaviors to evade detection. Hooking can be used to modify return values or data structures of system APIs and function calls. This process typically involves using 3rd party root frameworks, such as Xposed or Magisk, with either a system exploit or pre-existing root access. By including custom modules for root frameworks, adversaries can hook system APIs and alter the return value and/or system data structures to alter functionality/visibility of various aspects of the system.",
+   :db/ident :d3f/T1617,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hooking - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :skos/prefLabel "Hooking"})
+
+(def T1618
+  {:d3f/attack-id "T1618",
+   :d3f/definition
+   "Adversaries may attempt to avoid detection by hiding malicious behavior from the user. By doing this, an adversary’s modifications would most likely remain installed on the device for longer, allowing the adversary to continue to operate on that device.",
+   :db/ident :d3f/T1618,
+   :owl/deprecated true,
+   :rdf/type :owl/Class,
+   :rdfs/comment "This technique has been revoked by T1628.002",
+   :rdfs/label "User Evasion - ATTACK Mobile",
+   :rdfs/seeAlso :d3f/T1628.002,
+   :rdfs/subClassOf :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :skos/prefLabel "User Evasion"})
 
 (def T1619
   {:d3f/accesses :d3f/CloudStorage,
@@ -47802,6 +56164,507 @@
    :rdf/type :owl/Class,
    :rdfs/label "Debugger Evasion",
    :rdfs/subClassOf #{:d3f/DiscoveryTechnique :d3f/DefenseEvasionTechnique}})
+
+(def T1623
+  {:d3f/attack-id "T1623",
+   :d3f/definition
+   "Adversaries may abuse command and script interpreters to execute commands, scripts, or binaries. These interfaces and languages provide ways of interacting with computer systems and are a common feature across many different platforms. Most systems come with some built-in command-line interface and scripting capabilities, for example, Android is a UNIX-like OS and includes a basic [Unix Shell](https://attack.mitre.org/techniques/T1623/001) that can be accessed via the Android Debug Bridge (ADB) or Java’s `Runtime` package.",
+   :db/ident :d3f/T1623,
+   :rdf/type :owl/Class,
+   :rdfs/label "Command and Scripting Interpreter - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileExecutionTechnique,
+   :skos/prefLabel "Command and Scripting Interpreter"})
+
+(def T1623_001
+  {:d3f/attack-id "T1623.001",
+   :d3f/definition
+   "Adversaries may abuse Unix shell commands and scripts for execution. Unix shells are the underlying command prompts on Android and iOS devices. Unix shells can control every aspect of a system, with certain commands requiring elevated privileges that are only accessible if the device has been rooted or jailbroken.",
+   :db/ident :d3f/T1623.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Unix Shell - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1623,
+   :skos/prefLabel "Unix Shell"})
+
+(def T1624
+  {:d3f/attack-id "T1624",
+   :d3f/definition
+   "Adversaries may establish persistence using system mechanisms that trigger execution based on specific events. Mobile operating systems have means to subscribe to events such as receiving an SMS message, device boot completion, or other device activities.",
+   :db/ident :d3f/T1624,
+   :rdf/type :owl/Class,
+   :rdfs/label "Event Triggered Execution - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobilePersistenceTechnique,
+   :skos/prefLabel "Event Triggered Execution"})
+
+(def T1624_001
+  {:d3f/attack-id "T1624.001",
+   :d3f/definition
+   "Adversaries may establish persistence using system mechanisms that trigger execution based on specific events. Mobile operating systems have means to subscribe to events such as receiving an SMS message, device boot completion, or other device activities.",
+   :db/ident :d3f/T1624.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Broadcast Receivers - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1624,
+   :skos/prefLabel "Broadcast Receivers"})
+
+(def T1625
+  {:d3f/attack-id "T1625",
+   :d3f/definition
+   "Adversaries may execute their own malicious payloads by hijacking the way operating systems run applications. Hijacking execution flow can be for the purposes of persistence since this hijacked execution may reoccur over time.",
+   :db/ident :d3f/T1625,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hijack Execution Flow - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobilePersistenceTechnique,
+   :skos/prefLabel "Hijack Execution Flow"})
+
+(def T1625_001
+  {:d3f/attack-id "T1625.001",
+   :d3f/definition
+   "Adversaries may execute their own malicious payloads by hijacking the way an operating system runs applications. Hijacking execution flow can be for the purposes of persistence since this hijacked execution may reoccur at later points in time.",
+   :db/ident :d3f/T1625.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "System Runtime API Hijacking - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1625,
+   :skos/prefLabel "System Runtime API Hijacking"})
+
+(def T1626
+  {:d3f/attack-id "T1626",
+   :d3f/definition
+   "Adversaries may circumvent mechanisms designed to control elevated privileges to gain higher-level permissions. Most modern systems contain native elevation control mechanisms that are intended to limit privileges that a user can gain on a machine. Authorization has to be granted to specific users in order to perform tasks that are designated as higher risk. An adversary can use several methods to take advantage of built-in control mechanisms in order to escalate privileges on a system.",
+   :db/ident :d3f/T1626,
+   :rdf/type :owl/Class,
+   :rdfs/label "Abuse Elevation Control Mechanism - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobilePrivilegeEscalationTechnique,
+   :skos/prefLabel "Abuse Elevation Control Mechanism"})
+
+(def T1626_001
+  {:d3f/attack-id "T1626.001",
+   :d3f/definition
+   "Adversaries may abuse Android’s device administration API to obtain a higher degree of control over the device. By abusing the API, adversaries can perform several nefarious actions, such as resetting the device’s password for [Endpoint Denial of Service](https://attack.mitre.org/techniques/T1642), factory resetting the device for [File Deletion](https://attack.mitre.org/techniques/T1630/002) and to delete any traces of the malware, disabling all the device’s cameras, or to make it more difficult to uninstall the app.",
+   :db/ident :d3f/T1626.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Device Administrator Permissions - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1626,
+   :skos/prefLabel "Device Administrator Permissions"})
+
+(def T1627
+  {:d3f/attack-id "T1627",
+   :d3f/definition
+   "Adversaries may use execution guardrails to constrain execution or actions based on adversary supplied and environment specific conditions that are expected to be present on the target. Guardrails ensure that a payload only executes against an intended target and reduces collateral damage from an adversary’s campaign. Values an adversary can provide about a target system or environment to use as guardrails may include environment information such as location.(Citation: SWB Exodus March 2019)",
+   :db/ident :d3f/T1627,
+   :rdf/type :owl/Class,
+   :rdfs/label "Execution Guardrails - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :skos/prefLabel "Execution Guardrails"})
+
+(def T1627_001
+  {:d3f/attack-id "T1627.001",
+   :d3f/definition
+   "Adversaries may use a device’s geographical location to limit certain malicious behaviors. For example, malware operators may limit the distribution of a second stage payload to certain geographic regions.(Citation: Lookout eSurv)",
+   :db/ident :d3f/T1627.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Geofencing - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1627,
+   :skos/prefLabel "Geofencing"})
+
+(def T1628
+  {:d3f/attack-id "T1628",
+   :d3f/definition
+   "Adversaries may attempt to hide artifacts associated with their behaviors to evade detection. Mobile operating systems have features and developer APIs to hide various artifacts, such as an application’s launcher icon. These APIs have legitimate usages, such as hiding an icon to avoid application drawer clutter when an application does not have a usable interface. Adversaries may abuse these features and APIs to hide artifacts from the user to evade detection.",
+   :db/ident :d3f/T1628,
+   :rdf/type :owl/Class,
+   :rdfs/label "Hide Artifacts - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :skos/prefLabel "Hide Artifacts"})
+
+(def T1628_001
+  {:d3f/attack-id "T1628.001",
+   :d3f/definition
+   "A malicious application could suppress its icon from being displayed to the user in the application launcher. This hides the fact that it is installed, and can make it more difficult for the user to uninstall the application. Hiding the application's icon programmatically does not require any special permissions.",
+   :db/ident :d3f/T1628.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Suppress Application Icon - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1628,
+   :skos/prefLabel "Suppress Application Icon"})
+
+(def T1628_002
+  {:d3f/attack-id "T1628.002",
+   :d3f/definition
+   "Adversaries may attempt to avoid detection by hiding malicious behavior from the user. By doing this, an adversary’s modifications would most likely remain installed on the device for longer, allowing the adversary to continue to operate on that device.",
+   :db/ident :d3f/T1628.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "User Evasion - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1628,
+   :skos/prefLabel "User Evasion"})
+
+(def T1628_003
+  {:d3f/attack-id "T1628.003",
+   :d3f/definition
+   "Adversaries may attempt to hide multimedia files from the user. By doing so, adversaries may conceal captured files, such as pictures, videos and/or screenshots, then later exfiltrate those files.",
+   :db/ident :d3f/T1628.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Conceal Multimedia Files - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1628,
+   :skos/prefLabel "Conceal Multimedia Files"})
+
+(def T1629
+  {:d3f/attack-id "T1629",
+   :d3f/definition
+   "Adversaries may maliciously modify components of a victim environment in order to hinder or disable defensive mechanisms. This not only involves impairing preventative defenses, such as anti-virus, but also detection capabilities that defenders can use to audit activity and identify malicious behavior. This may span both native defenses as well as supplemental capabilities installed by users or mobile endpoint administrators.",
+   :db/ident :d3f/T1629,
+   :rdf/type :owl/Class,
+   :rdfs/label "Impair Defenses - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :skos/prefLabel "Impair Defenses"})
+
+(def T1629_001
+  {:d3f/attack-id "T1629.001",
+   :d3f/definition
+   "Adversaries may abuse the Android device administration API to prevent the user from uninstalling a target application. In earlier versions of Android, device administrator applications needed their administration capabilities explicitly deactivated by the user before the application could be uninstalled. This was later updated so the user could deactivate and uninstall the administrator application in one step.",
+   :db/ident :d3f/T1629.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Prevent Application Removal - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1629,
+   :skos/prefLabel "Prevent Application Removal"})
+
+(def T1629_002
+  {:d3f/attack-id "T1629.002",
+   :d3f/definition
+   "An adversary may seek to inhibit user interaction by locking the legitimate user out of the device. This is typically accomplished by requesting device administrator permissions and then locking the screen using `DevicePolicyManager.lockNow()`. Other novel techniques for locking the user out of the device have been observed, such as showing a persistent overlay, using carefully crafted “call” notification screens, and locking HTML pages in the foreground. These techniques can be very difficult to get around, and typically require booting the device into safe mode to uninstall the malware.(Citation: Microsoft MalLockerB)(Citation: Talos GPlayed)(Citation: securelist rotexy 2018)",
+   :db/ident :d3f/T1629.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Device Lockout - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1629,
+   :skos/prefLabel "Device Lockout"})
+
+(def T1629_003
+  {:d3f/attack-id "T1629.003",
+   :d3f/definition
+   "Adversaries may disable security tools to avoid potential detection of their tools and activities. This can take the form of disabling security software, modifying SELinux configuration, or other methods to interfere with security tools scanning or reporting information. This is typically done by abusing device administrator permissions or using system exploits to gain root access to the device to modify protected system files.",
+   :db/ident :d3f/T1629.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Disable or Modify Tools - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1629,
+   :skos/prefLabel "Disable or Modify Tools"})
+
+(def T1630
+  {:d3f/attack-id "T1630",
+   :d3f/definition
+   "Adversaries may delete, alter, or hide generated artifacts on a device, including files, jailbreak status, or the malicious application itself. These actions may interfere with event collection, reporting, or other notifications used to detect intrusion activity. This may compromise the integrity of mobile security solutions by causing notable events or information to go unreported.",
+   :db/ident :d3f/T1630,
+   :rdf/type :owl/Class,
+   :rdfs/label "Indicator Removal on Host - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :skos/prefLabel "Indicator Removal on Host"})
+
+(def T1630_001
+  {:d3f/attack-id "T1630.001",
+   :d3f/definition
+   "Adversaries may include functionality in malware that uninstalls the malicious application from the device. This can be achieved by:",
+   :db/ident :d3f/T1630.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Uninstall Malicious Application - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1630,
+   :skos/prefLabel "Uninstall Malicious Application"})
+
+(def T1630_002
+  {:d3f/attack-id "T1630.002",
+   :d3f/definition
+   "Adversaries may wipe a device or delete individual files in order to manipulate external outcomes or hide activity. An application must have administrator access to fully wipe the device, while individual files may not require special permissions to delete depending on their storage location.(Citation: Android DevicePolicyManager 2019)",
+   :db/ident :d3f/T1630.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "File Deletion - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1630,
+   :skos/prefLabel "File Deletion"})
+
+(def T1630_003
+  {:d3f/attack-id "T1630.003",
+   :d3f/definition
+   "An adversary could use knowledge of the techniques used by security software to evade detection.(Citation: Brodie)(Citation: Tan) For example, some mobile security products perform compromised device detection by searching for particular artifacts such as an installed \"su\" binary, but that check could be evaded by naming the binary something else. Similarly, polymorphic code techniques could be used to evade signature-based detection.(Citation: Rastogi)",
+   :db/ident :d3f/T1630.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Disguise Root/Jailbreak Indicators - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1630,
+   :skos/prefLabel "Disguise Root/Jailbreak Indicators"})
+
+(def T1631
+  {:d3f/attack-id "T1631",
+   :d3f/definition
+   "Adversaries may inject code into processes in order to evade process-based defenses or even elevate privileges. Process injection is a method of executing arbitrary code in the address space of a separate live process. Running code in the context of another process may allow access to the process's memory, system/network resources, and possibly elevated privileges. Execution via process injection may also evade detection from security products since the execution is masked under a legitimate process.",
+   :db/ident :d3f/T1631,
+   :rdf/type :owl/Class,
+   :rdfs/label "Process Injection - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobilePrivilegeEscalationTechnique
+                      :d3f/ATTACKMobileDefenseEvasionTechnique},
+   :skos/prefLabel "Process Injection"})
+
+(def T1631_001
+  {:d3f/attack-id "T1631.001",
+   :d3f/definition
+   "Adversaries may inject malicious code into processes via ptrace (process trace) system calls in order to evade process-based defenses as well as possibly elevate privileges. Ptrace system call injection is a method of executing arbitrary code in the address space of a separate live process.",
+   :db/ident :d3f/T1631.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Ptrace System Calls - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1631,
+   :skos/prefLabel "Ptrace System Calls"})
+
+(def T1632
+  {:d3f/attack-id "T1632",
+   :d3f/definition
+   "Adversaries may undermine security controls that will either warn users of untrusted activity or prevent execution of untrusted applications. Operating systems and security products may contain mechanisms to identify programs or websites as possessing some level of trust. Examples of such features include: an app being allowed to run because it is signed by a valid code signing certificate; an OS prompt alerting the user that an app came from an untrusted source; or getting an indication that you are about to connect to an untrusted site. The method adversaries use will depend on the specific mechanism they seek to subvert.",
+   :db/ident :d3f/T1632,
+   :rdf/type :owl/Class,
+   :rdfs/label "Subvert Trust Controls - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :skos/prefLabel "Subvert Trust Controls"})
+
+(def T1632_001
+  {:d3f/attack-id "T1632.001",
+   :d3f/definition
+   "Adversaries may modify code signing policies to enable execution of applications signed with unofficial or unknown keys. Code signing provides a level of authenticity on an app from a developer, guaranteeing that the program has not been tampered with and comes from an official source. Security controls can include enforcement mechanisms to ensure that only valid, signed code can be run on a device.",
+   :db/ident :d3f/T1632.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Code Signing Policy Modification - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1632,
+   :skos/prefLabel "Code Signing Policy Modification"})
+
+(def T1633
+  {:d3f/attack-id "T1633",
+   :d3f/definition
+   "Adversaries may employ various means to detect and avoid virtualization and analysis environments. This may include changing behaviors after checking for the presence of artifacts indicative of a virtual machine environment (VME) or sandbox. If the adversary detects a VME, they may alter their malware’s behavior to disengage from the victim or conceal the core functions of the payload. They may also search for VME artifacts before dropping further payloads. Adversaries may use the information learned from [Virtualization/Sandbox Evasion](https://attack.mitre.org/techniques/T1633) during automated discovery to shape follow-on behaviors.",
+   :db/ident :d3f/T1633,
+   :rdf/type :owl/Class,
+   :rdfs/label "Virtualization/Sandbox Evasion - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :skos/prefLabel "Virtualization/Sandbox Evasion"})
+
+(def T1633_001
+  {:d3f/attack-id "T1633.001",
+   :d3f/definition
+   "Adversaries may employ various system checks to detect and avoid virtualization and analysis environments. This may include changing behavior after checking for the presence of artifacts indicative of a virtual environment or sandbox. If the adversary detects a virtual environment, they may alter their malware’s behavior to disengage from the victim or conceal the core functions of the implant. They may also search for virtualization artifacts before dropping secondary or additional payloads.",
+   :db/ident :d3f/T1633.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "System Checks - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1633,
+   :skos/prefLabel "System Checks"})
+
+(def T1634
+  {:d3f/attack-id "T1634",
+   :d3f/definition
+   "Adversaries may search common password storage locations to obtain user credentials. Passwords can be stored in several places on a device, depending on the operating system or application holding the credentials. There are also specific applications that store passwords to make it easier for users to manage and maintain. Once credentials are obtained, they can be used to perform lateral movement and access restricted information.",
+   :db/ident :d3f/T1634,
+   :rdf/type :owl/Class,
+   :rdfs/label "Credentials from Password Store - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCredentialAccessTechnique,
+   :skos/prefLabel "Credentials from Password Store"})
+
+(def T1634_001
+  {:d3f/attack-id "T1634.001",
+   :d3f/definition
+   "Adversaries may collect keychain data from an iOS device to acquire credentials. Keychains are the built-in way for iOS to keep track of users' passwords and credentials for many services and features such as Wi-Fi passwords, websites, secure notes, certificates, private keys, and VPN credentials.",
+   :db/ident :d3f/T1634.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Keychain - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1634,
+   :skos/prefLabel "Keychain"})
+
+(def T1635
+  {:d3f/attack-id "T1635",
+   :d3f/definition
+   "Adversaries can steal user application access tokens as a means of acquiring credentials to access remote systems and resources. This can occur through social engineering or URI hijacking and typically requires user action to grant access, such as through a system “Open With” dialogue.",
+   :db/ident :d3f/T1635,
+   :rdf/type :owl/Class,
+   :rdfs/label "Steal Application Access Token - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCredentialAccessTechnique,
+   :skos/prefLabel "Steal Application Access Token"})
+
+(def T1635_001
+  {:d3f/attack-id "T1635.001",
+   :d3f/definition
+   "Adversaries may register Uniform Resource Identifiers (URIs) to intercept sensitive data.",
+   :db/ident :d3f/T1635.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "URI Hijacking - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1635,
+   :skos/prefLabel "URI Hijacking"})
+
+(def T1636
+  {:d3f/attack-id "T1636",
+   :d3f/definition
+   "Adversaries may utilize standard operating system APIs to collect data from permission-backed data stores on a device, such as the calendar or contact list. These permissions need to be declared ahead of time. On Android, they must be included in the application’s manifest. On iOS, they must be included in the application’s `Info.plist` file.",
+   :db/ident :d3f/T1636,
+   :rdf/type :owl/Class,
+   :rdfs/label "Protected User Data - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCollectionTechnique,
+   :skos/prefLabel "Protected User Data"})
+
+(def T1636_001
+  {:d3f/attack-id "T1636.001",
+   :d3f/definition
+   "Adversaries may utilize standard operating system APIs to gather calendar entry data. On Android, this can be accomplished using the Calendar Content Provider. On iOS, this can be accomplished using the `EventKit` framework.",
+   :db/ident :d3f/T1636.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Calendar Entries - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1636,
+   :skos/prefLabel "Calendar Entries"})
+
+(def T1636_002
+  {:d3f/attack-id "T1636.002",
+   :d3f/definition
+   "Adversaries may utilize standard operating system APIs to gather call log data. On Android, this can be accomplished using the Call Log Content Provider. iOS provides no standard API to access the call log.",
+   :db/ident :d3f/T1636.002,
+   :rdf/type :owl/Class,
+   :rdfs/label "Call Log - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1636,
+   :skos/prefLabel "Call Log"})
+
+(def T1636_003
+  {:d3f/attack-id "T1636.003",
+   :d3f/definition
+   "Adversaries may utilize standard operating system APIs to gather contact list data. On Android, this can be accomplished using the Contacts Content Provider. On iOS, this can be accomplished using the `Contacts` framework.",
+   :db/ident :d3f/T1636.003,
+   :rdf/type :owl/Class,
+   :rdfs/label "Contact List - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1636,
+   :skos/prefLabel "Contact List"})
+
+(def T1636_004
+  {:d3f/attack-id "T1636.004",
+   :d3f/definition
+   "Adversaries may utilize standard operating system APIs to gather SMS messages. On Android, this can be accomplished using the SMS Content Provider. iOS provides no standard API to access SMS messages.",
+   :db/ident :d3f/T1636.004,
+   :rdf/type :owl/Class,
+   :rdfs/label "SMS Messages - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1636,
+   :skos/prefLabel "SMS Messages"})
+
+(def T1637
+  {:d3f/attack-id "T1637",
+   :d3f/definition
+   "Adversaries may dynamically establish connections to command and control infrastructure to evade common detections and remediations. This may be achieved by using malware that shares a common algorithm with the infrastructure the adversary uses to receive the malware's communications. This algorithm can be used to dynamically adjust parameters such as the domain name, IP address, or port number the malware uses for command and control.",
+   :db/ident :d3f/T1637,
+   :rdf/type :owl/Class,
+   :rdfs/label "Dynamic Resolution - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCommandAndControlTechnique,
+   :skos/prefLabel "Dynamic Resolution"})
+
+(def T1637_001
+  {:d3f/attack-id "T1637.001",
+   :d3f/definition
+   "Adversaries may use [Domain Generation Algorithms](https://attack.mitre.org/techniques/T1637/001) (DGAs) to procedurally generate domain names for uses such as command and control communication   or malicious application distribution.(Citation: securelist rotexy 2018)",
+   :db/ident :d3f/T1637.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Domain Generation Algorithms - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1637,
+   :skos/prefLabel "Domain Generation Algorithms"})
+
+(def T1638
+  {:d3f/attack-id "T1638",
+   :d3f/definition
+   "Adversaries may attempt to position themselves between two or more networked devices to support follow-on behaviors such as [Transmitted Data Manipulation](https://attack.mitre.org/techniques/T1565/002) or [Endpoint Denial of Service](https://attack.mitre.org/techniques/T1642).",
+   :db/ident :d3f/T1638,
+   :rdf/type :owl/Class,
+   :rdfs/label "Adversary-in-the-Middle - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCollectionTechnique,
+   :skos/prefLabel "Adversary-in-the-Middle"})
+
+(def T1639
+  {:d3f/attack-id "T1639",
+   :d3f/definition
+   "Adversaries may steal data by exfiltrating it over a different protocol than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server.",
+   :db/ident :d3f/T1639,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exfiltration Over Alternative Protocol - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileExfiltrationTechnique,
+   :skos/prefLabel "Exfiltration Over Alternative Protocol"})
+
+(def T1639_001
+  {:d3f/attack-id "T1639.001",
+   :d3f/definition
+   "Adversaries may steal data by exfiltrating it over an un-encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server.",
+   :db/ident :d3f/T1639.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exfiltration Over Unencrypted Non-C2 Protocol - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1639,
+   :skos/prefLabel "Exfiltration Over Unencrypted Non-C2 Protocol"})
+
+(def T1640
+  {:d3f/attack-id "T1640",
+   :d3f/definition
+   "Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users. Accounts may be deleted, locked, or manipulated (ex: credentials changed) to remove access to accounts.",
+   :db/ident :d3f/T1640,
+   :rdf/type :owl/Class,
+   :rdfs/label "Account Access Removal - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileImpactTechnique,
+   :skos/prefLabel "Account Access Removal"})
+
+(def T1641
+  {:d3f/attack-id "T1641",
+   :d3f/definition
+   "Adversaries may insert, delete, or alter data in order to manipulate external outcomes or hide activity. By manipulating data, adversaries may attempt to affect a business process, organizational understanding, or decision making.",
+   :db/ident :d3f/T1641,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data Manipulation - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileImpactTechnique,
+   :skos/prefLabel "Data Manipulation"})
+
+(def T1641_001
+  {:d3f/attack-id "T1641.001",
+   :d3f/definition
+   "Adversaries may alter data en route to storage or other systems in order to manipulate external outcomes or hide activity. By manipulating transmitted data, adversaries may attempt to affect a business process, organizational understanding, or decision making.",
+   :db/ident :d3f/T1641.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Transmitted Data Manipulation - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1641,
+   :skos/prefLabel "Transmitted Data Manipulation"})
+
+(def T1642
+  {:d3f/attack-id "T1642",
+   :d3f/definition
+   "Adversaries may perform Endpoint Denial of Service (DoS) attacks to degrade or block the availability of services to users.",
+   :db/ident :d3f/T1642,
+   :rdf/type :owl/Class,
+   :rdfs/label "Endpoint Denial of Service - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileImpactTechnique,
+   :skos/prefLabel "Endpoint Denial of Service"})
+
+(def T1643
+  {:d3f/attack-id "T1643",
+   :d3f/definition
+   "Adversaries may generate outbound traffic from devices. This is typically performed to manipulate external outcomes, such as to achieve carrier billing fraud or to manipulate app store rankings or ratings. Outbound traffic is typically generated as SMS messages or general web traffic, but may take other forms as well.",
+   :db/ident :d3f/T1643,
+   :rdf/type :owl/Class,
+   :rdfs/label "Generate Traffic from Victim - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileImpactTechnique,
+   :skos/prefLabel "Generate Traffic from Victim"})
+
+(def T1644
+  {:d3f/attack-id "T1644",
+   :d3f/definition
+   "Adversaries may communicate with compromised devices using out of band data streams. This could be done for a variety of reasons, including evading network traffic monitoring, as a backup method of command and control, or for data exfiltration if the device is not connected to any Internet-providing networks (i.e. cellular or Wi-Fi). Several out of band data streams exist, such as SMS messages, NFC, and Bluetooth.",
+   :db/ident :d3f/T1644,
+   :rdf/type :owl/Class,
+   :rdfs/label "Out of Band Data - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCommandAndControlTechnique,
+   :skos/prefLabel "Out of Band Data"})
+
+(def T1645
+  {:d3f/attack-id "T1645",
+   :d3f/definition
+   "Adversaries may modify system software binaries to establish persistent access to devices. System software binaries are used by the underlying operating system and users over adb or terminal emulators.",
+   :db/ident :d3f/T1645,
+   :rdf/type :owl/Class,
+   :rdfs/label "Compromise Client Software Binary - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobilePersistenceTechnique,
+   :skos/prefLabel "Compromise Client Software Binary"})
+
+(def T1646
+  {:d3f/attack-id "T1646",
+   :d3f/definition
+   "Adversaries may steal data by exfiltrating it over an existing command and control channel. Stolen data is encoded into the normal communications channel using the same protocol as command and control communications.",
+   :db/ident :d3f/T1646,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exfiltration Over C2 Channel - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileExfiltrationTechnique,
+   :skos/prefLabel "Exfiltration Over C2 Channel"})
 
 (def T1647
   {:d3f/attack-id "T1647",
@@ -47875,6 +56738,26 @@
    :rdfs/label "Log Enumeration",
    :rdfs/subClassOf :d3f/DiscoveryTechnique})
 
+(def T1655
+  {:d3f/attack-id "T1655",
+   :d3f/definition
+   "Adversaries may attempt to manipulate features of their artifacts to make them appear legitimate or benign to users and/or security tools. Masquerading occurs when the name, location, or appearance of an object, legitimate or malicious, is manipulated or abused for the sake of evading defenses and observation. This may include manipulating file metadata, tricking users into misidentifying the file type, and giving legitimate task or service names.",
+   :db/ident :d3f/T1655,
+   :rdf/type :owl/Class,
+   :rdfs/label "Masquerading - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :skos/prefLabel "Masquerading"})
+
+(def T1655_001
+  {:d3f/attack-id "T1655.001",
+   :d3f/definition
+   "Adversaries may match or approximate the name or location of legitimate files or resources when naming/placing them. This is done for the sake of evading defenses and observation. This may be done by giving artifacts the name and icon of a legitimate, trusted application (i.e., Settings), or using a package name that matches legitimate, trusted applications (i.e., `com.google.android.gm`).",
+   :db/ident :d3f/T1655.001,
+   :rdf/type :owl/Class,
+   :rdfs/label "Match Legitimate Name or Location - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/T1655,
+   :skos/prefLabel "Match Legitimate Name or Location"})
+
 (def T1656
   {:d3f/attack-id "T1656",
    :d3f/definition
@@ -47893,6 +56776,16 @@
    :rdfs/label "Financial Theft",
    :rdfs/subClassOf :d3f/ImpactTechnique})
 
+(def T1658
+  {:d3f/attack-id "T1658",
+   :d3f/definition
+   "Adversaries may exploit software vulnerabilities in client applications to execute code. Vulnerabilities can exist in software due to insecure coding practices that can lead to unanticipated behavior. Adversaries may take advantage of certain vulnerabilities through targeted exploitation for the purpose of arbitrary code execution. Oftentimes the most valuable exploits to an offensive toolkit are those that can be used to obtain code execution on a remote system because they can be used to gain access to that system. Users will expect to see files related to the applications they commonly used to do work, so they are a useful target for exploit research and development because of their high utility.",
+   :db/ident :d3f/T1658,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exploitation for Client Execution - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileExecutionTechnique,
+   :skos/prefLabel "Exploitation for Client Execution"})
+
 (def T1659
   {:d3f/attack-id "T1659",
    :d3f/definition
@@ -47902,6 +56795,57 @@
    :rdfs/label "Content Injection",
    :rdfs/subClassOf #{:d3f/CommandAndControlTechnique
                       :d3f/InitialAccessTechnique}})
+
+(def T1660
+  {:d3f/attack-id "T1660",
+   :d3f/definition
+   "Adversaries may send malicious content to users in order to gain access to their mobile devices. All forms of phishing are electronically delivered social engineering. Adversaries can conduct both non-targeted phishing, such as in mass malware spam campaigns, as well as more targeted phishing tailored for a specific individual, company, or industry, known as “spearphishing”.  Phishing often involves social engineering techniques, such as posing as a trusted source, as well as evasion techniques, such as removing or manipulating emails or metadata/headers from compromised accounts being abused to send messages.",
+   :db/ident :d3f/T1660,
+   :rdf/type :owl/Class,
+   :rdfs/label "Phishing - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileInitialAccessTechnique,
+   :skos/prefLabel "Phishing"})
+
+(def T1661
+  {:d3f/attack-id "T1661",
+   :d3f/definition
+   "An adversary may push an update to a previously benign application to add malicious code. This can be accomplished by pushing an initially benign, functional application to a trusted application store, such as the Google Play Store or the Apple App Store. This allows the adversary to establish a trusted userbase that may grant permissions to the application prior to the introduction of malicious code. Then, an application update could be pushed to introduce malicious code.(Citation: android_app_breaking_bad)",
+   :db/ident :d3f/T1661,
+   :rdf/type :owl/Class,
+   :rdfs/label "Application Versioning - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileInitialAccessTechnique
+                      :d3f/ATTACKMobileDefenseEvasionTechnique},
+   :skos/prefLabel "Application Versioning"})
+
+(def T1662
+  {:d3f/attack-id "T1662",
+   :d3f/definition
+   "Adversaries may destroy data and files on specific devices or in large numbers to interrupt availability to systems, services, and network resources. Data destruction is likely to render stored data irrecoverable by forensic techniques through overwriting files or data on local and remote drives.",
+   :db/ident :d3f/T1662,
+   :rdf/type :owl/Class,
+   :rdfs/label "Data Destruction - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileImpactTechnique,
+   :skos/prefLabel "Data Destruction"})
+
+(def T1663
+  {:d3f/attack-id "T1663",
+   :d3f/definition
+   "Adversaries may use legitimate remote access software, such as `VNC`, `TeamViewer`, `AirDroid`, `AirMirror`, etc., to establish an interactive command and control channel to target mobile devices.",
+   :db/ident :d3f/T1663,
+   :rdf/type :owl/Class,
+   :rdfs/label "Remote Access Software - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileCommandAndControlTechnique,
+   :skos/prefLabel "Remote Access Software"})
+
+(def T1664
+  {:d3f/attack-id "T1664",
+   :d3f/definition
+   "Adversaries may exploit software vulnerabilities to gain initial access to a mobile device.",
+   :db/ident :d3f/T1664,
+   :rdf/type :owl/Class,
+   :rdfs/label "Exploitation for Initial Access - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileInitialAccessTechnique,
+   :skos/prefLabel "Exploitation for Initial Access"})
 
 (def T1665
   {:d3f/attack-id "T1665",
@@ -47947,6 +56891,16 @@
    :rdf/type :owl/Class,
    :rdfs/label "Wi-Fi Networks",
    :rdfs/subClassOf :d3f/InitialAccessTechnique})
+
+(def T1670
+  {:d3f/attack-id "T1670",
+   :d3f/definition
+   "Adversaries may carry out malicious operations using virtualization solutions to escape from Android sandboxes and to avoid detection. Android uses sandboxes to separate resources and code execution between applications and the operating system.(Citation: Android Application Sandbox) There are a few virtualization solutions available on Android, such as the Android Virtualization Framework (AVF).(Citation: Android AVF Overview)",
+   :db/ident :d3f/T1670,
+   :rdf/type :owl/Class,
+   :rdfs/label "Virtualization Solution - ATTACK Mobile",
+   :rdfs/subClassOf :d3f/ATTACKMobileDefenseEvasionTechnique,
+   :skos/prefLabel "Virtualization Solution"})
 
 (def T1671
   {:d3f/attack-id "T1671",
@@ -48092,6 +57046,83 @@
    :rdfs/label "Command And Control",
    :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
 
+(def TA0027
+  {:db/ident        :d3f/TA0027,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Initial Access - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Initial Access"})
+
+(def TA0028
+  {:db/ident        :d3f/TA0028,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Persistence - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Persistence"})
+
+(def TA0029
+  {:db/ident        :d3f/TA0029,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Privilege Escalation - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Privilege Escalation"})
+
+(def TA0030
+  {:db/ident        :d3f/TA0030,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Defense Evasion - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Defense Evasion"})
+
+(def TA0031
+  {:db/ident        :d3f/TA0031,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Credential Access - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Credential Access"})
+
+(def TA0032
+  {:db/ident        :d3f/TA0032,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Discovery - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Discovery"})
+
+(def TA0033
+  {:db/ident        :d3f/TA0033,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Lateral Movement - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Lateral Movement"})
+
+(def TA0034
+  {:db/ident        :d3f/TA0034,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Impact - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Impact"})
+
+(def TA0035
+  {:db/ident        :d3f/TA0035,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Collection - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Collection"})
+
+(def TA0036
+  {:db/ident        :d3f/TA0036,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Exfiltration - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Exfiltration"})
+
+(def TA0037
+  {:db/ident        :d3f/TA0037,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Command and Control - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Command and Control"})
+
 (def TA0040
   {:d3f/definition
    "The adversary is trying to manipulate, interrupt, or destroy your systems and data.\n\nImpact consists of techniques that adversaries use to disrupt availability or compromise integrity by manipulating business and operational processes. Techniques used for impact can include destroying or tampering with data. In some cases, business processes can look fine, but may have been altered to benefit the adversaries' goals. These techniques might be used by adversaries to follow through on their end goal or to provide cover for a confidentiality breach.",
@@ -48101,12 +57132,18 @@
    :rdfs/label "Impact",
    :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
 
+(def TA0041
+  {:db/ident        :d3f/TA0041,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Execution - ATTACK Mobile",
+   :rdfs/subClassOf #{:d3f/ATTACKMobileTactic :d3f/OffensiveTactic}})
+
 (def TA0042
   {:d3f/definition
    "The adversary is trying to establish resources they can use to support operations.\n\nResource Development consists of techniques that involve adversaries creating, purchasing, or compromising/stealing resources that can be used to support targeting. Such resources include infrastructure, accounts, or capabilities. These resources can be leveraged by the adversary to aid in other phases of the adversary lifecycle, such as using purchased domains to support Command and Control, email accounts for phishing as a part of Initial Access, or stealing code signing certificates to help with Defense Evasion.",
    :d3f/display-order 0,
    :db/ident :d3f/TA0042,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
    :rdfs/label "Resource Development",
    :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
 
@@ -48115,9 +57152,93 @@
    "The adversary is trying to gather information they can use to plan future operations.\n\nReconnaissance consists of techniques that involve adversaries actively or passively gathering information that can be used to support targeting. Such information may include details of the victim organization, infrastructure, or staff/personnel. This information can be leveraged by the adversary to aid in other phases of the adversary lifecycle, such as using gathered information to plan and execute Initial Access, to scope and prioritize post-compromise objectives, or to drive and lead further Reconnaissance efforts.",
    :d3f/display-order -1,
    :db/ident :d3f/TA0043,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
    :rdfs/label "Reconnaissance",
    :rdfs/subClassOf #{:d3f/ATTACKEnterpriseTactic :d3f/OffensiveTactic}})
+
+(def TA0100
+  {:db/ident        :d3f/TA0100,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Collection - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Collection"})
+
+(def TA0101
+  {:db/ident        :d3f/TA0101,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Command and Control - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Command and Control"})
+
+(def TA0102
+  {:db/ident        :d3f/TA0102,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Discovery - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Discovery"})
+
+(def TA0103
+  {:db/ident        :d3f/TA0103,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Evasion - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Evasion"})
+
+(def TA0104
+  {:db/ident        :d3f/TA0104,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Execution - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Execution"})
+
+(def TA0105
+  {:db/ident        :d3f/TA0105,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Impact - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Impact"})
+
+(def TA0106
+  {:db/ident        :d3f/TA0106,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Impair Process Control - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Impair Process Control"})
+
+(def TA0107
+  {:db/ident        :d3f/TA0107,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Inhibit Response Function - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Inhibit Response Function"})
+
+(def TA0108
+  {:db/ident        :d3f/TA0108,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Initial Access - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Initial Access"})
+
+(def TA0109
+  {:db/ident        :d3f/TA0109,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Lateral Movement - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Lateral Movement"})
+
+(def TA0110
+  {:db/ident        :d3f/TA0110,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Persistence - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Persistence"})
+
+(def TA0111
+  {:db/ident        :d3f/TA0111,
+   :rdf/type        #{:owl/NamedIndividual :owl/Class :d3f/OffensiveTactic},
+   :rdfs/label      "Privilege Escalation - ATTACK ICS",
+   :rdfs/subClassOf #{:d3f/ATTACKICSTactic :d3f/OffensiveTactic},
+   :skos/prefLabel  "Privilege Escalation"})
 
 (def TCPEvent
   {:d3f/definition
@@ -48200,6 +57321,16 @@
                       {:owl/onProperty     :d3f/kb-reference-title,
                        :owl/someValuesFrom :xsd/string,
                        :rdf/type           :owl/Restriction}}})
+
+(def Telecommand
+  {:d3f/definition
+   "A telecommand or telecontrol is a command sent to control a remote system or systems not directly connected (e.g. via wires) to the place from which the telecommand is sent.",
+   :d3f/synonym "Remote Control Command",
+   :db/ident :d3f/Telecommand,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:xsd/anyURI "http://dbpedia.org/resource/Telecommand"},
+   :rdfs/label "Telecommand",
+   :rdfs/subClassOf :d3f/RemoteCommand})
 
 (def TemporalDifferenceLearning
   {:d3f/d3fend-id "D3A-TDL",
@@ -48313,6 +57444,14 @@
    :rdfs/label "Time Series Analysis",
    :rdfs/subClassOf :d3f/StatisticalMethod})
 
+(def TimeSeriesDatabase
+  {:d3f/definition
+   "A specialized database optimized for storing and retrieving time-stamped data.",
+   :db/ident :d3f/TimeSeriesDatabase,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Time Series Database",
+   :rdfs/subClassOf :d3f/Database})
+
 (def Token-basedAuthentication
   {:d3f/d3fend-id "D3-TBA",
    :d3f/definition
@@ -48375,6 +57514,23 @@
    :rdf/type        :owl/Class,
    :rdfs/label      "Trajectory Prediction",
    :rdfs/subClassOf :d3f/Forecasting})
+
+(def Transceiver
+  {:d3f/contains #{:d3f/Transmitter :d3f/Receiver},
+   :d3f/definition
+   "A transceiver is a device that contains both a transmitter and receiver.",
+   :db/ident :d3f/Transceiver,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy
+   {:xsd/anyURI
+    "https://www.analog.com/en/resources/glossary/transceiver.html"},
+   :rdfs/label "Transceiver",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/Receiver,
+                       :rdf/type           :owl/Restriction} :d3f/HardwareDevice
+                      {:owl/onProperty     :d3f/contains,
+                       :owl/someValuesFrom :d3f/Transmitter,
+                       :rdf/type           :owl/Restriction}}})
 
 (def TransducerSensor
   {:d3f/definition
@@ -48446,6 +57602,19 @@
                       "https://dbpedia.org/page/Translation_lookaside_buffer"},
    :rdfs/label "Translation Lookaside Buffer",
    :rdfs/subClassOf :d3f/MemoryManagementUnitComponent})
+
+(def Transmitter
+  {:d3f/definition
+   "A device or system that takes information and generates a signal suitable for propagation. It encodes and formats the content, impresses it on a physical carrier (such as electromagnetic fields, light, electrical currents, or acoustic waves), and performs signal conditioning—such as modulation, pulse shaping, pre-emphasis, and power amplification—to meet spectral, timing, and power requirements. A transmitter may be analog or digital, implemented in hardware, software, or both, and is designed to launch the signal into the chosen medium with characteristics that enable reliable reception.",
+   :d3f/transmits :d3f/Signal,
+   :db/ident :d3f/Transmitter,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Transmitter",
+   :rdfs/seeAlso {:xsd/anyURI "https://dbpedia.org/page/Signal_transmission"},
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/transmits,
+                       :owl/someValuesFrom :d3f/Signal,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/HardwareDevice}})
 
 (def TransportLayerEvent
   {:d3f/definition
@@ -48736,12 +57905,6 @@
    :rdf/type        :owl/Class,
    :rdfs/label      "Use Case Goal",
    :rdfs/subClassOf :d3f/Goal})
-
-(def UseCasePrerequisite
-  {:db/ident        :d3f/UseCasePrerequisite,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Use Case Prerequisite",
-   :rdfs/subClassOf :d3f/Condition})
 
 (def UseCaseProcedure
   {:db/ident        :d3f/UseCaseProcedure,
@@ -49059,6 +58222,26 @@
                        :rdf/type           :owl/Restriction}
                       :d3f/AccessControlGroup}})
 
+(def UserGroupPermissions
+  {:d3f/d3fend-id "D3F-UGPH",
+   :d3f/definition
+   "Access control where access is determined based on attributes associated with users and the objects being accessed.",
+   :d3f/kb-article
+   "## How it works\n\nAccess is determined based on the attributes associated with subjects (requesters) and the objects being accessed. Each object and subject has a set of associated attributes, such as location, time of creation, and access rights. Access to an object is authorized or denied depending on whether the required. ",
+   :d3f/kb-reference :d3f/Reference-GuidetoOTSecurity,
+   :d3f/restricts :d3f/UserGroup,
+   :d3f/synonym "Role Based Access Controls",
+   :db/ident :d3f/UserGroupPermissions,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy
+   {:xsd/anyURI
+    "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-82r3.pdf"},
+   :rdfs/label "User Group Permissions",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/restricts,
+                       :owl/someValuesFrom :d3f/UserGroup,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/AccessPolicyAdministration}})
+
 (def UserInitConfigurationFile
   {:d3f/definition
    "A user initialization configuration file is a file containing the information necessary to configure that part of a user's environment which is common to all applications and actions. User configurations may be overridden by more specific configuration information (such as that found in a application configuration file.)",
@@ -49344,6 +58527,25 @@
    :rdfs/label "Video Input Device",
    :rdfs/subClassOf :d3f/InputDevice})
 
+(def VideoSurveillance
+  {:d3f/d3fend-id "D3-VS",
+   :d3f/definition
+   "Monitoring of physical areas via camera video feeds to deter, detect, and investigate unauthorized access and related security events.",
+   :d3f/kb-article
+   "## How it works\n\nVideo surveillance uses digital cameras that stream to a video management system (VMS) or network video recorder (NVR) for live monitoring, recording, and retrieval. Recording can be continuous or event-driven using analytics (motion in regions of interest, line crossing) or external triggers (access denials, sensor alarms). Time synchronization aligns video with other logs, while health monitoring detects camera outages and tamper. Secure export workflows preserve integrity for investigations.\n\n## Considerations\n\n* Plan camera placement and coverage to avoid occlusions and handle challenging lighting; select lenses and mounting to capture entry points and critical areas.\n* Size storage and bandwidth for the intended retention period by choosing appropriate resolution, frame rate, and compression, and monitor capacity over time.\n* Secure cameras and management systems with unique credentials, timely firmware updates, encrypted transport, and network segmentation to limit exposure.\n* Address privacy and legal obligations with visible notice, role-based access to footage, and retention policies aligned with regulations and organizational policy.\n* Monitor system health and build resilience with tamper and heartbeat alerts, recorder failover where needed, and accurate time synchronization for correlation.",
+   :d3f/kb-reference #{:d3f/Reference-NIST-Special-Publication-800-53-Revision-5
+                       :d3f/Reference-DHS-CCTV-Technology-Handbook
+                       :d3f/Reference-ONVIF-ProfileS},
+   :d3f/monitors :d3f/DigitalCamera,
+   :d3f/synonym #{"CCTV Surveillance" "Video Monitoring"},
+   :db/ident :d3f/VideoSurveillance,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/label "Video Surveillance",
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/monitors,
+                       :owl/someValuesFrom :d3f/DigitalCamera,
+                       :rdf/type           :owl/Restriction}
+                      :d3f/PhysicalAccessMonitoring}})
+
 (def VirtualAddress
   {:d3f/definition
    "A virtual address in memory is a pointer or marker for a memory space that an operating system allows a process to use. The virtual address points to a location in primary storage that a process can use independently of other processes.",
@@ -49464,6 +58666,17 @@
      {:xsd/anyURI "http://dbpedia.org/resource/JSON_Web_Token"}},
    :rdfs/subClassOf :d3f/SessionToken})
 
+(def WebApplication
+  {:d3f/definition
+   "An application which is delivered by a web server over HTTP protocols that is presented to a client web browser.",
+   :db/ident :d3f/WebApplication,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdfs/isDefinedBy {:xsd/anyURI
+                      "http://dbpedia.org/resource/Web_application"},
+   :rdfs/label "Web Application",
+   :rdfs/subClassOf :d3f/ServiceApplication,
+   :skos/altLabel #{"Web Application" "Web App"}})
+
 (def WebApplicationFirewall
   {:d3f/definition
    "A web application firewall (or WAF) filters, monitors, and blocks HTTP traffic to and from a web application. A WAF is differentiated from a regular firewall in that a WAF is able to filter the content of specific web applications while regular firewalls serve as a safety gate between servers. By inspecting HTTP traffic, it can prevent attacks stemming from web application security flaws, such as SQL injection, cross-site scripting (XSS), file inclusion, and security misconfigurations.",
@@ -49478,12 +58691,15 @@
 (def WebApplicationServer
   {:d3f/definition
    "A web application server is a web server that hosts applications. Application server frameworks are software frameworks for building application servers. An application server framework provides both facilities to create web applications and a server environment to run them. In the case of Java application servers, the server behaves like an extended virtual machine for running applications, transparently handling connections to the database on one side, and, often, connections to the Web client on the other.",
+   :d3f/runs :d3f/WebApplication,
    :db/ident :d3f/WebApplicationServer,
-   :rdf/type :owl/Class,
+   :rdf/type #{:owl/NamedIndividual :owl/Class},
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Application_server"},
    :rdfs/label "Web Application Server",
-   :rdfs/subClassOf :d3f/WebServer})
+   :rdfs/subClassOf #{{:owl/onProperty     :d3f/runs,
+                       :owl/someValuesFrom :d3f/WebApplication,
+                       :rdf/type           :owl/Restriction} :d3f/WebServer}})
 
 (def WebAuthentication
   {:d3f/definition
@@ -49570,14 +58786,11 @@
 
 (def WebServerApplication
   {:d3f/definition
-   "A web server application (or web app) is an application software that runs on a web server, unlike computer-based software programs that are stored locally on the Operating System (OS) of the device. Web applications are accessed by the user through a web browser with an active internet connection. These applications are programmed using a client-server modeled structure-the user (\"client\") is provided services through an off-site server that is hosted by a third-party. Examples of commonly-used, web applications, include: web-mail, online retail sales, online banking, and online auctions.",
+   "A web server application handles HTTP requests from clients, serves static content, and may act as a reverse proxy or load balancer.",
    :db/ident :d3f/WebServerApplication,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
-   :rdfs/isDefinedBy {:xsd/anyURI
-                      "http://dbpedia.org/resource/Web_application"},
+   :rdf/type :owl/Class,
    :rdfs/label "Web Server Application",
-   :rdfs/subClassOf :d3f/ServiceApplication,
-   :skos/altLabel #{"Web Application" "Web App"}})
+   :rdfs/subClassOf :d3f/ServiceApplication})
 
 (def WebSessionAccessMediation
   {:d3f/d3fend-id "D3-WSAM",
@@ -50515,19 +59728,23 @@
                        :owl/someValuesFrom :d3f/WindowsNtProtectVirtualMemory,
                        :rdf/type           :owl/Restriction}}})
 
+(def WiredLink
+  {:d3f/definition
+   "A physical link that uses a physical conductor or waveguide to constrain and direct signal propagation between endpoints. The signal is confined within or along a manufactured medium such as metal conductors, optical fibers, or coaxial structures.",
+   :db/ident :d3f/WiredLink,
+   :rdf/type :owl/Class,
+   :rdfs/label "Wired Link",
+   :rdfs/subClassOf :d3f/PhysicalLink})
+
 (def WirelessAccessPoint
-  {:d3f/contains :d3f/RFTransmitter,
-   :d3f/definition
+  {:d3f/definition
    "In computer networking, a wireless access point (WAP), or more generally just access point (AP), is a networking hardware device that allows other Wi-Fi devices to connect to a wired network. The AP usually connects to a router (via a wired network) as a standalone device, but it can also be an integral component of the router itself. An AP is differentiated from a hotspot which is a physical location where Wi-Fi access is available.",
    :db/ident :d3f/WirelessAccessPoint,
-   :rdf/type #{:owl/NamedIndividual :owl/Class},
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:xsd/anyURI
                       "http://dbpedia.org/resource/Wireless_access_point"},
    :rdfs/label "Wireless Access Point",
-   :rdfs/subClassOf #{:d3f/ComputerNetworkNode
-                      {:owl/onProperty     :d3f/contains,
-                       :owl/someValuesFrom :d3f/RFTransmitter,
-                       :rdf/type           :owl/Restriction}},
+   :rdfs/subClassOf :d3f/ComputerNetworkNode,
    :skos/altLabel "WAP"})
 
 (def WirelessAttacker
@@ -50545,6 +59762,14 @@
                       {:owl/onProperty     :d3f/accesses,
                        :owl/someValuesFrom :d3f/PhysicalLink,
                        :rdf/type           :owl/Restriction}}})
+
+(def WirelessLink
+  {:d3f/definition
+   "A physical link that transmits signals through free space or an unguided medium without physical connectors between endpoints. The signal propagates through air, vacuum, water, or other natural media using electromagnetic waves or acoustic energy.",
+   :db/ident :d3f/WirelessLink,
+   :rdf/type :owl/Class,
+   :rdfs/label "Wireless Link",
+   :rdfs/subClassOf :d3f/PhysicalLink})
 
 (def WirelessRouter
   {:d3f/definition
@@ -50811,6 +60036,23 @@
    :rdfs/label "capec-id",
    :rdfs/subPropertyOf :d3f/d3fend-kb-data-property})
 
+(def carried-by
+  {:d3f/definition
+   "x carried-by y: The information entity x is dependent upon the entity y for its storage, transport, or communication. Entity y serves as the necessary bearer or link from which x can be recovered or interpreted.",
+   :db/ident :d3f/carried-by,
+   :owl/inverseOf :d3f/carries,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "carried-by",
+   :rdfs/subPropertyOf :d3f/associated-with})
+
+(def carries
+  {:d3f/definition
+   "x carries y: The entity x serves as the bearer or link for information y, enabling y to be stored, transported, or communicated such that y can be recovered or interpreted from x",
+   :db/ident :d3f/carries,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "carries",
+   :rdfs/subPropertyOf :d3f/associated-with})
+
 (def caused-by
   {:d3f/definition
    "x caused-by y: The event or action x occurs as a consequence of event or action y.",
@@ -50996,8 +60238,7 @@
    "x d3fend-annotation y: The d3fend object x has the annotation y.",
    :db/ident :d3f/d3fend-annotation,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/label "d3fend-annotation",
-   :rdfs/subPropertyOf :owl/versionInfo})
+   :rdfs/label "d3fend-annotation"})
 
 (def d3fend-artifact-data-property
   {:d3f/definition
@@ -51512,6 +60753,20 @@
    :rdfs/label         "has-goal",
    :rdfs/subPropertyOf :d3f/d3fend-use-case-object-property})
 
+(def has-input
+  {:d3f/definition
+   "x has-input y: An event x has input y iff y is an artifact that is present at the start of x, provides material or information required for x to begin, and during x either y's state is altered or the information content it bears is realized.",
+   :db/ident :d3f/has-input,
+   :owl/inverseOf :d3f/input-of,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/domain :d3f/Event,
+   :rdfs/label "has-input",
+   :rdfs/range :d3f/Artifact,
+   :rdfs/seeAlso #{{:xsd/anyURI
+                    "https://www.commoncoreontologies.org/ont00001921"}
+                   {:xsd/anyURI "http://purl.obolibrary.org/obo/RO_0002233"}},
+   :rdfs/subPropertyOf :d3f/has-participant})
+
 (def has-link
   {:d3f/definition     "x has-link y: The d3fend analysis x has the link y.",
    :db/ident           :d3f/has-link,
@@ -51547,6 +60802,28 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "has-member",
    :rdfs/subPropertyOf :d3f/d3fend-kb-object-property})
+
+(def has-operating-mode
+  {:d3f/definition
+   "x has-operating-mode y: The entity x is currently operating in or has the potential to be in operating mode y.",
+   :db/ident :d3f/has-operating-mode,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "has-operating-mode",
+   :rdfs/subPropertyOf :d3f/associated-with})
+
+(def has-output
+  {:d3f/definition
+   "x has-output y: An event x has output y iff y is an artifact that is present at the end of x, was not present in the same state at the start of x, and whose presence at the end is required for x to be considered complete; the change in state may arise either from a transformation of y itself or from the realization of the information content y bears.",
+   :db/ident :d3f/has-output,
+   :owl/inverseOf :d3f/output-of,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/domain :d3f/Event,
+   :rdfs/label "has-output",
+   :rdfs/range :d3f/Artifact,
+   :rdfs/seeAlso #{{:xsd/anyURI "http://purl.obolibrary.org/obo/RO_0002234"}
+                   {:xsd/anyURI
+                    "https://www.commoncoreontologies.org/ont00001986"}},
+   :rdfs/subPropertyOf :d3f/has-participant})
 
 (def has-participant
   {:d3f/definition
@@ -51687,6 +60964,18 @@
                     "http://wordnet-rdf.princeton.edu/id/00916722-v"}
                    {:xsd/anyURI "http://dbpedia.org/resource/Code_injection"}},
    :rdfs/subPropertyOf :d3f/executes})
+
+(def input-of
+  {:d3f/definition
+   "x input-of y: An artifact x is input of an event y iff x participates at the start of y, provides the material or information required for y to begin, and during y either x's state is altered or the information content it bears is realized.",
+   :db/ident :d3f/input-of,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/domain :d3f/Artifact,
+   :rdfs/label "input-of",
+   :rdfs/range :d3f/Event,
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://www.commoncoreontologies.org/ont00001841"},
+   :rdfs/subPropertyOf :d3f/participates-in})
 
 (def installs
   {:d3f/definition
@@ -52306,6 +61595,15 @@
                   "http://dbpedia.org/resource/Obfuscation_(software)"},
    :rdfs/subPropertyOf #{:d3f/evicts :d3f/modifies}})
 
+(def operates
+  {:d3f/definition
+   "x operates y: The entity x enables, activates, or controls the functioning or behavior of object y (operated entity), typically in accordance with the design or intended use of the operated entity.",
+   :db/ident :d3f/operates,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/isDefinedBy {:rdf/value "oewn-01513459-v"},
+   :rdfs/label "operates",
+   :rdfs/subPropertyOf :d3f/associated-with})
+
 (def operating-system
   {:d3f/definition
    "x operating-system y: The product x is supported on operating system y.",
@@ -52325,6 +61623,18 @@
                       "http://wordnet-rdf.princeton.edu/id/02749218-v"},
    :rdfs/label "originates-from",
    :rdfs/subPropertyOf :d3f/associated-with})
+
+(def output-of
+  {:d3f/definition
+   "x output-of y: An artifact x is output of an event y iff x must be present when y concludes, was absent in the same state when x began, and y counts as complete only when x is available at its end.",
+   :db/ident :d3f/output-of,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/domain :d3f/Artifact,
+   :rdfs/label "output-of",
+   :rdfs/range :d3f/Event,
+   :rdfs/seeAlso {:xsd/anyURI
+                  "https://www.commoncoreontologies.org/ont00001816"},
+   :rdfs/subPropertyOf :d3f/participates-in})
 
 (def owns
   {:d3f/definition
@@ -52556,6 +61866,14 @@
      {:xsd/anyURI "http://wordnet-rdf.princeton.edu/id/00629157-v"}},
    :rdfs/subPropertyOf :d3f/accesses})
 
+(def receives
+  {:d3f/definition
+   "x receives y: The subject x acquires object y from a communication medium and transfers y into its local context for storage or processing.",
+   :db/ident :d3f/receives,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/label "receives",
+   :rdfs/subPropertyOf :d3f/associated-with})
+
 (def recorded-in
   {:d3f/definition
    "x recorded-in y: The event x is documented, logged, or otherwise preserved within the digital artifact y, which stores or encodes relevant data about the event.",
@@ -52625,7 +61943,7 @@
    :rdfs/isDefinedBy   {:xsd/anyURI
                         "http://wordnet-rdf.princeton.edu/id/00234091-v"},
    :rdfs/label         "restricts",
-   :rdfs/subPropertyOf :d3f/associated-with})
+   :rdfs/subPropertyOf #{:d3f/associated-with :d3f/isolates}})
 
 (def resume
   {:d3f/definition
@@ -52976,15 +62294,15 @@
    :rdfs/subPropertyOf :d3f/accesses})
 
 (def urn:uuid:014778de-3bab-586d-b0dd-54227e50e872
-  {:d3f/release-date #inst "2025-08-01T00:12:00.000-00:00",
+  {:d3f/release-date #inst "2025-12-16T00:12:00.000-00:00",
    :dcterms/description
    "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature.",
    :dcterms/license "MIT",
    :dcterms/title
    "D3FEND™ - A knowledge graph of cybersecurity countermeasures",
    :owl/versionIRI
-   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/1.2.0/d3fend.owl"},
-   :owl/versionInfo "1.2.0",
+   {:xsd/anyURI "http://d3fend.mitre.org/ontologies/d3fend/1.3.0/d3fend.owl"},
+   :owl/versionInfo "1.3.0",
    :rdf/type :owl/Ontology,
    :rdfs/comment
    "Use of the D3FEND Knowledge Graph, and the associated references from this ontology are subject to the Terms of Use. D3FEND is funded by the National Security Agency (NSA) Cybersecurity Directorate and managed by the National Security Engineering Center (NSEC) which is operated by The MITRE Corporation. D3FEND™ and the D3FEND logo are trademarks of The MITRE Corporation. This software was produced for the U.S. Government under Basic Contract No. W56KGU-18-D0004, and is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software Documentation Clause 252.227-7014 (FEB 2012) Copyright 2022 The MITRE Corporation.",
