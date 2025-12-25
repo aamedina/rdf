@@ -1,18 +1,20 @@
-{:asami  {:sc/create-fn net.wikipunk.asami/map->Connection
-          :uri          "asami:mem://.vocab"}
- :client {:sc/create-fn datomic.client.api/client
-          :storage-dir  :mem
-          :server-type  :datomic-local
-          :system       "dev"}
- :db     {:sc/create-fn net.wikipunk.datomic/map->Connection
-          :sc/refs      [:client]
-          :db-name      "rdf"}
- :vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
-          :sc/refs      {:env :asami}
-          :ns-prefix    "net.wikipunk.rdf."
-          :output-to    "src/cljc/net/wikipunk/rdf/"
-          :context      [net.wikipunk.boot
-                         net.wikipunk.ext]
-          :finalize?    true
-          ;; example of how to import from a namespace to another if necessary 
-          :import-from  {net.wikipunk.rdf.aio net.wikipunk.rdf.obo}}}
+{:client {:sc/create-fn datomic.client.api/client
+          :system       "rdf"
+          :server-type  :datomic-local}
+ :db {:sc/create-fn net.wikipunk.datomic/map->Connection
+      :sc/refs      [:client]
+      :db-name      "rdf"}
+ :db-migrate {:sc/create-fn net.wikipunk.datomic.migrate/map->Migrator
+              :sc/refs      {:conn :db}
+              :label        "RdfMigrator"
+              :imports      [net.wikipunk.ext/d3f
+                             net.wikipunk.boot/dcterms
+                             net.wikipunk.boot/skos
+                             net.wikipunk.boot/schema]
+              :annotation-properties? true}
+ :vocab {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
+         :sc/refs      {:env :db :env-migrate :db-migrate}
+         :prefixes     {"rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                        "rdfs" "http://www.w3.org/2000/01/rdf-schema#"
+                        "owl"  "http://www.w3.org/2002/07/owl#"
+                        "xsd"  "http://www.w3.org/2001/XMLSchema#"}}}

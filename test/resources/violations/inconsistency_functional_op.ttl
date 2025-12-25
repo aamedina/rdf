@@ -1,0 +1,13 @@
+@prefix : <urn:test:inc-func-op/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+: a owl:Ontology .
+
+:p a owl:ObjectProperty, owl:FunctionalProperty .
+
+:a a owl:Thing ; :p :b1, :b2 .
+:b1 a owl:Thing ; owl:differentFrom :b2 .
+:b2 a owl:Thing .
+

@@ -1,16 +1,13 @@
 (ns net.wikipunk.datomic
-  "A simple component that connects to a datomic database using an
-  injected :client.
+  "Minimal Datomic component wrapper.
 
-  :conn -- datomic client connection
-  :db-name -- name of the database"
+  `Connection` is a component that also satisfies the Datomic client
+  protocols so you can pass the component anywhere a connection/db is expected."
   (:require
-   [clojure.walk :as walk]
    [com.stuartsierra.component :as com]
    [datomic.client.api :as d]
    [datomic.client.api.protocols :as impl]
-   [net.wikipunk.mop :as mop]
-   [net.wikipunk.rdf :as rdf]))
+   [datomic.client.api.impl]))
 
 (defrecord Connection [client db-name conn]
   com/Lifecycle
@@ -73,82 +70,3 @@
   (qseq [_ arg-map]
     (d/qseq (assoc arg-map :args (into [(d/db (first (:args arg-map)))]
                                        (rest (:args arg-map)))))))
-
-(def ^:dynamic *pull*
-  "A pull expression for datomic entities."
-  '[*])
-
-(defmethod mop/find-class-using-env [clojure.lang.Keyword net.wikipunk.datomic.Connection]
-  [ident env]
-  (when-some [m (not-empty (->> (walk/prewalk (fn [form]
-                                                (if (map? form)
-                                                  (cond
-                                                    (contains? form :db/ident)
-                                                    (:db/ident form)
-
-                                                    (and (:db/id form)
-                                                         (not (contains? form :db/ident)))
-                                                    (dissoc (d/pull env *pull* (:db/id form)) :db/id)
-
-                                                    :else (dissoc form :db/id))
-                                                  form))
-                                              (dissoc (d/pull env *pull* ident) :db/ident))
-                                (walk/postwalk (fn [form]
-                                                 (cond
-                                                   (and (sequential? form)
-                                                        (not (map-entry? form)))
-                                                   (set form)
-                                                   
-                                                   :else form)))
-                                (walk/postwalk rdf/walk-rdf-list)
-                                (walk/postwalk (fn [form]
-                                                 (cond
-                                                   (and (:rdf/value form)
-                                                        (== (count form) 1))
-                                                   (:rdf/value form)
-
-                                                   :else form)))))]
-    
-    (cond-> (assoc m :db/ident ident)
-      (:rdf/type m)
-      (update :rdf/type (fn [rdf-type]
-                          (if (coll? rdf-type)
-                            (set (filter keyword? rdf-type))
-                            rdf-type))))))
-
-(defn- pull-simple
-  [env selector id]
-  (when-some [m (not-empty (walk/prewalk (fn [form]
-                                           (if (map? form)
-                                             (cond
-                                               (contains? form :db/ident)
-                                               (:db/ident form)
-
-                                               :else form)
-                                             form))
-                                         (d/pull env selector id)))]
-    (cond-> m
-      (:rdf/type m)
-      (update :rdf/type #(filterv keyword? %)))))
-
-(defmethod mop/find-class-using-env [clojure.lang.Sequential net.wikipunk.datomic.Connection]
-  [lookup-ref env]
-  (when (and (= (count lookup-ref) 2)
-             (qualified-keyword? (first lookup-ref)))
-    (pull-simple env *pull* lookup-ref)))
-
-(defmethod mop/find-class-using-env [clojure.lang.IPersistentMap net.wikipunk.datomic.Connection]
-  [m env]
-  (when-some [id (:db/id m)]
-    (pull-simple env *pull* id)))
-
-(defmethod mop/find-class-using-env [java.lang.Long net.wikipunk.datomic.Connection]
-  [id env]
-  (pull-simple env *pull* id))
-
-(defmethod mop/intern-class-using-env [:rdfs/Class net.wikipunk.datomic.Connection]
-  [class env]
-  (try
-    (d/transact env {:tx-data [class]})
-    (catch Throwable ex
-      (throw (ex-info (.getMessage ex) {:class class} ex)))))
