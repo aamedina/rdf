@@ -1,0 +1,23 @@
+@prefix : <urn:test:inc-cardinality/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:P a owl:ObjectProperty .
+:D a owl:Class .
+
+:C a owl:Class ;
+   rdfs:subClassOf [ a owl:Restriction ;
+                     owl:onProperty :P ;
+                     owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                     owl:onClass :D ],
+                   [ a owl:Restriction ;
+                     owl:onProperty :P ;
+                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                     owl:onClass :D ] .
+
+:a a :C .
+

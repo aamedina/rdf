@@ -1,0 +1,16 @@
+@prefix : <urn:test:inc-agg/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+: a owl:Ontology ;
+   owl:imports <urn:test:inc-irreflexive/>,
+               <urn:test:inc-asymmetric/>,
+               <urn:test:inc-func-op/>,
+               <urn:test:inc-func-dp/>,
+               <urn:test:inc-key/>,
+               <urn:test:inc-disjoint-props/>,
+               <urn:test:inc-inv-func/>,
+               <urn:test:inc-npa/>,
+               <urn:test:inc-hasSelf-irreflexive/>,
+               <urn:test:inc-cardinality/>,
+               <urn:test:inc-allvalues-dt/> .
+

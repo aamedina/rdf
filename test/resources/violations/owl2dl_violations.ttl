@@ -1,0 +1,34 @@
+@prefix ex:   <http://example.org/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+ex:TestOntology a owl:Ontology ;
+  rdfs:label "Violation Fixtures" .
+
+# Simple-role violation: ex:rel is defined via a property chain, but used in a qualified cardinality restriction.
+
+ex:a a owl:ObjectProperty .
+ex:b a owl:ObjectProperty .
+ex:rel a owl:ObjectProperty ;
+  owl:propertyChainAxiom ( ex:a ex:b ) .
+
+ex:Thing a owl:Class ;
+  rdfs:subClassOf [ a owl:Restriction ;
+                    owl:onProperty ex:rel ;
+                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                    owl:onClass ex:Thing ] .
+
+# Property-hierarchy cycle violation:
+# ex:hasUncle is defined via (hasFather hasBrother) -> hasUncle
+# ex:hasBrother is defined via (hasChild hasUncle) -> hasBrother
+
+ex:hasFather a owl:ObjectProperty .
+ex:hasBrother a owl:ObjectProperty .
+ex:hasChild a owl:ObjectProperty .
+ex:hasUncle a owl:ObjectProperty ;
+  owl:propertyChainAxiom ( ex:hasFather ex:hasBrother ) .
+
+ex:hasBrother owl:propertyChainAxiom ( ex:hasChild ex:hasUncle ) .
+
