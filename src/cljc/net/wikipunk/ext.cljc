@@ -255,7 +255,8 @@
    :dcat/downloadURL "https://vocab.org/vann/vann-vocab-20100607.rdf"})
 
 (def d3f
-  {:dcat/downloadURL "https://d3fend.mitre.org/ontologies/d3fend/1.3.0/d3fend.owl"
+  ;; Pinned develop source includes the T0821 preferred-label fix.
+  {:dcat/downloadURL "https://raw.githubusercontent.com/d3fend/d3fend-ontology/a24ebcc4d76bf16f300ec023a8f1577e08286eb7/src/ontology/d3fend-protege.ttl"
    :rdfa/uri         "http://d3fend.mitre.org/ontologies/d3fend.owl#"
    :rdfa/prefix      "d3f"
    :rdf/type         :rdfa/PrefixMapping
